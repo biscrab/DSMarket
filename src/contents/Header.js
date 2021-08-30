@@ -22,6 +22,12 @@ const Header = () => {
 
     const recent = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
+    const handleKeyPress = (e) => {
+        if(e === "Enter"){
+            history.push(`/catagory`);
+        }
+    } 
+
     return(
         <>
         <S.Header>
@@ -29,20 +35,20 @@ const Header = () => {
             <S.Logo onClick={() => history.replace('/')}>쇼핑몰</S.Logo>
             <S.SBox>
                 <S.SDiv>
-                    <S.Search onChange={(e)=>setV(e.target.value)} value={v} onFocus={() => setTyping(true)} onBlur={() => setTyping(false)}></S.Search>
+                    <S.Search onKeyPress={(e)=>handleKeyPress(e)} onChange={(e)=>setV(e.target.value)} value={v} onFocus={() => setTyping(true)} onBlur={() => setTyping(false)}></S.Search>
                     {typing ? 
                     <S.SBorder>
                         <S.Recent><p>최근 검색어</p></S.Recent>
-                        <S.SLi><S.Sspan>{recent[0]}</S.Sspan></S.SLi>
-                        <S.SLi><S.Sspan>{recent[1]}</S.Sspan></S.SLi>
-                        <S.SLi><S.Sspan>{recent[2]}</S.Sspan></S.SLi>
-                        <S.SLi><S.Sspan>{recent[3]}</S.Sspan></S.SLi>
-                        <S.SLi><S.Sspan>{recent[4]}</S.Sspan></S.SLi>
-                        <S.SLi><S.Sspan>{recent[5]}</S.Sspan></S.SLi>
-                        <S.SLi><S.Sspan>{recent[6]}</S.Sspan></S.SLi>
-                        <S.SLi><S.Sspan>{recent[7]}</S.Sspan></S.SLi>
-                        <S.SLi><S.Sspan>{recent[8]}</S.Sspan></S.SLi>
-                        <S.SLi><S.Sspan>{recent[9]}</S.Sspan></S.SLi>
+                        <S.SLi onClick={()=>setV(recent[0])}><S.Sspan>{recent[0]}</S.Sspan></S.SLi>
+                        <S.SLi onClick={()=>setV(recent[1])}><S.Sspan>{recent[1]}</S.Sspan></S.SLi>
+                        <S.SLi onClick={()=>setV(recent[2])}><S.Sspan>{recent[2]}</S.Sspan></S.SLi>
+                        <S.SLi onClick={()=>setV(recent[3])}><S.Sspan>{recent[3]}</S.Sspan></S.SLi>
+                        <S.SLi onClick={()=>setV(recent[4])}><S.Sspan>{recent[4]}</S.Sspan></S.SLi>
+                        <S.SLi onClick={()=>setV(recent[5])}><S.Sspan>{recent[5]}</S.Sspan></S.SLi>
+                        <S.SLi onClick={()=>setV(recent[6])}><S.Sspan>{recent[6]}</S.Sspan></S.SLi>
+                        <S.SLi onClick={()=>setV(recent[7])}><S.Sspan>{recent[7]}</S.Sspan></S.SLi>
+                        <S.SLi onClick={()=>setV(recent[8])}><S.Sspan>{recent[8]}</S.Sspan></S.SLi>
+                        <S.SLi onClick={()=>setV(recent[9])}><S.Sspan>{recent[9]}</S.Sspan></S.SLi>
                     </S.SBorder> 
                     : <></>}
                </S.SDiv> 

@@ -4,7 +4,9 @@ import * as S from '../styled/App'
 const Cart = ({item}) => {
     return(
         <S.CaLi>
-            <img src={item.img}></img>
+            <span>{item.id}</span>
+            <S.CaImg src={item.img}></S.CaImg>
+            <span>{item.name}</span>
         </S.CaLi>
     )
 }
@@ -12,7 +14,7 @@ const Cart = ({item}) => {
 const List = ({lists}) => {
     const itemList = lists.map(
         item => (
-            <Cart item={item} img={item.img} key={item.name}/>
+            <Cart item={item} img={item.img} id={item.id} name={item.name} key={item.id}/>
         )
     ) 
     return itemList;

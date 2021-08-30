@@ -1,8 +1,16 @@
 import React from 'react'
 import * as S from '../styled/App'
 import cart from '../images/cart.png'
+import Cart from '../contents/Cart'
+import A from '../images/a.jpg'
+import B from '../images/b.jpg'
+import C from '../images/c.jpg'
+import D from '../images/d.jpg'
 
 const CartPage = () => {
+
+    const list = [{id: 1, name: 1, img: A},{id: 2, name: 2, img: B}];
+
     return(
         <>
         <S.Ca>
@@ -12,6 +20,7 @@ const CartPage = () => {
             <S.CartDiv>
                 <S.CartList>
                     <S.CartLHead></S.CartLHead>
+                    <Cart lists={list}/>
                 </S.CartList>
             </S.CartDiv>
         </S.Ca>

@@ -23,7 +23,6 @@ export const SBox = styled.span`
     position: relative;
     display: flex;
     border: 2px solid gray;
-    border-radius: 50px;
     width: 600px;
     height: 42px;
     background-color: white;
@@ -38,7 +37,7 @@ export const Search = styled.input`
     
     position: relative;
 
-    left: 5%;
+    padding: 0px 10px;
 `
 
 export const Link = styled.img`
@@ -134,6 +133,7 @@ export const FeedBack = styled.div`
 
 export const Select = styled.div`
     border: 2px solid #eeeeee;
+    border-top: 0;
     position: relative;
     width: 180px;
     height: auto;
@@ -162,15 +162,15 @@ export const C = styled.div`
 `
 
 export const ItemBox = styled.li`
-    width: 220px;
+    float: left;
+    width: 234px;
     height: 450px;
+    margin: 18px;
     display: flex;
-    padding: 10px 10px 0px;
     flex-direction: column;
     background-color: white;
     text-align: center;
     border-bottom: 1px solid #eeeeee;
-    margin-right: 10px;
 
     :hover{
         box-shadow: 0 0 20px 0 rgb(0 0 0 / 10%);
@@ -193,14 +193,13 @@ export const Order = styled.ul`
 export const Border = styled.ul`
     padding: 0;
     width: 1080px;
-    display: flex;
     list-style: none;
-    height: auto;
+    height: 1500px;
 `
 
 export const ItemImg = styled.img`
-    width: 220px;
-    height: 220px;
+    width: 234px;
+    height: 234px;
     position: relative;
     background-color: whitesmoke;
 `
@@ -409,7 +408,7 @@ export const Cli = styled.li`
     margin-right: 15px;
 `
 
-export const CategoryDiv = styled.div`
+export const CatagoryDiv = styled.div`
     display: flex;
     flex-direction: column;
     position: relative;
@@ -573,11 +572,11 @@ export const SBorder = styled.ul`
     flex-direction: column;
     background-color: white;
     position: absolute;
+    top: 45px;
     z-index: 1;
     list-style: none;
     box-shadow: 0 0 20px 0 rgb(0 0 0 / 10%);
-    width: 500px;
-    left: 5%;
+    width: 100%;
     height: 450px;
 `
 
@@ -853,11 +852,11 @@ export const CartList = styled.ul`
     height: 100%;
     top: 20px;
     transform: translateX(-50%);
+    list-style: none;
 `
 
 export const CartLHead = styled.div`
     border-top: 1px solid gray;
-    border-bottom: 1px solid gray;
     background-color: whitesmoke;
     height: 30px;
 `
@@ -926,7 +925,22 @@ export const More = styled.span`
 `
 
 export const CaLi = styled.li`
-    border-top: 1px solid gray;
     border-bottom: 1px solid gray;
     height: 50px;
+    display: flex;
+    align-items: center;
+`
+
+export const OrderDiv = styled.div`
+    height: 40px;
+    border-top: 1px solid #eeeeee;
+    border-bottom: 1px solid #eeeeee;
+    background-color: #eeeeee;
+`
+
+export const CaImg = styled.img`
+    position: relative;
+    left: 5%;
+    height: 100%;
+    width: 100px;
 `
