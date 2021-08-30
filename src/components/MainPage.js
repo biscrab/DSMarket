@@ -20,16 +20,6 @@ const MainPage = () => {
     const Sale = [{img: A, name: "1"},{img: A, name: "1"},{img: A, name: "1"},{img: A, name: "1"},{img: A, name: "1"}];
     const Best = [{img: B, name: "1"},{img: B, name: "1"},{img: B, name: "1"},{img: B, name: "1"},{img: B, name: "1"}];
     const New = [{img: C, name: "1"},{img: C, name: "1"},{img: C, name: "1"},{img: C, name: "1"},{img: C, name: "1"}];
-    
-    /*setInterval(chImg(), 100000);
-
-    function chImg (){
-        setImg(img+1);
-        if(img > 4){
-        setImg(0);
-        }
-        console.log(img);
-    }*/
 
     return(
         <>

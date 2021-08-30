@@ -103,10 +103,10 @@ const CategoryPage = () => {
         return(
             <S.CategoryDiv>
                 <S.CaTittle>별점</S.CaTittle>
-                <div><Sta star={4}/><span>4점 이상</span></div>
-                <div><Sta star={3}/><span>3점 이상</span></div>
-                <div><Sta star={2}/><span>2점 이상</span></div>
-                <div><Sta star={1}/><span>1점 이상</span></div>
+                <div style={{display:"flex"}}><Sta star={4}/><span>4점 이상</span></div>
+                <div style={{display:"flex"}}><Sta star={3}/><span>3점 이상</span></div>
+                <div style={{display:"flex"}}><Sta star={2}/><span>2점 이상</span></div>
+                <div style={{display:"flex"}}><Sta star={1}/><span>1점 이상</span></div>
             </S.CategoryDiv>
         )
     }

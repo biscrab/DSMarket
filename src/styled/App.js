@@ -77,7 +77,7 @@ export const Best = styled.h2`
     position: relative;
     width: 190px;
     top: 10%;
-    left: 5%;
+    left: 100px;
 `
 
 export const CDiv = styled.div`
@@ -89,7 +89,7 @@ export const CDiv = styled.div`
 `
 
 export const TotalCategory = styled.button`
-    background-color: royalblue;
+    background-color: mediumturquoise;
     font-size: 18px;
     color: white;
     margin: 0px;
@@ -107,11 +107,11 @@ export const Category = styled.span`
     display: flex;
     position: relative;
     justify-content: center;
-    background-color: dodgerblue;
-    border-top: 1px solid #eeeeee;
+    background-color: turquoise;
+    border-top: 1px solid mediumturquoise;
 
     :hover{
-        color: dodgerblue;
+        color: turquoise;
         background-color: white;
     }
 `
@@ -310,6 +310,8 @@ export const IDiv = styled.div`
 `
 export const EDiv = styled.div`
     width: 60%;
+    height: 1000px;
+    overflow-y: hidden;
 `
 
 export const BuyDiv = styled.div`
@@ -921,4 +923,10 @@ export const PriceDiv = styled.div`
 
 export const More = styled.span`
     color: royalblue;
+`
+
+export const CaLi = styled.li`
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+    height: 50px;
 `
