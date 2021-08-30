@@ -1,0 +1,82 @@
+import React,{useState, useEffect} from 'react'
+import * as S from '../styled/App'
+import A from '../images/a.jpg'
+import B from '../images/b.jpg'
+import C from '../images/c.jpg'
+import D from '../images/d.jpg'
+import Border from '../contents/Border'
+import { useHistory } from 'react-router-dom'
+import Recommendation from '../contents/Recommendation'
+
+const MainPage = () => {
+    
+    let history = useHistory();
+
+    const [hover, setHover] = useState(false);
+    const [value, setValue] = useState(1);
+    const [img, setImg] = useState(0);
+    const i = [A, B, C, D];
+
+    const Sale = [{img: A, name: "1"},{img: A, name: "1"},{img: A, name: "1"},{img: A, name: "1"},{img: A, name: "1"}];
+    const Best = [{img: B, name: "1"},{img: B, name: "1"},{img: B, name: "1"},{img: B, name: "1"},{img: B, name: "1"}];
+    const New = [{img: C, name: "1"},{img: C, name: "1"},{img: C, name: "1"},{img: C, name: "1"},{img: C, name: "1"}];
+    
+    /*setInterval(chImg(), 100000);
+
+    function chImg (){
+        setImg(img+1);
+        if(img > 4){
+        setImg(0);
+        }
+        console.log(img);
+    }*/
+
+    return(
+        <>
+            <S.MainBanner>
+                <S.BannerImage src={i[img]}></S.BannerImage>
+                <S.CTDiv onMouseOut={()=>setHover(true)} onMouseLeave={()=>setHover(false)}>
+                <S.CDiv>
+                    <S.TotalCategory onClick={() => history.push('/catagory')}>전체 카테고리</S.TotalCategory>
+                    <S.Category onMouseOut={()=>setValue(0)} onClick={() => history.push('/catagory/search?=fashion')}><S.CSpan>브랜드패션</S.CSpan></S.Category>
+                    <S.Category onMouseOut={()=>setValue(1)} onClick={() => history.push('/catagory/search?=food')}><S.CSpan>패션의류·잡화·뷰티</S.CSpan></S.Category>
+                    <S.Category onMouseOut={()=>setValue(2)} onClick={() => history.push('/catagory/search?=computer')}><S.CSpan>유아동</S.CSpan></S.Category>
+                    <S.Category onMouseOut={()=>setValue(3)} onClick={() => history.push('/catagory/search?=car')}><S.CSpan>식품·생필품</S.CSpan></S.Category>
+                    <S.Category onMouseOut={()=>setValue(4)} onClick={() => history.push('/catagory/search?=travel')}><S.CSpan>홈데코·문구·취미·반려</S.CSpan></S.Category>
+                    <S.Category onMouseOut={()=>setValue(5)} onClick={() => history.push('/catagory')}><S.CSpan>컴퓨터·디지털·가전</S.CSpan></S.Category>
+                    <S.Category onMouseOut={()=>setValue(6)} onClick={() => history.push('/catagory/search?=intelier')}><S.CSpan>스포츠·건강·렌탈</S.CSpan></S.Category>
+                    <S.Category onMouseOut={()=>setValue(7)} onClick={() => history.push('/catagory/search?=sports')}><S.CSpan>자동차·공구</S.CSpan></S.Category>
+                </S.CDiv>
+                <Border h={hover} value={value}>1</Border>
+                </S.CTDiv>
+            </S.MainBanner>
+            <S.BestItem>
+                <S.Best>세일 중인 제품</S.Best>
+                <S.BestDiv>
+                    <Recommendation lists={Sale} />
+                </S.BestDiv> 
+            </S.BestItem>
+            <S.BestItem>
+                <S.Best>최고의 인기 제품</S.Best>
+                <S.BestDiv>
+                    <Recommendation lists={Best} />
+                </S.BestDiv> 
+            </S.BestItem>
+            <S.BestItem>
+                <S.Best>새로운 제품</S.Best>
+                <S.BestDiv>
+                    <Recommendation lists={New} />
+                </S.BestDiv> 
+            </S.BestItem>
+            <S.FeedItem>
+                <S.Feed>
+                    <h2>사용자들의 평가</h2>
+                </S.Feed>
+                <S.FeedBack>
+            </S.FeedBack> 
+            </S.FeedItem>
+        </>
+    );
+}
+
+export default MainPage;

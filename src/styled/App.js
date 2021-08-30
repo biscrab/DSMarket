@@ -1,0 +1,924 @@
+import styled from 'styled-components'
+
+export const Header = styled.div`
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    margin: 0px;    
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    background-color: white;
+    border-bottom: 1px solid #eeeeee;
+`
+
+export const Logo = styled.h1`
+    position: relative;
+    margin: 0px;
+    margin-right: 20px;
+`
+
+export const SBox = styled.span`
+    position: relative;
+    display: flex;
+    border: 2px solid gray;
+    border-radius: 50px;
+    width: 600px;
+    height: 42px;
+    background-color: white;
+`
+
+export const Search = styled.input`
+    width: 500px;
+    height: 40px;
+    border: 0;
+    font-size: 15px;
+    outline: 0;
+    
+    position: relative;
+
+    left: 5%;
+`
+
+export const Link = styled.img`
+    position: relative;
+    left: 40px;
+    margin-right: 30px;
+    width: 30px;
+    height: 30px;
+`
+export const MainBanner = styled.div`
+    background-color: white;
+    height: 450px;
+`
+export const BannerImage = styled.img`
+    position: absolute;
+    width: 100%;
+    height: 450px;
+    animation: next 10s 1 next;
+
+    @keyfrmes next {
+        0%{
+            left: 0%;
+        }
+        100%{
+            left: 100%;
+        }
+    }
+`
+
+export const BestItem = styled.div`
+    height: 500px;
+`
+
+export const Best = styled.h2`
+    margin: 0px;
+    position: relative;
+    width: 190px;
+    top: 10%;
+    left: 5%;
+`
+
+export const CDiv = styled.div`
+    position: relative;
+    height: 450px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+`
+
+export const TotalCategory = styled.button`
+    background-color: blue;
+    font-size: 18px;
+    color: white;
+    margin: 0px;
+    border: 0px;
+    height: 82px;
+    width: 200px;
+`
+
+export const Category = styled.span`
+    font-style: bold;
+    font-size: 18px;
+    width: 200px;
+    height: 45px;
+    color: white;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    background-color: royalblue;
+    border-top: 1px solid #eeeeee;
+
+    :hover{
+        color: royalblue;
+        background-color: white;
+    }
+`
+export const CSpan = styled.span`
+    position: relative;
+    display: flex;
+    align-items: center;
+`
+export const Feed = styled.div`
+    display: flex;
+    justify-content: center;
+`
+
+export const FeedItem = styled.div`
+    margin-top: 50px;
+`
+export const FeedBack = styled.div`
+    height: 450px;
+`
+
+export const Select = styled.div`
+    border: 2px solid #eeeeee;
+    position: relative;
+    width: 180px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+`
+
+export const CSelect = styled.div`
+    display: flex;
+    position: relative;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 160px;
+    height: 200px;
+    border-top: 2px solid #eeeeee;
+`
+
+export const CBox = styled.div`
+    width: 1080px;
+    margin-left: 20px;
+`
+
+export const C = styled.div`
+    display: flex;
+    justify-content: center;
+`
+
+export const ItemBox = styled.li`
+    width: 220px;
+    height: 450px;
+    display: flex;
+    padding: 10px 10px 0px;
+    flex-direction: column;
+    background-color: white;
+    text-align: center;
+    border-bottom: 1px solid #eeeeee;
+    margin-right: 10px;
+
+    :hover{
+        box-shadow: 0 0 20px 0 rgb(0 0 0 / 10%);
+    }
+`
+
+export const Page = styled.div`
+    background-color: white;
+    height: 40px;
+`
+
+export const Order = styled.ul`
+    padding: 10px;
+    background-color: whitesmoke;
+    height: 20px;
+    list-style: none;
+    display: flex;
+`
+
+export const Border = styled.ul`
+    padding: 0;
+    width: 1080px;
+    display: flex;
+    list-style: none;
+    height: auto;
+`
+
+export const ItemImg = styled.img`
+    width: 220px;
+    height: 220px;
+    position: relative;
+    background-color: whitesmoke;
+`
+
+export const Image = styled.img`
+    width: 500px;
+    height: 500px;
+    background-color: whitesmoke;
+`
+
+export const Info = styled.div`
+    margin-left: 20px;
+    height: auto;
+    width: 500px;
+`
+
+export const IBorder = styled.div`
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 100px;
+    display: flex;
+    width: 1000px;
+    height: 650px;
+`
+
+export const ADiv = styled.div`
+    height: auto;
+    border-bottom: 1px solid #eeeeee;
+`
+
+export const Price = styled.div`
+    height: 80px;
+    border-bottom: 1px solid #eeeeee;
+`
+
+export const PText = styled.h2`
+    color: crimson;
+`
+export const Related = styled.div`
+    margin: 0px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 1px solid gray;
+    height: 400px;
+`
+
+export const DetailUl = styled.ul`
+    padding: 0%;
+    margin: 0;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    list-style: none;
+    height: 60px;
+    display: flex;
+    background-color: royalblue;
+`
+
+export const DetailLi = styled.li`
+    position: relative;
+    left: 10%;
+    font-size: 20px;
+    color: white;
+    margin: 0px;
+    margin-left: 20px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+`
+
+export const Detail = styled.div`
+
+`
+
+export const ButtonDiv = styled.div`
+    position: relative;
+    height: 60px;
+    width: 500px;
+    display: flex;
+    top: 10%;
+    justify-content: space-between;
+`
+
+export const Buy = styled.button`
+    background-color: skyblue;
+    width: 240px;
+    height: 60px;
+    border: 0px;
+    color: white;
+    font-size: 20px;
+`
+
+export const Bucket = styled.button`
+    background-color: white;
+    border: 1px solid #eeeeee;
+    height: 60px;
+    width: 240px;
+    font-size: 20px;
+`
+
+export const IDiv = styled.div`
+    height: 100%;
+    display: flex;
+    justify-content: center;
+`
+export const EDiv = styled.div`
+    width: 60%;
+`
+
+export const BuyDiv = styled.div`
+    position: fixed;
+    width: 20%;
+    height: 500px;
+    border: 1px solid gray;
+    border-top: 0px;
+`
+export const O = styled.div`
+    display: flex;
+    justify-content: center;
+    background-color: #eeeeee;
+    position: relative;
+    padding-bottom: 100px;
+`
+export const ODiv = styled.div`
+    list-style: none;
+    height: 120px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+`
+
+export const OBorder = styled.div`
+    margin-top: 50px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    width: 1000px;
+    height: 900px;
+`
+
+export const Have = styled.li`
+    background-color: skyblue;
+    background-color: ${props => props.color};
+    border-right: 1px solid white;
+    height: 100%;
+    width: 200px;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+`
+
+export const HSpan = styled.p`
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 20px;
+    margin: 0;
+`
+export const HNumber = styled.p`
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 40px;
+    font-size: 30px;
+    margin: 0;
+`
+
+export const CTDiv = styled.div`
+    position: relative;
+    left: 10%;
+    width: 80%;
+    height: 100%;
+    display: flex;
+`
+
+export const CBorder = styled.div`
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 1000px;
+    height: 100%;
+    background-color: white;
+`
+
+export const BestImg = styled.img`
+    width: 250px;
+    height: 250px;
+    background-color: whitesmoke;
+`
+
+export const BestDiv = styled.div`
+    position: relative;
+    top: 100px;
+    height: 250px;
+    display: flex;
+    justify-content: center
+`
+export const Cli = styled.li`
+    margin-right: 15px;
+`
+
+export const CategoryDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 160px;
+    height: auto;
+    border-bottom: 1px solid #eeeeee;
+`
+
+export const DileveryTime = styled.p`
+    font-size: 20px;
+    color: yellowgreen;
+`
+
+export const RelatedDiv = styled.div`
+    display: flex;
+    justify-content: space-around;
+`
+
+export const RDiv = styled.div`
+    width: 200px;
+    height: 300px;
+    align-content: space-around;
+    box-shadow: 0 0 20px 0 rgb(0 0 0 / 10%);
+`
+
+export const RImg = styled.img`
+    height: 200px;
+    width: 100%;
+`
+
+export const CheckBox = styled.input`
+    width: 20px;
+    height: 20px;
+`
+
+export const Check = styled.div`
+    margin-top: 10px;
+    margin-bottom: 10px;
+`
+
+export const BDiv = styled.div`
+    margin: 10px;
+    height: 350px;
+    box-shadow: 0 0 20px 0 rgb(0 0 0 / 10%);
+`
+export const Bfont = styled.p`
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 5px;
+`
+export const Bprice = styled.span`
+    font-style: bold;
+    font-size: 25px;
+    margin: 0;
+`
+
+export const PDiv = styled.div`
+    display: flex;
+    justify-content: center;
+`
+
+export const Won = styled.span`
+    display: flex;
+    align-items: center;
+`
+export const BCDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 200px;
+    height: 405px;
+    border-right: 2px solid #eeeeee;
+`
+
+export const BCTDiv = styled.div`
+    display: flex;
+`
+
+export const Quick = styled.div`
+    background-color: whitesmoke;
+    width: 100%;
+    height: 45px;
+`
+export const BImg = styled.img`
+    position: relative;
+    top: 40px;
+    width: 320px;
+    height: 200px;
+    background-color: whitesmoke;
+`
+
+export const Ad = styled.div`
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: 40px;
+    width: 320px;
+    height: 300px;
+`
+
+export const ATittle = styled.h3`
+    position: relative;
+    top: 30px;
+`
+
+export const AExplane = styled.p`
+    position: relative;
+    color: gray;
+`
+
+export const PointDiv = styled.div`
+    display: flex;
+    align-content: center;
+    padding: 0 8px;
+    width: 100px;
+    height: 20px;
+    border: solid 1px #ccc;
+    border-radius: 10px;
+    font-size: 13px;
+    box-sizing: border-box;
+`
+
+export const Pspan = styled.span`
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+`
+
+export const SImg = styled.img`
+    position: relative;
+    top: 5px;
+    left: 7px;
+    color: whitesmoke;
+    width: 32px;
+    height: 32px;
+`
+
+export const Qtext = styled.p`
+    margin: 0%;
+    position: relative;
+    top: 50%;
+    left: 3%;
+    transform: translateY(-50%);
+`
+
+export const Icon = styled.img`
+    width: 20px;
+    height: 20px;
+`
+
+export const SDiv = styled.div`
+    width: 90%;
+`
+
+export const SBorder = styled.ul`
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    position: absolute;
+    z-index: 1;
+    list-style: none;
+    box-shadow: 0 0 20px 0 rgb(0 0 0 / 10%);
+    width: 500px;
+    left: 5%;
+    height: 450px;
+`
+
+export const SLi = styled.li`
+    padding: 0;
+    width: 100%;
+    height: 40px;
+    border-bottom: 1px solid #eeeeee;
+    display: flex;
+    align-items: center;
+`
+
+export const Sspan = styled.span`
+    margin-left: 15px;
+    color: gray;
+`
+
+export const Ip = styled.p`
+    position: relative;
+    font-size: 20px;
+    top: 10px;
+`
+export const Recent = styled.div`
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 13px;
+    width: 95%;
+    height: 40px;
+    border-bottom: 1px solid #eeeeee;
+`
+
+export const Input = styled.input`
+    width: 400px;
+    height: 30px;
+`
+
+export const R = styled.div`
+    display: flex;
+    justify-content: center;
+`
+export const ImgDiv = styled.div`
+    width: 80%;
+    height: 300px;
+    border: 1px solid #eeeeee;
+`
+export const Next = styled.div`
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 50px;
+    background-color: whitesmoke;
+`
+
+export const LR = styled.div`
+    display: flex;
+    position: relative;
+    top: 25px;
+    left: 70%;
+`;
+
+export const S = styled.div`    
+    position: relative;
+    top: 20px;
+    display: flex;
+    justify-content: center;
+`
+export const L = styled.span`
+    margin-right: 20px;
+    color: gray;
+`
+export const CTittle = styled.h3`
+    color: gray;
+`
+
+export const LoginBackground = styled.div`
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    z-index: 1000;
+    width: 100%;
+    height: 110%;
+    top: -70px;
+    background-color: rgba(0, 0, 0, 0.5);
+`
+
+export const LoginDiv = styled.div`
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    position: absolute;
+    top: 20%;
+    width: 30%;
+    height: 70%;
+    margin: 0;
+`
+
+export const LoginInput = styled.input`
+    position: relative;
+    margin-bottom: 50px;
+    width: 80%;
+    height: 40px;
+    margin-top: 20px;
+    transform: translateX(-50%);
+    left: 50%;
+`
+
+export const LoginSpan = styled.span`
+    text-align: start;
+    position: relative;
+    left: 40px;
+    font-size: 20px;
+`
+
+export const LoginTittle = styled.div`
+    background-color: gray;
+    color: white;
+    font-size: 30px;
+    height: 50px;
+    margin-bottom: 30px;
+`
+
+export const LoginButton = styled.button`
+    border: 0;
+    width: 80%;
+    height: 50px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: ${props => props.color};
+    margin-bottom: 20px;
+`
+
+export const X = styled.span`
+    position: relative;
+    left: 33%;
+`
+
+export const AdminDiv = styled.div`
+    background-color: white;
+    position: relative;
+    margin-top: 100px;
+    height: 900px;
+    width: 1000px;
+    left: 50%;
+    transform: translateX(-50%);
+`
+
+export const A = styled.div`
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 100px;
+    background: #eeeeee;
+`
+
+export const ASDiv = styled.div`
+    height: 70px;
+    display: flex;
+    list-style: none;
+`
+
+export const AS = styled.li`
+    width: 250px;
+    height: 70px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+    background-color: royalblue;
+    border-right: 1px solid white;
+`
+
+export const AUl = styled.ul`
+    height: 830px;
+    width: 920px;
+    list-style: none;
+`
+export const ALi = styled.li`
+    height: 50px;
+    border-bottom: 1px solid gray;
+`
+
+export const Box = styled.div`
+    position: relative;
+    height: 27px;
+    font-size: 15px;
+    :hover{
+        background-color: #eeeeee;
+    }
+`
+
+export const Ca = styled.div`
+    background-color: #eeeeee;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 100px;
+`
+
+export const CartDiv = styled.div`
+    position: relative;
+    border-top: 1px solid black;
+    background-color: white;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 900px;
+    width: 1000px;
+`
+
+export const CaTittle = styled.span`
+    color: gray;
+    padding-top: 10px;
+    padding-bottom: 10px;
+`
+export const PriceInput = styled.input`
+    width: 40px;
+    height: 25px;
+    border: 1px solid #eeeeee;
+`
+
+export const PriceButton = styled.button`
+    background-color: royalblue;
+    position: relative;
+    height: 27px;
+    left: 5px;
+    color: white;
+    border: 0;
+`
+
+export const CartNumber = styled.em`
+    background-color: royalblue;
+    color: white;
+    border-radius: 50%;
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    top: -5px;
+    text-align: center;
+    font-size: 15px;
+    font-style: normal;
+`
+
+export const CartImg = styled.img`
+    position: relative;
+    left: 17%;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+`
+
+export const CartTittle = styled.h1`
+    position: relative;
+    left: 17%;
+    margin: 0;
+    font-size: 35px;
+`
+
+export const CartHead = styled.div`
+    height: 50px;
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 30px;
+`
+
+export const CartList = styled.ul`
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    position: relative;
+    left: 50%;
+    height: 100%;
+    top: 20px;
+    transform: translateX(-50%);
+`
+
+export const CartLHead = styled.div`
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+    background-color: whitesmoke;
+    height: 30px;
+`
+
+export const Si  = styled.div`
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 100px;
+`
+
+export const SignUpInput = styled.input`
+    width: 100%;
+    height: 40px;
+    margin-bottom: 55px;
+`
+
+export const SiDiv = styled.div`
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 450px;
+`
+
+export const SiButton = styled.button`
+    background-color: royalblue;
+    width: 100%;
+    height: 50px;
+    font-size: 20px;
+    color: white;
+    border: 0;
+`
+
+export const RegistDiv = styled.div`
+    background-color: white;
+    height: 400px;
+    width: 700px;
+    border: 1px solid #eeeeee;
+`
+
+export const RegistDetail = styled.li`
+    display: flex;
+    height: 50px;
+    width: 400px;
+    border-bottom: 1px solid #eeeeee;
+`
+
+export const RegistSelect = styled.div`
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    left: 20%;
+`
+
+export const Pbutton = styled.button`
+    height: 50px;
+    width: 50px;
+    border: 1px solid black;
+`
+
+export const PriceDiv = styled.div`
+    margin-bottom: 10px;
+`
+
+export const More = styled.span`
+    color: royalblue;
+`
