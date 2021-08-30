@@ -426,7 +426,7 @@ const CategoryPage = () => {
         }
     }
 
-    const [list, setList] = useState([{name: "1", price: 1, star: 1, img: A},{name: "1", price: 1, star: 1, img: B},{name: "1", price: 1, star: 1, img: B},{name: "1", price: 1, star: 1, img: B},{name: "1", price: 1, star: 1, img: B},{name: "1", price: 1, star: 1, img: B}]);
+    const [list, setList] = useState([{id: 1, name: "1", price: 1, star: 1, img: A},{id: 2, name: "1", price: 1, star: 1, img: B},{id: 3, name: "1", price: 1, star: 1, img: B},{id: 4, name: "1", price: 1, star: 1, img: B},{id: 5, name: "1", price: 1, star: 1, img: B},{id: 6, name: "1", price: 1, star: 1, img: B}]);
     const [p, setP] = useState(location.search.slice(2, location.search.length));
 
     useEffect(()=>{

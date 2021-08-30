@@ -89,7 +89,7 @@ export const CDiv = styled.div`
 `
 
 export const TotalCategory = styled.button`
-    background-color: blue;
+    background-color: royalblue;
     font-size: 18px;
     color: white;
     margin: 0px;
@@ -107,11 +107,11 @@ export const Category = styled.span`
     display: flex;
     position: relative;
     justify-content: center;
-    background-color: royalblue;
+    background-color: dodgerblue;
     border-top: 1px solid #eeeeee;
 
     :hover{
-        color: royalblue;
+        color: dodgerblue;
         background-color: white;
     }
 `
