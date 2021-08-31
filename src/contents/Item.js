@@ -1,5 +1,6 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
+import queryString from 'query-string'
+import { useHistory, useLocation, useParams } from 'react-router-dom'
 import Star from '../contents/Star'
 import * as S from '../styled/App'
 
@@ -8,7 +9,7 @@ const Item = ({item, lists}) => {
     let history = useHistory();
 
     return(
-        <S.ItemBox onClick={()=> history.push(`item/id?=${item.id}`)}>
+        <S.ItemBox>
             <S.ItemImg src={item.img}/>
                 <S.Ip>{item.name}</S.Ip>
                 <S.PText>{item.price}원</S.PText>

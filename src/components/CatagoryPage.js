@@ -20,8 +20,6 @@ const CategoryPage = () => {
     const params = useParams();
     const location = useLocation();
 
-    const [catagory, SetCatagory] = useState([]);
-
     const [price, setPrice] = useState({
         lowest: "",
         heighest: "",
@@ -379,11 +377,12 @@ const CategoryPage = () => {
     }
 
     const Dilivery = () => {
-        const list = [{name:"로켓", i:R}, {name:"무료배송", i:P}]
+        const list = [{name:"로켓", i:R, link:"rocket"}, {name:"무료배송", i:P, link:"free"}]
+        const path = 'dilivery'
         return(
             <S.CatagoryDiv>
                 <S.CaTittle>배송</S.CaTittle>
-                <Select lists={list}></Select>
+                <Select lists={list} path={path}></Select>
             </S.CatagoryDiv>
         );
     }
@@ -493,13 +492,21 @@ const CategoryPage = () => {
         }
     }
 
+    const setS = () => {
+        if(query.lowprice !== ""){
+            setList(list.filter(query.lowprice < list.price))
+        }
+
+    } 
+
     const [list, setList] = useState([{id: 1, name: "1", price: 1, star: 1, img: A},{id: 2, name: "1", price: 1, star: 1, img: B},{id: 3, name: "1", price: 1, star: 1, img: B},{id: 4, name: "1", price: 1, star: 1, img: B},{id: 5, name: "1", price: 1, star: 1, img: B},{id: 6, name: "1", price: 1, star: 1, img: B}]);
     const [p, setP] = useState(location.search.slice(2, location.search.length));
     const [option, setOption] = useState(1);
+    const query = queryString.parse(location.search);
 
     useEffect(()=>{
-        const query = queryString.parse(location.search);
         console.log(query);
+        console.dir(params);
         console.dir(location);
     },[]);
 
