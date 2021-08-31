@@ -13,9 +13,7 @@ import Item from '../contents/Item'
 import queryString from 'query-string';
 import Sta from '../contents/Star'
 
-const CategoryPage = ({match}) => {
-
-    
+const CategoryPage = () => {
 
     let history = useHistory();
 
@@ -512,6 +510,9 @@ const CategoryPage = ({match}) => {
     const [p, setP] = useState(location.search.slice(2, location.search.length));
 
     useEffect(()=>{
+        const query = queryString.parse(location.search);
+        console.log(query);
+        console.dir(location);
     },[]);
 
     return(

@@ -10,13 +10,17 @@ import C from '../images/c.jpg'
 import D from '../images/d.jpg'
 
 function App() {
+
+  var catagory = [
+  
+  ]
+
   return(
     <>
     <Header />
     <Route exact path="/" component={P.Main}/>
     <Switch>
-    <Route path="/catagory/" component={P.Catagory}/>
-    <Route path="/catagory/:c/:s" component={P.Catagory}/>
+    <Route path="/catagory" component={P.Catagory}/>
     <Route exact path="/item" component={P.Item}/>
     <Route exact path="/order" component={P.Order}/>
     <Route exact path="/regist" component={P.Regist}/>

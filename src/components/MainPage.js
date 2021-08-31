@@ -28,14 +28,14 @@ const MainPage = () => {
                 <S.CTDiv onMouseOut={()=>setHover(true)} onMouseLeave={()=>setHover(false)}>
                 <S.CDiv>
                     <S.TotalCategory onClick={() => history.push('/catagory')}>전체 카테고리</S.TotalCategory>
-                    <S.Category onMouseOut={()=>setValue(0)} onClick={() => history.push('/catagory/c?=fashion')}><S.CSpan>브랜드패션</S.CSpan></S.Category>
-                    <S.Category onMouseOut={()=>setValue(1)} onClick={() => history.push('/catagory/c?=food')}><S.CSpan>패션의류·잡화·뷰티</S.CSpan></S.Category>
-                    <S.Category onMouseOut={()=>setValue(2)} onClick={() => history.push('/catagory/c?=computer')}><S.CSpan>유아동</S.CSpan></S.Category>
-                    <S.Category onMouseOut={()=>setValue(3)} onClick={() => history.push('/catagory/c?=car')}><S.CSpan>식품·생필품</S.CSpan></S.Category>
-                    <S.Category onMouseOut={()=>setValue(4)} onClick={() => history.push('/catagory/c?=travel')}><S.CSpan>홈데코·문구·취미·반려</S.CSpan></S.Category>
+                    <S.Category onMouseOut={()=>setValue(0)} onClick={() => history.push('/catagory/fashion')}><S.CSpan>브랜드패션</S.CSpan></S.Category>
+                    <S.Category onMouseOut={()=>setValue(1)} onClick={() => history.push('/catagory/food')}><S.CSpan>패션의류·잡화·뷰티</S.CSpan></S.Category>
+                    <S.Category onMouseOut={()=>setValue(2)} onClick={() => history.push('/catagory/computer')}><S.CSpan>유아동</S.CSpan></S.Category>
+                    <S.Category onMouseOut={()=>setValue(3)} onClick={() => history.push('/catagory/car')}><S.CSpan>식품·생필품</S.CSpan></S.Category>
+                    <S.Category onMouseOut={()=>setValue(4)} onClick={() => history.push('/catagory/travel')}><S.CSpan>홈데코·문구·취미·반려</S.CSpan></S.Category>
                     <S.Category onMouseOut={()=>setValue(5)} onClick={() => history.push('/catagory')}><S.CSpan>컴퓨터·디지털·가전</S.CSpan></S.Category>
-                    <S.Category onMouseOut={()=>setValue(6)} onClick={() => history.push('/catagory/c?=intelier')}><S.CSpan>스포츠·건강·렌탈</S.CSpan></S.Category>
-                    <S.Category onMouseOut={()=>setValue(7)} onClick={() => history.push('/catagory/c?=sports')}><S.CSpan>자동차·공구</S.CSpan></S.Category>
+                    <S.Category onMouseOut={()=>setValue(6)} onClick={() => history.push('/catagory/intelier')}><S.CSpan>스포츠·건강·렌탈</S.CSpan></S.Category>
+                    <S.Category onMouseOut={()=>setValue(7)} onClick={() => history.push('/catagory/sports')}><S.CSpan>자동차·공구</S.CSpan></S.Category>
                 </S.CDiv>
                 <Border h={hover} value={value}>1</Border>
                 </S.CTDiv>
