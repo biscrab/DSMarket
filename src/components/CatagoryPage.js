@@ -50,20 +50,7 @@ const CategoryPage = () => {
         )
 
     }
-
-        
-    const Condition = () => {
-        const list = [{name: "새 상품"},{name: "박스 훼손"},{name: "재포장"},{name: "리퍼"},{name: "중고"}];
-        return(
-            <S.CatagoryDiv>
-                <S.CaTittle>상품 상태</S.CaTittle>
-                <Select lists={list}/>
-            </S.CatagoryDiv>
-        )
-
-    }
-
-        
+   
     const Season = () => {
         const list = {name:"사계절용", name:"봄/가을용", name:"여름용", name:"겨울용"}
         return(
@@ -508,6 +495,7 @@ const CategoryPage = () => {
 
     const [list, setList] = useState([{id: 1, name: "1", price: 1, star: 1, img: A},{id: 2, name: "1", price: 1, star: 1, img: B},{id: 3, name: "1", price: 1, star: 1, img: B},{id: 4, name: "1", price: 1, star: 1, img: B},{id: 5, name: "1", price: 1, star: 1, img: B},{id: 6, name: "1", price: 1, star: 1, img: B}]);
     const [p, setP] = useState(location.search.slice(2, location.search.length));
+    const [option, setOption] = useState(1);
 
     useEffect(()=>{
         const query = queryString.parse(location.search);
@@ -521,7 +509,6 @@ const CategoryPage = () => {
         <S.C>
             <S.Select>
                 <Dilivery />
-                <Condition />
                 <Star />
                 <Price />
                 
@@ -530,11 +517,11 @@ const CategoryPage = () => {
                 <h3>카테고리</h3>
                 <span>연관검색어: </span>
                 <S.Order>
-                    <S.Cli>별점순</S.Cli>
-                    <S.Cli>낮은 가격순</S.Cli>
-                    <S.Cli>높은 가격순</S.Cli>
-                    <S.Cli>판매량</S.Cli>
-                    <S.Cli>최신순</S.Cli>
+                    <S.Cli color={option === 1 ? "blue" : "black"} onClick={()=>setOption(1)}>별점순</S.Cli>
+                    <S.Cli color={option === 2 ? "blue" : "black"} onClick={()=>setOption(2)}>낮은 가격순</S.Cli>
+                    <S.Cli color={option === 3 ? "blue" : "black"} onClick={()=>setOption(3)}>높은 가격순</S.Cli>
+                    <S.Cli color={option === 4 ? "blue" : "black"} onClick={()=>setOption(4)}>판매량</S.Cli>
+                    <S.Cli color={option === 5 ? "blue" : "black"} onClick={()=>setOption(5)}>최신순</S.Cli>
                 </S.Order>
                 <S.Border>
                     <Item lists={list}/>

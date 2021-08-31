@@ -14,20 +14,6 @@ const AdminPage = () => {
     const [list, setList] = useState([...Wait]);
     
     useEffect(()=>{
-        console.log(history.location);
-        const p = history.location.slice(2, history.location.length);
-        if(p == 'wait'){
-            
-        }
-        else if(p == 'report'){
-
-        } 
-        else if(p == 'notice'){
-
-        }
-        else if(p == 'question'){
-            
-        }
     },[]);
 
     return(

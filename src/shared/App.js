@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import * as P from '../pages'
 import {Route, Switch, Router} from 'react-router-dom';
 import { ReactDOM } from 'react';
@@ -11,9 +11,14 @@ import D from '../images/d.jpg'
 
 function App() {
 
-  var catagory = [
-  
-  ]
+ const [list, setList] = useState([
+          {id: 1, name: "1", price: 1, star: 1, img: A},
+          {id: 2, name: "1", price: 1, star: 1, img: B},
+          {id: 3, name: "1", price: 1, star: 1, img: B},
+          {id: 4, name: "1", price: 1, star: 1, img: B},
+          {id: 5, name: "1", price: 1, star: 1, img: B},
+          {id: 6, name: "1", price: 1, star: 1, img: B}
+        ]);
 
   return(
     <>
@@ -21,7 +26,7 @@ function App() {
     <Route exact path="/" component={P.Main}/>
     <Switch>
     <Route path="/catagory" component={P.Catagory}/>
-    <Route exact path="/item" component={P.Item}/>
+    <Route path="/item" component={P.Item}/>
     <Route exact path="/order" component={P.Order}/>
     <Route exact path="/regist" component={P.Regist}/>
     <Route path="/admin" component={P.Admin}/>

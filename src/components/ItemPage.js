@@ -42,12 +42,14 @@ const ItemPge = () => {
                     </S.ButtonDiv>
                 </S.Info>
             </S.IBorder>
+            <S.DDiv>
             <S.DetailUl>
                 <S.DetailLi>상세 설명</S.DetailLi>
                 <S.DetailLi>상품평</S.DetailLi>
                 <S.DetailLi>상품문의</S.DetailLi>
                 <S.DetailLi>교환/반품</S.DetailLi>
             </S.DetailUl>
+            </S.DDiv>
             <S.Related>
                 <h3>관련 상품</h3>
                 <S.RelatedDiv>
@@ -55,8 +57,20 @@ const ItemPge = () => {
                 </S.RelatedDiv>
             </S.Related>
             <S.IDiv>
-                <S.EDiv></S.EDiv>
-                <S.BuyDiv></S.BuyDiv>
+                <S.EDiv>
+                    <img src={A}></img>
+                    <img src={A}></img>
+                    <img src={A}></img>
+                    <img src={A}></img>
+                </S.EDiv>
+                <S.BuyDiv>
+                    <S.BuyImgDiv>
+                        <S.BuyImg></S.BuyImg>
+                        <p>아이템</p>
+                    </S.BuyImgDiv>
+                    <S.Bucket>장바구니</S.Bucket>                     
+                    <S.Buy>구매하기</S.Buy>
+                </S.BuyDiv>
             </S.IDiv>
         </>
     );

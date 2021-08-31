@@ -163,14 +163,14 @@ export const C = styled.div`
 
 export const ItemBox = styled.li`
     float: left;
-    width: 234px;
-    height: 450px;
-    margin: 18px;
+    width: 230px;
+    height: 445px;
+    margin: 5px;
     display: flex;
     flex-direction: column;
     background-color: white;
-    text-align: center;
     border-bottom: 1px solid #eeeeee;
+    padding: 15px 15px 15px;
 
     :hover{
         box-shadow: 0 0 20px 0 rgb(0 0 0 / 10%);
@@ -236,8 +236,13 @@ export const Price = styled.div`
     border-bottom: 1px solid #eeeeee;
 `
 
-export const PText = styled.h2`
+export const PText = styled.h3`
     color: crimson;
+    margin: 0;
+`
+export const DText = styled.p`
+    font-size: 15px;
+    color: green;
 `
 export const Related = styled.div`
     margin: 0px;
@@ -248,21 +253,22 @@ export const Related = styled.div`
     height: 400px;
 `
 
+export const DDiv = styled.div`
+    height: 60px;
+    background-color: royalblue;
+`
+
 export const DetailUl = styled.ul`
     padding: 0%;
     margin: 0;
     position: relative;
-    left: 50%;
-    transform: translateX(-50%);
     list-style: none;
-    height: 60px;
     display: flex;
-    background-color: royalblue;
+    liner-gradient(to top, white, 30%);
 `
 
 export const DetailLi = styled.li`
     position: relative;
-    left: 10%;
     font-size: 20px;
     color: white;
     margin: 0px;
@@ -303,23 +309,42 @@ export const Bucket = styled.button`
 `
 
 export const IDiv = styled.div`
-    height: 100%;
+    height: 1000px;
     display: flex;
     justify-content: center;
 `
 export const EDiv = styled.div`
     width: 60%;
     height: 1000px;
+    display: flex;
+    flex-direction: column;
     overflow-y: hidden;
 `
 
 export const BuyDiv = styled.div`
-    position: fixed;
-    width: 20%;
-    height: 500px;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 700px;
     border: 1px solid gray;
     border-top: 0px;
 `
+
+export const BuyImgDiv = styled.div`
+    width: 100%;
+    height: 100px;
+    border-bottom: 1px solid gray;
+    display: flex;
+    align-items: center;
+`
+
+export const BuyImg = styled.img`
+    width: 80px;
+    height: 80px;
+    background-color: #eeeeee;
+    margin: 10px;
+`
+
 export const O = styled.div`
     display: flex;
     justify-content: center;
@@ -406,6 +431,7 @@ export const BestDiv = styled.div`
 `
 export const Cli = styled.li`
     margin-right: 15px;
+    color: ${props => props.color}
 `
 
 export const CatagoryDiv = styled.div`
@@ -596,7 +622,7 @@ export const Sspan = styled.span`
 
 export const Ip = styled.p`
     position: relative;
-    font-size: 20px;
+    font-size: 17px;
     top: 10px;
 `
 export const Recent = styled.div`
@@ -868,7 +894,7 @@ export const Si  = styled.div`
 `
 
 export const SignUpInput = styled.input`
-    width: 100%;
+    width: 400px;
     height: 40px;
     margin-bottom: 55px;
 `
@@ -877,7 +903,7 @@ export const SiDiv = styled.div`
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    width: 450px;
+    width: 550px;
 `
 
 export const SiButton = styled.button`
@@ -965,4 +991,12 @@ export const DetailSpan = styled.span`
 
 export const DetailSDiv = styled.div`
     width: 250px;
+`
+
+export const SignUpDiv = styled.div`
+    display: flex;
+`
+
+export const SignSpan = styled.span`
+    width: 150px;
 `

@@ -220,7 +220,7 @@ const RegistPage = () => {
                     </S.RegistDetail>
             </S.RegistDetailUl>
             <p>구비서류</p>
-
+            <p>옵션 설정</p>
             </div>
         </S.R>
     )
