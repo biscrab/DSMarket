@@ -898,7 +898,7 @@ export const RegistDiv = styled.div`
 
 export const RegistDetail = styled.li`
     display: flex;
-    height: 40px;
+    height: 50px;
     border-bottom: 2px solid #eeeeee;
     align-items: center;
 `
@@ -953,3 +953,16 @@ export const RegistDetailUl = styled.ul`
     display: flex;
     flex-direction: column;
 ` 
+
+export const DetailDiv = styled.div`
+    position: relative;
+    display: flex;
+    width: auto;
+`
+export const DetailSpan = styled.span`
+    width: 200px;
+`
+
+export const DetailSDiv = styled.div`
+    width: 250px;
+`
