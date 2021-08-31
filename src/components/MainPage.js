@@ -33,9 +33,9 @@ const MainPage = () => {
                     <S.Category onMouseOut={()=>setValue(2)} onClick={() => history.push('/catagory/computer')}><S.CSpan>유아동</S.CSpan></S.Category>
                     <S.Category onMouseOut={()=>setValue(3)} onClick={() => history.push('/catagory/car')}><S.CSpan>식품·생필품</S.CSpan></S.Category>
                     <S.Category onMouseOut={()=>setValue(4)} onClick={() => history.push('/catagory/travel')}><S.CSpan>홈데코·문구·취미·반려</S.CSpan></S.Category>
-                    <S.Category onMouseOut={()=>setValue(5)} onClick={() => history.push('/catagory')}><S.CSpan>컴퓨터·디지털·가전</S.CSpan></S.Category>
-                    <S.Category onMouseOut={()=>setValue(6)} onClick={() => history.push('/catagory/intelier')}><S.CSpan>스포츠·건강·렌탈</S.CSpan></S.Category>
-                    <S.Category onMouseOut={()=>setValue(7)} onClick={() => history.push('/catagory/sports')}><S.CSpan>자동차·공구</S.CSpan></S.Category>
+                    <S.Category onMouseOut={()=>setValue(5)} onClick={() => history.push('/catagory/')}><S.CSpan>컴퓨터·디지털·가전</S.CSpan></S.Category>
+                    <S.Category onMouseOut={()=>setValue(6)} onClick={() => history.push('/catagory/sports')}><S.CSpan>스포츠·건강·렌탈</S.CSpan></S.Category>
+                    <S.Category onMouseOut={()=>setValue(7)} onClick={() => history.push('/catagory/car')}><S.CSpan>자동차·공구</S.CSpan></S.Category>
                 </S.CDiv>
                 <Border h={hover} value={value}>1</Border>
                 </S.CTDiv>

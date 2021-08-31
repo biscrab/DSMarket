@@ -898,16 +898,9 @@ export const RegistDiv = styled.div`
 
 export const RegistDetail = styled.li`
     display: flex;
-    height: 50px;
-    width: 400px;
-    border-bottom: 1px solid #eeeeee;
-`
-
-export const RegistSelect = styled.div`
-    display: flex;
-    justify-content: space-around;
-    position: relative;
-    left: 20%;
+    height: 40px;
+    border-bottom: 2px solid #eeeeee;
+    align-items: center;
 `
 
 export const Pbutton = styled.button`
@@ -944,3 +937,19 @@ export const CaImg = styled.img`
     height: 100%;
     width: 100px;
 `
+
+export const UploadButton = styled.button`
+    border: ${props => props.border} solid #eeeeee;
+    width: 100px;
+    height: 30px;
+    color: ${props => props.color};
+    background-color: ${props => props.bkcolor};
+`
+
+export const RegistDetailUl = styled.ul`
+    list-style: none;
+    padding: 0;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+` 
