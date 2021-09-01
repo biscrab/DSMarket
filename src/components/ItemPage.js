@@ -10,7 +10,12 @@ import Star from '../contents/Star'
 
 const ItemPge = () => {
 
-    const list = [{id: 1, img: A, price: 100, name: 1 ,catagory:[]},{id: 2, img: B, price: 100, name: 1, catagory:[]},{id: 3, img: C, price: 100, name: 1, catagory:[]},{id: 4, img: D, price: 100, name: 1, catagory:[]},{id: 5, img: E, price: 100, name: 1,catagory:[]}];
+    const list = [{id: 1, img: A, price: 100, name: 1 ,catagory:[]},
+    {id: 2, img: B, price: 100, name: 1, catagory:[]},
+    {id: 3, img: C, price: 100, name: 1, catagory:[]},
+    {id: 4, img: D, price: 100, name: 1, catagory:[]},
+    {id: 5, img: E, price: 100, name: 1,catagory:[]}
+];
 
     return(
         <> 

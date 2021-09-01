@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import { useHistory, useLocation, useParams } from 'react-router-dom'
+import { useHistory, useLocation, useParams, Link } from 'react-router-dom'
 import queryString from 'query-string'
 import * as S from '../styled/App'
 
@@ -12,21 +12,14 @@ const Select = ({item, path}) => {
     const params = useParams();
     const query = queryString.parse(location.search);
 
-    const Link = () => {
-        if(location.search === ""){
-            //history.search`?${path}=${item.link}`);
-        }
-        else{
-            //history.search`&${path}=${item.link}`);
-        }
-    }
-
     return(
-        <S.Box onClick={() => Link()}/*{check ? setCheck(false) : setCheck(true)}}*/>
+        <Link to={{search: `?${path}=${item.link}`}} style={{ textDecoration: 'none', color: 'black'}}>
+        <S.Box>
             <div style={{position:"relative", top:"50%", transform:"translateY(-50%)"}}>
             <input type="checkbox" checked={check}></input>{item.i ? <S.Icon src={item.i}></S.Icon> : <></>}<span>{item.name}</span>
             </div>
         </S.Box>
+        </Link>
     );
 }
 

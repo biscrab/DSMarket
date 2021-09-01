@@ -28,6 +28,12 @@ const Header = () => {
         }
     } 
 
+    const [user, setUser] = useState([
+        {name: "asd", id: "asd", password: "a", age: 11},
+        {name: "asd", id: "asd", password: "a", age: 20},
+        {name: "asd", id: "asd", password: "a", age: 30},
+    ])
+
     return(
         <>
         <S.Header>
@@ -52,7 +58,9 @@ const Header = () => {
                     </S.SBorder> 
                     : <></>}
                </S.SDiv> 
-               <S.SImg src={A} onClick={()=>search()}></S.SImg> 
+               <div onClick={()=>search()}>
+               <i class="fa fa-search fa-2x"></i>
+               </div>
             </S.SBox>
             <S.Link src={M} onClick={()=>history.replace(`/order`)}/>
             <div onClick={()=>history.replace(`/cart`)}>

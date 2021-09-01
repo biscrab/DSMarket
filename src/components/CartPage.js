@@ -16,11 +16,15 @@ const CartPage = () => {
         <S.CartHead>
         <S.CartImg src={cart}></S.CartImg><S.CartTittle>장바구니</S.CartTittle>
         </S.CartHead>
-        <S.CartLHead></S.CartLHead>
         <S.Ca>
+            <S.CaD>
             <S.CartList>
                 <Cart lists={list}/>
             </S.CartList>
+            <S.BillDiv>
+
+            </S.BillDiv>
+            </S.CaD>
         </S.Ca>
         </>
     )

@@ -58,13 +58,6 @@ const MainPage = () => {
                     <Recommendation lists={New} />
                 </S.BestDiv> 
             </S.BestItem>
-            <S.FeedItem>
-                <S.Feed>
-                    <h2>사용자들의 평가</h2>
-                </S.Feed>
-                <S.FeedBack>
-            </S.FeedBack> 
-            </S.FeedItem>
         </>
     );
 }

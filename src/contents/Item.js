@@ -9,7 +9,7 @@ const Item = ({item, lists}) => {
     let history = useHistory();
 
     return(
-        <S.ItemBox>
+        <S.ItemBox onClick={()=>history.push(`/item/id?=${item.id}`)}>
             <S.ItemImg src={item.img}/>
                 <S.Ip>{item.name}</S.Ip>
                 <S.PText>{item.price}원</S.PText>

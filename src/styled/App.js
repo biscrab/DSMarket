@@ -20,6 +20,8 @@ export const Logo = styled.h1`
 `
 
 export const SBox = styled.span`
+    display: flex;
+    align-items: center;
     position: relative;
     display: flex;
     border: 2px solid gray;
@@ -88,7 +90,7 @@ export const CDiv = styled.div`
 `
 
 export const TotalCategory = styled.button`
-    background-color: mediumturquoise;
+    background-color: silver;
     font-size: 18px;
     color: white;
     margin: 0px;
@@ -106,11 +108,11 @@ export const Category = styled.span`
     display: flex;
     position: relative;
     justify-content: center;
-    background-color: turquoise;
-    border-top: 1px solid mediumturquoise;
+    background-color: gainsboro;
+    border-top: 1px solid lightgrey;
 
     :hover{
-        color: turquoise;
+        color: gainsboro;
         background-color: white;
     }
 `
@@ -119,24 +121,12 @@ export const CSpan = styled.span`
     display: flex;
     align-items: center;
 `
-export const Feed = styled.div`
-    display: flex;
-    justify-content: center;
-`
-
-export const FeedItem = styled.div`
-    margin-top: 50px;
-`
-export const FeedBack = styled.div`
-    height: 450px;
-`
 
 export const Select = styled.div`
     border: 2px solid #eeeeee;
     border-top: 0;
     position: relative;
     width: 180px;
-    height: auto;
     display: flex;
     flex-direction: column;
 `
@@ -153,6 +143,7 @@ export const CSelect = styled.div`
 
 export const CBox = styled.div`
     width: 1080px;
+    height: 1500px;
     margin-left: 20px;
 `
 
@@ -194,7 +185,6 @@ export const Border = styled.ul`
     padding: 0;
     width: 1080px;
     list-style: none;
-    height: 1500px;
 `
 
 export const ItemImg = styled.img`
@@ -313,7 +303,7 @@ export const IDiv = styled.div`
     justify-content: center;
 `
 export const EDiv = styled.div`
-    width: 60%;
+    width: 50%;
     height: 1000px;
     display: flex;
     flex-direction: column;
@@ -327,6 +317,7 @@ export const BuyDiv = styled.div`
     height: 700px;
     border: 1px solid gray;
     border-top: 0px;
+    margin-left: 20px;
 `
 
 export const BuyImgDiv = styled.div`
@@ -587,7 +578,7 @@ export const Icon = styled.img`
 `
 
 export const SDiv = styled.div`
-    width: 90%;
+    width: 555px;
 `
 
 export const SBorder = styled.ul`
@@ -745,7 +736,7 @@ export const X = styled.span`
 export const AdminDiv = styled.div`
     background-color: white;
     position: relative;
-    margin-top: 100px;
+    margin-top: 50px;
     height: 900px;
     width: 1000px;
     left: 50%;
@@ -797,8 +788,7 @@ export const Box = styled.div`
 
 export const Ca = styled.div`
     background-color: #eeeeee;
-    display: flex;
-    justify-content: center;
+    height: 1000px;
 `
 
 export const CaTittle = styled.span`
@@ -836,7 +826,7 @@ export const CartNumber = styled.em`
 
 export const CartImg = styled.img`
     position: relative;
-    left: 17%;
+    left: 20%;
     width: 50px;
     height: 50px;
     margin-right: 10px;
@@ -844,7 +834,7 @@ export const CartImg = styled.img`
 
 export const CartTittle = styled.h1`
     position: relative;
-    left: 17%;
+    left: 20%;
     margin: 0;
     font-size: 35px;
 `
@@ -853,25 +843,18 @@ export const CartHead = styled.div`
     height: 100px;
     display: flex;
     align-items: center;
-    margin-bottom: 30px;
     background-color: white;
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid #f3f3f3;
 `
 
 export const CartList = styled.ul`
     display: flex;
     flex-direction: column;
-    width: 90%;
-    position: relative;
-    left: 50%;
-    height: 100%;
-    top: 20px;
-    transform: translateX(-50%);
+    width: 800px;
+    height: 2000px;
+    padding: 0;
+    margin: 0;
     list-style: none;
-`
-
-export const CartLHead = styled.div`
-
 `
 
 export const Si  = styled.div`
@@ -917,8 +900,9 @@ export const RegistDetail = styled.li`
 `
 
 export const Pbutton = styled.button`
-    height: 50px;
-    width: 50px;
+    height: 20px;
+    width: 20px;
+    background-color: white;
     border: 1px solid black;
 `
 
@@ -933,17 +917,20 @@ export const More = styled.span`
 export const CaLi = styled.li`
     height: 50px;
     background-color: white;
-    width: 80%;
+    width: 100%;
     height: 250px;
     display: flex;
     flex-direction: column;
+    margin-bottom: 20px;
 `
 
 export const CaBottom = styled.div`
     height: 30px;
     width: 100%;
-    background-color: whitesmoke;
+    background-color: #f8f9fa;
     position: relative;
+    border-bottom: 1px solid #eeeeee;
+    border-top: 1px solid #eeeeee;
 `
 
 export const OrderDiv = styled.div`
@@ -955,16 +942,10 @@ export const OrderDiv = styled.div`
     align-items: center;
 `
 
-export const CaName = styled.div`
-    border-bottom: 1px solid black;
-    height: 30px;
-    margin: 20px;
-    margin-bottom: 5px;
-`
-
 export const CaDiv = styled.div`
     display: flex;
-    margin: 20px;
+    height: 218px;
+    padding-left: 5%;
 `
 
 export const CaImg = styled.img`
@@ -975,18 +956,27 @@ export const CaImg = styled.img`
 export const CaSpan = styled.span`
     position: relative;
     left: 10px;
-    width: 300px;
+    width: 250px;
+    height: 60px;
 `
 export const CaInput = styled.input`
     width: 25px;
     height: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
     border: 1px solid gray;
+`
+
+export const CaPrice = styled.span`
+    height: 30px;
+    display: flex;
+    align-items: center;
 `
 
 export const UploadButton = styled.button`
     border: ${props => props.border} solid #eeeeee;
     width: 100px;
-    height: 30px;
+    height: 40px;
     color: ${props => props.color};
     background-color: ${props => props.bkcolor};
 `
@@ -1056,4 +1046,23 @@ color: #fff58c;
   left: 0;
   overflow: hidden;
   -webkit-text-fill-color: gold;
+`
+
+export const Top = styled.div`
+    position: relative;
+    top: 20px;
+`
+
+export const BillDiv = styled.div`
+    background-color: white;
+    margin-left: 20px;
+    width: 350px;
+    height: 400px;
+`
+
+export const CaD = styled.div`
+    position: relative;
+    top: 50px;
+    display: flex;
+    justify-content: center;
 `

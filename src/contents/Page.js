@@ -2,10 +2,10 @@ import React from 'react'
 import { Item } from '../pages'
 import * as S from '../styled/App'
 
-const Page = () => {
+const Page = ({item}) => {
     return(
         <S.Pbutton>
-
+            {item}
         </S.Pbutton>
     )
 }
@@ -13,10 +13,10 @@ const Page = () => {
 const List = ({lists}) => {
     const itemlist = lists.map(
         item => (
-            <Page />
+            <Page item={item} />
         )
     )
     return itemlist
 }
 
-export default Page
+export default List

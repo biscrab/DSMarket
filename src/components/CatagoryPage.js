@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {useParams, useLocation} from "react-router-dom";
+import {useParams, useLocation, Link} from "react-router-dom";
 import * as S from '../styled/App'
 import P from '../images/p.png'
 import R from '../images/r.png'
@@ -12,6 +12,7 @@ import { useHistory } from 'react-router-dom';
 import Item from '../contents/Item'
 import queryString from 'query-string';
 import Sta from '../contents/Star'
+import Page from '../contents/Page'
 
 const CategoryPage = () => {
 
@@ -82,26 +83,24 @@ const CategoryPage = () => {
     const Patern = () => {
 
     }
-        
-    const Star = () => {
-        const list = {}
 
-        const setLink = (n) => {
-            if(history.search === ""){
-                history.push(`?star=${n}`);
-            }
-            else{
-                history.push(`&star=${n}`);
-            }
-        }
+    const Star = () => {
 
         return(
             <S.CatagoryDiv>
                 <S.CaTittle>별점</S.CaTittle>
-                <S.Box onClick={()=>setLink(1)}><div style={{display:"flex"}}><Sta star={4}/><span>4점 이상</span></div></S.Box>
-                <S.Box onClick={()=>setLink(2)}><div style={{display:"flex"}}><Sta star={3}/><span>3점 이상</span></div></S.Box>
-                <S.Box onClick={()=>setLink(3)}><div style={{display:"flex"}}><Sta star={2}/><span>2점 이상</span></div></S.Box>
-                <S.Box onClick={()=>setLink(4)}><div style={{display:"flex"}}><Sta star={1}/><span>1점 이상</span></div></S.Box>
+                <Link to={{search:"?star=1"}} style={{ textDecoration: 'none', color: 'black'}}> 
+                <S.Box><div style={{display:"flex"}}><Sta star={4}/><span>4점 이상</span></div></S.Box>
+                </Link>
+                <Link to={{search:"?star=2"}} style={{ textDecoration: 'none', color: 'black'}}>
+                <S.Box><div style={{display:"flex"}}><Sta star={3}/><span>3점 이상</span></div></S.Box>
+                </Link>
+                <Link to={{search:"?star=3"}} style={{ textDecoration: 'none', color: 'black'}}>
+                <S.Box><div style={{display:"flex"}}><Sta star={2}/><span>2점 이상</span></div></S.Box>
+                </Link>
+                <Link to={{search:"?star=4"}} style={{ textDecoration: 'none', color: 'black'}}>
+                <S.Box><div style={{display:"flex"}}><Sta star={1}/><span>1점 이상</span></div></S.Box>
+                </Link>
             </S.CatagoryDiv>
         )
     }
@@ -119,11 +118,21 @@ const CategoryPage = () => {
     const Price = () => {
         return(
             <S.CatagoryDiv>
+                <Link style={{ textDecoration: 'none', color: 'black'}}>
                 <S.CaTittle>가격</S.CaTittle>
+                </Link>
+                <Link style={{ textDecoration: 'none', color: 'black'}}>
                 <S.Box>7천원 이하</S.Box>
+                </Link>
+                <Link style={{ textDecoration: 'none', color: 'black'}}>
                 <S.Box>7천원~1만 4천원</S.Box>
+                </Link>
+                <Link style={{ textDecoration: 'none', color: 'black'}}>
                 <S.Box>1만 4천원~2만 8천원</S.Box>
+                </Link>
+                <Link style={{ textDecoration: 'none', color: 'black'}}>
                 <S.Box>2만 8천원 이상</S.Box>
+                </Link>
                 <S.PriceDiv>
                 <S.PriceInput onChange={onChange} name="lowest" value={price.lowest}></S.PriceInput>~
                 <S.PriceInput onChange={onChange} name="heighest" value={price.heighest}></S.PriceInput>원
@@ -536,6 +545,8 @@ const CategoryPage = () => {
     const query = queryString.parse(location.search);
     const [catagory, setCatagory] = useState();
 
+    const[page, setPage] = useState([1,2,3]);
+
     useEffect(()=>{
         console.log(query);
         console.dir(params);
@@ -570,7 +581,9 @@ const CategoryPage = () => {
                 </S.Border>
             </S.CBox>
         </S.C>
-        <S.Next></S.Next>
+        <S.Next>
+            <Page lists={page}/>
+        </S.Next>
         </>
     )
 }
