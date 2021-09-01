@@ -12,17 +12,15 @@ const CartPage = () => {
     const list = [{id: 1, name: 1, img: A},{id: 2, name: 2, img: B}];
 
     return(
-        <>
+        <>  
+        <S.CartHead>
+        <S.CartImg src={cart}></S.CartImg><S.CartTittle>장바구니</S.CartTittle>
+        </S.CartHead>
+        <S.CartLHead></S.CartLHead>
         <S.Ca>
-            <S.CartHead>
-            <S.CartImg src={cart}></S.CartImg><S.CartTittle>장바구니</S.CartTittle>
-            </S.CartHead>
-            <S.CartDiv>
-                <S.CartList>
-                    <S.CartLHead></S.CartLHead>
-                    <Cart lists={list}/>
-                </S.CartList>
-            </S.CartDiv>
+            <S.CartList>
+                <Cart lists={list}/>
+            </S.CartList>
         </S.Ca>
         </>
     )

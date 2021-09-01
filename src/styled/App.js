@@ -798,19 +798,7 @@ export const Box = styled.div`
 export const Ca = styled.div`
     background-color: #eeeeee;
     display: flex;
-    flex-direction: column;
-    padding-bottom: 100px;
-`
-
-export const CartDiv = styled.div`
-    position: relative;
-    border-top: 1px solid black;
-    background-color: white;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 900px;
-    width: 1000px;
+    justify-content: center;
 `
 
 export const CaTittle = styled.span`
@@ -862,10 +850,12 @@ export const CartTittle = styled.h1`
 `
 
 export const CartHead = styled.div`
-    height: 50px;
+    height: 100px;
     display: flex;
-    margin-top: 30px;
+    align-items: center;
     margin-bottom: 30px;
+    background-color: white;
+    border-bottom: 1px solid gray;
 `
 
 export const CartList = styled.ul`
@@ -881,9 +871,7 @@ export const CartList = styled.ul`
 `
 
 export const CartLHead = styled.div`
-    border-top: 1px solid gray;
-    background-color: whitesmoke;
-    height: 30px;
+
 `
 
 export const Si  = styled.div`
@@ -943,10 +931,19 @@ export const More = styled.span`
 `
 
 export const CaLi = styled.li`
-    border-bottom: 1px solid gray;
     height: 50px;
+    background-color: white;
+    width: 80%;
+    height: 250px;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+`
+
+export const CaBottom = styled.div`
+    height: 30px;
+    width: 100%;
+    background-color: whitesmoke;
+    position: relative;
 `
 
 export const OrderDiv = styled.div`
@@ -958,11 +955,32 @@ export const OrderDiv = styled.div`
     align-items: center;
 `
 
+export const CaName = styled.div`
+    border-bottom: 1px solid black;
+    height: 30px;
+    margin: 20px;
+    margin-bottom: 5px;
+`
+
+export const CaDiv = styled.div`
+    display: flex;
+    margin: 20px;
+`
+
 export const CaImg = styled.img`
+    height: 80px;
+    width: 80px;
+`
+
+export const CaSpan = styled.span`
     position: relative;
-    left: 5%;
-    height: 100%;
-    width: 100px;
+    left: 10px;
+    width: 300px;
+`
+export const CaInput = styled.input`
+    width: 25px;
+    height: 20px;
+    border: 1px solid gray;
 `
 
 export const UploadButton = styled.button`
@@ -1010,4 +1028,32 @@ export const OrderSpan = styled.span`
     :hover{
         color: royalblue;
     }
+`
+
+export const StarDiv = styled.div`
+color: #aaa9a9; 
+  position: relative;
+  unicode-bidi: bidi-override;
+  width: max-content;
+  -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1.3px;
+  -webkit-text-stroke-color: #2b2a29;
+`
+
+export const StarBase = styled.div`
+    z-index: 0;
+    padding: 0;
+`
+
+export const StarRating = styled.div`
+width: ${props => props.width};
+color: #fff58c;
+  padding: 0;
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  -webkit-text-fill-color: gold;
 `

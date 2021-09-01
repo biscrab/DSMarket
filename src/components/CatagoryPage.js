@@ -503,27 +503,44 @@ const CategoryPage = () => {
     }
 
     const setS = () => {
-        if(query.lowprice !== ""){
+        if(query.lowprice){
             setList(list.filter(query.lowprice <= list.price));
         }
-        if(query.highprice !== ""){
+        if(query.highprice){
             setList(list.filter(query.lowprice <= list.price));
         }
-        if(query.star !== ""){
+        if(query.star){
             setList(list.filter(query.star <= list.star));
         }
-
+        if(query.search){
+            setCatagory(`"${query.search}"에 대한 검색 결과`);
+        }
+        if(query.brand){
+            setList(list.filter(query.brand === list.brand));
+        }
+        if(query.usegrade){
+            
+        }
     } 
 
-    const [list, setList] = useState([{id: 1, name: "1", price: 1, star: 1, img: A},{id: 2, name: "1", price: 1, star: 1, img: B},{id: 3, name: "1", price: 1, star: 1, img: B},{id: 4, name: "1", price: 1, star: 1, img: B},{id: 5, name: "1", price: 1, star: 1, img: B},{id: 6, name: "1", price: 1, star: 1, img: B}]);
+    const [list, setList] = useState([
+    {id: 1, name: "1", price: 1, star: 1, img: A, brand: "samsung"},
+    {id: 2, name: "1", price: 1, star: 1, img: B, brand: "a"},
+    {id: 3, name: "1", price: 1, star: 1, img: B, brand: "a"},
+    {id: 4, name: "1", price: 1, star: 1, img: B, brand: "a"},
+    {id: 5, name: "1", price: 1, star: 1, img: B, brand: "a"},
+    {id: 6, name: "1", price: 1, star: 1, img: B, brand: "a"}
+]);
     const [p, setP] = useState(location.search.slice(2, location.search.length));
     const [option, setOption] = useState(1);
     const query = queryString.parse(location.search);
+    const [catagory, setCatagory] = useState();
 
     useEffect(()=>{
         console.log(query);
         console.dir(params);
         console.dir(location);
+        setS();
     },[]);
 
     return(
@@ -539,14 +556,14 @@ const CategoryPage = () => {
                 
             </S.Select>
             <S.CBox>
-                <h3>카테고리</h3>
+                <h3>{catagory}</h3>
                 <span>연관검색어: </span>
                 <S.Order>
-                    <S.Cli color={option === 1 ? "blue" : "black"} onClick={()=>setOption(1)}>별점순</S.Cli>
-                    <S.Cli color={option === 2 ? "blue" : "black"} onClick={()=>setOption(2)}>낮은 가격순</S.Cli>
-                    <S.Cli color={option === 3 ? "blue" : "black"} onClick={()=>setOption(3)}>높은 가격순</S.Cli>
-                    <S.Cli color={option === 4 ? "blue" : "black"} onClick={()=>setOption(4)}>판매량</S.Cli>
-                    <S.Cli color={option === 5 ? "blue" : "black"} onClick={()=>setOption(5)}>최신순</S.Cli>
+                    <S.Cli color={option === 1 ? "royalblue" : "black"} onClick={()=>setOption(1)}>별점순</S.Cli>
+                    <S.Cli color={option === 2 ? "royalblue" : "black"} onClick={()=>setOption(2)}>낮은 가격순</S.Cli>
+                    <S.Cli color={option === 3 ? "royalblue" : "black"} onClick={()=>setOption(3)}>높은 가격순</S.Cli>
+                    <S.Cli color={option === 4 ? "royalblue" : "black"} onClick={()=>setOption(4)}>판매량</S.Cli>
+                    <S.Cli color={option === 5 ? "royalblue" : "black"} onClick={()=>setOption(5)}>최신순</S.Cli>
                 </S.Order>
                 <S.Border>
                     <Item lists={list}/>

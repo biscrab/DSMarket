@@ -14,10 +14,10 @@ const Select = ({item, path}) => {
 
     const Link = () => {
         if(location.search === ""){
-            history.push(`?${path}=${item.link}`);
+            //history.search`?${path}=${item.link}`);
         }
         else{
-            history.push(`&${path}=${item.link}`);
+            //history.search`&${path}=${item.link}`);
         }
     }
 
