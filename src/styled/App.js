@@ -954,6 +954,8 @@ export const OrderDiv = styled.div`
     border-top: 1px solid #eeeeee;
     border-bottom: 1px solid #eeeeee;
     background-color: #eeeeee;
+    display: flex;
+    align-items: center;
 `
 
 export const CaImg = styled.img`
@@ -1002,5 +1004,10 @@ export const SignSpan = styled.span`
 
 export const OrderSpan = styled.span`
     position: relative;
-    left: 20%;
+    left: 120px;
+    font-size: 14px;
+
+    :hover{
+        color: royalblue;
+    }
 `

@@ -529,7 +529,7 @@ const CategoryPage = () => {
     return(
         <>
         <S.OrderDiv>
-            <S.OrderSpan>전체</S.OrderSpan>
+            <S.OrderSpan onClick={()=>history.push('/catagory')}>전체</S.OrderSpan>
         </S.OrderDiv>
         <S.C>
             <S.Select>

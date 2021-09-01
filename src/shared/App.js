@@ -25,6 +25,7 @@ function App() {
     <Header />
     <Route exact path="/" component={P.Main}/>
     <Switch>
+    <Route path="/catagory" component={P.Catagory}/>
     <Route path="/catagory/:catagory" component={P.Catagory}/>
     <Route path="/item" component={P.Item}/>
     <Route exact path="/order" component={P.Order}/>
