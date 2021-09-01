@@ -13,7 +13,7 @@ const Select = ({item, path}) => {
     const query = queryString.parse(location.search);
 
     const Link = () => {
-        if(location.search !== ''){
+        if(location.search === ""){
             history.push(`?${path}=${item.link}`);
         }
         else{

@@ -85,13 +85,23 @@ const CategoryPage = () => {
         
     const Star = () => {
         const list = {}
+
+        const setLink = (n) => {
+            if(history.search === ""){
+                history.push(`?star=${n}`);
+            }
+            else{
+                history.push(`&star=${n}`);
+            }
+        }
+
         return(
             <S.CatagoryDiv>
                 <S.CaTittle>별점</S.CaTittle>
-                <S.Box><div style={{display:"flex"}}><Sta star={4}/><span>4점 이상</span></div></S.Box>
-                <S.Box><div style={{display:"flex"}}><Sta star={3}/><span>3점 이상</span></div></S.Box>
-                <S.Box><div style={{display:"flex"}}><Sta star={2}/><span>2점 이상</span></div></S.Box>
-                <S.Box><div style={{display:"flex"}}><Sta star={1}/><span>1점 이상</span></div></S.Box>
+                <S.Box onClick={()=>setLink(1)}><div style={{display:"flex"}}><Sta star={4}/><span>4점 이상</span></div></S.Box>
+                <S.Box onClick={()=>setLink(2)}><div style={{display:"flex"}}><Sta star={3}/><span>3점 이상</span></div></S.Box>
+                <S.Box onClick={()=>setLink(3)}><div style={{display:"flex"}}><Sta star={2}/><span>2점 이상</span></div></S.Box>
+                <S.Box onClick={()=>setLink(4)}><div style={{display:"flex"}}><Sta star={1}/><span>1점 이상</span></div></S.Box>
             </S.CatagoryDiv>
         )
     }
@@ -494,7 +504,13 @@ const CategoryPage = () => {
 
     const setS = () => {
         if(query.lowprice !== ""){
-            setList(list.filter(query.lowprice < list.price))
+            setList(list.filter(query.lowprice <= list.price));
+        }
+        if(query.highprice !== ""){
+            setList(list.filter(query.lowprice <= list.price));
+        }
+        if(query.star !== ""){
+            setList(list.filter(query.star <= list.star));
         }
 
     } 
@@ -512,7 +528,9 @@ const CategoryPage = () => {
 
     return(
         <>
-        <S.OrderDiv />
+        <S.OrderDiv>
+            <S.OrderSpan>전체</S.OrderSpan>
+        </S.OrderDiv>
         <S.C>
             <S.Select>
                 <Dilivery />

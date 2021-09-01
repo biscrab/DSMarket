@@ -264,7 +264,6 @@ export const DetailUl = styled.ul`
     position: relative;
     list-style: none;
     display: flex;
-    liner-gradient(to top, white, 30%);
 `
 
 export const DetailLi = styled.li`
@@ -999,4 +998,9 @@ export const SignUpDiv = styled.div`
 
 export const SignSpan = styled.span`
     width: 150px;
+`
+
+export const OrderSpan = styled.span`
+    position: relative;
+    left: 20%;
 `
