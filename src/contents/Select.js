@@ -16,10 +16,23 @@ const Select = ({item, path}) => {
 
     const setLink = () => {
         var a = `${path}=${item.link}`;
+        var c = ""
         if(location.search.includes(path)){
-            setL(`&${item.link}`);
+            if(location.search.includes('&')){
+                var b = location.search.split('&');
+                for(var i = 0; i < b.length; i++){
+                    if(b[i].includes(path)){
+                        b[i]+=`,${item.link}`;
+                    }
+                    c += b[i];
+                }
+                setL(c);
+            }
+            else{
+            setL(`,${item.link}`);
+            }
         }
-        else if(location.search){
+        else if(location.search === ""){
             setL(`?${a}`);
             console.log(l);
         }
@@ -30,16 +43,33 @@ const Select = ({item, path}) => {
     }
 
     const Del = () => {
-        var a = location.search.replace(`&${path}=${item.link}`,"");
-        a = location.search.replace(`?${path}=${item.link}`,"");
-        a = a.replace(`${path}=${item.link}`,"");
+        var a;
+        if(location.search.includes(`&${path}=${item.link}`)){
+            if(location.search.includes(`&${path}=${item.link},`)){
+                a = location.search.replace(`${item.link},`,""); 
+            }
+            else{
+                a = location.search.replace(`&${path}=${item.link}`,""); 
+            }   
+        }
+        else if(location.search.includes(`${path}=${item.link},`)){
+            a = location.search.replace(`${item.link},`,""); 
+        }
+        else if(location.search.includes(`,${item.link}`)){
+            a = location.search.replace(`,${item.link}`,""); 
+        }
+        else{
+            a = location.search.replace(`&${path}=${item.link}`,"");
+            a = location.search.replace(`?${path}=${item.link}`,"");
+            a = a.replace(`${path}=${item.link}`,"");
+        }
 
         history.push(a);
     }
 
     useEffect(()=>{
         setLink();
-        var a = `${path}=${item.link}`;
+        var a = item.link;
         if(location.search.includes(a)){
             setCheck(true);
         }

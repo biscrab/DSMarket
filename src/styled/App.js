@@ -321,13 +321,15 @@ export const BuyDiv = styled.div`
 `
 export const BButtonDiv = styled.div`
     position: relative;
-    top: 260px;
+    top: 230px;
 `
 
 export const BBill = styled.div`
     background-color: #eeeeee;
     width: 100%;
-    height: 100px;
+    height: 150px;
+    position: relative;
+    top: 30px;
 `
 
 export const BB = styled.button`
@@ -1073,7 +1075,7 @@ export const SignSpan = styled.span`
 export const OrderSpan = styled.span`
     position: relative;
     left: 120px;
-    font-size: 14px;
+    font-size: 16px;
 
     :hover{
         color: royalblue;
