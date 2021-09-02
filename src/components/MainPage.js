@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from 'react'
+import React,{useState, useEffect, useRef} from 'react'
 import * as S from '../styled/App'
 import A from '../images/a.jpg'
 import B from '../images/b.jpg'
@@ -9,22 +9,39 @@ import { useHistory } from 'react-router-dom'
 import Recommendation from '../contents/Recommendation'
 
 const MainPage = () => {
-    
+    var arr=[A, B, C, D];
+    const [i, setI] = useState(0);
+
+    function showImage() {
+        if(i < arr.length){
+            setI(i+1);
+        }
+        else{
+            setI(0);
+        }
+        var objImg = document.getElementById("img");
+        objImg.src = arr[i];
+
+        setTimeout("showImage()", 200);
+    }
+
+    useEffect(()=>{
+        showImage();
+    });
+
     let history = useHistory();
 
     const [hover, setHover] = useState(false);
     const [value, setValue] = useState(1);
-    const [img, setImg] = useState(0);
-    const i = [A, B, C, D];
 
-    const Sale = [{img: A, name: "1"},{img: A, name: "1"},{img: A, name: "1"},{img: A, name: "1"},{img: A, name: "1"}];
-    const Best = [{img: B, name: "1"},{img: B, name: "1"},{img: B, name: "1"},{img: B, name: "1"},{img: B, name: "1"}];
-    const New = [{img: C, name: "1"},{img: C, name: "1"},{img: C, name: "1"},{img: C, name: "1"},{img: C, name: "1"}];
+    const Sale = [{id: 1, img: A, name: "1"},{id: 1, img: A, name: "1"},{id: 1, img: A, name: "1"},{id: 1, img: A, name: "1"},{id: 1, img: A, name: "1"}];
+    const Best = [{id: 1, img: B, name: "1"},{id: 1, img: B, name: "1"},{id: 1, img: B, name: "1"},{id: 1, img: B, name: "1"},{id: 1, img: B, name: "1"}];
+    const New = [{id: 1, img: C, name: "1"},{id: 1, img: C, name: "1"},{id: 1, img: C, name: "1"},{id: 1, img: C, name: "1"},{id: 1, img: C, name: "1"}];;
 
     return(
         <>
             <S.MainBanner>
-                <S.BannerImage src={i[img]}></S.BannerImage>
+                <S.BannerImage id="img"></S.BannerImage>
                 <S.CTDiv onMouseOut={()=>setHover(true)} onMouseLeave={()=>setHover(false)}>
                 <S.CDiv>
                     <S.TotalCategory onClick={() => history.push('/catagory')}>전체 카테고리</S.TotalCategory>

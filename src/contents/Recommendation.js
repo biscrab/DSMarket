@@ -1,9 +1,13 @@
 import React from 'react'
+import { Link , useHistory} from 'react-router-dom';
 import * as S from '../styled/App'
 
 const Recommendation = ({item}) => {
+
+    let history = useHistory();
+
     return(
-        <S.BDiv>
+        <S.BDiv onClick={()=>history.push(`/item/${item.id}`)}>
         <S.BestImg src={item.img}></S.BestImg>
         <S.Bfont>{item.name}</S.Bfont>
         <S.PDiv>
@@ -17,7 +21,7 @@ const Recommendation = ({item}) => {
 const List = ({lists}) => {
     const itemList = lists.map(
         item => (
-            <Recommendation item={item} key={item.name} img={item.img} />
+            <Recommendation item={item} id={item.id} img={item.img} />
         )
     ) 
     return itemList;

@@ -6,10 +6,10 @@ import Admin from '../contents/Admin'
 const AdminPage = () => {
 
     let history = useHistory();
-    const Wait = [{id : 1, name: 1},{id : 2, name: 2}];
-    const Report = [{id : 1, name: 1},{id : 2, name: 2}];
-    const notice = [{id : 1, name: 1},{id : 2, name: 2}];
-    const Question = [{id : 1, name: 1},{id : 2, name: 2}];
+    const Wait = [{id : 1, name: 1, status: "대기중"},{id : 2, name: 2, status: "대기중"}];
+    const Report = [{id : 1, name: 1, status: "대기중"},{id : 2, name: 2, status: "대기중"}];
+    const notice = [{id : 1, name: 1, status: "대기중"},{id : 2, name: 2, status: "대기중"}];
+    const Question = [{id : 1, name: 1, status: "대기중"},{id : 2, name: 2, status: "대기중"}];
 
     const [list, setList] = useState([...Wait]);
     

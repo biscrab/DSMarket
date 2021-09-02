@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import * as S from '../styled/App'
 import A from '../images/c.jpg'
 import B from '../images/b.jpg'
@@ -14,8 +14,12 @@ const ItemPge = () => {
     {id: 2, img: B, price: 100, name: 1, catagory:[]},
     {id: 3, img: C, price: 100, name: 1, catagory:[]},
     {id: 4, img: D, price: 100, name: 1, catagory:[]},
-    {id: 5, img: E, price: 100, name: 1,catagory:[]}
+    {id: 5, img: E, price: 100, name: 1,catagory:[]},
+    {id: 5, img: E, price: 100, name: 1,catagory:[]},
+    {id: 5, img: E, price: 100, name: 1,catagory:[]},
 ];
+
+    const [more, setMore] = useState(false);
 
     return(
         <> 
@@ -62,12 +66,24 @@ const ItemPge = () => {
                 </S.RelatedDiv>
             </S.Related>
             <S.IDiv>
+                <div>
                 <S.EDiv>
+                    <S.EI>
                     <img src={A}></img>
                     <img src={A}></img>
                     <img src={A}></img>
                     <img src={A}></img>
+                    </S.EI>  
+                {more ?
+                <></> :
+                <S.MDiv>
+                    <S.MoreDiv></S.MoreDiv>
+                    <S.MoreButtonDiv>
+                    <S.MoreButton onClick={() => setMore(true)}>상품정보 더보기</S.MoreButton>
+                    </S.MoreButtonDiv>
+                </S.MDiv>}
                 </S.EDiv>
+                </div>
                 <S.BuyDiv>
                     <S.BuyImgDiv>
                         <S.BuyImg></S.BuyImg>

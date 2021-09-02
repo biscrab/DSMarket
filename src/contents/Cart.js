@@ -3,22 +3,25 @@ import * as S from '../styled/App'
 
 const Cart = ({item}) => {
 
-    const [value, setValue] = useState(1);
-
     return(
         <S.CaLi>
             <S.Top>
-            <S.CaDiv>
+            <input type="checkbox"></input>
             <S.CaImg src={item.img}></S.CaImg>
+            <S.CaDiv>
             <S.CaSpan>{item.name}</S.CaSpan>
+            <S.CaB>
+            <span>{item.id}</span>
+            {item.status === "판매중"? 
             <S.CaPrice>
-            <i class="fas fa-plus-circle"></i>
-            <S.CaInput value={value}></S.CaInput>
-            <i class="fas fa-minus-circle"></i>
-            </S.CaPrice>
+            <S.CaInput type="number"></S.CaInput>
+            </S.CaPrice> : <></> }
+            </S.CaB>
             </S.CaDiv>
             </S.Top>
-            <S.CaBottom></S.CaBottom>
+            <S.CaBottom>
+                <span>{item.status}</span>
+            </S.CaBottom>
         </S.CaLi>
     )
 }
@@ -26,7 +29,7 @@ const Cart = ({item}) => {
 const List = ({lists}) => {
     const itemList = lists.map(
         item => (
-            <Cart item={item} img={item.img} id={item.id} name={item.name} key={item.id}/>
+            <Cart item={item} img={item.img} id={item.id} name={item.name} status={item.status}/>
         )
     ) 
     return itemList;

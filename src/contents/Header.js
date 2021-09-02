@@ -16,7 +16,7 @@ const Header = () => {
 
     const search = () => {
         if(v !== undefined || v !== ''){
-            history.replace(`catagory/s?search=${v}`);
+            history.push(`catagory/s?search=${v}`);
         }
     }
 

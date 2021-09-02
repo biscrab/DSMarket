@@ -239,8 +239,8 @@ export const Related = styled.div`
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    border: 1px solid gray;
-    height: 400px;
+    border: 1px solid #eeeeee;
+    height: 300px;
 `
 
 export const DDiv = styled.div`
@@ -281,7 +281,7 @@ export const ButtonDiv = styled.div`
 `
 
 export const Buy = styled.button`
-    background-color: skyblue;
+    background-color: royalblue;
     width: 240px;
     height: 60px;
     border: 0px;
@@ -303,11 +303,10 @@ export const IDiv = styled.div`
     justify-content: center;
 `
 export const EDiv = styled.div`
-    width: 50%;
-    height: 1000px;
+    width: 800px;
+    height: 900px;
     display: flex;
     flex-direction: column;
-    overflow-y: hidden;
 `
 
 export const BuyDiv = styled.div`
@@ -315,9 +314,9 @@ export const BuyDiv = styled.div`
     flex-direction: column;
     width: 300px;
     height: 700px;
-    border: 1px solid gray;
+    border: 1px solid #eeeeee;
     border-top: 0px;
-    margin-left: 20px;
+    margin-left: 30px;
 `
 
 export const BuyImgDiv = styled.div`
@@ -356,7 +355,7 @@ export const OBorder = styled.div`
     background-color: white;
     display: flex;
     flex-direction: column;
-    width: 1000px;
+    width: 800px;
     height: 900px;
 `
 
@@ -446,15 +445,14 @@ export const RelatedDiv = styled.div`
 `
 
 export const RDiv = styled.div`
-    width: 200px;
-    height: 300px;
+    width: 150px;
+    height: 200px;
     align-content: space-around;
-    box-shadow: 0 0 20px 0 rgb(0 0 0 / 10%);
 `
 
 export const RImg = styled.img`
-    height: 200px;
-    width: 100%;
+    height: 150px;
+    width: 150px;
 `
 
 export const CheckBox = styled.input`
@@ -918,7 +916,7 @@ export const CaLi = styled.li`
     height: 50px;
     background-color: white;
     width: 100%;
-    height: 250px;
+    height: 150px;
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
@@ -926,11 +924,20 @@ export const CaLi = styled.li`
 
 export const CaBottom = styled.div`
     height: 30px;
-    width: 100%;
+    width: 790px;
     background-color: #f8f9fa;
     position: relative;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
     border-bottom: 1px solid #eeeeee;
     border-top: 1px solid #eeeeee;
+`
+
+export const Bill = styled.div`
+    border-bottom: 1px solid #eeeeee;
+    display: flex;
+    flex-direction: column;
 `
 
 export const OrderDiv = styled.div`
@@ -944,8 +951,10 @@ export const OrderDiv = styled.div`
 
 export const CaDiv = styled.div`
     display: flex;
-    height: 218px;
-    padding-left: 5%;
+    flex-direction: column;
+    height: 120px;
+    width: 600px;
+    padding-left: 2%;
 `
 
 export const CaImg = styled.img`
@@ -954,17 +963,25 @@ export const CaImg = styled.img`
 `
 
 export const CaSpan = styled.span`
-    position: relative;
-    left: 10px;
-    width: 250px;
-    height: 60px;
+    width: 100%;
+    height: 30px;
+    border-bottom: 1px solid lightgray;
+
+    :hover {
+        text-decoration: underline;
+    }
 `
 export const CaInput = styled.input`
-    width: 25px;
+    width: 40px;
     height: 20px;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
     border: 1px solid gray;
+`
+
+export const CaB = styled.div`
+    display: flex;
+    justify-content: space-between;
 `
 
 export const CaPrice = styled.span`
@@ -1050,14 +1067,18 @@ color: #fff58c;
 
 export const Top = styled.div`
     position: relative;
-    top: 20px;
+    display: flex;
+    top: 15px;
 `
 
 export const BillDiv = styled.div`
     background-color: white;
     margin-left: 20px;
-    width: 350px;
+    padding: 20px;
+    width: 330px;
     height: 400px;
+    display: flex;
+    flex-direction: column;
 `
 
 export const CaD = styled.div`
@@ -1065,4 +1086,71 @@ export const CaD = styled.div`
     top: 50px;
     display: flex;
     justify-content: center;
+`
+
+export const Myitem = styled.div`
+    height: 50px;
+    border-bottom: 1px solid #eeeeee;
+`
+
+export const BD = styled.div`
+    font-size: 15px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    margin-top: 10px;
+`
+
+export const MoreDiv = styled.div`
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.8) 66%, rgba(255, 255, 255, 0.94) 83%, rgba(255, 255, 255, 0.98) 91%, #ffffff);
+    width: 800px;
+    height: 100px;
+    z-index: 100;
+    bottom: 100px;
+    position: absolute;
+`
+
+export const MoreButton = styled.button`
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 50px;
+    color: royalblue;
+    background-color: white;
+    font-size: 20px;
+    border: 1px solid royalblue;
+`
+
+export const MoreButtonDiv = styled.div`
+    position: relative;
+    background-color: white;
+    height: 100px;
+    width: 800px;
+    display: flex;
+    align-items: center;
+`
+
+export const MDiv = styled.div`
+    position: relative;
+    width: 800px;
+    height: 100px;
+`
+
+export const EI = styled.div`
+    width: 800px;
+    height: 900px;
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: column;
+`
+
+export const Rp = styled.p`
+    margin: 0;
+    width: 100%;
+    height: 40px;
+`
+export const Rprice = styled.p`
+    font-size: 17px;
+    margin: 0;
 `

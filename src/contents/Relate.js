@@ -5,8 +5,8 @@ const Select = ({item}) => {
     return(
         <S.RDiv>
             <S.RImg src={item.img}/>
-            <p>{item.name}</p>
-            <p>{item.price}</p>
+            <S.Rp>{item.name}</S.Rp>
+            <S.Rprice>{item.price}</S.Rprice>
         </S.RDiv>
     );
 }

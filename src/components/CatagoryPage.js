@@ -23,7 +23,7 @@ const CategoryPage = () => {
 
     const [price, setPrice] = useState({
         lowest: "",
-        heighest: "",
+        highest: "",
     });
 
     const Brand = () => {
@@ -116,27 +116,56 @@ const CategoryPage = () => {
 
         
     const Price = () => {
+
+        const setP = ({highest, lowest}) => {
+            if(location.search){
+                if(lowest){
+                    if(highest){
+                        location.search = "?lowest="+`${lowest}`+"&highest="+`${highest}`;
+                    }
+                    else{
+                        location.search = "?lowest="+`${lowest}`;
+                    }
+                }
+                else{
+                    if(highest){
+                        location.search = "?highest="+`${highest}`;
+                    }
+                }  
+            }
+            else{
+                if(lowest){
+                    if(highest){
+                        location.search = "&lowest="+`${lowest}`+"&highest="+`${highest}`;
+                    }
+                    else{
+                        location.search = "&lowest="+`${lowest}`;
+                    }
+                }
+                else{
+                    if(highest){
+                        location.search = "&highest="+`${highest}`;
+                    }
+                }
+            }
+            console.log(location);
+            history.push(location.search);
+            console.log(query);
+        }
+
         return(
             <S.CatagoryDiv>
-                <Link style={{ textDecoration: 'none', color: 'black'}}>
                 <S.CaTittle>가격</S.CaTittle>
-                </Link>
-                <Link style={{ textDecoration: 'none', color: 'black'}}>
-                <S.Box>7천원 이하</S.Box>
-                </Link>
-                <Link style={{ textDecoration: 'none', color: 'black'}}>
-                <S.Box>7천원~1만 4천원</S.Box>
-                </Link>
-                <Link style={{ textDecoration: 'none', color: 'black'}}>
-                <S.Box>1만 4천원~2만 8천원</S.Box>
-                </Link>
-                <Link style={{ textDecoration: 'none', color: 'black'}}>
-                <S.Box>2만 8천원 이상</S.Box>
-                </Link>
+                <S.Box onClick={()=>setP({highest: "", lowest: "7000"})}>7천원 이하</S.Box>
+                <S.Box onClick={()=>setP({highest: "7000", lowest: "14000"})}>7천원~1만 4천원</S.Box>
+                <S.Box onClick={()=>setP({highest: "14000", lowest: "28000"})}>1만 4천원~2만 8천원</S.Box>
+                <S.Box onClick={()=>setP({highest: "28000", lowest: ""})}>2만 8천원 이상</S.Box>
                 <S.PriceDiv>
                 <S.PriceInput onChange={onChange} name="lowest" value={price.lowest}></S.PriceInput>~
-                <S.PriceInput onChange={onChange} name="heighest" value={price.heighest}></S.PriceInput>원
-                <S.PriceButton onClick={console.log(price.lowest + '+' + price.heighest )}>검색</S.PriceButton>
+                <S.PriceInput onChange={onChange} name="highest" value={price.highest}></S.PriceInput>원
+                <Link to={{search:`lowest=${price.lowest}&highest=${price.highest}`}}>
+                <S.PriceButton>검색</S.PriceButton>
+                </Link>
                 </S.PriceDiv>
             </S.CatagoryDiv>
         )
@@ -440,73 +469,61 @@ const CategoryPage = () => {
 
     const SetC = ({c}) => {
         switch(c){
-            case 'closet' :
+            case 'wcloset' :
+            case 'mcloset' :
+                setCatagory(["의류","속옷/잠옷","신발","가방/잡화"]);
                 return(
                     <>
-                    <Color />
+                        <Color />
                     </>
                 )
             break;
             case 'food' :
+                setCatagory(["유기농","과일","견과/건과","채소","쌀/잡곡","축산/계란","수산물/건어물","생수/음료","커피/원두/차","과자/초콜릿/시리얼","면/통조림/가공식품","가루/조미료/오일","장/소스/드레싱/식초","유제품/아이스크림","냉장/냉동/간편요리","건강식품"]);
                 return(
                 <>
                 </>
                 )
             break;
-            case 'car' :
-                return(
-                    <>
-
-                    </>
-                )
-            break;
             case 'fenci' :
+                setCatagory(["사무용품 전문관", "미술/화방용품", "학용품/수업준비", "필기류", "노트/메모지", "다이어리/플래너", "바인더/파일", "파티/이벤트","데코/포장용품","카드/엽서/봉투","앨범","복사용품/라벨지","보드/칠판/광고"]);
                 return(
                     <>
                     </>
                 )
             break; 
-            case 'computer' : 
-                return(
-                    <>
-                    </>
-                )
-            break;
-            case 'novel' :
+            case 'book' :
+                setCatagory(["유아/어린이","소설/에세이/시","초중고참고서","가정 살림","건강 취미","경제 경영","과학/공학","국어/외국어/사전","대학교재","만화/라이트노벨","사회 정치","수험서/자격증"])
                 return(
                     <>
                         <ShapeOfBook />
                     </>
                 )
                 break;
-            case 'cup' :
+            case 'life' :
+                setCatagory(["헤어/바디/세안","구강/면도","화장지/물티슈","생리대/기저귀", "세탁세제", "청소/주방세제", "틸취/방향/살충", "건강/의료용품", "욕실용품", "생활전기용품", "수납", "생활잡화", "공구/철물/DIY", "안전/호신용품"]);
                 return(
                     <>
                     </>
                 )
-                break;
-            case 'womansocks' :
-                return(
-                    <>
-                        <WomanSocks />
-                    </>
-                )
-                break;
-            case 'onion' :
-                return(
-                    <>
-                        <Olganic />
-                    </>
-                )
-                break;
-            case 'galric' :
-                    return(
-                        <>
-                            <Olganic />
-                        </>
-                    )
-                    break;
+            break;
+            case 'pet' :
+                setCatagory(["강아지", "고양이", "관상어", "소동물/가축용품"]);
+            break;
+            case 'homeappliances':
+                setCatagory(["TV/영상가전","냉장고","세탁기/건조기","생활가전","이미용가전","건강가전","노트북","데스크탑","모니터","PC주변기기","PC부품","휴대폰","태블릿PC","스마트워치/밴드","음향기기","게임","카메라","전동킥보드/자전거","차량용 디지털"]);
+            break;
+            case 'sport' :
+                setCatagory(["캠핑","홈트레이닝","수영/수상스포츠","골프","자전거","킥보드/스케이트","낚시","등산/아웃도어","스포츠신발","남성스포츠의류","여성스포츠의류","유아스포츠의류","스포츠잡화","구기스포츠","라켓스포츠","헬스/요가/댄스","복싱/검도/태권도","학교 체육 준비","기타스포츠","스키/겨울스포츠"]);
+            break;
+            case 'toy': 
+                setCatagory(["신생아/영아완구","로봇/작동완구","역할놀이","블록놀이","인형","물놀이/계절완구","승용완구","실내대형완구","STEAM완구","학습완구/교구","보드게임","RC완구/부품","퍼즐/큐브/피젯토이","프라모델","피규어/다이캐스트","콘솔/휴대용 게임기", "파티/마술용품", "DIY", "악기/음향기기", "원예/가드닝", "수집품", "키덜트샵"]);
+            break;
+            case 'kitchen':
+                setCatagory(["주방가전","냄비/프라이팬","칼/도마","주방조리도구","그릇/홈세트","수저/커트러리","컵/잔/텀블러","밀폐저장/도시락","주방잡화","일회용품/종이컵","보온/보냉용품","이유/유아식기","베이킹용품","교자상/제수용품"]);
+            break;
             default :
+            
             break;
         }
     }
@@ -543,7 +560,7 @@ const CategoryPage = () => {
     const [p, setP] = useState(location.search.slice(2, location.search.length));
     const [option, setOption] = useState(1);
     const query = queryString.parse(location.search);
-    const [catagory, setCatagory] = useState();
+    const [catagory, setCatagory] = useState([]);
 
     const[page, setPage] = useState([1,2,3]);
 
