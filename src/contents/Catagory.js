@@ -10,14 +10,21 @@ const Catagory = ({item, path}) => {
     const params = useParams();
     const query = queryString.parse(location.search);
 
+    const setLink = () => {
+        if(query){
+            history.push(`?${path}=${item.link}`);
+        }
+        else{
+            history.push(`&${path}=${item.link}`);
+        }
+    }
+
     return(
-        <Link to={{search: `?${path}=${item.link}`}} style={{ textDecoration: 'none', color: 'black'}}>
-        <S.Box>
+        <S.Box onClick={()=>setLink()}>
             <div style={{position:"relative", top:"50%", transform:"translateY(-50%)"}}>
                 <span>{item.name}</span>
             </div>
         </S.Box>
-        </Link>
     );
 }
 

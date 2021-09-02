@@ -13,6 +13,7 @@ import Item from '../contents/Item'
 import queryString from 'query-string';
 import Sta from '../contents/Star'
 import Page from '../contents/Page'
+import Catagory from '../contents/Catagory'
 
 const CategoryPage = () => {
 
@@ -167,16 +168,6 @@ const CategoryPage = () => {
                 <S.PriceButton>검색</S.PriceButton>
                 </Link>
                 </S.PriceDiv>
-            </S.CatagoryDiv>
-        )
-    }
-
-    const Cap = () => {
-        const list = {name:"뚜껑 있음", name:"뚜껑 없음"}
-        return(
-            <S.CatagoryDiv>
-                <span>뚜껑 유뮤</span>
-                <Select lists={list}/>
             </S.CatagoryDiv>
         )
     }
@@ -528,6 +519,19 @@ const CategoryPage = () => {
         }
     }
 
+    const Cata = () => {
+
+        const list = [{name:"1", link:"2"}];
+        const path = "1";
+
+        return(
+            <S.CatagoryDiv>
+                <S.CaTittle>카테고리</S.CaTittle>
+                <Catagory lists={list} path={path}></Catagory>
+            </S.CatagoryDiv>
+        )
+    }
+
     const setS = () => {
         if(query.lowprice){
             setList(list.filter(query.lowprice <= list.price));
@@ -581,7 +585,7 @@ const CategoryPage = () => {
                 <Dilivery />
                 <Star />
                 <Price />
-                
+                <Cata />
             </S.Select>
             <S.CBox>
                 <h3>{catagory}</h3>
