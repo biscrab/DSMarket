@@ -26,7 +26,7 @@ const Select = ({item, path}) => {
                     }
                     c += b[i];
                 }
-                setL(c);
+                location.search = c;
             }
             else{
             setL(`,${item.link}`);
@@ -58,19 +58,21 @@ const Select = ({item, path}) => {
         else if(location.search.includes(`,${item.link}`)){
             a = location.search.replace(`,${item.link}`,""); 
         }
+        else if(location.search.includes(`${item.link}&`)){
+            a = location.search.replace(`${item.link}`,""); 
+        }
         else{
             a = location.search.replace(`&${path}=${item.link}`,"");
             a = location.search.replace(`?${path}=${item.link}`,"");
             a = a.replace(`${path}=${item.link}`,"");
         }
 
-        history.push(a);
+        location.search = a;
     }
 
     useEffect(()=>{
-        setLink();
-        var a = item.link;
-        if(location.search.includes(a)){
+        setLink();        
+        if(location.search.includes(item.link)){
             setCheck(true);
         }
     },[]);
