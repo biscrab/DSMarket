@@ -10,21 +10,29 @@ const Catagory = ({item, path}) => {
     const params = useParams();
     const query = queryString.parse(location.search);
 
+    const [l, setL] = useState();
+
     const setLink = () => {
-        if(query){
-            history.push(`?${path}=${item.link}`);
+        if(location.search){
+            setL(`?${path}=${item.link}`);
         }
         else{
-            history.push(`&${path}=${item.link}`);
+            setL(location.search+`&${path}=${item.link}`);
         }
     }
+    
+    useEffect(()=>{
+        setLink();
+    },[]);
 
     return(
-        <S.Box onClick={()=>setLink()}>
+        <Link to={{search: l}}>
+        <S.Box>
             <div style={{position:"relative", top:"50%", transform:"translateY(-50%)"}}>
                 <span>{item.name}</span>
             </div>
         </S.Box>
+        </Link>
     );
 }
 

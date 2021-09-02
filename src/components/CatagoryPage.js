@@ -39,13 +39,33 @@ const CategoryPage = () => {
     
         
     const Color = () => {
-        const list = [{name: "블랙"}, {name: "네이비"}, {name: "그레이"}, {name: "실버"}, {name: "레드"}, {name: "오렌지"}, {name: "옐로우"}, {name: "그린"}, {name: "블루"}, {name: "퍼플"}, {name: "핑크"}, {name: "화이트"}, {name: "브라운"}, {name: "골드"}, {name: "베이지"}, {name: "혼합"}, {name: "투명"}];
-        const [clist, setClist] = useState([list.slice(0, 5)]);
+        const list = [{name: "블랙", link:"black"}, 
+                    {name: "네이비", link:"navy"}, 
+                    {name: "그레이", link:"gray"}, 
+                    {name: "실버", link:"sliver"}, 
+                    {name: "레드", link:"red"}, 
+                    {name: "오렌지", link:"orange"},
+                    {name: "옐로우", link:"yellow"}, 
+                    {name: "그린", link:"green"}, 
+                    {name: "블루", link:"blue"}, 
+                    {name: "퍼플", link:"purple"}, 
+                    {name: "핑크", link:"pink"}, 
+                    {name: "화이트", link:"white"}, 
+                    {name: "브라운", link:"brown"}, 
+                    {name: "골드", link:"gold"}, 
+                    {name: "베이지", link:"beiege"}, 
+                    {name: "혼합", link:"mixed"}, 
+                    {name: "투명", link:"limpidity"}
+    ];
+
+        const path = "color";
+
+        const [clist, setClist] = useState(list.slice(0, 5));
         return(
             <S.CatagoryDiv>
                 <S.CaTittle>색상</S.CaTittle>
-                <Select lists={list}/>
-                {list.length > 6 ? <S.More onClick={() => setClist([...list])}>+더보기</S.More> : <></>}
+                <Select lists={clist} path={path}/>
+                {list.length > 6 && clist.length <= 6 ? <S.More onClick={() => setClist([...list])}>+더보기</S.More> : <S.More onClick={() => setClist(list.slice(0, 5))}>-닫기</S.More>}
             </S.CatagoryDiv>
         )
 
@@ -586,6 +606,7 @@ const CategoryPage = () => {
                 <Star />
                 <Price />
                 <Cata />
+                <Color />
             </S.Select>
             <S.CBox>
                 <h3>{catagory}</h3>
