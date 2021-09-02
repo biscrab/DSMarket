@@ -15,18 +15,18 @@ const Header = () => {
     const admin = true;
 
     const search = () => {
-        if(v !== undefined || v !== ''){
-            history.push(`catagory/s?search=${v}`);
+        if(v){
+            history.replace(`?search=${v}`);
+        }
+    }
+
+    const Kenter = (e) => {
+        if(e.key === 'Enter'){
+            search();
         }
     }
 
     const recent = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
-    const handleKeyPress = (e) => {
-        if(e === "Enter"){
-            history.push(`/catagory`);
-        }
-    } 
 
     const [user, setUser] = useState([
         {name: "asd", id: "asd", password: "a", age: 11},
@@ -41,7 +41,19 @@ const Header = () => {
             <S.Logo onClick={() => history.replace('/')}>쇼핑몰</S.Logo>
             <S.SBox>
                 <S.SDiv>
-                    <S.Search onKeyPress={(e)=>handleKeyPress(e)} onChange={(e)=>setV(e.target.value)} value={v} onFocus={() => setTyping(true)} onBlur={() => setTyping(false)}></S.Search>
+                    <S.Sel>
+                        <option>전체</option>
+                        <option>여성 패션</option>
+                        <option>남성 패션</option>
+                        <option>남녀 공용 의류</option>
+                        <option>뷰티</option>
+                        <option>식품</option>
+                        <option>주방용품</option>
+                        <option>생활용품</option>
+                        <option>홈인테리어</option>
+                        <option>가전디지털</option>
+                    </S.Sel>
+                    <S.Search onChange={(e)=>setV(e.target.value)} value={v} onFocus={() => setTyping(true)} onBlur={() => setTyping(false)}></S.Search>
                     {typing ? 
                     <S.SBorder>
                         <S.Recent><p>최근 검색어</p></S.Recent>
@@ -58,7 +70,7 @@ const Header = () => {
                     </S.SBorder> 
                     : <></>}
                </S.SDiv> 
-               <div onClick={()=>search()}>
+               <div onClick={()=>search()} onKeyPress={(e) => {if(e.key === 'Enter'){search()}}}>
                <i class="fa fa-search fa-2x"></i>
                </div>
             </S.SBox>

@@ -72,11 +72,12 @@ const CategoryPage = () => {
     }
    
     const Season = () => {
-        const list = {name:"사계절용", name:"봄/가을용", name:"여름용", name:"겨울용"}
+        const list = [{name:"사계절용", link:"four"}, {name:"봄/가을용", link:"spfa"}, {name:"여름용", link: "summer"}, {name:"겨울용", link:"winter"}];
+        const path = "season"
         return(
             <S.CatagoryDiv>
                 <S.CaTittle>사용계절</S.CaTittle>
-                <Select lists={list}/>
+                <Select lists={list} path={path}/>
             </S.CatagoryDiv>
         )
     }
@@ -541,13 +542,12 @@ const CategoryPage = () => {
 
     const Cata = () => {
 
-        const list = [{name:"1", link:"2"}];
-        const path = "1";
+        const list = [{name:"1", path:"1"},{name:"2", path:"2"}];
 
         return(
             <S.CatagoryDiv>
                 <S.CaTittle>카테고리</S.CaTittle>
-                <Catagory lists={list} path={path}></Catagory>
+                <Catagory lists={list}></Catagory>
             </S.CatagoryDiv>
         )
     }
@@ -592,7 +592,6 @@ const CategoryPage = () => {
         console.log(query);
         console.dir(params);
         console.dir(location);
-        setS();
     },[]);
 
     return(
@@ -607,10 +606,11 @@ const CategoryPage = () => {
                 <Price />
                 <Cata />
                 <Color />
+                <Season />
             </S.Select>
             <S.CBox>
-                <h3>{catagory}</h3>
-                <span>연관검색어: </span>
+                {query.search ?
+                <h3>'{query.search}'에 대한 검색결과</h3> : <></> }
                 <S.Order>
                     <S.Cli color={option === 1 ? "royalblue" : "black"} onClick={()=>setOption(1)}>별점순</S.Cli>
                     <S.Cli color={option === 2 ? "royalblue" : "black"} onClick={()=>setOption(2)}>낮은 가격순</S.Cli>

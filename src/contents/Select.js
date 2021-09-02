@@ -1,5 +1,5 @@
 import React,{useEffect, useState} from 'react'
-import { useHistory, useLocation, useParams, Link } from 'react-router-dom'
+import { useHistory, useLocation, useParams, Link} from 'react-router-dom'
 import queryString from 'query-string'
 import * as S from '../styled/App'
 
@@ -15,12 +15,26 @@ const Select = ({item, path}) => {
     const [l, setL] = useState();
 
     const setLink = () => {
-        if(location.search){
-            setL(`?${path}=${item.link}`);
+        var a = `${path}=${item.link}`;
+        if(location.search.includes(path)){
+            setL(`&${item.link}`);
+        }
+        else if(location.search){
+            setL(`?${a}`);
+            console.log(l);
         }
         else{
-            setL(location.search+`&${path}=${item.link}`);
+            setL(`&${a}`);
+            console.log(l);
         }
+    }
+
+    const Del = () => {
+        var a = location.search.replace(`&${path}=${item.link}`,"");
+        a = location.search.replace(`?${path}=${item.link}`,"");
+        a = a.replace(`${path}=${item.link}`,"");
+
+        history.push(a);
     }
 
     useEffect(()=>{
@@ -29,18 +43,25 @@ const Select = ({item, path}) => {
         if(location.search.includes(a)){
             setCheck(true);
         }
-
-        console.log(a);
     },[]);
 
     return(
-        <Link to={{search: l}} style={{ textDecoration: 'none', color: 'black'}}>
+        <>
+        {check ? 
+        <S.Box onClick={() => Del()}>
+            <div style={{position:"relative", top:"50%", transform:"translateY(-50%)"}}>
+            <input type="checkbox" checked={check}></input>{item.i ? <S.Icon src={item.i}></S.Icon> : <></>}<span>{item.name}</span>
+            </div>
+        </S.Box> 
+        :       
+        <Link to={{search: location.search + l}} style={{ textDecoration: 'none', color: 'black'}}>
         <S.Box>
             <div style={{position:"relative", top:"50%", transform:"translateY(-50%)"}}>
             <input type="checkbox" checked={check}></input>{item.i ? <S.Icon src={item.i}></S.Icon> : <></>}<span>{item.name}</span>
             </div>
         </S.Box>
-        </Link>
+        </Link>}
+        </>
     );
 }
 

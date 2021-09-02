@@ -25,13 +25,13 @@ export const SBox = styled.span`
     position: relative;
     display: flex;
     border: 2px solid gray;
-    width: 600px;
+    width: 650px;
     height: 42px;
     background-color: white;
 `
 
 export const Search = styled.input`
-    width: 500px;
+    width: 470px;
     height: 40px;
     border: 0;
     font-size: 15px;
@@ -316,7 +316,39 @@ export const BuyDiv = styled.div`
     height: 700px;
     border: 1px solid #eeeeee;
     border-top: 0px;
+    padding: 15px;
     margin-left: 30px;
+`
+export const BButtonDiv = styled.div`
+    position: relative;
+    height: 250px;
+    border-top: 1px solid gray;
+    top: 250px;
+`
+
+export const BBill = styled.div`
+    background-color: #eeeeee;
+    width: 100%;
+    height: 100px;
+`
+
+export const BB = styled.button`
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: ${props => props.bkcolor};
+    width: 240px;
+    height: 60px;
+    border: 0px;
+    border: ${props => props.border} solid #eeeeee;
+    color: ${props => props.color};
+    font-size: 20px;
+    margin-top: 10px;
+`
+
+export const BBDiv = styled.div`
+    display: flex;
+    justify-content: space-between;
 `
 
 export const BuyImgDiv = styled.div`
@@ -576,7 +608,7 @@ export const Icon = styled.img`
 `
 
 export const SDiv = styled.div`
-    width: 555px;
+    width: 600px;
 `
 
 export const SBorder = styled.ul`
@@ -1163,4 +1195,11 @@ export const Rp = styled.p`
 export const Rprice = styled.p`
     font-size: 17px;
     margin: 0;
+`
+
+export const Sel = styled.select`
+    height: 40px;
+    width: 100px;
+    border: 0;
+    outline: 0;
 `

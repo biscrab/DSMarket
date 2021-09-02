@@ -13,21 +13,17 @@ const MainPage = () => {
     const [i, setI] = useState(0);
 
     function showImage() {
-        if(i < arr.length){
+        if(i <= arr.length){
             setI(i+1);
         }
         else{
             setI(0);
         }
-        var objImg = document.getElementById("img");
-        objImg.src = arr[i];
-
-        setTimeout("showImage()", 200);
     }
 
     useEffect(()=>{
-        showImage();
-    });
+         setInterval(showImage(), 500);
+    },[])
 
     let history = useHistory();
 
@@ -41,7 +37,7 @@ const MainPage = () => {
     return(
         <>
             <S.MainBanner>
-                <S.BannerImage id="img"></S.BannerImage>
+                <S.BannerImage src={arr[i]}></S.BannerImage>
                 <S.CTDiv onMouseOut={()=>setHover(true)} onMouseLeave={()=>setHover(false)}>
                 <S.CDiv>
                     <S.TotalCategory onClick={() => history.push('/catagory')}>전체 카테고리</S.TotalCategory>

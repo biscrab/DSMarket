@@ -89,8 +89,10 @@ const ItemPge = () => {
                         <S.BuyImg></S.BuyImg>
                         <p>아이템</p>
                     </S.BuyImgDiv>
-                    <S.Bucket>장바구니</S.Bucket>                     
-                    <S.Buy>구매하기</S.Buy>
+                    <S.BBDiv>
+                    <S.BB color="black" bkcolor="white" border="1px">장바구니</S.BB>                     
+                    <S.BB color="white" bkcolor="royalblue" border="0px">구매하기</S.BB>
+                    </S.BBDiv>
                 </S.BuyDiv>
             </S.IDiv>
         </>
