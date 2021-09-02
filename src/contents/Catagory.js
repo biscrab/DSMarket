@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState, useEffect} from 'react'
 import { useHistory, useLocation, useParams, Link } from 'react-router-dom'
 import queryString from 'query-string'
 import * as S from '../styled/App'

@@ -642,8 +642,8 @@ export const Next = styled.div`
     display: flex;
     justify-content: center;
     width: 100%;
-    height: 50px;
-    background-color: whitesmoke;
+    height: 70px;
+    background-color: white;
 `
 
 export const LR = styled.div`
@@ -898,10 +898,20 @@ export const RegistDetail = styled.li`
 `
 
 export const Pbutton = styled.button`
-    height: 20px;
-    width: 20px;
+    height: 40px;
+    width: 40px;
+    font-size: 15px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-right: 5px;
+    margin-left: 5px;
     background-color: white;
-    border: 1px solid black;
+    background-color: ${props => props.bkcolor};
+    color: black;
+    color: ${props => props.color};
+    border: 0;
+    border-radius: 50%;
 `
 
 export const PriceDiv = styled.div`
