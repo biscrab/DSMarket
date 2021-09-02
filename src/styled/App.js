@@ -321,9 +321,7 @@ export const BuyDiv = styled.div`
 `
 export const BButtonDiv = styled.div`
     position: relative;
-    height: 250px;
-    border-top: 1px solid gray;
-    top: 250px;
+    top: 260px;
 `
 
 export const BBill = styled.div`
@@ -347,6 +345,9 @@ export const BB = styled.button`
 `
 
 export const BBDiv = styled.div`
+    border-top: 1px solid gray;
+    height: 70px;
+    position: relative;
     display: flex;
     justify-content: space-between;
 `

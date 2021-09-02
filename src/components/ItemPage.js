@@ -89,10 +89,15 @@ const ItemPge = () => {
                         <S.BuyImg></S.BuyImg>
                         <p>아이템</p>
                     </S.BuyImgDiv>
+                    <S.BBill></S.BBill>
+                    <S.BButtonDiv>
                     <S.BBDiv>
+                        <h3>총 상품금액</h3>
+                        <h2 style={{marginTop:"15px"}}>10000원</h2>
+                    </S.BBDiv>
                     <S.BB color="black" bkcolor="white" border="1px">장바구니</S.BB>                     
                     <S.BB color="white" bkcolor="royalblue" border="0px">구매하기</S.BB>
-                    </S.BBDiv>
+                    </S.BButtonDiv>
                 </S.BuyDiv>
             </S.IDiv>
         </>
