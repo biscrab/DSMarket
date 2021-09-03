@@ -1206,3 +1206,10 @@ export const Sel = styled.select`
     border: 0;
     outline: 0;
 `
+
+export const None = styled.h2`
+    color: gray;
+    position: relative;
+    top : 50px;
+    text-align: center;
+`

@@ -54,15 +54,17 @@ const MainPage = () => {
                 </S.CTDiv>
             </S.MainBanner>
             <S.BestItem>
-                <S.Best>세일 중인 제품</S.Best>
-                <S.BestDiv>
-                    <Recommendation lists={Sale} />
-                </S.BestDiv> 
-            </S.BestItem>
-            <S.BestItem>
                 <S.Best>최고의 인기 제품</S.Best>
                 <S.BestDiv>
                     <Recommendation lists={Best} />
+                </S.BestDiv> 
+            </S.BestItem>
+        </>
+    );
+    /*            <S.BestItem>
+                <S.Best>세일 중인 제품</S.Best>
+                <S.BestDiv>
+                    <Recommendation lists={Sale} />
                 </S.BestDiv> 
             </S.BestItem>
             <S.BestItem>
@@ -71,8 +73,7 @@ const MainPage = () => {
                     <Recommendation lists={New} />
                 </S.BestDiv> 
             </S.BestItem>
-        </>
-    );
+             */
 }
 
 export default MainPage;

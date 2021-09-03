@@ -560,7 +560,13 @@ const CategoryPage = () => {
             setList(list.filter(query.highest >= list.price));
         }
         if(location.search.includes(`star`)){
-            setList(list.filter(query.star <= list.star));
+            var s = [];
+            for(var i = 0; i < list.length; i++){
+                if(list[i].star >= query.star){
+                    s = [...s,list[i]];
+                }
+            }
+            setList(s);
         }
         if(location.search.includes(`search`)){
             setCatagory(`"${query.search}"에 대한 검색 결과`);
@@ -589,12 +595,12 @@ const CategoryPage = () => {
     }
 
     const [list, setList] = useState([
-    {name: "1", price: 1, star: 1, img: A, brand: "samsung"},
-    {name: "1", price: 1, star: 1, img: B, brand: "a"},
-    {name: "1", price: 1, star: 1, img: B, brand: "a"},
-    {name: "1", price: 1, star: 1, img: B, brand: "a"},
-    {name: "1", price: 1, star: 1, img: B, brand: "a"},
-    {name: "1", price: 1, star: 1, img: B, brand: "a"}
+    {id: 1, name: "1", price: 100, star: 1, img: A, brand: "samsung", sell: 50},
+    {id: 1, name: "1", price: 10, star: 2, img: B, brand: "a", sell: 100},
+    {id: 1, name: "1", price: 5, star: 3, img: C, brand: "a", sell: 200},
+    {id: 1, name: "1", price: 6, star: 4, img: D, brand: "a", sell: 300},
+    {id: 1, name: "1", price: 190, star: 5, img: B, brand: "a", sell: 400},
+    {id: 1, name: "1", price: 18, star: 6, img: B, brand: "a", sell: 500}
 ]);
     const [p, setP] = useState(location.search.slice(2, location.search.length));
     const [option, setOption] = useState(1);
@@ -603,11 +609,39 @@ const CategoryPage = () => {
 
     const[page, setPage] = useState([1,2,3]);
 
+    const setO = (n) => {
+        setOption(n);
+        var s = list;
+        if(option === 1){ //별점순
+            s.sort(function(a, b){
+                return b.star - a.star;
+            });
+        }
+        else if(option === 2){ //낮은 가격순
+            s.sort(function(a, b){
+                return b.price + a.price;
+            });
+        }
+        else if(option === 3){ // 높은 가격순
+            s.sort(function(a, b){
+                return b.price - a.price;
+            });
+            
+        }
+        else if(option === 4){ //판매량
+            s.sort(function(a, b){
+                return b.sell - a.sell;
+            });
+        }
+        setList(s);
+    }
+
     useEffect(()=>{
         console.log(query);
         console.dir(params);
         console.dir(location);
         setC();
+        setO(1);
     },[]);
 
     return(
@@ -628,15 +662,14 @@ const CategoryPage = () => {
                 {query.search ?
                 <h3>'{query.search}'에 대한 검색결과</h3> : <></> }
                 <S.Order>
-                    <S.Cli color={option === 1 ? "royalblue" : "black"} onClick={()=>setOption(1)}>별점순</S.Cli>
-                    <S.Cli color={option === 2 ? "royalblue" : "black"} onClick={()=>setOption(2)}>낮은 가격순</S.Cli>
-                    <S.Cli color={option === 3 ? "royalblue" : "black"} onClick={()=>setOption(3)}>높은 가격순</S.Cli>
-                    <S.Cli color={option === 4 ? "royalblue" : "black"} onClick={()=>setOption(4)}>판매량</S.Cli>
-                    <S.Cli color={option === 5 ? "royalblue" : "black"} onClick={()=>setOption(5)}>최신순</S.Cli>
+                    <S.Cli color={option === 1 ? "royalblue" : "black"} onClick={()=>setO(1)}>별점순</S.Cli>
+                    <S.Cli color={option === 2 ? "royalblue" : "black"} onClick={()=>setO(2)}>낮은 가격순</S.Cli>
+                    <S.Cli color={option === 3 ? "royalblue" : "black"} onClick={()=>setO(3)}>높은 가격순</S.Cli>
+                    <S.Cli color={option === 4 ? "royalblue" : "black"} onClick={()=>setO(4)}>판매량</S.Cli>
                 </S.Order>
                 <S.Border>
                     {list.length === 0 ?
-                    <h2>해당 하는 상품이 없습니다.</h2>
+                    <S.None>해당 하는 상품이 없습니다.</S.None>
                     :
                     <Item lists={list}/> 
                     }
