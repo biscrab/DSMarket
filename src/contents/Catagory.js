@@ -19,22 +19,34 @@ const Catagory = ({item}) => {
         history.push(a);
     }
 
+    const Set = () => {
+        if(location.pathname.includes(`/${item.path}`)){
+            location.pathname = location.pathname.replace(`/${item.path}`);
+        }
+        else{
+            var count = 0;
+            var searchChar = '/'; // 찾으려는 문자
+            var pos = location.pathname.indexOf(searchChar); 
+            while (pos !== -1) {
+                count++;
+                pos = location.pathname.indexOf(searchChar, pos + 1); // 첫 번째 a 이후의 인덱스부터 a를 찾습니다.
+            }
+            if(count >= 3){
+
+            }
+            else{
+                
+            }
+        }
+    }
 
     return(
         <>
-        {b ?        
-        <S.Box>
-            <div onClick={()=> Del()}style={{position:"relative", top:"50%", transform:"translateY(-50%)"}}>
-                <span>{item.name}{location.pathname}</span>
-            </div>
-        </S.Box> 
-        :  
-        <S.Box onClick={() => history.push(location.pathname+`/${item.path}`)}>
+        <S.Box onClick={() => Set()}>
             <div style={{position:"relative", top:"50%", transform:"translateY(-50%)"}}>
                 <span>{item.name}{location.pathname}</span>
             </div>
         </S.Box>
-        }
         </>
     );
 }
