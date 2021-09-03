@@ -20,24 +20,20 @@ const Catagory = ({item}) => {
     }
 
     const Set = () => {
-        if(location.pathname.includes(`/${item.path}`)){
-            location.pathname = location.pathname.replace(`/${item.path}`);
+        /*if(location.pathname.includes(`/${item.path}`)){
+            //history.push(location.pathname.replace(`/${item.path}`));
+            console.log(location.pathname);
         }
         else{
-            var count = 0;
-            var searchChar = '/'; // 찾으려는 문자
-            var pos = location.pathname.indexOf(searchChar); 
-            while (pos !== -1) {
-                count++;
-                pos = location.pathname.indexOf(searchChar, pos + 1); // 첫 번째 a 이후의 인덱스부터 a를 찾습니다.
+            var splice = location.pathname;
+            splice = location.pathname.split('/');
+            var c = ""
+            for(var i = 0; i < 2; i++){
+                c += splice[i];
             }
-            if(count >= 3){
-
-            }
-            else{
-                
-            }
-        }
+            history.push(c);
+        }*/
+        console.log(history);
     }
 
     return(

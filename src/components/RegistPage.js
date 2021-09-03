@@ -96,20 +96,6 @@ const RegistPage = () => {
                 </S.RegistDetail>
 
                 <S.RegistDetail>
-                <S.DetailSpan>미성년자 구매</S.DetailSpan>
-                <S.DetailDiv>
-                <S.DetailSDiv>
-                <input type="radio"></input>
-                <span>가능</span>
-                </S.DetailSDiv> 
-                <S.DetailSDiv>
-                <input type="radio"></input>
-                <span>불가능</span>
-                </S.DetailSDiv>   
-                </S.DetailDiv>  
-                </S.RegistDetail>
-
-                <S.RegistDetail>
                 <S.DetailSpan>인당 최대구매수량</S.DetailSpan>
                 <S.DetailDiv>
                 <S.DetailSDiv>
@@ -201,6 +187,14 @@ const RegistPage = () => {
                 </S.RegistDetail>
 
             </S.RegistDetailUl>
+
+            <p>구비서류</p>
+            <p>옵션 설정</p>
+            </div>
+        </S.R>
+    )
+
+    /*
             <p>반품/교환</p>
             <S.RegistDetailUl>
                 <S.RegistDetail>
@@ -219,11 +213,23 @@ const RegistPage = () => {
                     </S.DetailDiv>
                     </S.RegistDetail>
             </S.RegistDetailUl>
-            <p>구비서류</p>
-            <p>옵션 설정</p>
-            </div>
-        </S.R>
-    )
+
+            <S.RegistDetail>
+                <S.DetailSpan>미성년자 구매</S.DetailSpan>
+                <S.DetailDiv>
+                <S.DetailSDiv>
+                <input type="radio"></input>
+                <span>가능</span>
+                </S.DetailSDiv> 
+                <S.DetailSDiv>
+                <input type="radio"></input>
+                <span>불가능</span>
+                </S.DetailSDiv>   
+                </S.DetailDiv>  
+            </S.RegistDetail>
+
+    */
+
 }
 
 export default RegistPage

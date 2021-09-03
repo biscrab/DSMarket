@@ -22,7 +22,7 @@ const MainPage = () => {
     }
 
     useEffect(()=>{
-         setInterval(showImage(), 500);
+         setInterval(showImage(), 1000);
     },[])
 
     let history = useHistory();
