@@ -21,6 +21,7 @@ const Select = ({item, path}) => {
             if(location.search.includes('&')){
                 var b = location.search.split('&');
                 for(var i = 0; i < b.length; i++){
+                    console.log(b[i]);
                     if(b[i].includes(path)){
                         b[i]+=`,${item.link}`;
                     }
@@ -67,12 +68,13 @@ const Select = ({item, path}) => {
             a = a.replace(`${path}=${item.link}`,"");
         }
 
-        location.search = a;
+        history.push(location.pathname + a);
     }
 
     useEffect(()=>{
         setLink();        
         if(location.search.includes(item.link)){
+            console.log(item.link);
             setCheck(true);
         }
     },[]);
