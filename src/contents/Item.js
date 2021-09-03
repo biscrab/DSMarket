@@ -22,7 +22,7 @@ const Item = ({item, lists}) => {
 const List = ({lists}) => {
     const itemList = lists.map(
         item => (
-            <Item item={item} id={item.id} img={item.img} name={item.name} price={item.price} star={item.star}/>
+            <Item item={item} img={item.img} name={item.name} price={item.price} star={item.star}/>
         )
     )
     return itemList;

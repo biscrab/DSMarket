@@ -552,34 +552,49 @@ const CategoryPage = () => {
         )
     }
 
-    const setS = () => {
-        if(query.lowprice){
-            setList(list.filter(query.lowprice <= list.price));
+    const setC = () => {
+        if(location.search.includes(`lowest`)){
+            setList(list.filter(query.lowest <= list.price));
         }
-        if(query.highprice){
-            setList(list.filter(query.lowprice <= list.price));
+        if(location.search.includes(`highest`)){
+            setList(list.filter(query.highest >= list.price));
         }
-        if(query.star){
+        if(location.search.includes(`star`)){
             setList(list.filter(query.star <= list.star));
         }
-        if(query.search){
+        if(location.search.includes(`search`)){
             setCatagory(`"${query.search}"에 대한 검색 결과`);
+            var s =  [];
+            for(var i = 0; i < list.length; i++){
+                if(list[i].name.includes(query.search)){
+                    s = [...s,list[i]];
+                }
+            }
+            setList(s);
         }
-        if(query.brand){
-            setList(list.filter(query.brand === list.brand));
+        if(location.search.includes(`brand`)){
+            var s = [];
+            for(var i = 0; i < list.length; i++){
+                if(list[i].brand == query.brand){
+                    s = [...s,list[i]];
+                }
+            }
+            setList(s);
         }
-        if(query.usegrade){
-            
-        }
+        console.log(list);
     } 
 
+    const setS = () => {
+
+    }
+
     const [list, setList] = useState([
-    {id: 1, name: "1", price: 1, star: 1, img: A, brand: "samsung"},
-    {id: 2, name: "1", price: 1, star: 1, img: B, brand: "a"},
-    {id: 3, name: "1", price: 1, star: 1, img: B, brand: "a"},
-    {id: 4, name: "1", price: 1, star: 1, img: B, brand: "a"},
-    {id: 5, name: "1", price: 1, star: 1, img: B, brand: "a"},
-    {id: 6, name: "1", price: 1, star: 1, img: B, brand: "a"}
+    {name: "1", price: 1, star: 1, img: A, brand: "samsung"},
+    {name: "1", price: 1, star: 1, img: B, brand: "a"},
+    {name: "1", price: 1, star: 1, img: B, brand: "a"},
+    {name: "1", price: 1, star: 1, img: B, brand: "a"},
+    {name: "1", price: 1, star: 1, img: B, brand: "a"},
+    {name: "1", price: 1, star: 1, img: B, brand: "a"}
 ]);
     const [p, setP] = useState(location.search.slice(2, location.search.length));
     const [option, setOption] = useState(1);
@@ -592,6 +607,7 @@ const CategoryPage = () => {
         console.log(query);
         console.dir(params);
         console.dir(location);
+        setC();
     },[]);
 
     return(
@@ -619,7 +635,11 @@ const CategoryPage = () => {
                     <S.Cli color={option === 5 ? "royalblue" : "black"} onClick={()=>setOption(5)}>최신순</S.Cli>
                 </S.Order>
                 <S.Border>
-                    <Item lists={list}/>
+                    {list.length === 0 ?
+                    <h2>해당 하는 상품이 없습니다.</h2>
+                    :
+                    <Item lists={list}/> 
+                    }
                 </S.Border>
             </S.CBox>
         </S.C>
