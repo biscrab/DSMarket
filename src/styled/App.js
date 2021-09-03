@@ -920,9 +920,20 @@ export const SiButton = styled.button`
 
 export const RegistDiv = styled.div`
     background-color: white;
-    height: 400px;
-    width: 700px;
-    border: 1px solid #eeeeee;
+    height: auto;
+    width: 1050px;
+    border: 1px solid lightgray;
+    padding: 10px;
+`
+
+export const RegistImg = styled.div`
+    border-style: dashed solid;
+    border-color: #eeeeee;
+    outline: 0;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
 `
 
 export const RegistDetail = styled.li`
@@ -930,6 +941,15 @@ export const RegistDetail = styled.li`
     height: 50px;
     border-bottom: 2px solid #eeeeee;
     align-items: center;
+    text-align: center;
+`
+
+export const RegistSpan = styled.span`
+    color: royalblue;
+    font-size: 50px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 `
 
 export const Pbutton = styled.button`

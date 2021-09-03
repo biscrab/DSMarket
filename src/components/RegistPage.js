@@ -13,17 +13,28 @@ const RegistPage = () => {
             <div style={{width: "70%"}}>
             <h1>상품 등록</h1>
             <span>카테고리를 입력하세요</span>
+            <S.RegistDiv>
             <p>상품명</p>
             <S.Input></S.Input>
+            </S.RegistDiv>
+            <S.RegistDiv>
             <p>가격</p>
             <S.Input></S.Input>
+            </S.RegistDiv>
+            <S.RegistDiv>
             <p>재조사</p>
-            <S.Input></S.Input>
+            <S.Input></S.Input> 
+            </S.RegistDiv>
             <p>브랜드</p>
+           
+            <S.RegistDiv>
             <S.Input></S.Input>
             <p>재고</p>
+            </S.RegistDiv>
+            <S.RegistDiv>
             <S.Input></S.Input>
             <p>검색어</p>
+            </S.RegistDiv>
             <S.Input></S.Input>
             <p>배송 관련 사항</p>
             <S.Input></S.Input>
@@ -36,8 +47,16 @@ const RegistPage = () => {
                 <S.UploadButton onClick={()=>setRepre(2)} color={repre === 2 ? "white" : "black"} bkcolor={repre === 2 ? "royalblue" : "white"} border={repre === 2 ? "0px" : "1px"}>옵션별 등록</S.UploadButton>
             <S.RegistDiv>
                 <p>대표 이미지</p>
+                <S.RegistImg>
+                    <S.RegistSpan>+</S.RegistSpan>
+                </S.RegistImg>
             </S.RegistDiv>
-            <S.RegistDiv><p>추가 이미지</p></S.RegistDiv>
+            <S.RegistDiv>
+                <p>추가 이미지(0/9)</p>
+                <S.RegistImg>
+                    <S.RegistSpan>+</S.RegistSpan>
+                </S.RegistImg>
+            </S.RegistDiv>
             <p>상세설명</p>
             <div>
                 <S.UploadButton onClick={()=>setUpload(1)} color={upload === 1 ? "white" : "black"} bkcolor={upload === 1 ? "royalblue" : "white"} border={upload === 1 ? "0px" : "1px"}>이미지 업로드</S.UploadButton>
@@ -141,7 +160,14 @@ const RegistPage = () => {
                 <p>검색어</p>
                 <S.Input></S.Input>
 
-                <p>배송 관련 사항</p>
+            <p>구비서류</p>
+            <p>옵션 설정</p>
+            </div>
+        </S.R>
+    )
+
+    /*
+    <p>배송 관련 사항</p>
                 <S.RegistDetailUl>
 
                 <S.RegistDetail>
@@ -186,15 +212,6 @@ const RegistPage = () => {
                 </S.DetailDiv>
                 </S.RegistDetail>
 
-            </S.RegistDetailUl>
-
-            <p>구비서류</p>
-            <p>옵션 설정</p>
-            </div>
-        </S.R>
-    )
-
-    /*
             <p>반품/교환</p>
             <S.RegistDetailUl>
                 <S.RegistDetail>
