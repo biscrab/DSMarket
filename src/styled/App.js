@@ -17,6 +17,7 @@ export const Logo = styled.h1`
     position: relative;
     margin: 0px;
     margin-right: 20px;
+    color: royalblue;
 `
 
 export const SBox = styled.span`
@@ -24,8 +25,8 @@ export const SBox = styled.span`
     align-items: center;
     position: relative;
     display: flex;
-    border: 2px solid gray;
-    width: 650px;
+    border: 3px solid royalblue;
+    width: 660px;
     height: 42px;
     background-color: white;
 `
@@ -1267,7 +1268,7 @@ export const Rprice = styled.p`
 
 export const Sel = styled.select`
     height: 40px;
-    width: 100px;
+    width: 110px;
     border: 0;
     outline: 0;
 `

@@ -15,8 +15,8 @@ const Header = () => {
     const admin = true;
 
     const search = () => {
-        if(v){
-            history.replace(`?search=${v}`);
+        if( == "전체"){
+
         }
     }
 
@@ -26,7 +26,7 @@ const Header = () => {
         }
     }
 
-    const recent = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    const [recent, setRecent] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 
     const [user, setUser] = useState([
         {name: "asd", id: "asd", password: "a", age: 11},
@@ -43,7 +43,7 @@ const Header = () => {
             <S.Logo onClick={() => history.replace('/')}>쇼핑몰</S.Logo>
             <S.SBox>
                 <S.SDiv>
-                    <S.Sel>
+                    <S.Sel id="select">
                         <option>전체</option>
                         <option>여성 패션</option>
                         <option>남성 패션</option>

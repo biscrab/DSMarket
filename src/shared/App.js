@@ -4,10 +4,6 @@ import {Route, Switch, Router} from 'react-router-dom';
 import { ReactDOM } from 'react';
 import '../styled/App.css'
 import Header from '../contents/Header';
-import A from '../images/a.jpg'
-import B from '../images/b.jpg'
-import C from '../images/c.jpg'
-import D from '../images/d.jpg'
 
 function App() {
   return(
@@ -15,7 +11,7 @@ function App() {
     <Header />
     <Route exact path="/" component={P.Main}/>
     <Switch>
-    <Route path="/catagory/:catagory/:detail" component={P.Catagory}/>
+    <Route path="/catagory/:catagory" component={P.Catagory}/>
     <Route path="/catagory" component={P.Catagory}/>
     <Route path="/item" component={P.Item}/>
     <Route exact path="/order" component={P.Order}/>

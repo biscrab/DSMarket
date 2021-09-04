@@ -66,13 +66,78 @@ import Catagory from '../contents/Catagory'
     58 생활용품
         59 헤어/바디/세안
         60 구강/면도
-        70 화장지/물티슈
-        71 생리대/성인기저귀
-        72 기저귀
-        73 세탁
-        75 탈취/방향/살충
-        76 건강/의료용품
-        
+        61 화장지/물티슈
+        62 생리대/성인기저귀
+        63 기저귀
+        64 세탁
+        65 청소용품
+        66 탈취/방향/살충
+        67 건강/의료용품
+        68 욕실 용품
+        69 생활전기용품
+        70 수납/정리
+        71 생활잡화
+    72 홈인테리어
+        73 홈데코
+        74 가구
+        75 수납/정리
+        76 침구
+        77 커튼/블라인드
+        78 카페트/쿠션/거실화
+        79 수예/수선
+        80 욕실용품
+        81 조명/스탠드
+        82 원예/가드닝
+    83 가전디지털
+        84 TV/영상가전
+        85 냉장고
+        86 세탁기/건조기
+        87 청소기
+        88 계전가전
+        89 이미용가전
+        90 건강가전
+        91 주방가전
+        92 노트북
+        93 데스크탑
+        94 모니터
+        95 키보드 마우스
+        96 저장장치
+        97 프린터/복합기
+        98 PC부품
+    99 스포츠/레저
+        99 캠핑
+        100 홈트레이닝
+        101 수영/수상스포츠
+        102 골프
+        103 자전거
+        104 킥보드/스케이트
+        105 낚시
+        106 등산/아웃도어
+        107 스포츠신발
+        108 남성스포츠의류
+        109 여성스포츠의류
+        110 유아스포츠의류
+        111 스포츠잡화
+        112 구기스포츠
+        113 라켓스포츠
+        114 헬스/요가/댄스
+    115 도서/음반/DVD
+        116 유아/어린이
+        117 소설/에세이/사
+        118 초중고참고서
+        119 가정 살림
+        120 건강 취미
+        121 경재 경영
+        122 과학/공학
+        123 국어/외국어/사전
+        124 대학교재
+        125 만화/라이트노벨
+        126 사회 정치
+        127 수험서/자격증
+        128 여행
+        129 역사
+        130 예술
+        131 인문
 */
 
 const CategoryPage = () => {
@@ -612,64 +677,84 @@ const CategoryPage = () => {
         )
     }
 
-    const SetP = () => {
-        if(params.catagory = `/fashion`){
-            var s = [];
+    const SetP = (n) => {
+        var s = [];
+        switch(n){
+        case "1" :
             for(var i = 0; i < list.length; i++){
-                if(list[i].catagory === "wfashion" || "mfashion" || "pfashion" || "cfashion"){
+                if(list[i].catagory >= 2 && list[i].catagory <= 5){
                     s = [...s,list[i]];
                 }
             }
-            setList(s);
-        }
-        if(params.catagory = `/food`){
-            var s = [];
+        break;
+        case "6" :
             for(var i = 0; i < list.length; i++){
-                if(list[i].catagory === "olganic" || "fruit" || "nut" || "vegetable" || "rice" || "meet" || "fish" || "drink" || "snack" || "noodle" || "pouder" || "source" || "diaryproduct" || "refrieg" || "health"){
+                if(list[i].catagory >= 6 && list[i].catagory <= 19){
                     s = [...s,list[i]];
                 }
             }
-            setList(s);
-        }
-        if(params.catagory = `/life`){
+        break;
+        case "20" :
             for(var i = 0; i < list.length; i++){
-                if(list[i].catagory === "body" || "mouth" || "sanitarypad" || "diaper" || "laundry" || "clean"){
+                if(list[i].catagory >= 20 && list[i].catagory <= 33){
                     s = [...s,list[i]];
                 }
             }
-            setList(s);
+        break;
+        case "34" :
+            for(var i = 0; i < list.length; i++){
+                if(list[i].catagory >= 34 && list[i].catagory <= 57){
+                    s = [...s,list[i]];
+                }
+            }
+        break;
+        case "58" :
+            for(var i = 0; i < list.length; i++){
+                if(list[i].catagory >= 58 && list[i].catagory <= 71){
+                    s = [...s,list[i]];
+                }
+            }
+        break;
+        case "72" :
+            for(var i = 0; i < list.length; i++){
+                if(list[i].catagory >= 72 && list[i].catagory <= 82){
+                    s = [...s,list[i]];
+                }
+            }
+        break;
+        case "83" :
+            for(var i = 0; i < list.length; i++){
+                if(list[i].catagory >= 83 && list[i].catagory <= 98){
+                    s = [...s,list[i]];
+                }
+            }
+        break;
+        case "99" :
+            for(var i = 0; i < list.length; i++){
+                if(list[i].catagory >= 99 && list[i].catagory <= 114){
+                    s = [...s,list[i]];
+                }
+            }
+        break;
+        case "115" :
+            for(var i = 0; i < list.length; i++){
+                if(list[i].catagory >= 115 && list[i].catagory <= 131){
+                    s = [...s,list[i]];
+                }
+            }
+        break;
+        default :
+            for(var i = 0; i < list.length; i++){
+                if(list[i].catagory == Number(n)){
+                    s = [...s,list[i]];
+                }
+            }
         }
-        if(params.catagory = `/kitchen`){
-            
-        }
-        if(params.catagory = `/interial`){
-            
-        }
-        if(params.catagory = `/fenci`){
-            
-        }
-        if(params.catagory = `/homeappliances`){
-
-        }
+        setList(s);
     }
 
     const setD = () => {
 
-    }
-
-    const setA = () => {
-        if(params.detail){
-            var s = [];
-            for(var i = 0; i < list.length; i++){
-                if(list[i].catagory === params.detail){
-                    s = [...s,list[i]];
-                }
-            }
-            setList(s);
-        }
-        else{
-            SetP(); 
-        }
     }
 
     const setC = () => {
@@ -715,12 +800,12 @@ const CategoryPage = () => {
     }
 
     const [list, setList] = useState([
-    {id: 1, name: "1", price: 100, star: 1, img: A, brand: "samsung", sell: 50, catagory: "computer"},
-    {id: 1, name: "1", price: 10, star: 2, img: B, brand: "a", sell: 100 ,catagory: "computer"},
-    {id: 1, name: "1", price: 5, star: 3, img: C, brand: "a", sell: 200, catagory: "computer"},
-    {id: 1, name: "1", price: 6, star: 4, img: D, brand: "a", sell: 300, catagory: "computer"},
-    {id: 1, name: "1", price: 190, star: 5, img: B, brand: "a", sell: 400, catagory: "computer"},
-    {id: 1, name: "1", price: 18, star: 6, img: B, brand: "a", sell: 500, catagory: "computer"}
+    {id: 1, name: "1", price: 100, star: 1, img: A, brand: "samsung", sell: 50, catagory: 1},
+    {id: 1, name: "1", price: 10, star: 2, img: B, brand: "a", sell: 100 ,catagory: 1},
+    {id: 1, name: "1", price: 5, star: 3, img: C, brand: "a", sell: 200, catagory: 2},
+    {id: 1, name: "1", price: 6, star: 4, img: D, brand: "a", sell: 300, catagory: 3},
+    {id: 1, name: "1", price: 190, star: 5, img: B, brand: "a", sell: 400, catagory: 1},
+    {id: 1, name: "1", price: 18, star: 6, img: B, brand: "a", sell: 500, catagory: 1}
 ]);
     const [p, setP] = useState(location.search.slice(2, location.search.length));
     const [option, setOption] = useState(1);
@@ -761,7 +846,7 @@ const CategoryPage = () => {
         console.dir(params.catagory);
         console.dir(match);
         console.dir(location);
-        setA();
+        SetP(params.catagory);
         setC();
         setO(1);
     },[]);
