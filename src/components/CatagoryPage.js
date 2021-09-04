@@ -552,6 +552,27 @@ const CategoryPage = () => {
         )
     }
 
+    const SetP = () => {
+        if(location.pathname.includes(`/fashion`)){
+
+        }
+        if(location.pathname.includes(`/food`)){
+            
+        }
+        if(location.pathname.includes(`/life`)){
+            
+        }
+        if(location.pathname.includes(`/kitchen`)){
+            
+        }
+        if(location.pathname.includes(`/interial`)){
+            
+        }
+        if(location.pathname.includes(`/fenci`)){
+            
+        }
+    }
+
     const setC = () => {
         if(location.search.includes(`lowest`)){
             setList(list.filter(query.lowest <= list.price));
@@ -595,12 +616,12 @@ const CategoryPage = () => {
     }
 
     const [list, setList] = useState([
-    {id: 1, name: "1", price: 100, star: 1, img: A, brand: "samsung", sell: 50},
-    {id: 1, name: "1", price: 10, star: 2, img: B, brand: "a", sell: 100},
-    {id: 1, name: "1", price: 5, star: 3, img: C, brand: "a", sell: 200},
-    {id: 1, name: "1", price: 6, star: 4, img: D, brand: "a", sell: 300},
-    {id: 1, name: "1", price: 190, star: 5, img: B, brand: "a", sell: 400},
-    {id: 1, name: "1", price: 18, star: 6, img: B, brand: "a", sell: 500}
+    {id: 1, name: "1", price: 100, star: 1, img: A, brand: "samsung", sell: 50, catagory: "computer"},
+    {id: 1, name: "1", price: 10, star: 2, img: B, brand: "a", sell: 100 ,catagory: "computer"},
+    {id: 1, name: "1", price: 5, star: 3, img: C, brand: "a", sell: 200, catagory: "computer"},
+    {id: 1, name: "1", price: 6, star: 4, img: D, brand: "a", sell: 300, catagory: "computer"},
+    {id: 1, name: "1", price: 190, star: 5, img: B, brand: "a", sell: 400, catagory: "computer"},
+    {id: 1, name: "1", price: 18, star: 6, img: B, brand: "a", sell: 500, catagory: "computer"}
 ]);
     const [p, setP] = useState(location.search.slice(2, location.search.length));
     const [option, setOption] = useState(1);
