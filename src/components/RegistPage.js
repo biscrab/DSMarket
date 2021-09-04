@@ -32,6 +32,7 @@ const RegistPage = () => {
     */
 
     const SetC = ({c}) => {
+        const c = c;
         switch(c){
             case 1 :
                 setCatagory([{name: "의류", path: ""},{name: "속옷/잠옷", path: ""},{name: "신발", path: ""},"가방/잡화"]);
@@ -46,7 +47,7 @@ const RegistPage = () => {
                 setCatagory([{name: "유아/어린이", path: ""},{name: "소설/에세이/시", path: ""},{name:"초중고참고서", path: ""},{name: "가정 살림", path: ""},{name: "건강 취미", path: ""},{name: "경제 경영", path: ""},{name: "과학/공학", path: ""},{name: "국어/외국어/사전", path: ""},{name: "대학교재", path: ""},{name: "만화/라이트노벨", path: ""},{name: "사회 정치", path: ""},{name: "수험서/자격증", path: ""}]);
                 break;
             case 5 :
-                setCatagory([{name: "헤어/바디/세안", path: ""},{name: "구강/면도", path: ""},{name: "화장지/물티슈", path: ""},{name: "생리대/기저귀", path: ""}, {name: "세탁세제", path: ""}, {name: "청소/주방세제", path: ""}, {name: "틸취/방향/살충", path: ""}, "건강/의료용품", path: ""}, {name: "욕실용품", path: ""}, {name: "생활전기용품", path: ""}, {name: "수납", path: ""}, {name: "생활잡화", path: ""}, {name: "공구/철물/DIY", path: ""}, {name: "안전/호신용품", path: ""}]);
+                setCatagory([{name: "헤어/바디/세안", path: ""},{name: "구강/면도", path: ""},{name: "화장지/물티슈", path: ""},{name: "생리대/기저귀", path: ""}, {name: "세탁세제", path: ""}, {name: "청소/주방세제", path: ""}, {name: "틸취/방향/살충", path: ""}, {"건강/의료용품", path: ""}, {name: "욕실용품", path: ""}, {name: "생활전기용품", path: ""}, {name: "수납", path: ""}, {name: "생활잡화", path: ""}, {name: "공구/철물/DIY", path: ""}, {name: "안전/호신용품", path: ""}]);
             break;
             case 6 :
                 setCatagory([{name: "강아지", path: ""}, {name: "고양이", path: ""}, {name: "관상어", path: ""}, {name: "소동물/가축용품", path: ""}]);
@@ -58,10 +59,10 @@ const RegistPage = () => {
                 setCatagory([{name: "캠핑", path: ""},{name: "홈트레이닝", path: ""},{name: "수영/수상스포츠", path: ""},{name: "골프", path: ""},{name: "자전거", path: ""},{name: "킥보드/스케이트"},{name: "낚시"},{name: "등산/아웃도어"},{name: "스포츠신발"},{name: "남성스포츠의류"},{name: "여성스포츠의류"},{name: "유아스포츠의류"},{name: "스포츠잡화"},{name: "구기스포츠"},{name: "라켓스포츠"},{name: "헬스/요가/댄스"},{name: "복싱/검도/태권도"},{name: "학교 체육 준비"},{name: "기타스포츠"},{name: "스키/겨울스포츠"}]);
             break;
             case 9: 
-                setCatagory([{name: "신생아/영아완구"},{name: "로봇/작동완구"},{name: "역할놀이"},{name: "블록놀이"},{name: "인형"},{name: "물놀이/계절완구"},{name: "승용완구"},{name: "실내대형완구"},{name: "STEAM완구"},{name: "학습완구/교구"},{name: "보드게임"},{name: "RC완구/부품"},{name: "퍼즐/큐브/피젯토이"},{name: "프라모델"},{name: "피규어/다이캐스트"},{name: "콘솔/휴대용 게임기"},{name:  "파티/마술용품"}, {name: "DIY"}, {name: "악기/음향기기"}, {name: "원예/가드닝"}, {name: "수집품"}, {name: "키덜트샵"}]);
+                setCatagory([{name: "신생아/영아완구", path: ""},{name: "로봇/작동완구", path: ""},{name: "역할놀이", path: ""},{name: "블록놀이", path: ""},{name: "인형", path: ""},{name: "물놀이/계절완구", path: ""},{name: "승용완구", path: ""},{name: "실내대형완구", path: ""},{name: "STEAM완구", path: ""},{name: "학습완구/교구", path: ""},{name: "보드게임", path: ""},{name: "RC완구/부품", path: ""},{name: "퍼즐/큐브/피젯토이", path: ""},{name: "프라모델", path: ""},{name: "피규어/다이캐스트", path: ""},{name: "콘솔/휴대용 게임기", path: ""},{name:  "파티/마술용품", path: ""}, {name: "DIY", path: ""}, {name: "악기/음향기기", path: ""}, {name: "원예/가드닝", path: ""}, {name: "수집품"}, {name: "키덜트샵"}]);
             break;
             case 10:
-                setCatagory([{name: "주방가전"},{name: "냄비/프라이팬"},{name: "칼/도마"},{name: "주방조리도구"},{name: "그릇/홈세트"},{name: "수저/커트러리"},{name: "컵/잔/텀블러"},{name: "밀폐저장/도시락"},{name: "주방잡화"},{name: "일회용품/종이컵"},{name: "보온/보냉용품"},{name: "이유/유아식기"},{name: "베이킹용품"},{name: "교자상/제수용품"}]);
+                setCatagory([{name: "주방가전" ,path: ""},{name: "냄비/프라이팬" ,path: ""},{name: "칼/도마" ,path: ""},{name: "주방조리도구" ,path: ""},{name: "그릇/홈세트" ,path: ""},{name: "수저/커트러리" ,path: ""},{name: "컵/잔/텀블러" ,path: ""},{name: "밀폐저장/도시락" ,path: ""},{name: "주방잡화" ,path: ""},{name: "일회용품/종이컵" ,path: ""},{name: "보온/보냉용품" ,path: ""},{name: "이유/유아식기" ,path: ""},{name: "베이킹용품" ,path: ""},{name: "교자상/제수용품"}]);
             break;
             default :
             
