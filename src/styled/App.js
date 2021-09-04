@@ -1279,3 +1279,13 @@ export const None = styled.h2`
     top : 50px;
     text-align: center;
 `
+
+export const StDiv = styled.div`
+    display: flex;
+`
+
+export const StSpan = styled.span`
+    color: gold;
+    position: relative;
+    left: 10px;
+`

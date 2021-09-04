@@ -606,14 +606,8 @@ const CategoryPage = () => {
 
     const SetC = ({c}) => {
         switch(c){
-            case 'wcloset' :
-            case 'mcloset' :
+            case 1 :
                 setCatagory(["의류","속옷/잠옷","신발","가방/잡화"]);
-                return(
-                    <>
-                        <Color />
-                    </>
-                )
             break;
             case 'food' :
                 setCatagory(["유기농","과일","견과/건과","채소","쌀/잡곡","축산/계란","수산물/건어물","생수/음료","커피/원두/차","과자/초콜릿/시리얼","면/통조림/가공식품","가루/조미료/오일","장/소스/드레싱/식초","유제품/아이스크림","냉장/냉동/간편요리","건강식품"]);
@@ -630,7 +624,7 @@ const CategoryPage = () => {
                 )
             break; 
             case 'book' :
-                setCatagory(["유아/어린이","소설/에세이/시","초중고참고서","가정 살림","건강 취미","경제 경영","과학/공학","국어/외국어/사전","대학교재","만화/라이트노벨","사회 정치","수험서/자격증"])
+                setCatagory([{name: "유아/어린이"},{name: "소설/에세이/시"},{name:"초중고참고서"},{name: "가정 살림"},{name: "건강 취미"},{name: "경제 경영"},"과학/공학","국어/외국어/사전","대학교재","만화/라이트노벨","사회 정치","수험서/자격증"])
                 return(
                     <>
                         <ShapeOfBook />
@@ -800,12 +794,12 @@ const CategoryPage = () => {
     }
 
     const [list, setList] = useState([
-    {id: 1, name: "1", price: 100, star: 1, img: A, brand: "samsung", sell: 50, catagory: 1},
-    {id: 1, name: "1", price: 10, star: 2, img: B, brand: "a", sell: 100 ,catagory: 1},
-    {id: 1, name: "1", price: 5, star: 3, img: C, brand: "a", sell: 200, catagory: 2},
-    {id: 1, name: "1", price: 6, star: 4, img: D, brand: "a", sell: 300, catagory: 3},
-    {id: 1, name: "1", price: 190, star: 5, img: B, brand: "a", sell: 400, catagory: 1},
-    {id: 1, name: "1", price: 18, star: 6, img: B, brand: "a", sell: 500, catagory: 1}
+    {id: 1, name: "1", price: 100, star: 1, img: A, brand: "samsung", sell: 50, catagory: 1, review: 100},
+    {id: 1, name: "1", price: 10, star: 2, img: B, brand: "a", sell: 100 ,catagory: 1, review: 100},
+    {id: 1, name: "1", price: 5, star: 3, img: C, brand: "a", sell: 200, catagory: 2, review: 100},
+    {id: 1, name: "1", price: 6, star: 4, img: D, brand: "a", sell: 300, catagory: 3, review: 100},
+    {id: 1, name: "1", price: 190, star: 5, img: B, brand: "a", sell: 400, catagory: 1, review: 100},
+    {id: 1, name: "1", price: 18, star: 6, img: B, brand: "a", sell: 500, catagory: 1, review: 100}
 ]);
     const [p, setP] = useState(location.search.slice(2, location.search.length));
     const [option, setOption] = useState(1);
@@ -862,7 +856,9 @@ const CategoryPage = () => {
                 <Star />
                 <Price />
                 <Cata />
-                <Color />
+                {params.catagory >= 1 && params.catagory <= 6 ?
+                <Color /> : <></>
+                }
                 <Season />
             </S.Select>
             <S.CBox>

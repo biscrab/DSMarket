@@ -14,7 +14,10 @@ const Item = ({item, lists}) => {
                 <S.Ip>{item.name}</S.Ip>
                 <S.PText>{item.price}원</S.PText>
                 <S.DText>내일 9/1 도착예정</S.DText>
+                <S.StDiv>
                 <Star star={item.star}/>
+                <S.StSpan>{`(${item.review})`}</S.StSpan>
+                </S.StDiv>
         </S.ItemBox>
     );
 }
@@ -22,7 +25,7 @@ const Item = ({item, lists}) => {
 const List = ({lists}) => {
     const itemList = lists.map(
         item => (
-            <Item item={item} img={item.img} name={item.name} price={item.price} star={item.star} id={item.id}/>
+            <Item item={item} img={item.img} name={item.name} price={item.price} star={item.star} id={item.id} review={item.review}/>
         )
     )
     return itemList;

@@ -15,9 +15,26 @@ const Header = () => {
     const admin = true;
 
     const search = () => {
-        if( == "전체"){
+        /*if(){
 
         }
+        else if("전체"){
+
+        }
+        else if(){
+
+        }
+        else if(){
+
+        }
+        else if(){
+
+        }
+        else if(){
+
+        }
+        
+        */
     }
 
     const Kenter = (e) => {
