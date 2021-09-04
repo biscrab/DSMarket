@@ -659,8 +659,28 @@ export const Recent = styled.div`
 `
 
 export const Input = styled.input`
-    width: 400px;
+    width: 80%;
     height: 30px;
+    :forcus{
+        outline: 1px solid royalblue;
+    }
+`
+
+export const OInput = styled.input`
+    width: 450px;
+    height: 30px;
+    :forcus{
+        outline: 1px solid royalblue;
+    }
+`
+
+export const Max = styled.div`
+    background-color: #eeeeee;
+    height: 24px;
+    width: 70px;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid lightgray;
 `
 
 export const R = styled.div`
@@ -923,7 +943,32 @@ export const RegistDiv = styled.div`
     height: auto;
     width: 1050px;
     border: 1px solid lightgray;
-    padding: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+`
+
+export const CSDiv = styled.div`
+    height: 300px;
+    width: 200px;
+    border: 1px solid lightgray;
+    overflow-y: auto;
+`
+
+export const CSLi = styled.li`
+    padding: 7px;
+    :hover{
+        background-color: #D4F4FA;
+    }
+`
+
+export const CSUl = styled.ul`
+    padding: 0;
+    margin: 0;
+    list-style: none;
+`
+
+export const InputDiv = styled.div`
+    display: flex;
 `
 
 export const RegistImg = styled.div`
@@ -941,7 +986,6 @@ export const RegistDetail = styled.li`
     height: 50px;
     border-bottom: 2px solid #eeeeee;
     align-items: center;
-    text-align: center;
 `
 
 export const RegistSpan = styled.span`
@@ -1074,6 +1118,7 @@ export const RegistDetailUl = styled.ul`
 export const DetailDiv = styled.div`
     position: relative;
     display: flex;
+    align-content: center;
     width: auto;
 `
 export const DetailSpan = styled.span`

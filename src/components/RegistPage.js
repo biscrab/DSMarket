@@ -8,16 +8,8 @@ const RegistPage = () => {
     const [upload, setUpload] = useState(1);
     const [repre, setRepre] = useState(1);
 
-    return(
-        <S.R>
-            <div style={{width: "70%"}}>
-            <h1>상품 등록</h1>
-            <span>카테고리를 입력하세요</span>
-            <S.RegistDiv>
-            <p>상품명</p>
-            <S.Input></S.Input>
-            </S.RegistDiv>
-            <S.RegistDiv>
+    /*
+    <S.RegistDiv>
             <p>가격</p>
             <S.Input></S.Input>
             </S.RegistDiv>
@@ -26,15 +18,54 @@ const RegistPage = () => {
             <S.Input></S.Input> 
             </S.RegistDiv>
             <p>브랜드</p>
-           
             <S.RegistDiv>
             <S.Input></S.Input>
             <p>재고</p>
             </S.RegistDiv>
+            
             <S.RegistDiv>
             <S.Input></S.Input>
             <p>검색어</p>
             </S.RegistDiv>
+    */
+
+    return(
+        <S.R>
+            <div style={{width: "70%"}}>
+            <h1>상품 등록</h1>
+            <p>카테고리를 입력하세요</p>
+
+            <S.RegistDiv>
+            <p>상품명</p>
+            <S.InputDiv>
+            <S.Input placeholder="노출상품명 입력(브랜드 + 제품명)"></S.Input>
+            <S.Max>0/100</S.Max>
+            </S.InputDiv>
+            </S.RegistDiv>
+
+            <S.RegistDiv>
+            <p>카테고리</p>
+            <div style={{display: "flex"}}>
+            <S.CSDiv>
+                <S.CSUl>
+                    <S.CSLi>패션의류잡화</S.CSLi>
+                    <S.CSLi>뷰티</S.CSLi>
+                    <S.CSLi>출산/유아동</S.CSLi>
+                    <S.CSLi>식품</S.CSLi>
+                    <S.CSLi>주방용품</S.CSLi>
+                    <S.CSLi>생활용품</S.CSLi>
+                    <S.CSLi>가전/디지털</S.CSLi>
+                    <S.CSLi>스포츠/레져</S.CSLi>
+                    <S.CSLi>도서</S.CSLi>
+                    <S.CSLi>문구/오피스</S.CSLi>
+                    <S.CSLi>음반/DVD</S.CSLi>
+                    <S.CSLi>완구/취미</S.CSLi>
+                    <S.CSLi>반려/애완용품</S.CSLi>
+                </S.CSUl>
+            </S.CSDiv>
+            </div>
+            </S.RegistDiv>
+
             <S.Input></S.Input>
             <p>배송 관련 사항</p>
             <S.Input></S.Input>
@@ -65,20 +96,24 @@ const RegistPage = () => {
             </div>
             <S.RegistDiv></S.RegistDiv>
             <button>판매요청</button>            
-            <p>상품 주요정부</p>
+            
+            <S.RegistDiv>
+                <p>상품 주요정부</p>
             <S.RegistDetailUl>
 
                 <S.RegistDetail>
                 <S.DetailSpan>브랜드</S.DetailSpan>
                 <S.DetailDiv>
-                <S.Input></S.Input>
+                <S.OInput></S.OInput>
+                <input type="checkbox"></input>
+                <span>브랜드 없음 (또는 자체 제작)</span>
                 </S.DetailDiv>  
                 </S.RegistDetail>
 
                 <S.RegistDetail>
                 <S.DetailSpan>제조사</S.DetailSpan>
                 <S.DetailDiv>
-                <S.Input></S.Input>
+                <S.OInput></S.OInput>
                 </S.DetailDiv>  
                 </S.RegistDetail>
 
@@ -156,9 +191,7 @@ const RegistPage = () => {
                 </S.DetailDiv>  
                 </S.RegistDetail>
                 </S.RegistDetailUl>
-
-                <p>검색어</p>
-                <S.Input></S.Input>
+            </S.RegistDiv>
 
             <p>구비서류</p>
             <p>옵션 설정</p>
@@ -244,6 +277,9 @@ const RegistPage = () => {
                 </S.DetailSDiv>   
                 </S.DetailDiv>  
             </S.RegistDetail>
+
+                            <p>검색어</p>
+                <S.Input></S.Input>
 
     */
 
