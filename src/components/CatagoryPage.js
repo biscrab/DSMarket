@@ -15,6 +15,66 @@ import Sta from '../contents/Star'
 import Page from '../contents/Page'
 import Catagory from '../contents/Catagory'
 
+/*
+    1 패션의류/잡화
+        2 여성패션
+        3 남성패션
+        4 남녀 공용 의류
+        5 유아동패션
+    6 뷰티
+        7 명품뷰티
+        8 스킨케어
+        9 클렌징/필링
+        10 메이크업
+        11 향수
+        12 남성화장품
+        13 네일
+        14 뷰티소품
+        15 어린이화장품
+        16 로드샵
+        17 헤어
+        18 바디
+        19 선물세트/키트
+    20 식품
+        21 과일
+        22 견과/건과
+        23 채소
+        24 쌀/잡곡
+        25 축산/계란
+        26 수산물/건어물
+        27 음료
+        28 과자/시리얼
+        29 면/통조림/가공식품
+        30 가루/조미료/오일
+        31 장/소스/드레싱/식초
+        32 유제품/아이스크림
+        33 건강식품
+    34 주방용품
+        35 냄비/프라이팬
+        36 칼/도마
+        37 주방조리도구
+        38 그릇/홈세트
+        39 수저/커트러리
+        40 컵/잔/텀블러
+        41 밀폐저장/도시락
+        42 주방잡화
+        43 일회용품/종이컵
+        44 보온/보냉용품
+        45 이유/유아식기
+        46 베이킹용품
+        57 교자상/제수용품
+    58 생활용품
+        59 헤어/바디/세안
+        60 구강/면도
+        70 화장지/물티슈
+        71 생리대/성인기저귀
+        72 기저귀
+        73 세탁
+        75 탈취/방향/살충
+        76 건강/의료용품
+        
+*/
+
 const CategoryPage = () => {
 
     let history = useHistory();
@@ -559,20 +619,25 @@ const CategoryPage = () => {
                 if(list[i].catagory === "wfashion" || "mfashion" || "pfashion" || "cfashion"){
                     s = [...s,list[i]];
                 }
-        }
+            }
             setList(s);
         }
         if(params.catagory = `/food`){
             var s = [];
             for(var i = 0; i < list.length; i++){
-                if(list[i].catagory === "olganic" || "fruit" || "nut" || "vegetable"){
+                if(list[i].catagory === "olganic" || "fruit" || "nut" || "vegetable" || "rice" || "meet" || "fish" || "drink" || "snack" || "noodle" || "pouder" || "source" || "diaryproduct" || "refrieg" || "health"){
                     s = [...s,list[i]];
                 }
             }
             setList(s);
         }
         if(params.catagory = `/life`){
-            
+            for(var i = 0; i < list.length; i++){
+                if(list[i].catagory === "body" || "mouth" || "sanitarypad" || "diaper" || "laundry" || "clean"){
+                    s = [...s,list[i]];
+                }
+            }
+            setList(s);
         }
         if(params.catagory = `/kitchen`){
             
@@ -585,6 +650,25 @@ const CategoryPage = () => {
         }
         if(params.catagory = `/homeappliances`){
 
+        }
+    }
+
+    const setD = () => {
+
+    }
+
+    const setA = () => {
+        if(params.detail){
+            var s = [];
+            for(var i = 0; i < list.length; i++){
+                if(list[i].catagory === params.detail){
+                    s = [...s,list[i]];
+                }
+            }
+            setList(s);
+        }
+        else{
+            SetP(); 
         }
     }
 
@@ -677,6 +761,7 @@ const CategoryPage = () => {
         console.dir(params.catagory);
         console.dir(match);
         console.dir(location);
+        setA();
         setC();
         setO(1);
     },[]);
