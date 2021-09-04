@@ -177,19 +177,6 @@ const RegistPage = () => {
                 </S.DetailDiv>  
                 </S.RegistDetail>
 
-                <S.RegistDetail>
-                <S.DetailSpan>부과세</S.DetailSpan>
-                <S.DetailDiv>
-                <S.DetailSDiv>
-                <input type="radio"></input>
-                <span>과세</span>
-                </S.DetailSDiv> 
-                <S.DetailSDiv>
-                <input type="radio"></input>
-                <span>면세</span>
-                </S.DetailSDiv> 
-                </S.DetailDiv>  
-                </S.RegistDetail>
                 </S.RegistDetailUl>
             </S.RegistDiv>
 
@@ -280,6 +267,21 @@ const RegistPage = () => {
 
                             <p>검색어</p>
                 <S.Input></S.Input>
+
+
+                            <S.RegistDetail>
+                <S.DetailSpan>부과세</S.DetailSpan>
+                <S.DetailDiv>
+                <S.DetailSDiv>
+                <input type="radio"></input>
+                <span>과세</span>
+                </S.DetailSDiv> 
+                <S.DetailSDiv>
+                <input type="radio"></input>
+                <span>면세</span>
+                </S.DetailSDiv> 
+                </S.DetailDiv>  
+                </S.RegistDetail>
 
     */
 
