@@ -10,23 +10,13 @@ import C from '../images/c.jpg'
 import D from '../images/d.jpg'
 
 function App() {
-
- const [list, setList] = useState([
-          {id: 1, name: "1", price: 1, star: 1, img: A},
-          {id: 2, name: "1", price: 1, star: 1, img: B},
-          {id: 3, name: "1", price: 1, star: 1, img: B},
-          {id: 4, name: "1", price: 1, star: 1, img: B},
-          {id: 5, name: "1", price: 1, star: 1, img: B},
-          {id: 6, name: "1", price: 1, star: 1, img: B}
-        ]);
-
   return(
     <>
     <Header />
     <Route exact path="/" component={P.Main}/>
     <Switch>
-    <Route path="/catagory" component={P.Catagory}/>
     <Route path="/catagory/:catagory/:detail" component={P.Catagory}/>
+    <Route path="/catagory" component={P.Catagory}/>
     <Route path="/item" component={P.Item}/>
     <Route exact path="/order" component={P.Order}/>
     <Route exact path="/regist" component={P.Regist}/>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {useParams, useLocation, Link} from "react-router-dom";
+import {useParams, useLocation, Link, useRouteMatch} from "react-router-dom";
 import * as S from '../styled/App'
 import P from '../images/p.png'
 import R from '../images/r.png'
@@ -18,7 +18,7 @@ import Catagory from '../contents/Catagory'
 const CategoryPage = () => {
 
     let history = useHistory();
-
+    const match = useRouteMatch();
     const params = useParams();
     const location = useLocation();
 
@@ -553,23 +553,38 @@ const CategoryPage = () => {
     }
 
     const SetP = () => {
-        if(location.pathname.includes(`/fashion`)){
+        if(params.catagory = `/fashion`){
+            var s = [];
+            for(var i = 0; i < list.length; i++){
+                if(list[i].catagory === "wfashion" || "mfashion" || "pfashion" || "cfashion"){
+                    s = [...s,list[i]];
+                }
+        }
+            setList(s);
+        }
+        if(params.catagory = `/food`){
+            var s = [];
+            for(var i = 0; i < list.length; i++){
+                if(list[i].catagory === "olganic" || "fruit" || "nut" || "vegetable"){
+                    s = [...s,list[i]];
+                }
+            }
+            setList(s);
+        }
+        if(params.catagory = `/life`){
+            
+        }
+        if(params.catagory = `/kitchen`){
+            
+        }
+        if(params.catagory = `/interial`){
+            
+        }
+        if(params.catagory = `/fenci`){
+            
+        }
+        if(params.catagory = `/homeappliances`){
 
-        }
-        if(location.pathname.includes(`/food`)){
-            
-        }
-        if(location.pathname.includes(`/life`)){
-            
-        }
-        if(location.pathname.includes(`/kitchen`)){
-            
-        }
-        if(location.pathname.includes(`/interial`)){
-            
-        }
-        if(location.pathname.includes(`/fenci`)){
-            
         }
     }
 
@@ -659,7 +674,8 @@ const CategoryPage = () => {
 
     useEffect(()=>{
         console.log(query);
-        console.dir(params);
+        console.dir(params.catagory);
+        console.dir(match);
         console.dir(location);
         setC();
         setO(1);

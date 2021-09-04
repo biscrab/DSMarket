@@ -34,6 +34,8 @@ const Header = () => {
         {name: "asd", id: "asd", password: "a", age: 30},
     ])
 
+    const [cart, setCart] = useState(5);
+
     return(
         <>
         <S.Header>
