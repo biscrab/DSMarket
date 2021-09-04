@@ -118,38 +118,6 @@ const RegistPage = () => {
                 </S.RegistDetail>
 
                 <S.RegistDetail>
-                <S.DetailSpan>인증정보</S.DetailSpan>
-                <S.DetailDiv>
-                <S.DetailSDiv>
-                <input type="radio"></input>
-                <span>인증·신고·대상</span> 
-                </S.DetailSDiv>
-                <S.DetailSDiv>
-                <input type="radio"></input>
-                <span>상세페이지 별도표기</span>
-                </S.DetailSDiv>
-                <S.DetailSDiv>
-                <input type="radio"></input>
-                <span>인증·신고·대상 아님</span>
-                </S.DetailSDiv>  
-                </S.DetailDiv> 
-                </S.RegistDetail>
-
-                <S.RegistDetail>
-                <S.DetailSpan>병행수입</S.DetailSpan> 
-                <S.DetailDiv>
-                <S.DetailSDiv>
-                <input type="radio"></input>
-                <span>병행수입</span>
-                </S.DetailSDiv> 
-                <S.DetailSDiv>
-                <input type="radio"></input>
-                <span>병행수입 아님</span>
-                </S.DetailSDiv>   
-                </S.DetailDiv> 
-                </S.RegistDetail>
-
-                <S.RegistDetail>
                 <S.DetailSpan>인당 최대구매수량</S.DetailSpan>
                 <S.DetailDiv>
                 <S.DetailSDiv>
@@ -281,6 +249,38 @@ const RegistPage = () => {
                 <span>면세</span>
                 </S.DetailSDiv> 
                 </S.DetailDiv>  
+                </S.RegistDetail>
+
+                                <S.RegistDetail>
+                <S.DetailSpan>인증정보</S.DetailSpan>
+                <S.DetailDiv>
+                <S.DetailSDiv>
+                <input type="radio"></input>
+                <span>인증·신고·대상</span> 
+                </S.DetailSDiv>
+                <S.DetailSDiv>
+                <input type="radio"></input>
+                <span>상세페이지 별도표기</span>
+                </S.DetailSDiv>
+                <S.DetailSDiv>
+                <input type="radio"></input>
+                <span>인증·신고·대상 아님</span>
+                </S.DetailSDiv>  
+                </S.DetailDiv> 
+                </S.RegistDetail>
+
+                <S.RegistDetail>
+                <S.DetailSpan>병행수입</S.DetailSpan> 
+                <S.DetailDiv>
+                <S.DetailSDiv>
+                <input type="radio"></input>
+                <span>병행수입</span>
+                </S.DetailSDiv> 
+                <S.DetailSDiv>
+                <input type="radio"></input>
+                <span>병행수입 아님</span>
+                </S.DetailSDiv>   
+                </S.DetailDiv> 
                 </S.RegistDetail>
 
     */
