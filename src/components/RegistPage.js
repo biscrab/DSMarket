@@ -328,7 +328,7 @@ const RegistPage = () => {
             <p>구비서류</p>
             <p>옵션 설정</p>
             {t ?
-            <S.RButton>판매요청</S.RButton>
+            <S.RButton color="royalblue">판매요청</S.RButton>
             :
             <S.RButton>판매요청</S.RButton>
             }

@@ -835,6 +835,7 @@ export const Box = styled.div`
     position: relative;
     height: 27px;
     font-size: 15px;
+    color : ${props => props.color};
     :hover{
         background-color: #eeeeee;
     }

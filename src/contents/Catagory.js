@@ -12,33 +12,9 @@ const Catagory = ({item}) => {
         setB(location.pathname.includes(`/${item.path}`));
     })
 
-    const Del = () => {
-        var a = location.pathname;
-        a = a.replace(`/${item.path}`,"");
-
-        history.push(a);
-    }
-
-    const Set = () => {
-        /*if(location.pathname.includes(`/${item.path}`)){
-            //history.push(location.pathname.replace(`/${item.path}`));
-            console.log(location.pathname);
-        }
-        else{
-            var splice = location.pathname;
-            splice = location.pathname.split('/');
-            var c = ""
-            for(var i = 0; i < 2; i++){
-                c += splice[i];
-            }
-            history.push(c);
-        }*/
-        console.log(history);
-    }
-
     return(
         <>
-        <S.Box onClick={() => Set()}>
+        <S.Box onClick={() => history.push(`/catagory/${item.path}`)}>
             <div style={{position:"relative", top:"50%", transform:"translateY(-50%)"}}>
                 <span>{item.name}{location.pathname}</span>
             </div>
