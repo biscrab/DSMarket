@@ -1144,6 +1144,7 @@ export const OrderSpan = styled.span`
     position: relative;
     left: 120px;
     font-size: 16px;
+    margin-right: 20px;
 
     :hover{
         color: royalblue;
