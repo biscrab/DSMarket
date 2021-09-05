@@ -192,11 +192,16 @@ const CategoryPage = () => {
 
         const [clist, setClist] = useState(list.slice(0, 5));
         return(
+            <>
+            {c <= 6 ? 
             <S.CatagoryDiv>
                 <S.CaTittle>색상</S.CaTittle>
                 <Select lists={clist} path={path}/>
                 {list.length > 6 && clist.length <= 6 ? <S.More onClick={() => setClist([...list])}>+더보기</S.More> : <S.More onClick={() => setClist(list.slice(0, 5))}>-닫기</S.More>}
             </S.CatagoryDiv>
+            :<></>
+            }
+            </>
         )
 
     }
@@ -636,7 +641,7 @@ const CategoryPage = () => {
         const list = [{name: "인증 있음"}];
         return(
             <>
-            {c ?
+            {c >= 21 && c <= 24 ?
             <S.CatagoryDiv>
                 <S.CaTittle>유기농/친환경 등</S.CaTittle>
                 <Select lists={list}></Select>
@@ -648,10 +653,10 @@ const CategoryPage = () => {
     }
 
     const KindofLanguageTest = () => {
-        const list = [{name: "TOEIC"},{name: "TEPS"},{name: "TOFLE"},{name: "NEAT"},{name: "TOSEL"},{name: "NEAT"},{name: "TOEIC"},{name: "TOEIC"},{name: "TOEIC"},{name: "TOEIC"},{name: "TOEIC"},{name: "TOEIC"}];
+        const list = [{name: "TOEIC"},{name: "TEPS"},{name: "TOFLE"},{name: "NEAT"},{name: "TOSEL"},{name: "SAT"},{name: "GRE"},{name: "G-TELP"},{name: "IELTS"},{name: "PELT"},{name: "OPIc"},{name: "JLPT"},{name: "HSK"},{name: "한자능력검정"}];
         return(
             <>
-            {c ?
+            {c === 123 ?
             <S.CatagoryDiv>
                 <S.CaTittle>유기농/친환경 등</S.CaTittle>
                 <Select lists={list}></Select>
@@ -923,10 +928,12 @@ const CategoryPage = () => {
                 <Price />
                 <Cata />
                 <Color />
+                <Olganic />
                 <Caffein />
                 <Season />
                 <Subject />
                 <useGrade />
+                <KindofLanguageTest />
                 <Language />
                 <ShapeOfBook />
             </S.Select>
