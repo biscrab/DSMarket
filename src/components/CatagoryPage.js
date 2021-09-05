@@ -732,58 +732,133 @@ const CategoryPage = () => {
     }
 
     const SetC = ({c}) => {
-        switch(c){
-            case 1 :
-                setCatagory(["의류","속옷/잠옷","신발","가방/잡화"]);
-            break;
-            case 'food' :
-                setCatagory(["유기농","과일","견과/건과","채소","쌀/잡곡","축산/계란","수산물/건어물","생수/음료","커피/원두/차","과자/초콜릿/시리얼","면/통조림/가공식품","가루/조미료/오일","장/소스/드레싱/식초","유제품/아이스크림","냉장/냉동/간편요리","건강식품"]);
-                return(
-                <>
-                </>
-                )
-            break;
-            case 'fenci' :
-                setCatagory(["사무용품 전문관", "미술/화방용품", "학용품/수업준비", "필기류", "노트/메모지", "다이어리/플래너", "바인더/파일", "파티/이벤트","데코/포장용품","카드/엽서/봉투","앨범","복사용품/라벨지","보드/칠판/광고"]);
-                return(
-                    <>
-                    </>
-                )
-            break; 
-            case 'book' :
-                setCatagory([{name: "유아/어린이"},{name: "소설/에세이/시"},{name:"초중고참고서"},{name: "가정 살림"},{name: "건강 취미"},{name: "경제 경영"},"과학/공학","국어/외국어/사전","대학교재","만화/라이트노벨","사회 정치","수험서/자격증"])
-                return(
-                    <>
-                        <ShapeOfBook />
-                    </>
-                )
-                break;
-            case 'life' :
-                setCatagory(["헤어/바디/세안","구강/면도","화장지/물티슈","생리대/기저귀", "세탁세제", "청소/주방세제", "틸취/방향/살충", "건강/의료용품", "욕실용품", "생활전기용품", "수납", "생활잡화", "공구/철물/DIY", "안전/호신용품"]);
-                return(
-                    <>
-                    </>
-                )
-            break;
-            case 'pet' :
-                setCatagory(["강아지", "고양이", "관상어", "소동물/가축용품"]);
-            break;
-            case 'homeappliances':
-                setCatagory(["TV/영상가전","냉장고","세탁기/건조기","생활가전","이미용가전","건강가전","노트북","데스크탑","모니터","PC주변기기","PC부품","휴대폰","태블릿PC","스마트워치/밴드","음향기기","게임","카메라","전동킥보드/자전거","차량용 디지털"]);
-            break;
-            case 'sport' :
-                setCatagory(["캠핑","홈트레이닝","수영/수상스포츠","골프","자전거","킥보드/스케이트","낚시","등산/아웃도어","스포츠신발","남성스포츠의류","여성스포츠의류","유아스포츠의류","스포츠잡화","구기스포츠","라켓스포츠","헬스/요가/댄스","복싱/검도/태권도","학교 체육 준비","기타스포츠","스키/겨울스포츠"]);
-            break;
-            case 'toy': 
-                setCatagory(["신생아/영아완구","로봇/작동완구","역할놀이","블록놀이","인형","물놀이/계절완구","승용완구","실내대형완구","STEAM완구","학습완구/교구","보드게임","RC완구/부품","퍼즐/큐브/피젯토이","프라모델","피규어/다이캐스트","콘솔/휴대용 게임기", "파티/마술용품", "DIY", "악기/음향기기", "원예/가드닝", "수집품", "키덜트샵"]);
-            break;
-            case 'kitchen':
-                setCatagory(["주방가전","냄비/프라이팬","칼/도마","주방조리도구","그릇/홈세트","수저/커트러리","컵/잔/텀블러","밀폐저장/도시락","주방잡화","일회용품/종이컵","보온/보냉용품","이유/유아식기","베이킹용품","교자상/제수용품"]);
-            break;
-            default :
-            
-            break;
-        }
+        setCatagory([{name: "의류" ,link: 2},
+                    {name:"속옷/잠옷", link: 3},
+                    {name:"신발", link: 4},
+                    {name:"가방/잡화", link: 5}]);
+
+        setCatagory([{name:"과일", link: 21},
+                    {name:"견과/건과", link: 22},
+                    {name:"채소", link: 23},
+                    {name:"쌀/잡곡", link: 24},
+                    {name:"축산/계란", link: 12},
+                    {name:"수산물/건어물", link: 13},
+                    {name:"생수/음료", link: 14},
+                    {name:"커피/원두/차", link: 15},
+                    {name:"과자/초콜릿/시리얼", link: 16},
+                    {name:"면/통조림/가공식품", link: 17},
+                    {name:"가루/조미료/오일", link: 18},
+                    {name:"장/소스/드레싱/식초", link: 19},
+                    {name:"유제품/아이스크림", link: 20},
+                    {name:"냉장/냉동/간편요리", link: 21},
+                    {name:"건강식품", link: 22}]);
+
+        setCatagory([{name: "사무용품 전문관", link: 1},
+                    {name: "미술/화방용품", link: 1},
+                    {name: "학용품/수업준비", link: 1},
+                    {name: "필기류", link: 1},
+                    {name: "노트/메모지", link: 1},
+                    {name: "다이어리/플래너", link: 1},
+                    {name: "바인더/파일", link: 1},
+                    {name: "파티/이벤트", link: 1},
+                    {name:"데코/포장용품", link: 1},
+                    {name:"카드/엽서/봉투", link: 1},
+                    {name:"앨범", link: 1},
+                    {name:"복사용품/라벨지", link: 1},
+                    {name:"보드/칠판/광고", link: 1}]);
+
+        setCatagory([{name: "유아/어린이", link: 1},
+                    {name: "소설/에세이/시", link: 1},
+                    {name:"초중고참고서", link: 1},
+                    {name: "가정 살림", link: 1},
+                    {name: "건강 취미", link: 1},
+                    {name: "경제 경영", link: 1},
+                    {name: "과학/공학", link: 1},
+                    {name: "국어/외국어/사전", link: 1},
+                    {name: "대학교재", link: 1},
+                    {name: "만화/라이트노벨", link: 1},
+                    {name: "사회 정치", link: 1},
+                    {name: "수험서/자격증", link: 1}])
+
+        setCatagory([{name: "헤어/바디/세안", link: 1},
+                    {name: "구강/면도", link: 1},
+                    {name: "화장지/물티슈", link: 1},
+                    {name: "생리대/기저귀", link: 1},
+                    {name: "세탁세제", link: 1},
+                    {name: "청소/주방세제", link: 1},
+                    {name: "틸취/방향/살충", link: 1},
+                    {name: "건강/의료용품", link: 1},
+                    {name: "욕실용품", link: 1},
+                    {name: "생활전기용품", link: 1},
+                    {name: "수납", link: 1},
+                    {name: "생활잡화", link: 1},
+                    {name: "공구/철물/DIY", link: 1},
+                    {name: "안전/호신용품", link: 1}]);
+
+        setCatagory([{name: "강아지" , linke: 1}, 
+                    {name: "고양이",link: 1}, 
+                    {name: "관상어" ,link: 1}, 
+                    {name: "소동물/가축용품" ,link: 1}]);
+
+        setCatagory([{name: "TV/영상가전" ,link: 1}, 
+                    {name:"냉장고" ,link: 1}, 
+                    {name:"세탁기/건조기" ,link: 1},
+                    {name:"생활가전" ,link: 1}, 
+                    {name:"이미용가전" ,link: 1}, 
+                    {name:"건강가전" ,link: 1}, 
+                    {name:"노트북" ,link: 1},
+                    {name:"데스크탑" ,link: 1}, 
+                    {name:"모니터" ,link: 1}, 
+                    {name:"PC주변기기" ,link: 1}, 
+                    {name:"PC부품" ,link: 1},
+                    {name:"휴대폰" ,link: 1},
+                    {name:"태블릿PC" ,link: 1}, 
+                    {name:"스마트워치/밴드" ,link: 1},
+                    {name:"음향기기" ,link: 1},
+                    {name:"게임" ,link: 1}, 
+                    {name:"카메라" ,link: 1}, 
+                    {name:"전동킥보드/자전거" ,link: 1},
+                    {name:"차량용 디지털" ,link: 1}]);
+
+        setCatagory([{name: "캠핑" ,link: 1},
+                    {name:"홈트레이닝" ,link: 1},
+                    {name:"수영/수상스포츠" ,link: 1},
+                    {name:"골프" ,link: 1},
+                    {name:"자전거" ,link: 1},
+                    {name:"킥보드/스케이트" ,link: 1},
+                    {name:"낚시" ,link: 1},
+                    {name:"등산/아웃도어" ,link: 1},
+                    {name:"스포츠신발" ,link: 1},
+                    {name:"남성스포츠의류" ,link: 1},
+                    {name:"여성스포츠의류" ,link: 1},
+                    {name:"유아스포츠의류" ,link: 1}, 
+                    {name:"스포츠잡화" ,link: 1},
+                    {name:"구기스포츠" ,link: 1},
+                    {name:"라켓스포츠" ,link: 1}, 
+                    {name:"헬스/요가/댄스" ,link: 1},
+                    {name:"복싱/검도/태권도" ,link: 1}, 
+                    {name:"학교 체육 준비" ,link: 1}, 
+                    {name:"기타스포츠" ,link: 1},
+                    {name:"스키/겨울스포츠", link: 1}]);
+
+        setCatagory([{name: "신생아/영아완구" ,link: 1},
+                    {name:"로봇/작동완구" ,link: 1},
+                    {name:"역할놀이" ,link: 1},
+                    {name:"블록놀이" ,link: 1},
+                    {name:"인형" ,link: 1},
+                    {name:"물놀이/계절완구" ,link: 1},
+                     {name:"승용완구" ,link: 1},
+                      {name:"실내대형완구" ,link: 1},
+                       {name:"STEAM완구" ,link: 1},
+                        {name:"학습완구/교구" ,link: 1},
+                         {name:"보드게임" ,link: 1},
+                          {name:"RC완구/부품" ,link: 1},
+                           {name:"퍼즐/큐브/피젯토이" ,link: 1},
+                            {name:"프라모델" ,link: 1},
+                             {name:"피규어/다이캐스트" ,link: 1},
+                              {name:"콘솔/휴대용 게임기" ,link: 1},
+                               {name: "파티/마술용품" ,link: 1}, {name: "DIY" ,link: 1}, {name: "악기/음향기기" ,link: 1}, {name: "원예/가드닝" ,link: 1}, {name: "수집품" ,link: 1}, {name: "키덜트샵", link: 1}]);
+        setCatagory([{name: "주방가전" ,link: 1}, {name:"냄비/프라이팬" ,link: 1}, {name:"칼/도마" ,link: 1}, {name:"주방조리도구" ,link: 1}, {name:"그릇/홈세트" ,link: 1}, {name:"수저/커트러리" ,link: 1}, {name:"컵/잔/텀블러" ,link: 1}, {name:"밀폐저장/도시락" ,link: 1}, {name:"주방잡화" ,link: 1}, {name:"일회용품/종이컵" ,link: 1}, {name:"보온/보냉용품" ,link: 1}, {name:"이유/유아식기" ,link: 1}, {name:"베이킹용품" ,link: 1}, {name:"교자상/제수용품"]);
     }
 
     const Cata = () => {

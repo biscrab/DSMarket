@@ -42,7 +42,7 @@ const MainPage = () => {
                 <S.CDiv>
                     <S.TotalCategory onClick={() => history.push('/catagory')}>전체 카테고리</S.TotalCategory>
                     <S.Category onMouseEnter={()=>setValue(0)} onClick={() => history.push('/catagory/1')}><S.CSpan>패션</S.CSpan></S.Category>
-                    <S.Category onMouseEnter={()=>setValue(1)} onClick={() => history.push('/catagory/food')}><S.CSpan>뷰티</S.CSpan></S.Category>
+                    <S.Category onMouseEnter={()=>setValue(1)} onClick={() => history.push('/catagory/6')}><S.CSpan>뷰티</S.CSpan></S.Category>
                     <S.Category onMouseEnter={()=>setValue(2)} onClick={() => history.push('/catagory/food')}><S.CSpan>식품</S.CSpan></S.Category>
                     <S.Category onMouseEnter={()=>setValue(3)} onClick={() => history.push('/catagory/intelier')}><S.CSpan>주방용품</S.CSpan></S.Category>
                     <S.Category onMouseEnter={()=>setValue(4)} onClick={() => history.push('/catagory/travel')}><S.CSpan>생활용품</S.CSpan></S.Category>

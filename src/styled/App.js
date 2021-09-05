@@ -121,6 +121,7 @@ export const CSpan = styled.span`
     position: relative;
     display: flex;
     align-items: center;
+    color: ${props => props.color};
 `
 
 export const Select = styled.div`
@@ -817,7 +818,7 @@ export const AS = styled.li`
     display: flex;
     justify-content: center;
     font-size: 20px;
-    background-color: royalblue;
+    background-color: ${props => props.color};
     border-right: 1px solid white;
 `
 

@@ -16,6 +16,7 @@ function App() {
     <Route path="/item" component={P.Item}/>
     <Route exact path="/order" component={P.Order}/>
     <Route exact path="/regist" component={P.Regist}/>
+    <Route path="/admin/:id" component={P.Admin}/>
     <Route path="/admin" component={P.Admin}/>
     <Route exact path="/cart" component={P.Cart} />
     <Route exact path="/signup" component={P.SignUp} />
