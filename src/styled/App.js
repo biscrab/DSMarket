@@ -91,7 +91,7 @@ export const CDiv = styled.div`
 `
 
 export const TotalCategory = styled.button`
-    background-color: silver;
+    background-color: #30A8F7;
     font-size: 18px;
     color: white;
     margin: 0px;
@@ -109,11 +109,11 @@ export const Category = styled.span`
     display: flex;
     position: relative;
     justify-content: center;
-    background-color: royalblue;
+    background-color: #6FBFF5;
     border-top: 1px solid lightgrey;
 
     :hover{
-        color: gainsboro;
+        color: #6FBFF5;
         background-color: white;
     }
 `
