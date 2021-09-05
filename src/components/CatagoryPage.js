@@ -648,7 +648,7 @@ const CategoryPage = () => {
     }
 
     const KindofLanguageTest = () => {
-        const list = [{name: "TOEIC"},{name: "TEPS"},{name: "TOEIC"},{name: "TOEIC"},{name: "TOEIC"},];
+        const list = [{name: "TOEIC"},{name: "TEPS"},{name: "TOFLE"},{name: "NEAT"},{name: "TOSEL"},{name: "NEAT"},{name: "TOEIC"},{name: "TOEIC"},{name: "TOEIC"},{name: "TOEIC"},{name: "TOEIC"},{name: "TOEIC"}];
         return(
             <>
             {c ?
