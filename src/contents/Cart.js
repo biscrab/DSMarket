@@ -6,7 +6,7 @@ const Cart = ({item}) => {
     return(
         <S.CaLi>
             <S.Top>
-            <input type="checkbox"></input>
+            <S.CaSelect type="checkbox"></S.CaSelect>
             <S.CaImg src={item.img}></S.CaImg>
             <S.CaDiv>
             <S.CaSpan>{item.name}</S.CaSpan>

@@ -147,6 +147,66 @@ import Catagory from '../contents/Catagory'
 
 const CategoryPage = () => {
 
+    const [l, setL] = useState();
+
+    const setLink = (c, path) => {
+        var a = `star=${c}`;
+        var c = ""
+        if(location.search.includes(`${path}=`)){
+            if(location.search.includes('&')){
+                var b = location.search.split('&');
+                for(var i = 0; i < b.length; i++){
+                    console.log(b[i]);
+                    if(b[i].includes(`${path}=`)){
+                        b[i]+=`,${c}`;
+                    }
+                    c += b[i];
+                }
+                location.search = c;
+            }
+            else{
+            setL(`,${c}`);
+            }
+        }
+        else if(location.search === ""){
+            setL(`?${a}`);
+            console.log(l);
+        }
+        else{
+            setL(`&${a}`);
+            console.log(l);
+        }
+    }
+
+    const Del = (c, path) => {
+        var a;
+        if(location.search.includes(`&${path}=${c}`)){
+            if(location.search.includes(`&${path}=${c},`)){
+                a = location.search.replace(`${c},`,""); 
+            }
+            else{
+                a = location.search.replace(`&${path}=${c}`,""); 
+            }   
+        }
+        else if(location.search.includes(`${path}=${c},`)){
+            a = location.search.replace(`${c},`,""); 
+        }
+        else if(location.search.includes(`,${c}`)){
+            a = location.search.replace(`,${c}`,""); 
+        }
+        else if(location.search.includes(`${c}&`)){
+            a = location.search.replace(`${c}`,""); 
+        }
+        else{
+            a = location.search.replace(`&${path}=${c}`,"");
+            a = location.search.replace(`?${path}=${c}`,"");
+            a = a.replace(`${path}=${c}`,"");
+        }
+
+        history.push(location.pathname + a);
+    }
+
+
     let history = useHistory();
     const match = useRouteMatch();
     const params = useParams();
@@ -242,6 +302,10 @@ const CategoryPage = () => {
     }
 
     const Star = () => {
+
+        const SetStar = () => {
+
+        }
 
         return(
             <S.CatagoryDiv>
@@ -623,7 +687,7 @@ const CategoryPage = () => {
     }
 
     const useGrade = () => {
-        const list = [{name: "초등1학년"},{name: "초등2학년"},{name: "초등3학년"},{name: "초등4학년"},{name: "초등5학년"},{name: "초등6학년"},{name: "중등1학년"},{name: "중등2학년"},{name: "중등3학년"},{name: "고등학생"}];
+        const list = [{name: "초등1학년" , link: ""},{name: "초등2학년" , link: ""},{name: "초등3학년", link: ""},{name: "초등4학년", link: ""},{name: "초등5학년"},{name: "초등6학년"},{name: "중등1학년"},{name: "중등2학년"},{name: "중등3학년"},{name: "고등학생"}];
         return(
             <>
             {c === 118 ?

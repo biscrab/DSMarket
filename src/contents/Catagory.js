@@ -14,9 +14,9 @@ const Catagory = ({item}) => {
 
     return(
         <>
-        <S.Box onClick={() => history.push(`/catagory/${item.path}`)}>
+        <S.Box color={location.pathname.includes(item.path) ? "royalblue" : "black"} onClick={() => history.push(`/catagory/${item.path}`)}>
             <div style={{position:"relative", top:"50%", transform:"translateY(-50%)"}}>
-                <span>{item.name}{location.pathname}</span>
+                <span>{item.name}</span>
             </div>
         </S.Box>
         </>

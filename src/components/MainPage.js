@@ -38,17 +38,17 @@ const MainPage = () => {
         <>
             <S.MainBanner>
                 <S.BannerImage src={arr[i]}></S.BannerImage>
-                <S.CTDiv onMouseOut={()=>setHover(true)} onMouseLeave={()=>setHover(false)}>
+                <S.CTDiv onMouseEnter={()=>setHover(true)} onMouseLeave={()=>setHover(false)}>
                 <S.CDiv>
                     <S.TotalCategory onClick={() => history.push('/catagory')}>전체 카테고리</S.TotalCategory>
-                    <S.Category onMouseOut={()=>setValue(0)} onClick={() => history.push('/catagory/fashion')}><S.CSpan>브랜드패션</S.CSpan></S.Category>
-                    <S.Category onMouseOut={()=>setValue(1)} onClick={() => history.push('/catagory/food')}><S.CSpan>패션의류·잡화·뷰티</S.CSpan></S.Category>
-                    <S.Category onMouseOut={()=>setValue(2)} onClick={() => history.push('/catagory/food')}><S.CSpan>유아동</S.CSpan></S.Category>
-                    <S.Category onMouseOut={()=>setValue(3)} onClick={() => history.push('/catagory/intelier')}><S.CSpan>식품·생필품</S.CSpan></S.Category>
-                    <S.Category onMouseOut={()=>setValue(4)} onClick={() => history.push('/catagory/travel')}><S.CSpan>홈데코·문구·취미·반려</S.CSpan></S.Category>
-                    <S.Category onMouseOut={()=>setValue(5)} onClick={() => history.push('/catagory/computer')}><S.CSpan>컴퓨터·디지털·가전</S.CSpan></S.Category>
-                    <S.Category onMouseOut={()=>setValue(6)} onClick={() => history.push('/catagory/sport')}><S.CSpan>스포츠·건강·렌탈</S.CSpan></S.Category>
-                    <S.Category onMouseOut={()=>setValue(7)} onClick={() => history.push('/catagory/car')}><S.CSpan>자동차·공구</S.CSpan></S.Category>
+                    <S.Category onMouseEnter={()=>setValue(0)} onClick={() => history.push('/catagory/1')}><S.CSpan>패션</S.CSpan></S.Category>
+                    <S.Category onMouseEnter={()=>setValue(1)} onClick={() => history.push('/catagory/food')}><S.CSpan>뷰티</S.CSpan></S.Category>
+                    <S.Category onMouseEnter={()=>setValue(2)} onClick={() => history.push('/catagory/food')}><S.CSpan>식품</S.CSpan></S.Category>
+                    <S.Category onMouseEnter={()=>setValue(3)} onClick={() => history.push('/catagory/intelier')}><S.CSpan>주방용품</S.CSpan></S.Category>
+                    <S.Category onMouseEnter={()=>setValue(4)} onClick={() => history.push('/catagory/travel')}><S.CSpan>생활용품</S.CSpan></S.Category>
+                    <S.Category onMouseEnter={()=>setValue(5)} onClick={() => history.push('/catagory/computer')}><S.CSpan>홈인테리어</S.CSpan></S.Category>
+                    <S.Category onMouseEnter={()=>setValue(6)} onClick={() => history.push('/catagory/sport')}><S.CSpan>가전디지털</S.CSpan></S.Category>
+                    <S.Category onMouseEnter={()=>setValue(7)} onClick={() => history.push('/catagory/car')}><S.CSpan>스포츠레져</S.CSpan></S.Category>
                 </S.CDiv>
                 <Border h={hover} value={value}>1</Border>
                 </S.CTDiv>

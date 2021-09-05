@@ -109,7 +109,7 @@ export const Category = styled.span`
     display: flex;
     position: relative;
     justify-content: center;
-    background-color: gainsboro;
+    background-color: royalblue;
     border-top: 1px solid lightgrey;
 
     :hover{
@@ -906,7 +906,7 @@ export const CartList = styled.ul`
     display: flex;
     flex-direction: column;
     width: 800px;
-    height: 2000px;
+    height: 900px;
     padding: 0;
     margin: 0;
     list-style: none;
@@ -1181,6 +1181,8 @@ export const Top = styled.div`
     position: relative;
     display: flex;
     top: 15px;
+    height: 98px;
+    padding: 10px;
 `
 
 export const BillDiv = styled.div`
@@ -1261,6 +1263,7 @@ export const Rp = styled.p`
     margin: 0;
     width: 100%;
     height: 40px;
+    font-size: 18px;
 `
 export const Rprice = styled.p`
     font-size: 17px;
@@ -1296,4 +1299,14 @@ export const RButton = styled.button`
     background-color: ${props => props.color};
     width: 200px;
     height: 50px;
+`
+
+export const CaSelect = styled.input`
+    width: 17px;
+    height: 17px;
+    position: relative;
+    margin-right: 30px;
+    top: 40%;
+    left: 10px;
+    transform: translateY(-50%);
 `

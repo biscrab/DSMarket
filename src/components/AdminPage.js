@@ -21,13 +21,13 @@ const AdminPage = () => {
         <S.A>
             <S.AdminDiv>
                 <S.ASDiv>
-                    <S.AS onClick={()=>history.push('/id?=wait')}><S.CSpan>등록 대기중인 상품</S.CSpan></S.AS>
-                    <S.AS onClick={()=>history.push('/id?=report')}><S.CSpan>신고 접수</S.CSpan></S.AS>
-                    <S.AS onClick={()=>history.push('/id?=notice')}><S.CSpan>공지사항</S.CSpan></S.AS>
-                    <S.AS onClick={()=>history.push('/id?=question')}><S.CSpan>문의 접수</S.CSpan></S.AS>
+                    <S.AS onClick={()=>history.push('/wait')}><S.CSpan>등록 대기중인 상품</S.CSpan></S.AS>
+                    <S.AS onClick={()=>history.push('/report')}><S.CSpan>신고 접수</S.CSpan></S.AS>
+                    <S.AS onClick={()=>history.push('/notice')}><S.CSpan>공지사항</S.CSpan></S.AS>
+                    <S.AS onClick={()=>history.push('/question')}><S.CSpan>문의 접수</S.CSpan></S.AS>
                 </S.ASDiv>
                 <S.AUl>
-
+                    
                 </S.AUl>
             </S.AdminDiv>
         </S.A>
