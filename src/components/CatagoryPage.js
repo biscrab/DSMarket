@@ -324,32 +324,47 @@ const CategoryPage = () => {
     }
         
     const Caffein = () => {
-        const list = {}
+        const list = [{name:"카페인"},{name: "무카페인"}];
         return(
+            <>
+            {c === 27 ?
             <S.CatagoryDiv>
-                <span></span>
+                <S.CaTittle>카페인</S.CaTittle>
                 <Select lists={list}/>
-            </S.CatagoryDiv>
+            </S.CatagoryDiv>:
+            <></>
+            }
+            </>
         )
     }
     
     const Language = () => {
-        const list = {}
+        const list = [{name: "한국어"},{name: "영어"},{name: "일본어"},{name: "중국어"},{name: "독일어"},{name: "프랑스어"},{name: "스페인어"},{name: "이탈리어어"},{name: "러시아어"},{name: "증동/아랍어"}]
         return(
+            <>
+            {c === 116 || c === 117 || c === 125 ?  
             <S.CatagoryDiv>
-                <span></span>
+                <S.CaTittle>언어</S.CaTittle>
                 <Select lists={list}/>
-            </S.CatagoryDiv>
+            </S.CatagoryDiv>:
+            <></>
+            }
+            </>
         )
     }
     
     const ShapeOfBook = () => {
         const list = [{name:"양장"},{name:"반양장"},{name:"페이퍼북"},{name:"보드북"},{name:"문고판"},{name:"큰글씨"},{name:"오디오북"}];
         return(
+            <>
+            {c >= 115 && c <= 131 ?
             <S.CatagoryDiv>
                 <span>도서형태</span>
                 <Select lists={list}/>
-            </S.CatagoryDiv>
+            </S.CatagoryDiv> :
+            <></>
+            }
+            </>
         )
     }
         
@@ -559,10 +574,15 @@ const CategoryPage = () => {
     const Range = () => {
         const list = {name:"전자 레인지 가능"}
         return(
+            <>
+            {c ?
             <S.CatagoryDiv>
                 <S.CaTittle>전자 레인지 가능 여부</S.CaTittle>
                 <Select lists={list}/>
-            </S.CatagoryDiv>
+            </S.CatagoryDiv> :
+            <></>
+            }
+            </>
         )
     }
 
@@ -570,44 +590,77 @@ const CategoryPage = () => {
         const list = [{name:"로켓", i:R, link:"rocket"}, {name:"무료배송", i:P, link:"free"}]
         const path = 'dilivery'
         return(
+            <>
+            {c ?
             <S.CatagoryDiv>
                 <S.CaTittle>배송</S.CaTittle>
                 <Select lists={list} path={path}></Select>
-            </S.CatagoryDiv>
+            </S.CatagoryDiv> :
+            <></>
+            }
+            </>
         );
     }
 
     const Subject = () => {
         const list = [{name: "국어"},{name: "수학"},{name: "영어"},{name: "사회"},{name: "역사"},{name: "과학"},{name: "한자/한문"},{name: "예체능"},{name: "제2외국어"},{name: "논술/작문"},{name: "전과목"}];
         return(
+            <>
+            {c === 118?
             <S.CatagoryDiv>
                 <S.CaTittle>과목</S.CaTittle>
                 <Select lists={list}></Select>
-            </S.CatagoryDiv>
+            </S.CatagoryDiv> :
+            <></>
+            }
+            </>
         )
     }
 
     const useGrade = () => {
         const list = [{name: "초등1학년"},{name: "초등2학년"},{name: "초등3학년"},{name: "초등4학년"},{name: "초등5학년"},{name: "초등6학년"},{name: "중등1학년"},{name: "중등2학년"},{name: "중등3학년"},{name: "고등학생"}];
         return(
+            <>
+            {c === 118 ?
             <S.CatagoryDiv>
                 <S.CaTittle>사용학년</S.CaTittle>
                 <Select lists={list}></Select>
-            </S.CatagoryDiv>
+            </S.CatagoryDiv> :
+            <></>
+            }
+            </>
         )
     }
 
     const Olganic = () => {
         const list = [{name: "인증 있음"}];
         return(
+            <>
+            {c ?
             <S.CatagoryDiv>
                 <S.CaTittle>유기농/친환경 등</S.CaTittle>
                 <Select lists={list}></Select>
-            </S.CatagoryDiv>
+            </S.CatagoryDiv> :
+            <></>
+            }
+            </>
         )
     }
 
-    //최소 연령
+    const KindofLanguageTest = () => {
+        const list = [{name: "TOEIC"},{name: "TEPS"},{name: "TOEIC"},{name: "TOEIC"},{name: "TOEIC"},];
+        return(
+            <>
+            {c ?
+            <S.CatagoryDiv>
+                <S.CaTittle>유기농/친환경 등</S.CaTittle>
+                <Select lists={list}></Select>
+            </S.CatagoryDiv> :
+            <></>
+            }
+            </>
+        )
+    }
 
     const SetC = ({c}) => {
         switch(c){
@@ -688,56 +741,63 @@ const CategoryPage = () => {
         break;
         case "6" :
             for(var i = 0; i < list.length; i++){
-                if(list[i].catagory >= 6 && list[i].catagory <= 19){
+                if(list[i].catagory >= 7 && list[i].catagory <= 19){
                     s = [...s,list[i]];
                 }
             }
         break;
         case "20" :
             for(var i = 0; i < list.length; i++){
-                if(list[i].catagory >= 20 && list[i].catagory <= 33){
+                if(list[i].catagory >= 21 && list[i].catagory <= 33){
                     s = [...s,list[i]];
                 }
             }
         break;
         case "34" :
             for(var i = 0; i < list.length; i++){
-                if(list[i].catagory >= 34 && list[i].catagory <= 57){
+                if(list[i].catagory >= 35 && list[i].catagory <= 57){
                     s = [...s,list[i]];
                 }
             }
         break;
         case "58" :
             for(var i = 0; i < list.length; i++){
-                if(list[i].catagory >= 58 && list[i].catagory <= 71){
+                if(list[i].catagory >= 59 && list[i].catagory <= 71){
                     s = [...s,list[i]];
                 }
             }
         break;
         case "72" :
             for(var i = 0; i < list.length; i++){
-                if(list[i].catagory >= 72 && list[i].catagory <= 82){
+                if(list[i].catagory >= 73 && list[i].catagory <= 82){
                     s = [...s,list[i]];
                 }
             }
         break;
         case "83" :
             for(var i = 0; i < list.length; i++){
-                if(list[i].catagory >= 83 && list[i].catagory <= 98){
+                if(list[i].catagory >= 84 && list[i].catagory <= 98){
                     s = [...s,list[i]];
                 }
             }
         break;
         case "99" :
             for(var i = 0; i < list.length; i++){
-                if(list[i].catagory >= 99 && list[i].catagory <= 114){
+                if(list[i].catagory >= 100 && list[i].catagory <= 114){
                     s = [...s,list[i]];
                 }
             }
         break;
         case "115" :
             for(var i = 0; i < list.length; i++){
-                if(list[i].catagory >= 115 && list[i].catagory <= 131){
+                if(list[i].catagory >= 116 && list[i].catagory <= 131){
+                    s = [...s,list[i]];
+                }
+            }
+        break;
+        case "132" :
+            for(var i = 0; i < list.length; i++){
+                if(list[i].catagory >= 133 && list[i].catagory <= 135){
                     s = [...s,list[i]];
                 }
             }
@@ -810,6 +870,7 @@ const CategoryPage = () => {
     const [option, setOption] = useState(1);
     const query = queryString.parse(location.search);
     const [catagory, setCatagory] = useState([]);
+    const c = Number(params.catagory);
 
     const[page, setPage] = useState([1,2,3]);
 
@@ -861,10 +922,13 @@ const CategoryPage = () => {
                 <Star />
                 <Price />
                 <Cata />
-                {params.catagory >= 1 && params.catagory <= 6 ?
-                <Color /> : <></>
-                }
+                <Color />
+                <Caffein />
                 <Season />
+                <Subject />
+                <useGrade />
+                <Language />
+                <ShapeOfBook />
             </S.Select>
             <S.CBox>
                 {query.search ?
