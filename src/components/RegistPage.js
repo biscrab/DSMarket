@@ -132,6 +132,8 @@ import CSLi from '../contents/Csli'
         135 소동물/가축용품
 */
 
+const t = false;
+
 const list = [{tittle: 1, a: 1, b:2}];
 
 const RegistPage = () => {
@@ -218,21 +220,21 @@ const RegistPage = () => {
             <div style={{display: "flex"}}>
             <S.CSDiv>
                 <S.CSUl>
-                    <S.CSLi onClick={()=>setCatagory(1)}>패션의류잡화</S.CSLi>
-                    <S.CSLi onClick={()=>setCatagory(2)}>뷰티</S.CSLi>
-                    <S.CSLi onClick={()=>setCatagory(2)}>식품</S.CSLi>
-                    <S.CSLi onClick={()=>setCatagory(3)}>주방용품</S.CSLi>
-                    <S.CSLi onClick={()=>setCatagory(4)}>생활용품</S.CSLi>
-                    <S.CSLi onClick={()=>setCatagory(5)}>가전/디지털</S.CSLi>
-                    <S.CSLi onClick={()=>setCatagory(6)}>스포츠/레져</S.CSLi>
-                    <S.CSLi onClick={()=>setCatagory(7)}>도서</S.CSLi>
-                    <S.CSLi onClick={()=>setCatagory(8)}>문구/오피스</S.CSLi>
-                    <S.CSLi onClick={()=>setCatagory(9)}>음반/DVD</S.CSLi>
-                    <S.CSLi onClick={()=>setCatagory(10)}>완구/취미</S.CSLi>
-                    <S.CSLi onClick={()=>setCatagory(11)}>반려/애완용품</S.CSLi>
+                    <S.CSLi onClick={()=>SetC(1)}>패션의류잡화</S.CSLi>
+                    <S.CSLi onClick={()=>SetC(2)}>뷰티</S.CSLi>
+                    <S.CSLi onClick={()=>SetC(2)}>식품</S.CSLi>
+                    <S.CSLi onClick={()=>SetC(3)}>주방용품</S.CSLi>
+                    <S.CSLi onClick={()=>SetC(4)}>생활용품</S.CSLi>
+                    <S.CSLi onClick={()=>SetC(5)}>가전/디지털</S.CSLi>
+                    <S.CSLi onClick={()=>SetC(6)}>스포츠/레져</S.CSLi>
+                    <S.CSLi onClick={()=>SetC(7)}>도서</S.CSLi>
+                    <S.CSLi onClick={()=>SetC(8)}>문구/오피스</S.CSLi>
+                    <S.CSLi onClick={()=>SetC(9)}>음반/DVD</S.CSLi>
+                    <S.CSLi onClick={()=>SetC(10)}>완구/취미</S.CSLi>
+                    <S.CSLi onClick={()=>SetC(11)}>반려/애완용품</S.CSLi>
                 </S.CSUl>
             </S.CSDiv>
-            {catagory ?
+            {catagory ?  
             <S.CSDiv>
                 <S.CSUl>
                     <CSLi lists={catagory}></CSLi>
@@ -270,8 +272,7 @@ const RegistPage = () => {
                 <S.UploadButton onClick={()=>setUpload(2)} color={upload === 2 ? "white" : "black"} bkcolor={upload === 2 ? "royalblue" : "white"} border={upload === 2 ? "0px" : "1px"}>에디터 작성</S.UploadButton>
                 <S.UploadButton onClick={()=>setUpload(3)} color={upload === 3 ? "white" : "black"} bkcolor={upload === 3 ? "royalblue" : "white"} border={upload === 3 ? "0px" : "1px"}>HTML 작성</S.UploadButton>
             </div>
-            <S.RegistDiv></S.RegistDiv>
-            <button>판매요청</button>            
+            <S.RegistDiv></S.RegistDiv>            
             
             <S.RegistDiv>
                 <p>상품 주요정부</p>
@@ -326,6 +327,11 @@ const RegistPage = () => {
 
             <p>구비서류</p>
             <p>옵션 설정</p>
+            {t ?
+            <S.RButton>판매요청</S.RButton>
+            :
+            <S.RButton>판매요청</S.RButton>
+            }
             </div>
         </S.R>
     )

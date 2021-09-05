@@ -1289,3 +1289,10 @@ export const StSpan = styled.span`
     position: relative;
     left: 10px;
 `
+
+export const RButton = styled.button`
+    border: 1px solid lightgray;
+    background-color: ${props => props.color};
+    width: 200px;
+    height: 50px;
+`

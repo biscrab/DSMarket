@@ -4,14 +4,14 @@ import * as S from '../styled/App'
 const Item = ({item}) => {
 
     return(
-        <S.CSLi>{item}</S.CSLi>
+        <S.CSLi>{item.name}</S.CSLi>
     );
 }
 
 const List = ({lists}) => {
     const itemList = lists.map(
         item => (
-            <Item item={item}/>
+            <Item item={item} name={item.name}/>
         )
     )
     return itemList;
