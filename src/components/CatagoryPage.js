@@ -138,6 +138,11 @@ import Catagory from '../contents/Catagory'
         129 역사
         130 예술
         131 인문
+    132 반려동물용품
+        132 강아지 사료/용품
+        133 고양이 사료 용품
+        134 관상어 용품
+        135 소동물/가축용품
 */
 
 const CategoryPage = () => {

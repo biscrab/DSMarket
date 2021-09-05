@@ -2,6 +2,136 @@ import React,{useState} from 'react'
 import * as S from '../styled/App'
 import CSLi from '../contents/Csli'
 
+/*
+    1 패션의류/잡화
+        2 여성패션
+        3 남성패션
+        4 남녀 공용 의류
+        5 유아동패션
+    6 뷰티
+        7 명품뷰티
+        8 스킨케어
+        9 클렌징/필링
+        10 메이크업
+        11 향수
+        12 남성화장품
+        13 네일
+        14 뷰티소품
+        15 어린이화장품
+        16 로드샵
+        17 헤어
+        18 바디
+        19 선물세트/키트
+    20 식품
+        21 과일
+        22 견과/건과
+        23 채소
+        24 쌀/잡곡
+        25 축산/계란
+        26 수산물/건어물
+        27 음료
+        28 과자/시리얼
+        29 면/통조림/가공식품
+        30 가루/조미료/오일
+        31 장/소스/드레싱/식초
+        32 유제품/아이스크림
+        33 건강식품
+    34 주방용품
+        35 냄비/프라이팬
+        36 칼/도마
+        37 주방조리도구
+        38 그릇/홈세트
+        39 수저/커트러리
+        40 컵/잔/텀블러
+        41 밀폐저장/도시락
+        42 주방잡화
+        43 일회용품/종이컵
+        44 보온/보냉용품
+        45 이유/유아식기
+        46 베이킹용품
+        57 교자상/제수용품
+    58 생활용품
+        59 헤어/바디/세안
+        60 구강/면도
+        61 화장지/물티슈
+        62 생리대/성인기저귀
+        63 기저귀
+        64 세탁
+        65 청소용품
+        66 탈취/방향/살충
+        67 건강/의료용품
+        68 욕실 용품
+        69 생활전기용품
+        70 수납/정리
+        71 생활잡화
+    72 홈인테리어
+        73 홈데코
+        74 가구
+        75 수납/정리
+        76 침구
+        77 커튼/블라인드
+        78 카페트/쿠션/거실화
+        79 수예/수선
+        80 욕실용품
+        81 조명/스탠드
+        82 원예/가드닝
+    83 가전디지털
+        84 TV/영상가전
+        85 냉장고
+        86 세탁기/건조기
+        87 청소기
+        88 계전가전
+        89 이미용가전
+        90 건강가전
+        91 주방가전
+        92 노트북
+        93 데스크탑
+        94 모니터
+        95 키보드 마우스
+        96 저장장치
+        97 프린터/복합기
+        98 PC부품
+    99 스포츠/레저
+        99 캠핑
+        100 홈트레이닝
+        101 수영/수상스포츠
+        102 골프
+        103 자전거
+        104 킥보드/스케이트
+        105 낚시
+        106 등산/아웃도어
+        107 스포츠신발
+        108 남성스포츠의류
+        109 여성스포츠의류
+        110 유아스포츠의류
+        111 스포츠잡화
+        112 구기스포츠
+        113 라켓스포츠
+        114 헬스/요가/댄스
+    115 도서/음반/DVD
+        116 유아/어린이
+        117 소설/에세이/사
+        118 초중고참고서
+        119 가정 살림
+        120 건강 취미
+        121 경재 경영
+        122 과학/공학
+        123 국어/외국어/사전
+        124 대학교재
+        125 만화/라이트노벨
+        126 사회 정치
+        127 수험서/자격증
+        128 여행
+        129 역사
+        130 예술
+        131 인문
+    132 반려동물용품
+        132 강아지 사료/용품
+        133 고양이 사료 용품
+        134 관상어 용품
+        135 소동물/가축용품
+*/
+
 const list = [{tittle: 1, a: 1, b:2}];
 
 const RegistPage = () => {
@@ -32,13 +162,12 @@ const RegistPage = () => {
     */
 
     const SetC = ({c}) => {
-        const c = c;
         switch(c){
             case 1 :
-                setCatagory([{name: "의류", path: ""},{name: "속옷/잠옷", path: ""},{name: "신발", path: ""},"가방/잡화"]);
+                setCatagory([{name: "의류", path: 2},{name: "속옷/잠옷", path: 3},{name: "신발", path: 4},{name: "가방/잡화", path: 5}]);
             break;
             case 2 :
-                setCatagory([{name: "유기농", path: ""},{name: "과일", path: ""},{name: "견과/건과", path: ""},{name: "채소", path: ""},{name: "쌀/잡곡", path: ""},{name: "축산/계란", path: ""},{name: "수산물/건어물", path: ""},{name: "생수/음료", path: ""},{name: "커피/원두/차", path: ""},{name: "과자/초콜릿/시리얼", path: ""},{name: "면/통조림/가공식품", path: ""},{name: "가루/조미료/오일", path: ""},{name: "장/소스/드레싱/식초", path: ""},{name: "유제품/아이스크림", path: ""},{name: "냉장/냉동/간편요리", path: ""},{name: "건강식품", path: ""}]);
+                setCatagory([{name: "유기농", path: 7},{name: "과일", path: 8},{name: "견과/건과", path: 9},{name: "채소", path: 10},{name: "쌀/잡곡", path: ""},{name: "축산/계란", path: ""},{name: "수산물/건어물", path: ""},{name: "생수/음료", path: ""},{name: "커피/원두/차", path: ""},{name: "과자/초콜릿/시리얼", path: ""},{name: "면/통조림/가공식품", path: ""},{name: "가루/조미료/오일", path: ""},{name: "장/소스/드레싱/식초", path: ""},{name: "유제품/아이스크림", path: ""},{name: "냉장/냉동/간편요리", path: ""},{name: "건강식품", path: ""}]);
             break;
             case 3 :
                 setCatagory([{name: "사무용품 전문관", path: ""}, {name: "미술/화방용품", path: ""}, {name: "학용품/수업준비", path: ""},{name: "필기류", path: ""},{name: "노트/메모지", path: ""}, {name: "다이어리/플래너", path: ""}, {name: "바인더/파일", path: ""}, {name: "파티/이벤트", path: ""}, {name: "데코/포장용품", path: ""}, {name: "카드/엽서/봉투", path: ""}, {name: "앨범", path: ""}, {name: "복사용품/라벨지", path: ""},{name: "보드/칠판/광고", path: ""}]);
@@ -47,7 +176,7 @@ const RegistPage = () => {
                 setCatagory([{name: "유아/어린이", path: ""},{name: "소설/에세이/시", path: ""},{name:"초중고참고서", path: ""},{name: "가정 살림", path: ""},{name: "건강 취미", path: ""},{name: "경제 경영", path: ""},{name: "과학/공학", path: ""},{name: "국어/외국어/사전", path: ""},{name: "대학교재", path: ""},{name: "만화/라이트노벨", path: ""},{name: "사회 정치", path: ""},{name: "수험서/자격증", path: ""}]);
                 break;
             case 5 :
-                setCatagory([{name: "헤어/바디/세안", path: ""},{name: "구강/면도", path: ""},{name: "화장지/물티슈", path: ""},{name: "생리대/기저귀", path: ""}, {name: "세탁세제", path: ""}, {name: "청소/주방세제", path: ""}, {name: "틸취/방향/살충", path: ""}, {"건강/의료용품", path: ""}, {name: "욕실용품", path: ""}, {name: "생활전기용품", path: ""}, {name: "수납", path: ""}, {name: "생활잡화", path: ""}, {name: "공구/철물/DIY", path: ""}, {name: "안전/호신용품", path: ""}]);
+                setCatagory([{name: "헤어/바디/세안", path: ""},{name: "구강/면도", path: ""},{name: "화장지/물티슈", path: ""},{name: "생리대/기저귀", path: ""}, {name: "세탁세제", path: ""}, {name: "청소/주방세제", path: ""}, {name: "틸취/방향/살충", path: ""}, {name: "건강/의료용품", path: ""}, {name: "욕실용품", path: ""}, {name: "생활전기용품", path: ""}, {name: "수납", path: ""}, {name: "생활잡화", path: ""}, {name: "공구/철물/DIY", path: ""}, {name: "안전/호신용품", path: ""}]);
             break;
             case 6 :
                 setCatagory([{name: "강아지", path: ""}, {name: "고양이", path: ""}, {name: "관상어", path: ""}, {name: "소동물/가축용품", path: ""}]);
@@ -89,19 +218,18 @@ const RegistPage = () => {
             <div style={{display: "flex"}}>
             <S.CSDiv>
                 <S.CSUl>
-                    <S.CSLi>패션의류잡화</S.CSLi>
-                    <S.CSLi>뷰티</S.CSLi>
-                    <S.CSLi>출산/유아동</S.CSLi>
-                    <S.CSLi>식품</S.CSLi>
-                    <S.CSLi>주방용품</S.CSLi>
-                    <S.CSLi>생활용품</S.CSLi>
-                    <S.CSLi>가전/디지털</S.CSLi>
-                    <S.CSLi>스포츠/레져</S.CSLi>
-                    <S.CSLi>도서</S.CSLi>
-                    <S.CSLi>문구/오피스</S.CSLi>
-                    <S.CSLi>음반/DVD</S.CSLi>
-                    <S.CSLi>완구/취미</S.CSLi>
-                    <S.CSLi>반려/애완용품</S.CSLi>
+                    <S.CSLi onClick={()=>setCatagory(1)}>패션의류잡화</S.CSLi>
+                    <S.CSLi onClick={()=>setCatagory(2)}>뷰티</S.CSLi>
+                    <S.CSLi onClick={()=>setCatagory(2)}>식품</S.CSLi>
+                    <S.CSLi onClick={()=>setCatagory(3)}>주방용품</S.CSLi>
+                    <S.CSLi onClick={()=>setCatagory(4)}>생활용품</S.CSLi>
+                    <S.CSLi onClick={()=>setCatagory(5)}>가전/디지털</S.CSLi>
+                    <S.CSLi onClick={()=>setCatagory(6)}>스포츠/레져</S.CSLi>
+                    <S.CSLi onClick={()=>setCatagory(7)}>도서</S.CSLi>
+                    <S.CSLi onClick={()=>setCatagory(8)}>문구/오피스</S.CSLi>
+                    <S.CSLi onClick={()=>setCatagory(9)}>음반/DVD</S.CSLi>
+                    <S.CSLi onClick={()=>setCatagory(10)}>완구/취미</S.CSLi>
+                    <S.CSLi onClick={()=>setCatagory(11)}>반려/애완용품</S.CSLi>
                 </S.CSUl>
             </S.CSDiv>
             {catagory ?
