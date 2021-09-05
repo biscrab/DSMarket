@@ -10,13 +10,13 @@ import Star from '../contents/Star'
 
 const ItemPge = () => {
 
-    const list = [{id: 1, img: A, price: 100, name: 1 ,catagory:[]},
-    {id: 2, img: B, price: 100, name: 1, catagory:[]},
-    {id: 3, img: C, price: 100, name: 1, catagory:[]},
-    {id: 4, img: D, price: 100, name: 1, catagory:[]},
-    {id: 5, img: E, price: 100, name: 1,catagory:[]},
-    {id: 5, img: E, price: 100, name: 1,catagory:[]},
-    {id: 5, img: E, price: 100, name: 1,catagory:[]},
+    const list = [{id: 1, img: A, price: 100, name: 1 ,catagory: 1},
+    {id: 2, img: B, price: 100, name: 1, catagory: 1},
+    {id: 3, img: C, price: 100, name: 1, catagory: 1},
+    {id: 4, img: D, price: 100, name: 1, catagory: 1},
+    {id: 5, img: E, price: 100, name: 1,catagory: 1},
+    {id: 5, img: E, price: 100, name: 1,catagory: 1},
+    {id: 5, img: E, price: 100, name: 1,catagory: 1},
 ];
 
     const [more, setMore] = useState(false);
@@ -32,7 +32,6 @@ const ItemPge = () => {
                     </S.ADiv>
                     <S.ADiv>
                         <S.PText>10,000원</S.PText>
-                        <S.PointDiv><S.Pspan>🟡100포인트</S.Pspan></S.PointDiv>
                     </S.ADiv>
                     <S.ADiv>
                         <S.DileveryTime>8/30일</S.DileveryTime>
@@ -102,6 +101,8 @@ const ItemPge = () => {
             </S.IDiv>
         </>
     );
+
+    /*<S.PointDiv><S.Pspan>🟡100포인트</S.Pspan></S.PointDiv>*/
 }
 
 export default ItemPge;
