@@ -41,34 +41,6 @@ const Header = () => {
         }
     }
 
-    const Del = (c, path) => {
-        var a;
-        if(location.search.includes(`&${path}=${c}`)){
-            if(location.search.includes(`&${path}=${c},`)){
-                a = location.search.replace(`${c},`,""); 
-            }
-            else{
-                a = location.search.replace(`&${path}=${c}`,""); 
-            }   
-        }
-        else if(location.search.includes(`${path}=${c},`)){
-            a = location.search.replace(`${c},`,""); 
-        }
-        else if(location.search.includes(`,${c}`)){
-            a = location.search.replace(`,${c}`,""); 
-        }
-        else if(location.search.includes(`${c}&`)){
-            a = location.search.replace(`${c}`,""); 
-        }
-        else{
-            a = location.search.replace(`&${path}=${c}`,"");
-            a = location.search.replace(`?${path}=${c}`,"");
-            a = a.replace(`${path}=${c}`,"");
-        }
-
-        history.push(location.pathname + a);
-    }
-
     let history = useHistory();
     const [typing, setTyping] = useState(false);
     const [v, setV] = useState();
@@ -98,12 +70,6 @@ const Header = () => {
         */
     }
 
-    const Kenter = (e) => {
-        if(e.key === 'Enter'){
-            search();
-        }
-    }
-
     const [recent, setRecent] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 
     const [user, setUser] = useState([
@@ -123,10 +89,10 @@ const Header = () => {
         <>
         <S.Header>
             <S.S>
-            <S.Logo onClick={() => history.replace('/')}>쇼핑몰</S.Logo>
+            <S.Logo onClick={() => history.replace('/')}>대마몰</S.Logo>
             <S.SBox>
                 <S.SDiv>
-                    <S.Sel id="select">
+                    <S.Sel id="select" onClick={()=>setLink(v, "search")}>
                         <option>전체</option>
                         <option>여성 패션</option>
                         <option>남성 패션</option>
@@ -156,7 +122,7 @@ const Header = () => {
                     : <></>}
                </S.SDiv> 
                <div onClick={()=>search()} onKeyPress={(e) => {if(e.key === 'Enter'){search()}}}>
-               <i class="fa fa-search fa-2x"></i>
+               <i class="fa fa-search fa-2x" onClick={()=>setLink(v, "search")}></i>
                </div>
             </S.SBox>
             <S.Link src={M} onClick={()=>history.replace(`/order`)}/>
@@ -183,8 +149,8 @@ const Header = () => {
                 <S.LoginInput />
                 <S.LoginSpan>비밀번호</S.LoginSpan>
                 <S.LoginInput />
-                <S.LoginButton color="gray">로그인</S.LoginButton>
-                <S.LoginButton onClick={()=>SignUp()}>회원가입</S.LoginButton>
+                <S.LoginButton color="royalblue" c="white">로그인</S.LoginButton>
+                <S.LoginButton c="black" onClick={()=>SignUp()}>회원가입</S.LoginButton>
             </S.LoginDiv>
         </S.LoginBackground>
         : <></>}            

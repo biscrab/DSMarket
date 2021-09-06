@@ -343,56 +343,29 @@ const CategoryPage = () => {
     };
 
         
-    const Price = () => {
+    const Price = () => {   
 
-        const setP = ({highest, lowest}) => {
-            if(location.search){
-                if(lowest){
-                    if(highest){
-                        location.search = "?lowest="+`${lowest}`+"&highest="+`${highest}`;
-                    }
-                    else{
-                        location.search = "?lowest="+`${lowest}`;
-                    }
-                }
-                else{
-                    if(highest){
-                        location.search = "?highest="+`${highest}`;
-                    }
-                }  
+        const SetPrice = ({highest, lowest}) => { 
+            if(highest){
+            setLink("heighest", highest);
             }
-            else{
-                if(lowest){
-                    if(highest){
-                        location.search = "&lowest="+`${lowest}`+"&highest="+`${highest}`;
-                    }
-                    else{
-                        location.search = "&lowest="+`${lowest}`;
-                    }
-                }
-                else{
-                    if(highest){
-                        location.search = "&highest="+`${highest}`;
-                    }
-                }
+            if(lowest){
+            setLink("lowest", lowest);
             }
-            console.log(location);
-            history.push(location.search);
-            console.log(query);
         }
 
         return(
             <S.CatagoryDiv>
                 <S.CaTittle>가격</S.CaTittle>
-                <S.Box onClick={()=>setP({highest: "", lowest: "7000"})}>7천원 이하</S.Box>
-                <S.Box onClick={()=>setP({highest: "7000", lowest: "14000"})}>7천원~1만 4천원</S.Box>
-                <S.Box onClick={()=>setP({highest: "14000", lowest: "28000"})}>1만 4천원~2만 8천원</S.Box>
-                <S.Box onClick={()=>setP({highest: "28000", lowest: ""})}>2만 8천원 이상</S.Box>
+                <S.Box onClick={()=>SetPrice({highest: "", lowest: 7000})}>7천원 이하</S.Box>
+                <S.Box onClick={()=>SetPrice({highest: 7000, lowest: 14000})}>7천원~1만 4천원</S.Box>
+                <S.Box onClick={()=>SetPrice({highest: 14000, lowest: 28000})}>1만 4천원~2만 8천원</S.Box>
+                <S.Box onClick={()=>SetPrice({highest: 28000, lowest: ""})}>2만 8천원 이상</S.Box>
                 <S.PriceDiv>
                 <S.PriceInput onChange={onChange} name="lowest" value={price.lowest}></S.PriceInput>~
                 <S.PriceInput onChange={onChange} name="highest" value={price.highest}></S.PriceInput>원
                 <Link to={{search:`lowest=${price.lowest}&highest=${price.highest}`}}>
-                <S.PriceButton>검색</S.PriceButton>
+                <S.PriceButton onClick={()=>SetPrice({highest: price.highest, lowest: price.lowest})}>검색</S.PriceButton>
                 </Link>
                 </S.PriceDiv>
             </S.CatagoryDiv>
@@ -622,16 +595,6 @@ const CategoryPage = () => {
         return(
             <S.CatagoryDiv>
                 <S.CaTittle>여성 양말 종류</S.CaTittle>
-                <Select lists={list}/>
-            </S.CatagoryDiv>
-        )
-    }
-
-    const Caracter = () => {
-        const list = {name:"요괴메카드", name:"신비아파트", name:"뽀로로", name:"겨울왕국", name:"카카오프렌즈", name:"헬로키티", name:"에디슨프렌드"}
-        return(
-            <S.CatagoryDiv>
-                <S.CaTittle>캐릭터</S.CaTittle>
                 <Select lists={list}/>
             </S.CatagoryDiv>
         )

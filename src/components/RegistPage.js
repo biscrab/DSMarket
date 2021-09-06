@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import * as S from '../styled/App'
 import CSLi from '../contents/Csli'
+import RegistOption from '../contents/RegistOption';
 
 /*
     1 패션의류/잡화
@@ -201,6 +202,8 @@ const RegistPage = () => {
         }
     }
 
+    const list = [{name: 1, option:[1,2,3]},{name: 2, option:[1,3,4]}];
+
     return(
         <S.R>
             <div style={{width: "70%"}}>
@@ -237,13 +240,21 @@ const RegistPage = () => {
             {catagory ?  
             <S.CSDiv>
                 <S.CSUl>
+                    <S.RegistDetail>
                     <CSLi lists={catagory}></CSLi>
+                    </S.RegistDetail>
                 </S.CSUl>
             </S.CSDiv> : <></>
             }
             </div>
             </S.RegistDiv>
 
+            <p>상세설정</p>
+            <S.RegistDiv>
+                <S.RegistDetailUl>
+                    <span>카타고리</span>
+                </S.RegistDetailUl>
+            </S.RegistDiv>
             <S.Input></S.Input>
             <p>배송 관련 사항</p>
             <S.Input></S.Input>
@@ -276,6 +287,7 @@ const RegistPage = () => {
             
             <S.RegistDiv>
                 <p>상품 주요정부</p>
+                <RegistOption lists={list}/>
             <S.RegistDetailUl>
 
                 <S.RegistDetail>

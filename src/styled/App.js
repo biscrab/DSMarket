@@ -126,6 +126,7 @@ export const CSpan = styled.span`
 
 export const Select = styled.div`
     border: 2px solid #eeeeee;
+    height: auto;
     border-top: 0;
     position: relative;
     width: 180px;
@@ -785,7 +786,7 @@ export const LoginSpan = styled.span`
 `
 
 export const LoginTittle = styled.div`
-    background-color: gray;
+    background-color: royalblue;
     color: white;
     font-size: 30px;
     height: 50px;
@@ -800,7 +801,9 @@ export const LoginButton = styled.button`
     left: 50%;
     transform: translateX(-50%);
     background-color: ${props => props.color};
+    color: ${props => props.c};
     margin-bottom: 20px;
+    font-size: 20px;
 `
 
 export const X = styled.span`
@@ -1331,4 +1334,69 @@ export const CaSelect = styled.input`
     top: 40%;
     left: 10px;
     transform: translateY(-50%);
+`
+
+export const P = styled.div`
+    display: flex;
+    justify-content: center;
+`
+
+export const UserInfo = styled.ul`
+    border-top: 2px solid gray;
+    border-bottom: 2px solid gray;
+    height: 60px;
+    width: 500px;
+`
+
+export const UIspan = styled.span`
+    width: 50px;
+`
+
+export const PADiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 550px;
+    margin-right: 20px;
+    margin-left: 20px;
+`
+
+export const ItemInfo =  styled.div`
+    border: 2px solid gray;
+    width: 500px;
+    height: auto;
+`
+
+export const InfoNumber = styled.div`
+    background-color: #eeeeee;
+    margin: 10px;
+    height: 60px;
+    text-align: center;
+    font-size: 20px;
+`
+
+export const DiliveryDiv = styled.ul`
+    height: 200px;
+    border-bottom: 2px solid lightgray;
+`
+
+export const PaymentDiv = styled.div`
+    height: 250px;
+    border: 3px solid royalblue;
+    padding: 20px;
+    width: 458px;
+    margin-top: 30px;
+`
+
+export const PaymentButton = styled.button`
+    height: 70px;
+    width: 100%;
+    position: relative;
+    background-color: royalblue;
+    color: white;
+    border: 0;
+`
+
+export const CatagoryDivLi = styled.li`
+    width: 100%;
+    text-align: center;
 `
