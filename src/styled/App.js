@@ -52,12 +52,12 @@ export const Link = styled.img`
 `
 export const MainBanner = styled.div`
     background-color: white;
-    height: 450px;
+    height: 500px;
 `
 export const BannerImage = styled.img`
     position: absolute;
     width: 100%;
-    height: 450px;
+    height: 500px;
     animation: next 10s 1 next;
 
     @keyfrmes next {
@@ -84,7 +84,7 @@ export const Best = styled.h2`
 
 export const CDiv = styled.div`
     position: relative;
-    height: 450px;
+    height: 500px;
     width: 200px;
     display: flex;
     flex-direction: column;
@@ -552,7 +552,7 @@ export const BCDiv = styled.div`
     flex-direction: column;
     text-align: center;
     width: 200px;
-    height: 405px;
+    height: 455px;
     border-right: 2px solid #eeeeee;
 `
 
