@@ -9,6 +9,7 @@ import food from '../images/food.jpg'
 import sports from '../images/sports.jpg'
 import fashion from '../images/fashion.jpg'
 import computer from '../images/computer.jpg'
+import BorderCatagroy  from '../contents/BorderCatagory'
 
 /*
     1 패션의류/잡화
@@ -143,6 +144,7 @@ import computer from '../images/computer.jpg'
 const Border = ({h, value}) => {
 
     const [menu, setMenu] = useState([]);
+    const [list, setList] = useState([{name: "", path: ""}],[{name: "", path: ""}],[{name: "", path: ""}]);
     const [a, setA] = useState([]);
 
     const photo = [brand, fashion, baby, food, fenci, computer, sports, car]
@@ -150,51 +152,43 @@ const Border = ({h, value}) => {
     const set = () => {
         switch(value){
             case 1:
-                setMenu([{name: "여성 패션"},{name: "남성 패션"},{name: "남녀 공용 의류"},{name: "유아동패션"}],
-                [{name: "명품뷰티"},{name: "스킨케어"},{name: "클렌징/필링"},{name: "메이크업"},{name: "향수"},{name: "네일"},{name: "뷰티소품"},{name: "헤어"},{name: "바디"},{name: "선물세트/키트"}],
-                [{name: "남성화장품"},{name: "어린이화장품"},{name: "로드샵"}]);
+                setList([{name: "여성 패션", path: 1},{name: "남성 패션", path: 1},{name: "남녀 공용 의류", path: 1},{name: "유아동패션", path: 1}],
+                [{name: "명품뷰티", path: 1},{name: "스킨케어", path: 1},{name: "클렌징/필링", path: 1},{name: "메이크업", path: 1},{name: "향수", path: 1},{name: "네일", path: 1},{name: "뷰티소품", path: 1},{name: "헤어", path: 1},{name: "바디", path: 1},{name: "선물세트/키트", path: 1}],
+                [{name: "남성화장품", path: 1},{name: "어린이화장품", path: 1},{name: "로드샵", path: 1}]);
                 break;
             case 2:
-                setMenu([
-                    {name: "과일"},
-                    {name: "22 견과/건과"},
-                    {name: "23 채소"},
-                    {name: "24 쌀/잡곡"},
-                    {name: "27 음료"},
-                    {name: "28 과자/시리얼"},
-                    {name: "29 면/통조림/가공식품"},
-                    {name: "30 가루/조미료/오일"},
-                    {name: "31 장/소스/드레싱/식초"},
-                    {name: "32 유제품/아이스크림"},
-                    {name: "33 건강식품"}],[{name: "25 축산/계란"},{name: "26 수산물/건어물"},],[]);
+                setList([
+                    {name: "과일", path: 1},
+                    {name: "견과/건과", path: 1},
+                    {name: "채소", path: 1},
+                    {name: "쌀/잡곡", path: 1},
+                    {name: "음료", path: 1},
+                    {name: "과자/시리얼", path: 1},
+                    {name: "면/통조림/가공식품", path: 1},
+                    {name: "가루/조미료/오일", path: 1},
+                    {name: "장/소스/드레싱/식초", path: 1},
+                    {name: "유제품/아이스크림", path: 1},
+                    {name: "건강식품", path: 1}],[{name: "축산/계란", path: 1},{name: "수산물/건어물", path: 1}],[],[]);
                 break;
             case 3:
-                setMenu([35 
-,{name: "냄비/프라이팬
-,{name: "36 칼/도마
-,{name: "37 주방조리도구
-,{name: "38 그릇/홈세트
-,{name: "39 수저/커트러리
-,{name: "40 컵/잔/텀블러
-,{name: "41 밀폐저장/도시락
-,{name: "42 주방잡화
-,{name: "43 일회용품/종이컵
-,{name: "44 보온/보냉용품
-,{name: "45 이유/유아식기
-,{name: "46 베이킹용품
-,{name: "47 교자상/제수용품],[],[]);
+                setList([{name: "그릇/홈세트", path: 1},{name: "수저/커트러리", path: 1},{name: "컵/잔/텀블러", path: 1},{name: "밀폐저장/도시락", path: 1},,{name: "보온/보냉용품", path: 1},,{name: "이유/유아식기", path: 1},],
+                [{name: "냄비/프라이팬", path: 1},{name: "칼/도마", path: 1},{name: "주방조리도구", path: 1},,{name: "베이킹용품"}],
+                [{name: "일회용품/종이컵"}],[{name: "주방잡화", path: 1},{name: "교자상/제수용품"}]);
                 break;
             case 4:
-                setMenu(["홈데코", "문구", "취미/반려"],[],[]);
+                setList([{name: "헤어/바디/세안", path: 1},{name: "구강/면도", path: 1},{name: "화장지/물티슈", path: 1},{name: "생리대/성인기저귀", path: 1},{name: "기저귀", path: 1},{name: "세탁", path: 1},{name: "청소용품", path: 1},{name: "탈취/방향/살충", path: 1},{name: "건강/의료용품", path: 1},{name: "욕실 용품", path: 1},{name: "생활전기용품", path: 1},{name: "수납/정리", path: 1},{name: "생활잡화"}],[],[]);
                 break;
             case 5:
-                setMenu(["컴퓨터", "디지털", "가전"],[],[]);
+                setList([{name: "TV/영상가전", path: 1},{name: "냉장고", path: 1},{name: "세탁기/건조기", path: 1},{name: "청소기", path: 1},{name: "계전가전", path: 1},{name: "이미용가전", path: 1},{name: "건강가전", path: 1},{name: "주방가전", path: 1},{name: "노트북", path: 1},{name: "데스크탑", path: 1},{name: "모니터", path: 1},{name: "키보드 마우스", path: 1},{name: "저장장치", path: 1},{name: "프린터/복합기", path: 1},{name: "PC부품"}],[],[]);
                 break;
+            default :
+                setList([],[],[]);
+                /*
             case 6:
                 setMenu(["스포츠", "건강", "렌탈"],[],[]);
                 break;
             default:
-                setMenu(["강아지 사료/용품"],["고양이 사료/용품"],["관상어 용품", "소동물/가축용품"])
+                setMenu(["강아지 사료/용품"],["고양이 사료/용품"],["관상어 용품", "소동물/가축용품"])/*/
         }
     }
 
@@ -219,19 +213,25 @@ const Border = ({h, value}) => {
                      <S.BCDiv>
                         <S.CTittle>{menu[0]}</S.CTittle>
                         <ul>
-
+                            {list[0] ? 
+                            <BorderCatagroy lists={list[0]}/>
+                            :<></>}
                         </ul>
                      </S.BCDiv>
                      <S.BCDiv>
                         <S.CTittle>{menu[1]}</S.CTittle>
                         <ul>
-                            
+                            {list[1] ? 
+                            <BorderCatagroy lists={list[1]}/>
+                            :<></>}
                         </ul>
                      </S.BCDiv>
                      <S.BCDiv>
                         <S.CTittle>{menu[2]}</S.CTittle>
                         <ul>
-                            
+                            {list[2] ? 
+                            <BorderCatagroy lists={list[2]}/>
+                            :<></>}
                         </ul>
                      </S.BCDiv>
                      <S.Ad>

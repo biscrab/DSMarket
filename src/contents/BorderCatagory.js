@@ -15,6 +15,7 @@ const List = ({lists}) => {
             <BorderCatagory item={item} name={item.name} path={item.path}/>
         )
     )
+    return itemList;
 
 }
 
