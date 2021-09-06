@@ -71,7 +71,7 @@ export const BannerImage = styled.img`
 `
 
 export const BestItem = styled.div`
-    height: 500px;
+    height: 600px;
 `
 
 export const Best = styled.h2`
@@ -197,9 +197,27 @@ export const ItemImg = styled.img`
 `
 
 export const Image = styled.img`
-    width: 500px;
-    height: 500px;
+    width: 410px;
+    height: 410px;
     background-color: whitesmoke;
+`
+
+export const ItemImgDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+`
+
+export const PlusImgDiv = styled.div`
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 10px;
+`
+
+export const PlusImg = styled.img`
+    width: 50px;
+    height: 50px;
+    padding: 10px;
 `
 
 export const Info = styled.div`
@@ -321,10 +339,6 @@ export const BuyDiv = styled.div`
     padding: 15px;
     margin-left: 30px;
 `
-export const BButtonDiv = styled.div`
-    position: relative;
-    top: 230px;
-`
 
 export const BBill = styled.div`
     background-color: #eeeeee;
@@ -332,6 +346,10 @@ export const BBill = styled.div`
     height: 150px;
     position: relative;
     top: 30px;
+`
+
+export const BBillDiv = styled.div`
+    height: 430px;
 `
 
 export const BB = styled.button`
@@ -505,7 +523,9 @@ export const Check = styled.div`
 export const BDiv = styled.div`
     margin: 10px;
     height: 350px;
+    :hover{
     box-shadow: 0 0 20px 0 rgb(0 0 0 / 10%);
+    }
 `
 export const Bfont = styled.p`
     text-align: center;

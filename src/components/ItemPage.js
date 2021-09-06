@@ -20,11 +20,20 @@ const ItemPge = () => {
 ];
 
     const [more, setMore] = useState(false);
+    const img = [A, B, C, D, E];
+    const [imgN, setImgN] = useState(0);
 
     return(
         <> 
             <S.IBorder>
-                <S.Image src={A}></S.Image>
+                <S.ItemImgDiv>
+                <S.Image src={img[imgN]}></S.Image>
+                <S.PlusImgDiv>
+                    <S.PlusImg onClick={()=>{setImgN(1)}} src={imgN[1]}></S.PlusImg>
+                    <S.PlusImg></S.PlusImg>
+                    <S.PlusImg></S.PlusImg>
+                </S.PlusImgDiv>
+                </S.ItemImgDiv>
                 <S.Info>
                     <S.ADiv>
                         <h2>제품</h2>
@@ -88,15 +97,15 @@ const ItemPge = () => {
                         <S.BuyImg></S.BuyImg>
                         <p>아이템</p>
                     </S.BuyImgDiv>
+                    <S.BBillDiv>
                     <S.BBill></S.BBill>
-                    <S.BButtonDiv>
+                    </S.BBillDiv>
                     <S.BBDiv>
                         <h3>총 상품금액</h3>
                         <h2 style={{marginTop:"15px"}}>10000원</h2>
                     </S.BBDiv>
                     <S.BB color="black" bkcolor="white" border="1px">장바구니</S.BB>                     
                     <S.BB color="white" bkcolor="royalblue" border="0px">구매하기</S.BB>
-                    </S.BButtonDiv>
                 </S.BuyDiv>
             </S.IDiv>
         </>

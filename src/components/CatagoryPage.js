@@ -809,14 +809,16 @@ const CategoryPage = () => {
     }
 
     const Cata = () => {
-
-        const list = [{name:"1", path:"1"},{name:"2", path:"2"}];
-
         return(
+            <>
+            {catagory ?
             <S.CatagoryDiv>
                 <S.CaTittle>카테고리</S.CaTittle>
                 <Catagory lists={catagory}></Catagory>
-            </S.CatagoryDiv>
+            </S.CatagoryDiv>:
+            <></>
+            }
+            </>
         )
     }
 

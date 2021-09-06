@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useLocation } from 'react-router-dom'
 import * as S from '../styled/App'
 import A from '../images/s.png'
 import M from '../images/man.png'
@@ -7,6 +7,67 @@ import C from '../images/cart.png'
 import Admin from '../images/admin.png'
 
 const Header = () => {
+
+    let location = useLocation();
+
+    const [l, setL] = useState();
+
+    const setLink = (c, path) => {
+        var a = `${path}=${c}`;
+        var c = ""
+        if(location.search.includes(`${path}=`)){
+            if(location.search.includes('&')){
+                var b = location.search.split('&');
+                for(var i = 0; i < b.length; i++){
+                    console.log(b[i]);
+                    if(b[i].includes(`${path}=`)){
+                        b[i]+=`,${c}`;
+                    }
+                    c += b[i];
+                }
+                location.search = c;
+            }
+            else{
+            setL(`,${c}`);
+            }
+        }
+        else if(location.search === ""){
+            setL(`?${a}`);
+            console.log(l);
+        }
+        else{
+            setL(`&${a}`);
+            console.log(l);
+        }
+    }
+
+    const Del = (c, path) => {
+        var a;
+        if(location.search.includes(`&${path}=${c}`)){
+            if(location.search.includes(`&${path}=${c},`)){
+                a = location.search.replace(`${c},`,""); 
+            }
+            else{
+                a = location.search.replace(`&${path}=${c}`,""); 
+            }   
+        }
+        else if(location.search.includes(`${path}=${c},`)){
+            a = location.search.replace(`${c},`,""); 
+        }
+        else if(location.search.includes(`,${c}`)){
+            a = location.search.replace(`,${c}`,""); 
+        }
+        else if(location.search.includes(`${c}&`)){
+            a = location.search.replace(`${c}`,""); 
+        }
+        else{
+            a = location.search.replace(`&${path}=${c}`,"");
+            a = location.search.replace(`?${path}=${c}`,"");
+            a = a.replace(`${path}=${c}`,"");
+        }
+
+        history.push(location.pathname + a);
+    }
 
     let history = useHistory();
     const [typing, setTyping] = useState(false);
@@ -52,6 +113,11 @@ const Header = () => {
     ])
 
     const [cart, setCart] = useState(5);
+
+    const SignUp = () => {
+        history.push('/signup');
+        setLogin(false);
+    }
 
     return(
         <>
@@ -118,7 +184,7 @@ const Header = () => {
                 <S.LoginSpan>비밀번호</S.LoginSpan>
                 <S.LoginInput />
                 <S.LoginButton color="gray">로그인</S.LoginButton>
-                <S.LoginButton>회원가입</S.LoginButton>
+                <S.LoginButton onClick={()=>SignUp()}>회원가입</S.LoginButton>
             </S.LoginDiv>
         </S.LoginBackground>
         : <></>}            
