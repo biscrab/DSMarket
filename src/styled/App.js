@@ -110,7 +110,7 @@ export const Category = styled.span`
     position: relative;
     justify-content: center;
     background-color: #6FBFF5;
-    border-top: 1px solid lightgrey;
+    border-top: 1px solid #B2EBF4;
 
     :hover{
         color: #6FBFF5;
@@ -902,7 +902,7 @@ export const CartNumber = styled.em`
 
 export const CartImg = styled.img`
     position: relative;
-    left: 20%;
+    left: 180px;
     width: 50px;
     height: 50px;
     margin-right: 10px;
@@ -910,7 +910,7 @@ export const CartImg = styled.img`
 
 export const CartTittle = styled.h1`
     position: relative;
-    left: 20%;
+    left: 180px;
     margin: 0;
     font-size: 35px;
 `
