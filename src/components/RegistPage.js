@@ -204,6 +204,8 @@ const RegistPage = () => {
 
     const list = [{name: 1, option:[1,2,3]},{name: 2, option:[1,3,4]}];
 
+    const [tittle, setTittle] = useState("");
+
     return(
         <S.R>
             <div style={{width: "70%"}}>
@@ -213,8 +215,8 @@ const RegistPage = () => {
             <S.RegistDiv>
             <p>상품명</p>
             <S.InputDiv>
-            <S.Input placeholder="노출상품명 입력(브랜드 + 제품명)"></S.Input>
-            <S.Max>0/100</S.Max>
+            <S.Input placeholder="노출상품명 입력(브랜드 + 제품명)" onChange={(e)=>setTittle(e.target.value)} value={tittle}></S.Input>
+            <S.Max>{tittle.length}/100</S.Max>
             </S.InputDiv>
             </S.RegistDiv>
 
