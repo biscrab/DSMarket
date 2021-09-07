@@ -128,6 +128,7 @@ const Header = () => {
 
             <S.HeaderIconDiv>
             <S.Link src={M} onClick={()=>history.replace(`/order`)}/>
+
             <div onClick={()=>history.replace(`/cart`)}>
             <S.Link src={C}/>
             {cart >= 9 ?
@@ -136,6 +137,7 @@ const Header = () => {
             <S.CartNumber>9+</S.CartNumber>
             }
             </div>
+
             {admin ? <S.Link src={Admin} onClick={()=>history.replace(`/admin`)}></S.Link> : <></>}
             </S.HeaderIconDiv>
 

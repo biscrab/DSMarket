@@ -49,8 +49,8 @@ const MainPage = () => {
                     <S.Category onMouseEnter={()=>setValue(5)} onClick={() => history.push('/catagory/62')}><S.CSpan>홈인테리어</S.CSpan></S.Category>
                     <S.Category onMouseEnter={()=>setValue(6)} onClick={() => history.push('/catagory/73')}><S.CSpan>가전디지털</S.CSpan></S.Category>
                     <S.Category onMouseEnter={()=>setValue(7)} onClick={() => history.push('/catagory/89')}><S.CSpan>스포츠레져</S.CSpan></S.Category>
-                    <S.Category onMouseEnter={()=>setValue(7)} onClick={() => history.push('/catagory/106')}><S.CSpan>도서/음반/DVD</S.CSpan></S.Category>
-                    <S.Category onMouseEnter={()=>setValue(7)} onClick={() => history.push('/catagory/123')}><S.CSpan>반려동물용품</S.CSpan></S.Category>
+                    <S.Category onMouseEnter={()=>setValue(8)} onClick={() => history.push('/catagory/106')}><S.CSpan>도서/음반/DVD</S.CSpan></S.Category>
+                    <S.Category onMouseEnter={()=>setValue(9)} onClick={() => history.push('/catagory/123')}><S.CSpan>반려동물용품</S.CSpan></S.Category>
                 </S.CDiv>
                 <Border h={hover} value={value}>1</Border>
                 </S.CTDiv>

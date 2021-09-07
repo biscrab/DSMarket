@@ -731,7 +731,7 @@ export const LR = styled.div`
     display: flex;
     position: relative;
     top: 25px;
-    left: 70%;
+    left: 75%;
 `;
 
 export const S = styled.div`    
@@ -1416,6 +1416,6 @@ export const CatagoryDivUl = styled.ul`
 `
 
 export const HeaderIconDiv = styled.div`
-    width: 100px;
+    width: 200px;
     display: flex;
 `

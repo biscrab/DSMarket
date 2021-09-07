@@ -1127,8 +1127,8 @@ const CategoryPage = () => {
             <S.CBox>
                 {query.search ?
                 <h3>'{query.search}'에 대한 검색결과</h3> : <></> }
-                <h3><SetPath/></h3>
-                <S.Order>
+                {<SetPath/> === "" ? <h3><SetPath/></h3> : <h3>{d.name}</h3>}
+                <S.Order> 
                     <S.Cli color={option === 1 ? "royalblue" : "black"} onClick={()=>setO(1)}>별점순</S.Cli>
                     <S.Cli color={option === 2 ? "royalblue" : "black"} onClick={()=>setO(2)}>낮은 가격순</S.Cli>
                     <S.Cli color={option === 3 ? "royalblue" : "black"} onClick={()=>setO(3)}>높은 가격순</S.Cli>

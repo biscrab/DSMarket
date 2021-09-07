@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react'
 import * as S from '../styled/App'
 import A from '../images/a.jpg'
 import car from '../images/car.jpg'
-import baby from '../images/baby.jpg'
 import brand from '../images/brand.png'
 import fenci from '../images/fenci.jpg'
 import food from '../images/food.jpg'
 import sports from '../images/sports.jpg'
 import fashion from '../images/fashion.jpg'
 import computer from '../images/computer.jpg'
+import kitchen from '../images/kitchen.jpg'
+import life from '../images/life.jpg'
 import BorderCatagroy  from '../contents/BorderCatagory'
 
 /*
@@ -148,7 +149,7 @@ const Border = ({h, value}) => {
     const [b, setB] = useState([]);
     const [c, setC] = useState([]);
 
-    const photo = [brand, fashion, baby, food, fenci, computer, sports, car]
+    const photo = [brand, fashion, food, kitchen, life, fenci, computer, sports, car]
 
     const set = () => {
         switch(value){
