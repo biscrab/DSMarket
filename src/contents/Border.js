@@ -172,14 +172,14 @@ const Border = ({h, value}) => {
                 break;
             case 3:
                 setList([{name: "그릇/홈세트", path: 1},{name: "수저/커트러리", path: 1},{name: "컵/잔/텀블러", path: 1},{name: "밀폐저장/도시락", path: 1},,{name: "보온/보냉용품", path: 1},,{name: "이유/유아식기", path: 1},],
-                [{name: "냄비/프라이팬", path: 1},{name: "칼/도마", path: 1},{name: "주방조리도구", path: 1},,{name: "베이킹용품"}],
-                [{name: "일회용품/종이컵"}],[{name: "주방잡화", path: 1},{name: "교자상/제수용품"}]);
+                [{name: "냄비/프라이팬", path: 1},{name: "칼/도마", path: 1},{name: "주방조리도구", path: 1},,{name: "베이킹용품", path: ""}],
+                [{name: "일회용품/종이컵", path: 1}],[{name: "주방잡화", path: 1},{name: "교자상/제수용품", path: ""}]);
                 break;
             case 4:
-                setList([{name: "헤어/바디/세안", path: 1},{name: "구강/면도", path: 1},{name: "화장지/물티슈", path: 1},{name: "생리대/성인기저귀", path: 1},{name: "기저귀", path: 1},{name: "세탁", path: 1},{name: "청소용품", path: 1},{name: "탈취/방향/살충", path: 1},{name: "건강/의료용품", path: 1},{name: "욕실 용품", path: 1},{name: "생활전기용품", path: 1},{name: "수납/정리", path: 1},{name: "생활잡화"}],[],[]);
+                setList([{name: "헤어/바디/세안", path: 1},{name: "구강/면도", path: 1},{name: "화장지/물티슈", path: 1},{name: "생리대/성인기저귀", path: 1},{name: "기저귀", path: 1},{name: "세탁", path: 1},{name: "청소용품", path: 1},{name: "탈취/방향/살충", path: 1},{name: "건강/의료용품", path: 1},{name: "욕실 용품", path: 1},{name: "생활전기용품", path: 1},{name: "수납/정리", path: 1},{name: "생활잡화", path: ""}],[],[]);
                 break;
             case 5:
-                setList([{name: "TV/영상가전", path: 1},{name: "냉장고", path: 1},{name: "세탁기/건조기", path: 1},{name: "청소기", path: 1},{name: "계전가전", path: 1},{name: "이미용가전", path: 1},{name: "건강가전", path: 1},{name: "주방가전", path: 1},{name: "노트북", path: 1},{name: "데스크탑", path: 1},{name: "모니터", path: 1},{name: "키보드 마우스", path: 1},{name: "저장장치", path: 1},{name: "프린터/복합기", path: 1},{name: "PC부품"}],[],[]);
+                setList([{name: "TV/영상가전", path: 1},{name: "냉장고", path: 1},{name: "세탁기/건조기", path: 1},{name: "청소기", path: 1},{name: "계전가전", path: 1},{name: "이미용가전", path: 1},{name: "건강가전", path: 1},{name: "주방가전", path: 1},{name: "노트북", path: 1},{name: "데스크탑", path: 1},{name: "모니터", path: 1},{name: "키보드 마우스", path: 1},{name: "저장장치", path: 1},{name: "프린터/복합기", path: 1},{name: "PC부품", path: ""}],[],[]);
                 break;
             default :
                 setList([],[],[]);
