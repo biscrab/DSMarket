@@ -125,6 +125,8 @@ const Header = () => {
                <i class="fa fa-search fa-2x" onClick={()=>setLink(v, "search")}></i>
                </div>
             </S.SBox>
+
+            <S.HeaderIconDiv>
             <S.Link src={M} onClick={()=>history.replace(`/order`)}/>
             <div onClick={()=>history.replace(`/cart`)}>
             <S.Link src={C}/>
@@ -135,6 +137,8 @@ const Header = () => {
             }
             </div>
             {admin ? <S.Link src={Admin} onClick={()=>history.replace(`/admin`)}></S.Link> : <></>}
+            </S.HeaderIconDiv>
+
             </S.S>
             <S.LR>
             <S.L onClick={()=>setLogin(true)}>로그인</S.L>

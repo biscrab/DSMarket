@@ -26,13 +26,14 @@ export const SBox = styled.span`
     position: relative;
     display: flex;
     border: 3px solid royalblue;
+    border-radius: 10px;
     width: 660px;
     height: 42px;
     background-color: white;
 `
 
 export const Search = styled.input`
-    width: 470px;
+    width: 450px;
     height: 40px;
     border: 0;
     font-size: 15px;
@@ -634,7 +635,9 @@ export const Icon = styled.img`
 `
 
 export const SDiv = styled.div`
-    width: 600px;
+    width: 615px;
+    position: relative;
+    left: 5px;
 `
 
 export const SBorder = styled.ul`
@@ -648,7 +651,7 @@ export const SBorder = styled.ul`
     z-index: 1;
     list-style: none;
     box-shadow: 0 0 20px 0 rgb(0 0 0 / 10%);
-    width: 100%;
+    width: 650px;
     height: 450px;
 `
 
@@ -743,6 +746,7 @@ export const L = styled.span`
 `
 export const CTittle = styled.h3`
     color: gray;
+    margin-bottom: 10px;
 `
 
 export const LoginBackground = styled.div`
@@ -1398,5 +1402,20 @@ export const PaymentButton = styled.button`
 
 export const CatagoryDivLi = styled.li`
     width: 100%;
-    text-align: center;
+    font-size: 17px;
+    color: gray;
+    padding: 5px;
+`
+
+export const CatagoryDivUl = styled.ul`
+    list-style: none;
+    text-align: start;
+    padding: 20px;
+    padding-top: 0;
+    margin: 0;
+`
+
+export const HeaderIconDiv = styled.div`
+    width: 100px;
+    display: flex;
 `

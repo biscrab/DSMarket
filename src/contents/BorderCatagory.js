@@ -1,12 +1,16 @@
 import React from 'react'
-import { useHistory } from 'react-router'
+import { useHistory } from 'react-router-dom'
 import * as S from '../styled/App'
 
 const BorderCatagory = ({item}) => {
 
     let history = useHistory();
 
-    <S.CatagoryDivLi onClick={()=>history.push(`/catagory/${item.path}`)}>{item.name}</S.CatagoryDivLi>
+    return(
+    <>
+        <S.CatagoryDivLi onClick={()=>history.push(`/catagory/${item.path}`)}>{item.name}</S.CatagoryDivLi>
+    </>
+    );
 }
 
 const List = ({lists}) => {
@@ -16,7 +20,6 @@ const List = ({lists}) => {
         )
     )
     return itemList;
-
 }
 
 export default List

@@ -27,7 +27,7 @@ const MainPage = () => {
 
     let history = useHistory();
 
-    const [hover, setHover] = useState(false);
+    const [hover, setHover] = useState(true);
     const [value, setValue] = useState(1);
 
     const Sale = [{id: 1, img: A, name: "1"},{id: 1, img: A, name: "1"},{id: 1, img: A, name: "1"},{id: 1, img: A, name: "1"},{id: 1, img: A, name: "1"}];
