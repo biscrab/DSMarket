@@ -147,7 +147,7 @@ const SetPath = () => {
 ]
 
     return(
-        <S.OrderSpan onClick={()=>history.push(`/catagory/${Number(params.catagory)}`)}>{c[Number(params.catagory)-1]}</S.OrderSpan>
+        c[Number(params.catagory)-1]
     )
 }
 

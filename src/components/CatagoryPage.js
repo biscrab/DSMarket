@@ -1106,7 +1106,7 @@ const CategoryPage = () => {
         <S.OrderDiv>
             <S.OrderSpan onClick={()=>history.push('/catagory')}>전체</S.OrderSpan>
             <S.OrderSpan onClick={()=>history.push(`/catagory/${d.path}`)}>{d.name}</S.OrderSpan>
-            <SetPath/>
+            <S.OrderSpan onClick={()=>history.push(`/catagory/${Number(params.catagory)}`)}><SetPath/></S.OrderSpan>
         </S.OrderDiv>
         <S.C>
             <S.Select>
@@ -1127,6 +1127,7 @@ const CategoryPage = () => {
             <S.CBox>
                 {query.search ?
                 <h3>'{query.search}'에 대한 검색결과</h3> : <></> }
+                <h3><SetPath/></h3>
                 <S.Order>
                     <S.Cli color={option === 1 ? "royalblue" : "black"} onClick={()=>setO(1)}>별점순</S.Cli>
                     <S.Cli color={option === 2 ? "royalblue" : "black"} onClick={()=>setO(2)}>낮은 가격순</S.Cli>
