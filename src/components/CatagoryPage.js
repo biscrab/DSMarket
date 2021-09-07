@@ -214,10 +214,9 @@ const CategoryPage = () => {
     const params = useParams();
     const location = useLocation();
 
-    const [price, setPrice] = useState({
-        lowest: "",
-        highest: "",
-    });
+    const [highest, setHighest] = useState();
+    const [lowest, setLowest] = useState();
+
 
     const Brand = () => {
         const list = {}
@@ -332,40 +331,30 @@ const CategoryPage = () => {
             </S.CatagoryDiv>
         )
     }
-
-    const onChange = (e) => {
-        const {name, value} = e.target;
-        const nextInputs = {
-            ...price,
-            [name]: value,
-        }
-        setPrice(nextInputs);
-    };
-
         
     const Price = () => {   
 
         const SetPrice = ({highest, lowest}) => { 
             if(highest){
-            setLink("heighest", highest);
+                setLink("heighest", highest);
             }
             if(lowest){
-            setLink("lowest", lowest);
+                setLink("lowest", lowest);
             }
         }
 
         return(
             <S.CatagoryDiv>
                 <S.CaTittle>가격</S.CaTittle>
-                <S.Box onClick={()=>SetPrice({highest: "", lowest: 7000})}>7천원 이하</S.Box>
-                <S.Box onClick={()=>SetPrice({highest: 7000, lowest: 14000})}>7천원~1만 4천원</S.Box>
-                <S.Box onClick={()=>SetPrice({highest: 14000, lowest: 28000})}>1만 4천원~2만 8천원</S.Box>
-                <S.Box onClick={()=>SetPrice({highest: 28000, lowest: ""})}>2만 8천원 이상</S.Box>
+                <S.Box onClick={()=>SetPrice("", 7000)}>7천원 이하</S.Box>
+                <S.Box onClick={()=>SetPrice(7000, 14000)}>7천원~1만 4천원</S.Box>
+                <S.Box onClick={()=>SetPrice(14000, 28000)}>1만 4천원~2만 8천원</S.Box>
+                <S.Box onClick={()=>SetPrice(28000, "")}>2만 8천원 이상</S.Box>
                 <S.PriceDiv>
-                <S.PriceInput onChange={onChange} name="lowest" value={price.lowest}></S.PriceInput>~
-                <S.PriceInput onChange={onChange} name="highest" value={price.highest}></S.PriceInput>원
-                <Link to={{search:`lowest=${price.lowest}&highest=${price.highest}`}}>
-                <S.PriceButton onClick={()=>SetPrice({highest: price.highest, lowest: price.lowest})}>검색</S.PriceButton>
+                <S.PriceInput onChange={(e)=>setLowest(e.target.value)} value={lowest}></S.PriceInput>~
+                <S.PriceInput onChange={(e)=>setHighest(e.target.value)} value={highest}></S.PriceInput>원
+                <Link to={{search:`lowest=${lowest}&highest=${highest}`}}>
+                <S.PriceButton onClick={()=>SetPrice(highest, lowest)}>검색</S.PriceButton>
                 </Link>
                 </S.PriceDiv>
             </S.CatagoryDiv>
@@ -1006,13 +995,14 @@ const CategoryPage = () => {
     }
 
     const setC = () => {
-        if(location.search.includes(`lowest`)){
-            setList(list.filter(query.lowest <= list.price));
+        if(query.lowest){
+            console.log(Number(query.lowest));
+            setList(list.filter(Number(query.lowest) <= list.price));
         }
-        if(location.search.includes(`highest`)){
-            setList(list.filter(query.highest >= list.price));
+        if(query.highest){
+            setList(list.filter(Number(query.highest) >= list.price));
         }
-        if(location.search.includes(`star`)){
+        if(query.star){
             var s = [];
             for(var i = 0; i < list.length; i++){
                 if(list[i].star >= query.star){
@@ -1021,7 +1011,7 @@ const CategoryPage = () => {
             }
             setList(s);
         }
-        if(location.search.includes(`search`)){
+        if(query.search){
             setCatagory(`"${query.search}"에 대한 검색 결과`);
             var s =  [];
             for(var i = 0; i < list.length; i++){
@@ -1031,7 +1021,7 @@ const CategoryPage = () => {
             }
             setList(s);
         }
-        if(location.search.includes(`brand`)){
+        if(query.brand){
             var s = [];
             for(var i = 0; i < list.length; i++){
                 if(list[i].brand == query.brand){
@@ -1106,7 +1096,9 @@ const CategoryPage = () => {
         <S.OrderDiv>
             <S.OrderSpan onClick={()=>history.push('/catagory')}>전체</S.OrderSpan>
             <S.OrderSpan onClick={()=>history.push(`/catagory/${d.path}`)}>{d.name}</S.OrderSpan>
-            <S.OrderSpan onClick={()=>history.push(`/catagory/${Number(params.catagory)}`)}><SetPath/></S.OrderSpan>
+            {params.catagory ?
+            <S.OrderSpan onClick={()=>history.push(`/catagory/${Number(params.catagory)}`)}><SetPath /></S.OrderSpan>
+            :<></>}
         </S.OrderDiv>
         <S.C>
             <S.Select>
@@ -1126,8 +1118,8 @@ const CategoryPage = () => {
             </S.Select>
             <S.CBox>
                 {query.search ?
-                <h3>'{query.search}'에 대한 검색결과</h3> : <></> }
-                {<SetPath/> === "" ? <h3><SetPath/></h3> : <h3>{d.name}</h3>}
+                <S.SearchH>'{query.search}'에 대한 검색결과</S.SearchH> : <></> }
+                {<SetPath/> === "" ? <S.CatagoryH><SetPath/></S.CatagoryH> : <S.CatagoryH>{d.name}</S.CatagoryH>}
                 <S.Order> 
                     <S.Cli color={option === 1 ? "royalblue" : "black"} onClick={()=>setO(1)}>별점순</S.Cli>
                     <S.Cli color={option === 2 ? "royalblue" : "black"} onClick={()=>setO(2)}>낮은 가격순</S.Cli>

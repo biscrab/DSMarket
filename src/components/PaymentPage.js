@@ -16,7 +16,19 @@ const PaymentPage = () => {
             <li><S.UIspan>연락처</S.UIspan></li>
         </S.UserInfo>
         <h3>배송지</h3>
-        <S.DiliveryDiv></S.DiliveryDiv>
+        <S.DiliveryDiv>
+            <S.DiliveryLi>
+                <S.DiliverySpan>1</S.DiliverySpan>
+                <S.DName></S.DName>
+            </S.DiliveryLi>
+            <S.DiliveryLi>
+                <S.DiliverySpan>2</S.DiliverySpan>
+            </S.DiliveryLi>
+            <S.DiliveryLi>
+                <S.DiliverySpan>3</S.DiliverySpan>
+                <S.DF></S.DF>-<S.DNum></S.DNum>-<S.DNum></S.DNum>
+            </S.DiliveryLi>
+        </S.DiliveryDiv>
         </S.PADiv>
 
         <S.PADiv>

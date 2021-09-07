@@ -12,7 +12,7 @@ const Item = ({item, lists}) => {
         <S.ItemBox onClick={()=>history.push(`/item/id?=${item.id}`)}>
             <S.ItemImg src={item.img}/>
                 <S.Ip>{item.name}</S.Ip>
-                <S.PText>{item.price}원</S.PText>
+                <S.ItemPrice>{item.price}원</S.ItemPrice>
                 <S.DText>내일 9/1 도착예정</S.DText>
                 <S.StDiv>
                 <Star star={item.star}/>

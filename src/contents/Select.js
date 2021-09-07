@@ -19,18 +19,11 @@ const Select = ({item, path}) => {
         var c = ""
         if(location.search.includes(path)){
             if(location.search.includes('&')){
-                var b = location.search.split('&');
-                for(var i = 0; i < b.length; i++){
-                    console.log(b[i]);
-                    if(b[i].includes(path)){
-                        b[i]+=`,${item.link}`;
-                    }
-                    c += b[i];
-                }
-                location.search = c;
+                var d = location.search.split('&');
+                console.log("123asd");
             }
             else{
-            setL(`,${item.link}`);
+            setL(`${location.search}` + `,${item.link}`);
             }
         }
         else if(location.search === ""){
@@ -38,7 +31,7 @@ const Select = ({item, path}) => {
             console.log(l);
         }
         else{
-            setL(`&${a}`);
+            setL(`${location.search}` + `&${a}`);
             console.log(l);
         }
     }
@@ -71,11 +64,11 @@ const Select = ({item, path}) => {
         history.push(location.pathname + a);
     }
 
-    useEffect(()=>{
-        setLink();        
+    useEffect(()=>{       
         if(location.search.includes(item.link)){
             console.log(item.link);
             setCheck(true);
+            setLink();
         }
     },[]);
 
@@ -87,14 +80,15 @@ const Select = ({item, path}) => {
             <input type="checkbox" checked={check}></input>{item.i ? <S.Icon src={item.i}></S.Icon> : <></>}<span>{item.name}</span>
             </div>
         </S.Box> 
-        :       
-        <Link to={{search: location.search + l}} style={{ textDecoration: 'none', color: 'black'}}>
+        :
+        <Link to={{search: `${l}`}} style={{color:"black", textDecoration:"none"}}>
         <S.Box>
             <div style={{position:"relative", top:"50%", transform:"translateY(-50%)"}}>
             <input type="checkbox" checked={check}></input>{item.i ? <S.Icon src={item.i}></S.Icon> : <></>}<span>{item.name}</span>
             </div>
         </S.Box>
-        </Link>}
+        </Link>
+        }
         </>
     );
 }

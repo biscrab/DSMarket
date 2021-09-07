@@ -47,29 +47,6 @@ const Header = () => {
     const [login, setLogin] = useState(false);
     const admin = true;
 
-    const search = () => {
-        /*if(){
-
-        }
-        else if("전체"){
-
-        }
-        else if(){
-
-        }
-        else if(){
-
-        }
-        else if(){
-
-        }
-        else if(){
-
-        }
-        
-        */
-    }
-
     const [recent, setRecent] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 
     const [user, setUser] = useState([
@@ -121,7 +98,7 @@ const Header = () => {
                     </S.SBorder> 
                     : <></>}
                </S.SDiv> 
-               <div onClick={()=>search()} onKeyPress={(e) => {if(e.key === 'Enter'){search()}}}>
+               <div onClick={()=>history.push(`/catagory?search=${v}`)} onKeyPress={(e) => {if(e.key === 'Enter'){history.push(`/catagory?search=${v}`)}}}>
                <i class="fa fa-search fa-2x" onClick={()=>setLink(v, "search")}></i>
                </div>
             </S.SBox>

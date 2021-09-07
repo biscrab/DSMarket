@@ -7,6 +7,7 @@ import D from '../images/d.jpg'
 import E from '../images/e.jpg'
 import Relate from '../contents/Relate'
 import Star from '../contents/Star'
+import Comment from '../contents/Comment'
 
 const ItemPge = () => {
 
@@ -22,9 +23,10 @@ const ItemPge = () => {
     const [more, setMore] = useState(false);
     const img = [A, B, C, D, E];
     const [imgN, setImgN] = useState(0);
+    const comment = [{comment: "1", star: 2, name: 1}];
 
     return(
-        <> 
+        <S.Item> 
             <S.IBorder>
                 <S.ItemImgDiv>
                 <S.Image src={img[imgN]}></S.Image>
@@ -59,16 +61,8 @@ const ItemPge = () => {
                     </S.ButtonDiv>
                 </S.Info>
             </S.IBorder>
-            <S.DDiv>
-            <S.DetailUl>
-                <S.DetailLi>상세 설명</S.DetailLi>
-                <S.DetailLi>상품평</S.DetailLi>
-                <S.DetailLi>상품문의</S.DetailLi>
-                <S.DetailLi>교환/반품</S.DetailLi>
-            </S.DetailUl>
-            </S.DDiv>
             <S.Related>
-                <h3>관련 상품</h3>
+                <S.RelatedH>관련 상품</S.RelatedH>
                 <S.RelatedDiv>
                     <Relate lists={list}/>
                 </S.RelatedDiv>
@@ -91,6 +85,10 @@ const ItemPge = () => {
                     </S.MoreButtonDiv>
                 </S.MDiv>}
                 </S.EDiv>
+                <S.CommentH>상품평</S.CommentH>
+                <S.CommentUl>
+                    <Comment lists={comment}/>
+                </S.CommentUl>
                 </div>
                 <S.BuyDiv>
                     <S.BuyImgDiv>
@@ -107,8 +105,8 @@ const ItemPge = () => {
                     <S.BB color="black" bkcolor="white" border="1px">장바구니</S.BB>                     
                     <S.BB color="white" bkcolor="royalblue" border="0px">구매하기</S.BB>
                 </S.BuyDiv>
-            </S.IDiv>
-        </>
+            </S.IDiv>                
+        </S.Item>
     );
 
     /*<S.PointDiv><S.Pspan>🟡100포인트</S.Pspan></S.PointDiv>*/

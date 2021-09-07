@@ -151,6 +151,10 @@ export const CBox = styled.div`
     margin-left: 20px;
 `
 
+export const SearchH = styled.h3`
+    color: royalblue;
+`
+
 export const C = styled.div`
     display: flex;
     justify-content: center;
@@ -248,9 +252,9 @@ export const Price = styled.div`
     border-bottom: 1px solid #eeeeee;
 `
 
-export const PText = styled.h3`
+export const PText = styled.h2`
     color: crimson;
-    margin: 0;
+    margin: 10px;
 `
 export const DText = styled.p`
     font-size: 15px;
@@ -265,28 +269,10 @@ export const Related = styled.div`
     height: 300px;
 `
 
-export const DDiv = styled.div`
-    height: 60px;
-    background-color: royalblue;
-`
-
-export const DetailUl = styled.ul`
-    padding: 0%;
-    margin: 0;
+export const RelatedH = styled.h3`
+    color: gray;
     position: relative;
-    list-style: none;
-    display: flex;
-`
-
-export const DetailLi = styled.li`
-    position: relative;
-    font-size: 20px;
-    color: white;
-    margin: 0px;
-    margin-left: 20px;
-    height: 60px;
-    display: flex;
-    align-items: center;
+    left: 30px;
 `
 
 export const Detail = styled.div`
@@ -463,8 +449,9 @@ export const CBorder = styled.div`
 `
 
 export const BestImg = styled.img`
-    width: 250px;
-    height: 250px;
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
     background-color: whitesmoke;
 `
 
@@ -523,11 +510,8 @@ export const Check = styled.div`
 `
 
 export const BDiv = styled.div`
-    margin: 10px;
+    margin: 20px;
     height: 350px;
-    :hover{
-    box-shadow: 0 0 20px 0 rgb(0 0 0 / 10%);
-    }
 `
 export const Bfont = styled.p`
     text-align: center;
@@ -731,7 +715,7 @@ export const LR = styled.div`
     display: flex;
     position: relative;
     top: 25px;
-    left: 75%;
+    left: 1100px;
 `;
 
 export const S = styled.div`    
@@ -1379,8 +1363,35 @@ export const InfoNumber = styled.div`
 `
 
 export const DiliveryDiv = styled.ul`
-    height: 200px;
+    height: 150px;
+    padding: 0px 10px;
     border-bottom: 2px solid lightgray;
+`
+
+export const DiliverySpan = styled.span`
+    width: 100px;
+`
+export const DiliveryLi = styled.div`
+    height: 40px;
+    display: flex;
+`
+
+export const DName = styled.input`
+    height: 20px;
+    width: 200px;
+`
+
+export const DNum = styled.input`
+    height: 20px;
+    width: 50px;
+    margin-left: 5px;
+    margin-right: 5px;
+`
+
+export const DF = styled.select`
+    height: 26.5px;
+    width: 57px;
+    margin-right: 10px;
 `
 
 export const PaymentDiv = styled.div`
@@ -1419,3 +1430,49 @@ export const HeaderIconDiv = styled.div`
     width: 200px;
     display: flex;
 `
+
+export const CommentLi = styled.li`
+    border-bottom: 1px solid gray;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 0px 20px;
+`
+
+export const CommentSpan = styled.span`
+    width: 70%;
+    margin-left: 20px;
+`
+export const CommentGray = styled.span`
+    color: gray;
+`
+
+export const CommentUl = styled.ul`
+    height: auto;
+    border-top: 2px solid darkgray;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    list-style: none;
+    padding: 0;
+`
+
+export const CommentH = styled.h2`
+    color: gray;
+    margin-bottom: 20px;
+`
+
+export const Item = styled.div`
+    padding-bottom: 200px;
+`
+
+export const CatagoryH = styled.h3`
+    :hover{
+        color: royalblue;
+        text-decoration: underline;
+    }
+`
+
+export const ItemPrice = styled.h3`
+    color: crimson;
+` 

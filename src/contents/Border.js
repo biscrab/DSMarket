@@ -10,6 +10,8 @@ import fashion from '../images/fashion.jpg'
 import computer from '../images/computer.jpg'
 import kitchen from '../images/kitchen.jpg'
 import life from '../images/life.jpg'
+import pet from '../images/pet.jpg'
+import book from '../images/book.jpg'
 import BorderCatagroy  from '../contents/BorderCatagory'
 
 /*
@@ -90,7 +92,7 @@ import BorderCatagroy  from '../contents/BorderCatagory'
         75 냉장고
         76 세탁기/건조기
         77 청소기
-        78 계전가전
+        78 계절가전
         79 이미용가전
         80 건강가전
         81 주방가전
@@ -149,13 +151,18 @@ const Border = ({h, value}) => {
     const [b, setB] = useState([]);
     const [c, setC] = useState([]);
 
-    const photo = [brand, fashion, food, kitchen, life, fenci, computer, sports, car]
+    const photo = [brand, fashion, food, kitchen, life, fenci, computer, sports, book, pet]
 
     const set = () => {
         switch(value){
+            case 0:
+                setMenu(["여성 패션","남성 패션","남녀 공용"]);                
+                setA([{name: "여성 패션", path: 2}]);
+                setB([{name: "남성 패션", path: 1}]);
+                setC([{name: "유아동패션", path: 1},{name: "남녀 공용 의류", path: 1}]);
+                break;
             case 1:
-                setMenu(["패션","뷰티","기타"]);
-                setA([{name: "여성 패션", path: 1},{name: "남성 패션", path: 1},{name: "남녀 공용 의류", path: 1},{name: "유아동패션", path: 1}]);
+                setMenu(["화장품","뷰티","기타"]);
                 setB([{name: "명품뷰티", path: 1},{name: "스킨케어", path: 1},{name: "클렌징/필링", path: 1},{name: "메이크업", path: 1},{name: "향수", path: 1},{name: "네일", path: 1},{name: "뷰티소품", path: 1},{name: "헤어", path: 1},{name: "바디", path: 1}]);
                 setC([{name: "남성화장품", path: 1},{name: "어린이화장품", path: 1},{name: "로드샵", path: 1},{name: "선물세트/키트", path: 1}]);
                 break;
@@ -184,14 +191,28 @@ const Border = ({h, value}) => {
                 setC([{name: "일회용품/종이컵", path: 1}],[{name: "주방잡화", path: 1},{name: "교자상/제수용품", path: 1}]);
                 break;
             case 4:
-                setMenu(["식기","조리도구","기타"]);
+                setMenu(["청결도구","청소도구","기타"]);
                 setA([{name: "헤어/바디/세안", path: 1},{name: "구강/면도", path: 1},{name: "화장지/물티슈", path: 1},{name: "생리대/성인기저귀", path: 1},{name: "기저귀", path: 1},{name: "세탁", path: 1},{name: "청소용품", path: 1},{name: "탈취/방향/살충", path: 1},{name: "건강/의료용품", path: 1},{name: "욕실 용품", path: 1},{name: "생활전기용품", path: 1},{name: "수납/정리", path: 1},{name: "생활잡화", path: ""}]);
+                setB([]);
+                setC([]);
                 break;
             case 5:
-                setMenu(["식기","조리도구","기타"]);
-                setA([]);
-                setB([{name: "TV/영상가전", path: 1},{name: "냉장고", path: 1},{name: "세탁기/건조기", path: 1},{name: "청소기", path: 1},{name: "계전가전", path: 1},{name: "이미용가전", path: 1},{name: "건강가전", path: 1},{name: "주방가전", path: 1},{name: "노트북", path: 1},{name: "데스크탑", path: 1},{name: "모니터", path: 1},{name: "키보드 마우스", path: 1},{name: "저장장치", path: 1},{name: "프린터/복합기", path: 1},{name: "PC부품", path: ""}]);
-                setC([]);
+                setMenu(["생활가전","PC","기타"]);
+                setA([{name: "TV/영상가전", path: 1},{name: "냉장고", path: 1},{name: "세탁기/건조기", path: 1},{name: "청소기", path: 1}]);
+                setB([{name: "노트북", path: 1},{name: "데스크탑", path: 1},{name: "모니터", path: 1},{name: "키보드 마우스", path: 1},{name: "저장장치", path: 1},{name: "프린터/복합기", path: 1},{name: "PC부품", path: 1}]);
+                setC([{name: "계절가전", path: 1},{name: "이미용가전", path: 1},{name: "건강가전", path: 1},{name: "주방가전", path: 1}]);
+                break;
+            case 6:
+
+                break;
+            case 7:
+
+                break;
+            case 8:
+                setMenu(["도서","음반","DVD"]);
+                break;
+            case 9:
+                
                 break;
             default :
                 /*
