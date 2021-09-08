@@ -461,7 +461,7 @@ const CategoryPage = () => {
     }
 
     const Rawmaterial = () => {
-        
+
     }
 
         
@@ -878,7 +878,7 @@ const CategoryPage = () => {
             {name: "메이크업", path: 10},
             {name: "향수", path: 11},
             {name: "남성화장품", path: 12},
-            {name: "네알", path: 13},
+            {name: "네일", path: 13},
             {name: "뷰티소품", path:14},
             {name: "어린이화장품", path: 15},
             {name: "로드샵", path: 16},
@@ -1152,8 +1152,6 @@ const CategoryPage = () => {
         <S.C>
             <S.Select>
                 <Dilivery />
-                <Star />
-                <Price />
                 <Cata />
                 <Color />
                 <Size />
@@ -1164,7 +1162,9 @@ const CategoryPage = () => {
                 <useGrade />
                 <KindofLanguageTest />
                 <Language />
-                <ShapeOfBook />
+                <ShapeOfBook />             
+                <Star />
+                <Price />
             </S.Select>
             <S.CBox>
                 {query.search ?
@@ -1186,7 +1186,11 @@ const CategoryPage = () => {
             </S.CBox>
         </S.C>
         <S.Next>
+            {query.p >= 1 ?
+            <S.Pbutton>{'<'}</S.Pbutton>
+            : <S.Pbutton color="#eeeeee">{'<'}</S.Pbutton>}
             <Page lists={page}/>
+            <S.Pbutton>{'>'}</S.Pbutton>
         </S.Next>
         </>
     )
