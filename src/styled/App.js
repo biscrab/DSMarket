@@ -386,7 +386,7 @@ export const O = styled.div`
 `
 export const ODiv = styled.div`
     list-style: none;
-    height: 120px;
+    height: 100px;
     margin: 0;
     padding: 0;
     display: flex;
@@ -398,7 +398,7 @@ export const OBorder = styled.div`
     background-color: white;
     display: flex;
     flex-direction: column;
-    width: 800px;
+    width: 1000px;
     height: 900px;
 `
 
@@ -407,7 +407,7 @@ export const Have = styled.li`
     background-color: ${props => props.color};
     border-right: 1px solid white;
     height: 100%;
-    width: 200px;
+    width: 340px;
     color: white;
     text-align: center;
     font-size: 20px;

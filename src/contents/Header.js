@@ -1,5 +1,5 @@
-import React,{useState} from 'react'
-import { useHistory, useLocation } from 'react-router-dom'
+import React,{useState, useRef} from 'react'
+import { useHistory, useLocation} from 'react-router-dom'
 import * as S from '../styled/App'
 import A from '../images/s.png'
 import M from '../images/man.png'
@@ -9,6 +9,8 @@ import Admin from '../images/admin.png'
 const Header = () => {
 
     let location = useLocation();
+
+    const select = useRef();
 
     const [l, setL] = useState();
 
@@ -62,6 +64,10 @@ const Header = () => {
         setLogin(false);
     }
 
+    const Search = () => {
+        console.log(select.value);
+    }
+
     return(
         <>
         <S.Header>
@@ -69,17 +75,17 @@ const Header = () => {
             <S.Logo onClick={() => history.replace('/')}>대마몰</S.Logo>
             <S.SBox>
                 <S.SDiv>
-                    <S.Sel id="select" onClick={()=>setLink(v, "search")}>
-                        <option>전체</option>
-                        <option>여성 패션</option>
-                        <option>남성 패션</option>
-                        <option>남녀 공용 의류</option>
-                        <option>뷰티</option>
-                        <option>식품</option>
-                        <option>주방용품</option>
-                        <option>생활용품</option>
-                        <option>홈인테리어</option>
-                        <option>가전디지털</option>
+                    <S.Sel ref={select} onClick={()=>setLink(v, "search")}>
+                        <option value={0}>전체</option>
+                        <option value={1}>여성 패션</option>
+                        <option value={2}>남성 패션</option>
+                        <option value={3}>남녀 공용 의류</option>
+                        <option value={4}>뷰티</option>
+                        <option value={5}>식품</option>
+                        <option value={6}>주방용품</option>
+                        <option value={7}>생활용품</option>
+                        <option value={8}>홈인테리어</option>
+                        <option value={9}>가전디지털</option>
                     </S.Sel>
                     <S.Search onChange={(e)=>setV(e.target.value)} value={v} onFocus={() => setTyping(true)} onBlur={() => setTyping(false)}></S.Search>
                     {typing ? 
@@ -98,7 +104,7 @@ const Header = () => {
                     </S.SBorder> 
                     : <></>}
                </S.SDiv> 
-               <div onClick={()=>history.push(`/catagory?search=${v}`)} onKeyPress={(e) => {if(e.key === 'Enter'){history.push(`/catagory?search=${v}`)}}}>
+               <div onClick={()=>Search()} onKeyPress={(e) => {if(e.key === 'Enter'){history.push(`/catagory?search=${v}`)}}}>
                <i class="fa fa-search fa-2x" onClick={()=>setLink(v, "search")}></i>
                </div>
             </S.SBox>
