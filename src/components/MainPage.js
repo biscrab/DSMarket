@@ -21,10 +21,6 @@ const MainPage = () => {
         }
     }
 
-    useEffect(()=>{
-         setInterval(showImage(), 1000);
-    },[])
-
     let history = useHistory();
 
     const [hover, setHover] = useState(true);
@@ -32,7 +28,7 @@ const MainPage = () => {
 
     const Sale = [{id: 1, img: A, name: "1"},{id: 1, img: A, name: "1"},{id: 1, img: A, name: "1"},{id: 1, img: A, name: "1"},{id: 1, img: A, name: "1"}];
     const Best = [{id: 1, img: B, name: "1"},{id: 1, img: B, name: "1"},{id: 1, img: B, name: "1"},{id: 1, img: B, name: "1"},{id: 1, img: B, name: "1"}];
-    const New = [{id: 1, img: C, name: "1"},{id: 1, img: C, name: "1"},{id: 1, img: C, name: "1"},{id: 1, img: C, name: "1"},{id: 1, img: C, name: "1"}];;
+    const New = [{id: 1, img: C, name: "1"},{id: 1, img: C, name: "1"},{id: 1, img: C, name: "1"},{id: 1, img: C, name: "1"},{id: 1, img: C, name: "1"}];
 
     return(
         <>

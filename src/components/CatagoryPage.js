@@ -94,56 +94,64 @@ import SetPath from '../contents/SetPath';
         75 냉장고
         76 세탁기/건조기
         77 청소기
-        78 계전가전
+        78 계절가전
         79 이미용가전
         80 건강가전
         81 주방가전
         82 노트북
         83 데스크탑
-        84 모니터
-        85 키보드 마우스
-        86 저장장치
-        87 프린터/복합기
-        88 PC부품
-    89 스포츠/레저
-        90 캠핑
-        91 홈트레이닝
-        92 수영/수상스포츠
-        93 골프
-        94 자전거
-        95 킥보드/스케이트
-        96 낚시
-        97 등산/아웃도어
-        98 스포츠신발
-        99 남성스포츠의류
-        100 여성스포츠의류
-        101 유아스포츠의류
-        102 스포츠잡화
-        103 구기스포츠
-        104 라켓스포츠
-        105 헬스/요가/댄스
-    106 도서/음반/DVD
-        107 유아/어린이
-        108 소설/에세이/사
-        109 초중고참고서
-        110 가정 살림
-        111 건강 취미
-        112 경재 경영
-        113 과학/공학
-        114 국어/외국어/사전
-        115 대학교재
-        116 만화/라이트노벨
-        117 사회 정치
-        118 수험서/자격증
-        119 여행
-        120 역사
-        121 예술
-        122 인문
-    123 반려동물용품
-        124 강아지 사료/용품
-        125 고양이 사료 용품
-        126 관상어 용품
-        127 소동물/가축용품
+        84 저장장치
+        85 프린터/복합기
+        86 PC 부품/주변기기
+        87 휴대폰
+        88 태블릿PC
+        89 스마트워치/밴드
+        90 음향기기
+        91 게임콘솔
+        92 카메라
+        93 차량용 디지털
+    94 스포츠/레저
+        95 캠핑
+        96 홈트레이닝
+        97 수영/수상스포츠
+        98 골프
+        99 자전거
+        100 킥보드/스케이트
+        101 낚시
+        102 등산/아웃도어
+        103 스포츠신발
+        104 남성스포츠의류
+        105 여성스포츠의류
+        106 유아스포츠의류
+        107 스포츠잡화
+        108 구기스포츠
+        109 라켓스포츠
+        110 헬스/요가/댄스
+        111 복싱/검도/태권도
+        112 기타스포츠
+        113 스키/겨울스포츠
+    114 도서/음반/DVD
+        115 유아/어린이
+        116 소설/에세이/사
+        117 초중고참고서
+        118 가정 살림
+        119 건강 취미
+        110 경재 경영
+        111 과학/공학
+        112 국어/외국어/사전
+        123 대학교재
+        124 만화/라이트노벨
+        125 사회 정치
+        126 수험서/자격증
+        127 여행
+        128 역사
+        129 예술
+        130 인문
+    131 반려동물용품
+        132 강아지 사료/용품
+        133 고양이 사료/용품
+        134 관상어 용품
+        135 소동물/가축용품
 */
 
 const CategoryPage = () => {
@@ -860,137 +868,166 @@ const CategoryPage = () => {
     const SetD = () => {
         if(c >= 1 && c <=5){
             setD({name: "패션의류/잡화", path: 1});
-            setCatagory([{name: "의류" ,link: 2},
-            {name:"속옷/잠옷", link: 3},
-            {name:"신발", link: 4},
-            {name:"가방/잡화", link: 5}]);
+            setCatagory([{name: "의류" ,path: 2},
+            {name:"속옷/잠옷", path: 3},
+            {name:"신발", path: 4},
+            {name:"가방/잡화", path: 5}]);
 
         }
         else if(c >= 6 && c <= 19){
             setD({name: "뷰티", path: 6});
-            
+            setCatagory([{name: "명품뷰티", path: 7},
+            {name: "스킨케어", path: 8},
+            {name: "클렌징/필링", path: 9},
+            {name: "메이크업", path: 10},
+            {name: "향수", path: 11},
+            {name: "남성화장품", path: 12},
+            {name: "네알", path: 13},
+            {name: "뷰티소품", path:14},
+            {name: "어린이화장품", path: 15},
+            {name: "로드샵", path: 16},
+            {name: "헤어", path: 17},
+            {name: "바디", path: 18},
+            {name: "선물세트/키트", path: 19}]);
         }
         else if(c >= 20 && c <= 33){
             setD({name: "식품", path: 20});
-            setCatagory([{name:"과일", link: 21},
-            {name:"견과/건과", link: 22},
-            {name:"채소", link: 23},
-            {name:"쌀/잡곡", link: 24},
-            {name:"축산/계란", link: 12},
-            {name:"수산물/건어물", link: 13},
-            {name:"생수/음료", link: 14},
-            {name:"커피/원두/차", link: 15},
-            {name:"과자/초콜릿/시리얼", link: 16},
-            {name:"면/통조림/가공식품", link: 17},
-            {name:"가루/조미료/오일", link: 18},
-            {name:"장/소스/드레싱/식초", link: 19},
-            {name:"유제품/아이스크림", link: 20},
-            {name:"냉장/냉동/간편요리", link: 21},
-            {name:"건강식품", link: 22}]);
+            setCatagory([{name:"과일", path: 21},
+            {name:"견과/건과", path: 22},
+            {name:"채소", path: 23},
+            {name:"쌀/잡곡", path: 24},
+            {name:"축산/계란", path: 12},
+            {name:"수산물/건어물", path: 13},
+            {name:"생수/음료", path: 14},
+            {name:"커피/원두/차", path: 15},
+            {name:"과자/초콜릿/시리얼", path: 16},
+            {name:"면/통조림/가공식품", path: 17},
+            {name:"가루/조미료/오일", path: 18},
+            {name:"장/소스/드레싱/식초", path: 19},
+            {name:"유제품/아이스크림", path: 20},
+            {name:"냉장/냉동/간편요리", path: 21},
+            {name:"건강식품", path: 22}]);
         }
         else if(c >= 34 && c <= 47){
             setD({name: "주방용품", path: 34});
-            setCatagory([{name: "주방가전" ,link: 1},
-            {name:"냄비/프라이팬" ,link: 1},
-            {name:"칼/도마" ,link: 1},
-            {name:"주방조리도구" ,link: 1},
-            {name:"그릇/홈세트" ,link: 1},
-            {name:"수저/커트러리" ,link: 1},
-            {name:"컵/잔/텀블러" ,link: 1},
-            {name:"밀폐저장/도시락" ,link: 1},
-            {name:"주방잡화" ,link: 1},
-            {name:"일회용품/종이컵" ,link: 1},
-            {name:"보온/보냉용품" ,link: 1},
-            {name:"이유/유아식기" ,link: 1},
-            {name:"베이킹용품" ,link: 1},
-            {name:"교자상/제수용품", link: 1}]);
+            setCatagory([
+            {name:"냄비/프라이팬" ,path: 35},
+            {name:"칼/도마" ,path: 36},
+            {name:"주방조리도구" ,path: 37},
+            {name:"그릇/홈세트" ,path: 38},
+            {name:"수저/커트러리" ,path: 39},
+            {name:"컵/잔/텀블러" ,path: 40},
+            {name:"밀폐저장/도시락" ,path: 41},
+            {name:"주방잡화" ,path: 42},
+            {name:"일회용품/종이컵" ,path: 43},
+            {name:"보온/보냉용품" ,path: 44},
+            {name:"이유/유아식기" ,path: 45},
+            {name:"베이킹용품" ,path: 46},
+            {name:"교자상/제수용품", path: 47}]);
         }
         else if(c >= 48 && c <= 61){
             setD({name: "생활용품", path: 48});
-            setCatagory([{name: "헤어/바디/세안", link: 1},
-            {name: "구강/면도", link: 1},
-            {name: "화장지/물티슈", link: 1},
-            {name: "생리대/기저귀", link: 1},
-            {name: "세탁세제", link: 1},
-            {name: "청소/주방세제", link: 1},
-            {name: "틸취/방향/살충", link: 1},
-            {name: "건강/의료용품", link: 1},
-            {name: "욕실용품", link: 1},
-            {name: "생활전기용품", link: 1},
-            {name: "수납", link: 1},
-            {name: "생활잡화", link: 1},
-            {name: "공구/철물/DIY", link: 1},
-            {name: "안전/호신용품", link: 1}]);
+            setCatagory([{name: "헤어/바디/세안", path: 49},
+            {name: "구강/면도", path: 50},
+            {name: "화장지/물티슈", path: 51},
+            {name: "생리대/기저귀", path: 52},
+            {name: "기저귀", path: 53},
+            {name: "세탁", path: 54},
+            {name: "청소용품", path: 55},
+            {name: "틸취/방향/살충", path: 56},
+            {name: "건강/의료용품", path: 57},
+            {name: "욕실 용품", path: 58},
+            {name: "생활전기용품", path: 59},
+            {name: "수납/정리", path: 60},
+            {name: "생활잡화", path: 61},])
         }
         else if(c >= 62 && c <=72){
             setD({name: "홈인테리어", path: 62 });
+            setCatagory([
+            {path: 63, name: "홈데코"},
+            {path: 64, name: "가구"},
+            {path: 65, name: "수납/정리"},
+            {path: 66, name: "침구"},
+            {path: 67, name: "커튼/블라인드"},
+            {path: 68, name: "카페트/쿠션/거실화"},
+            {path: 69, name: "수예/수선"},
+            {path: 70, name: "욕실용품"},
+            {path: 71, name: "조명/스탠드"},
+            {path: 72, name: "원예/가드닝"},
+            ])
         }
-        else if(c >= 73 && c <= 88){
+        else if(c >= 73 && c <= 93){
             setD({name: "가전디지털", path: 73});
-            setCatagory([{name: "TV/영상가전" ,link: 1}, 
-            {name:"냉장고" ,link: 1}, 
-            {name:"세탁기/건조기" ,link: 1},
-            {name:"생활가전" ,link: 1}, 
-            {name:"이미용가전" ,link: 1}, 
-            {name:"건강가전" ,link: 1}, 
-            {name:"노트북" ,link: 1},
-            {name:"데스크탑" ,link: 1}, 
-            {name:"모니터" ,link: 1}, 
-            {name:"PC주변기기" ,link: 1}, 
-            {name:"PC부품" ,link: 1},
-            {name:"휴대폰" ,link: 1},
-            {name:"태블릿PC" ,link: 1}, 
-            {name:"스마트워치/밴드" ,link: 1},
-            {name:"음향기기" ,link: 1},
-            {name:"게임" ,link: 1}, 
-            {name:"카메라" ,link: 1}, 
-            {name:"전동킥보드/자전거" ,link: 1},
-            {name:"차량용 디지털" ,link: 1}]);
+            setCatagory([{name: "TV/영상가전" ,path: 74}, 
+            {name:"냉장고" ,path: 75}, 
+            {name:"세탁기/건조기" ,path: 76},
+            {name:"청소기", path: 77},
+            {name:"계절가전", path: 78},
+            {name:"이미용가전" ,path: 79}, 
+            {name:"건강가전" ,path: 80},
+            {name:"주방가전" ,path: 81},  
+            {name:"노트북" ,path: 82},
+            {name:"데스크탑" ,path: 83}, 
+            {name:"저장장치" ,path: 84}, 
+            {name:"프린터/복합기" ,path: 85}, 
+            {name:"PC 부품/주변기기" ,path: 86},
+            {name:"휴대폰" ,path: 87},
+            {name:"태블릿PC" ,path: 88}, 
+            {name:"스마트워치/밴드" ,path: 89},
+            {name:"음향기기" ,path: 90},
+            {name:"게임콘솔" ,path: 91}, 
+            {name:"카메라" ,path: 92}, 
+            {name:"차량용 디지털" ,path: 93}]);
         }
-        else if(c >= 89 && c <= 105){
-            setD({name: "스포츠/레저", path: 89});
-            setCatagory([{name: "캠핑" ,link: 1},
-            {name:"홈트레이닝" ,link: 1},
-            {name:"수영/수상스포츠" ,link: 1},
-            {name:"골프" ,link: 1},
-            {name:"자전거" ,link: 1},
-            {name:"킥보드/스케이트" ,link: 1},
-            {name:"낚시" ,link: 1},
-            {name:"등산/아웃도어" ,link: 1},
-            {name:"스포츠신발" ,link: 1},
-            {name:"남성스포츠의류" ,link: 1},
-            {name:"여성스포츠의류" ,link: 1},
-            {name:"유아스포츠의류" ,link: 1}, 
-            {name:"스포츠잡화" ,link: 1},
-            {name:"구기스포츠" ,link: 1},
-            {name:"라켓스포츠" ,link: 1}, 
-            {name:"헬스/요가/댄스" ,link: 1},
-            {name:"복싱/검도/태권도" ,link: 1}, 
-            {name:"학교 체육 준비" ,link: 1}, 
-            {name:"기타스포츠" ,link: 1},
-            {name:"스키/겨울스포츠", link: 1}]);
+        else if(c >= 94 && c <= 113){
+            setD({name: "스포츠/레저", path: 94});
+            setCatagory([{name: "캠핑" ,path: 95},
+            {name:"홈트레이닝" ,path: 96},
+            {name:"수영/수상스포츠" ,path: 97},
+            {name:"골프" ,path: 98},
+            {name:"자전거" ,path: 99},
+            {name:"킥보드/스케이트" ,path: 100},
+            {name:"낚시" ,path: 101},
+            {name:"등산/아웃도어" ,path: 102},
+            {name:"스포츠신발" ,path: 103},
+            {name:"남성스포츠의류" ,path: 104},
+            {name:"여성스포츠의류" ,path: 105},
+            {name:"유아스포츠의류" ,path: 1}, 
+            {name:"스포츠잡화" ,path: 106},
+            {name:"구기스포츠" ,path: 107},
+            {name:"라켓스포츠" ,path: 108}, 
+            {name:"헬스/요가/댄스" ,path: 109},
+            {name:"복싱/검도/태권도" ,path: 110}, 
+            {name:"학교 체육 준비" ,path: 111}, 
+            {name:"기타스포츠" ,path: 112},
+            {name:"스키/겨울스포츠", path: 113}]);
         }
-        else if(c >= 106 && c <= 122){
-            setD({name: "도서/음반/DVD", path: 106});
-            setCatagory([{name: "유아/어린이", link: 1},
-            {name: "소설/에세이/시", link: 1},
-            {name:"초중고참고서", link: 1},
-            {name: "가정 살림", link: 1},
-            {name: "건강 취미", link: 1},
-            {name: "경제 경영", link: 1},
-            {name: "과학/공학", link: 1},
-            {name: "국어/외국어/사전", link: 1},
-            {name: "대학교재", link: 1},
-            {name: "만화/라이트노벨", link: 1},
-            {name: "사회 정치", link: 1},
-            {name: "수험서/자격증", link: 1}])
+        else if(c >= 114 && c <= 130){
+            setD({name: "도서/음반/DVD", path: 114});
+            setCatagory([{name: "유아/어린이", path: 115},
+            {name: "소설/에세이/시", path: 116},
+            {name:"초중고참고서", path: 117},
+            {name: "가정 살림", path: 118},
+            {name: "건강 취미", path: 119},
+            {name: "경제 경영", path: 120},
+            {name: "과학/공학", path: 121},
+            {name: "국어/외국어/사전", path: 122},
+            {name: "대학교재", path: 123},
+            {name: "만화/라이트노벨", path: 124},
+            {name: "사회 정치", path: 125},
+            {name: "수험서/자격증", path: 126},
+            {name: "여행", path: 127},
+            {name: "역사", path: 128},
+            {name: "예술", path: 129},
+            {name: "인문", path: 130},
+        ])
         }
-        else if(c >= 123 && c <= 127){
-            setD({name: "반려동물용품", path: 123});
-            setCatagory([{name: "강아지" , linke: 1}, 
-            {name: "고양이",link: 1}, 
-            {name: "관상어" ,link: 1}, 
-            {name: "소동물/가축용품" ,link: 1}]);
+        else if(c >= 131 && c <= 135){
+            setD({name: "반려동물용품", path: 131});
+            setCatagory([{name: "강아지 사료/용품" , path: 132}, 
+            {name: "고양이 사료/용품",path: 133}, 
+            {name: "관상어 용품" ,path: 134}, 
+            {name: "소동물/가축용품" ,path: 135}]);
         }   
     }
 

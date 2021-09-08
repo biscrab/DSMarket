@@ -976,6 +976,7 @@ export const CSLi = styled.li`
 `
 
 export const CSUl = styled.ul`
+    height: 300px;
     padding: 0;
     margin: 0;
     list-style: none;
