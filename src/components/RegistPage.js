@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState, useEffect} from 'react'
 import * as S from '../styled/App'
 import CSLi from '../contents/Csli'
 import RegistOption from '../contents/RegistOption';
@@ -144,8 +144,6 @@ import SetPath from '../contents/SetPath';
 
 const t = false;
 
-const list = [{tittle: 1, a: 1, b:2}];
-
 const RegistPage = () => {
 
     const [upload, setUpload] = useState(1);
@@ -174,7 +172,7 @@ const RegistPage = () => {
             </S.RegistDiv>
     */
 
-    const SetO = (o) => {
+    const Set = (o) => {
 
         switch(o){
             case 1 :
@@ -312,9 +310,54 @@ const RegistPage = () => {
         }
     }
 
-    const list = [{name: 1, option:[1,2,3]},{name: 2, option:[1,3,4]}];
+    const [list, setList] = useState([{name: "색상", option: 
+    [{name: "블랙", link:"black"},
+    {name: "네이비", link:"navy"},
+    {name: "그레이", link:"gray"},
+    {name: "실버", link:"sliver"},
+    {name: "레드", link:"red"},
+    {name: "오렌지", link:"orange"},
+    {name: "옐로우", link:"yellow"},
+    {name: "그린", link:"green"},
+    {name: "블루", link:"blue"},
+    {name: "퍼플", link:"purple"},
+    {name: "핑크", link:"pink"},
+    {name: "화이트", link:"white"},
+    {name: "브라운", link:"brown"},
+    {name: "골드", link:"gold"},
+    {name: "베이지", link:"beiege"},
+    {name: "혼합", link:"mixed"},
+    {name: "투명", link:"limpidity"}]}]);
 
     const [tittle, setTittle] = useState("");
+
+    const Color = () => {
+        setList([...list,{name: "색상", option: 
+        [{name: "블랙", link:"black"},
+        {name: "네이비", link:"navy"},
+        {name: "그레이", link:"gray"},
+        {name: "실버", link:"sliver"},
+        {name: "레드", link:"red"},
+        {name: "오렌지", link:"orange"},
+        {name: "옐로우", link:"yellow"},
+        {name: "그린", link:"green"},
+        {name: "블루", link:"blue"},
+        {name: "퍼플", link:"purple"},
+        {name: "핑크", link:"pink"},
+        {name: "화이트", link:"white"},
+        {name: "브라운", link:"brown"},
+        {name: "골드", link:"gold"},
+        {name: "베이지", link:"beiege"},
+        {name: "혼합", link:"mixed"},
+        {name: "투명", link:"limpidity"}]}]);
+    }
+
+    const Season = () => {
+        setList([...list,{name:"계절", option:[{name:"사계절용", link:"four"}, {name:"봄/가을용", link:"spfa"}, {name:"여름용", link: "summer"}, {name:"겨울용", link:"winter"}]}]);
+    }
+
+    useEffect(()=>{
+    },[]);
 
     return(
         <S.R>
@@ -357,18 +400,21 @@ const RegistPage = () => {
             </div>
             </S.RegistDiv>
 
-            <p>상세설정</p>
+            
             <S.RegistDiv>
                 <S.RegistDetailUl>
-                    <span>카테고리</span>
+                    <span>상세설정</span>
                     <RegistOption lists={list}/>
                 </S.RegistDetailUl>
             </S.RegistDiv>
-            <S.Input></S.Input>
+
+            <S.RegistDiv>
             <p>배송 관련 사항</p>
             <S.Input></S.Input>
             <p>반품/교환 관련 사항</p>
             <S.Input></S.Input>
+            </S.RegistDiv>
+
                 <div>
                 <b>상품 이미지</b>
                 </div>                
@@ -395,8 +441,6 @@ const RegistPage = () => {
             <S.RegistDiv></S.RegistDiv>            
             
             <S.RegistDiv>
-                <p>상품 주요정부</p>
-                <RegistOption lists={list}/>
             <S.RegistDetailUl>
 
                 <S.RegistDetail>
@@ -412,20 +456,6 @@ const RegistPage = () => {
                 <S.DetailSpan>제조사</S.DetailSpan>
                 <S.DetailDiv>
                 <S.OInput></S.OInput>
-                </S.DetailDiv>  
-                </S.RegistDetail>
-
-                <S.RegistDetail>
-                <S.DetailSpan>인당 최대구매수량</S.DetailSpan>
-                <S.DetailDiv>
-                <S.DetailSDiv>
-                <input type="radio"></input>
-                <span>설정함</span>
-                </S.DetailSDiv> 
-                <S.DetailSDiv>
-                <input type="radio"></input>
-                <span>설정안함</span>
-                </S.DetailSDiv> 
                 </S.DetailDiv>  
                 </S.RegistDetail>
 
@@ -584,6 +614,20 @@ const RegistPage = () => {
                 <span>병행수입 아님</span>
                 </S.DetailSDiv>   
                 </S.DetailDiv> 
+                </S.RegistDetail>
+
+                                <S.RegistDetail>
+                <S.DetailSpan>인당 최대구매수량</S.DetailSpan>
+                <S.DetailDiv>
+                <S.DetailSDiv>
+                <input type="radio"></input>
+                <span>설정함</span>
+                </S.DetailSDiv> 
+                <S.DetailSDiv>
+                <input type="radio"></input>
+                <span>설정안함</span>
+                </S.DetailSDiv> 
+                </S.DetailDiv>  
                 </S.RegistDetail>
 
     */

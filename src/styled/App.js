@@ -669,6 +669,8 @@ export const Recent = styled.div`
 export const Input = styled.input`
     width: 80%;
     height: 30px;
+    font-size: 15px;
+    padding: 0px 10px;
     :forcus{
         outline: 1px solid royalblue;
     }
@@ -684,7 +686,7 @@ export const OInput = styled.input`
 
 export const Max = styled.div`
     background-color: #eeeeee;
-    height: 24px;
+    height: 22px;
     width: 70px;
     padding: 5px;
     text-align: center;
@@ -694,6 +696,7 @@ export const Max = styled.div`
 export const R = styled.div`
     display: flex;
     justify-content: center;
+    padding-bottom: 100px;
 `
 export const ImgDiv = styled.div`
     width: 80%;
@@ -996,6 +999,7 @@ export const RegistImg = styled.div`
 
 export const RegistDetail = styled.li`
     display: flex;
+    padding: 0px 10px;
     height: 50px;
     border-bottom: 2px solid #eeeeee;
     align-items: center;
@@ -1127,19 +1131,24 @@ export const RegistDetailUl = styled.ul`
     display: flex;
     flex-direction: column;
 ` 
-
 export const DetailDiv = styled.div`
     position: relative;
     display: flex;
     align-content: center;
     width: auto;
+    justify-content: space-around;
+`
+
+export const DetailSelect = styled.select`
+    height: 30px;
+    width: 100px;
 `
 export const DetailSpan = styled.span`
-    width: 200px;
+    width: 100px;
 `
 
 export const DetailSDiv = styled.div`
-    width: 250px;
+    margin-right: 20px;
 `
 
 export const SignUpDiv = styled.div`
@@ -1311,6 +1320,8 @@ export const RButton = styled.button`
     background-color: ${props => props.color};
     width: 200px;
     height: 50px;
+    position: relative;
+    left: 890px;
 `
 
 export const CaSelect = styled.input`

@@ -283,29 +283,30 @@ const CategoryPage = () => {
             </>
         )
     }
-     
-    const Target = () => {
-        const list = {/*name:"남성용", name:"여성용", name: "남녀공용", name:"아동/유아용" */}
-        return(
-            <S.CatagoryDiv>
-                <S.CaTittle>사용대상</S.CaTittle>
-                <Select lists={list}/>
-            </S.CatagoryDiv>
-        )
-    }
     
     const Size = () => {
-        const list = {/*name:"XS", name:"S", name:"M", name:"L", name:"XL", name:"2XL", name:"3XL", name:"FREE (One Size)"*/}
+        const list = [{name:"XS", link:"XS"}, {name:"S", link:"S"}, {name:"M", link:"M"}, {name:"L", link:"L"}, {name:"XL", link:"XL"}, {name:"2XL", link:"2XL"}, {name:"3XL", link:"3XL"}, {name:"FREE (One Size)", link:"FREE"}];
+        return(
+            <>
+            {c <= 6 ?
+            <S.CatagoryDiv>
+                <S.CaTittle>사이즈</S.CaTittle>
+                <Select lists={list}/>
+            </S.CatagoryDiv>
+            :<></>
+            }
+            </>
+        )
+    }
+
+    const Patern = () => {
+        const list = [{name: "", link: ""},{name: "", link: ""},{name: "", link: ""},{name: "", link: ""},{name: "", link: ""},{name: "", link: ""}]
         return(
             <S.CatagoryDiv>
                 <span></span>
                 <Select lists={list}/>
             </S.CatagoryDiv>
         )
-    }
-
-    const Patern = () => {
-
     }
 
     const Star = () => {
@@ -439,14 +440,28 @@ const CategoryPage = () => {
     }
 
         
-    const Metarial = () => {
-        const list = {}
+    const CMetarial = () => {
+        const list = [{name:"가죽", link:""},{name:"인조가죽", link:""},{name:"면", link:""},{name:"나일론", link:""},{name:"아크릴", link:""},{name:"폴리에스터", link:""},{name:"니트", link:""}]
         return(
             <S.CatagoryDiv>
-                <span></span>
+                <span>소재</span>
                 <Select lists={list}/>
             </S.CatagoryDiv>
         )
+    }
+
+    const DSize = () => {
+        const list = [{name:"소형견", link:"small"},{name:"중형견", link:"middle"},{name:"대형견", link:"big"},{name:"전체", link:"all"}]
+        return(
+            <S.CatagoryDiv>
+                <S.CaTittle>대상크기</S.CaTittle>
+                <Select lists={list}/>
+            </S.CatagoryDiv>
+        )
+    }
+
+    const Rawmaterial = () => {
+        
     }
 
         
@@ -1141,6 +1156,7 @@ const CategoryPage = () => {
                 <Price />
                 <Cata />
                 <Color />
+                <Size />
                 <Olganic />
                 <Caffein />
                 <Season />

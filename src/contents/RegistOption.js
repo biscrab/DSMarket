@@ -5,35 +5,32 @@ const RegistOption = ({item}) => {
 
     const Option = ({lists}) => {
         const itemList = lists.map(
-            item => {
-            <S.DetailSDiv>
-            <input type="radio"></input>
-            <span>{item}</span>
-            </S.DetailSDiv> 
-            }
+            item => (
+            <option>
+            {item.name}
+            </option> 
+            )
         )
         return itemList;
     }
 
     return(
-        <S.RegistDetail>
-        <S.DetailSpan>{item.name}</S.DetailSpan>
-        <S.DetailDiv>
-        <S.DetailSDiv>
-        <input type="radio"></input>
-        <span>설정함</span>
-        </S.DetailSDiv> 
-        <Option lists={item.option}/>
-        </S.DetailDiv>  
-        </S.RegistDetail>
+            <S.RegistDetail>
+            <S.DetailSpan>{item.name}</S.DetailSpan>
+            <S.DetailSelect>
+                <Option lists={item.option}/>
+            </S.DetailSelect>  
+            </S.RegistDetail>
     )
+
+    //        <Option lists={item.option}/>
 }
 
 const List = ({lists, path}) => {
     const itemList = lists.map(
-        item => {
-            <RegistOption item={item} name={item.name} path={path} option={item.option}/>
-        }
+        item => (
+            <RegistOption item={item} name={item.name} option={item.option}/>
+        )
     )
     return itemList;  
 }
