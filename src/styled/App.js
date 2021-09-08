@@ -227,7 +227,7 @@ export const PlusImg = styled.img`
 `
 
 export const Info = styled.div`
-    margin-left: 20px;
+    margin-left: 40px;
     height: auto;
     width: 500px;
 `
@@ -254,7 +254,6 @@ export const Price = styled.div`
 
 export const PText = styled.h2`
     color: crimson;
-    margin: 10px;
 `
 export const DText = styled.p`
     font-size: 15px;
@@ -480,7 +479,6 @@ export const CatagoryDiv = styled.div`
 
 export const DileveryTime = styled.p`
     font-size: 20px;
-    color: yellowgreen;
 `
 
 export const RelatedDiv = styled.div`
@@ -1449,7 +1447,7 @@ export const CommentGray = styled.span`
 `
 
 export const CommentUl = styled.ul`
-    height: auto;
+    height: ${props => props.height};
     border-top: 2px solid darkgray;
     position: relative;
     left: 50%;
@@ -1476,4 +1474,5 @@ export const CatagoryH = styled.h3`
 
 export const ItemPrice = styled.h3`
     color: crimson;
+    margin: 0;
 ` 

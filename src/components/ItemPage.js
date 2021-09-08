@@ -40,8 +40,6 @@ const ItemPge = () => {
                     <S.ADiv>
                         <h2>제품</h2>
                         <span classADiv="star-rating"></span>
-                    </S.ADiv>
-                    <S.ADiv>
                         <S.PText>10,000원</S.PText>
                     </S.ADiv>
                     <S.ADiv>
@@ -86,9 +84,15 @@ const ItemPge = () => {
                 </S.MDiv>}
                 </S.EDiv>
                 <S.CommentH>상품평</S.CommentH>
-                <S.CommentUl>
+                {comment.length >= 10 ?
+                <S.CommentUl height="500px">
                     <Comment lists={comment}/>
                 </S.CommentUl>
+                :
+                <S.CommentUl height="auto">
+                <Comment lists={comment}/>
+                </S.CommentUl>
+                }
                 </div>
                 <S.BuyDiv>
                     <S.BuyImgDiv>

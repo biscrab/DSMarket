@@ -159,23 +159,14 @@ const CategoryPage = () => {
     const [l, setL] = useState();
     const [d, setD] = useState({name: "", path: ""});
 
-    const setLink = (c, path) => {
-        var a = `star=${c}`;
-        var c = ""
+    const setLink = (path, link) => {
+        var a = `${path}=${link}`;
+        console.log("search:"+location.search);
         if(location.search.includes(`${path}=`)){
             if(location.search.includes('&')){
-                var b = location.search.split('&');
-                for(var i = 0; i < b.length; i++){
-                    console.log(b[i]);
-                    if(b[i].includes(`${path}=`)){
-                        b[i]+=`,${c}`;
-                    }
-                    c += b[i];
-                }
-                location.search = c;
             }
             else{
-            setL(`,${c}`);
+            setL(`,${link}`);
             }
         }
         else if(location.search === ""){
@@ -186,9 +177,11 @@ const CategoryPage = () => {
             setL(`&${a}`);
             console.log(l);
         }
+
+        history.push(...location.search, l);
     }
 
-    const Del = (c, path) => {
+    const Del = (path, link) => {
         var a;
         if(location.search.includes(`&${path}=${c}`)){
             if(location.search.includes(`&${path}=${c},`)){
@@ -317,25 +310,13 @@ const CategoryPage = () => {
 
     const Star = () => {
 
-        const SetStar = () => {
-
-        }
-
         return(
             <S.CatagoryDiv>
-                <S.CaTittle>별점</S.CaTittle>
-                <Link to={{search:"?star=1"}} style={{ textDecoration: 'none', color: 'black'}}> 
-                <S.Box><div style={{display:"flex"}}><Sta star={4}/><span>4점 이상</span></div></S.Box>
-                </Link>
-                <Link to={{search:"?star=2"}} style={{ textDecoration: 'none', color: 'black'}}>
-                <S.Box><div style={{display:"flex"}}><Sta star={3}/><span>3점 이상</span></div></S.Box>
-                </Link>
-                <Link to={{search:"?star=3"}} style={{ textDecoration: 'none', color: 'black'}}>
-                <S.Box><div style={{display:"flex"}}><Sta star={2}/><span>2점 이상</span></div></S.Box>
-                </Link>
-                <Link to={{search:"?star=4"}} style={{ textDecoration: 'none', color: 'black'}}>
-                <S.Box><div style={{display:"flex"}}><Sta star={1}/><span>1점 이상</span></div></S.Box>
-                </Link>
+                <S.CaTittle>별점</S.CaTittle> 
+                <S.Box onClick={()=>setLink("star",1)}><div style={{display:"flex"}}><Sta star={4}/><span>4점 이상</span></div></S.Box>
+                <S.Box onClick={()=>setLink("star",2)}><div style={{display:"flex"}}><Sta star={3}/><span>3점 이상</span></div></S.Box>
+                <S.Box onClick={()=>setLink("star",3)}><div style={{display:"flex"}}><Sta star={2}/><span>2점 이상</span></div></S.Box>
+                <S.Box onClick={()=>setLink("star",4)}><div style={{display:"flex"}}><Sta star={1}/><span>1점 이상</span></div></S.Box>
             </S.CatagoryDiv>
         )
     }
@@ -773,7 +754,7 @@ const CategoryPage = () => {
             <>
             {catagory ?
             <S.CatagoryDiv>
-                <S.CaTittle>카테고리</S.CaTittle>
+                <S.CaTittle>{d.name}</S.CaTittle>
                 <Catagory lists={catagory}></Catagory>
             </S.CatagoryDiv>:
             <></>
@@ -1028,6 +1009,21 @@ const CategoryPage = () => {
             {name: "고양이 사료/용품",path: 133}, 
             {name: "관상어 용품" ,path: 134}, 
             {name: "소동물/가축용품" ,path: 135}]);
+        }
+        else{
+            setD({name: "카테고리", path: ""});
+            setCatagory([
+                {name: "패션의류/잡화", path: 1},
+                {name: "뷰티", path: 6},
+                {name: "식품", path: 20},
+                {name: "주방용품", path: 34},
+                {name: "생활용품", path: 48},
+                {name: "홈인테리어", path: 62},
+                {name: "가전디지털", path: 73},
+                {name: "스포츠/레저", path: 94},
+                {name: "도서/음반/DVD", path: 114},
+                {name: "반려동물용품", path: 131},
+            ])
         }   
     }
 
@@ -1126,6 +1122,7 @@ const CategoryPage = () => {
         setC();
         setO(1);
         SetD();
+        console.log("c:"+c);
     },[]);
 
     return(
