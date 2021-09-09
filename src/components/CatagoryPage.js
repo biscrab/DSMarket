@@ -1140,6 +1140,19 @@ const CategoryPage = () => {
         console.log("c:"+c);
     },[]);
 
+    const prev = () => {
+        if(query.p >= 11){
+            history.push(`?p=${p-10}`);
+        }
+        else{
+            history.push(`?p=1`)
+        }
+    }
+
+    const next = () => {
+
+    }
+
     return(
         <>
         <S.OrderDiv>
@@ -1187,7 +1200,7 @@ const CategoryPage = () => {
         </S.C>
         <S.Next>
             {query.p >= 1 ?
-            <S.Pbutton>{'<'}</S.Pbutton>
+            <S.Pbutton onClick={()=>prev()}>{'<'}</S.Pbutton>
             : <S.Pbutton color="#eeeeee">{'<'}</S.Pbutton>}
             <Page lists={page}/>
             <S.Pbutton>{'>'}</S.Pbutton>
