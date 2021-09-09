@@ -213,11 +213,6 @@ export const Image = styled.img`
     border-radius: 2%;
 `
 
-export const ItemImgDiv = styled.div`
-    display: flex;
-    flex-direction: column;
-`
-
 export const Info = styled.div`
     margin-left: 40px;
     height: 410px;

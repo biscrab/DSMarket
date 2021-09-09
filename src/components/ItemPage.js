@@ -7,6 +7,7 @@ import D from '../images/d.jpg'
 import E from '../images/e.jpg'
 import Relate from '../contents/Relate'
 import Comment from '../contents/Comment'
+import Profile from '../images/profile.png'
 
 const ItemPge = () => {
 
@@ -29,13 +30,12 @@ const ItemPge = () => {
     return(
         <S.Item> 
             <S.IBorder>
-                <S.ItemImgDiv>
                 <S.Image src={img[imgN]}></S.Image>
-                </S.ItemImgDiv>
                 <S.Info>
                     <S.ATop>
                     <S.ADiv>
-                        <h2>제품</h2>
+                        <img src={Profile}></img>
+                        <p>제품</p>
                         <span classADiv="star-rating"></span>
                         <S.PText>10,000원</S.PText>
                     </S.ADiv>

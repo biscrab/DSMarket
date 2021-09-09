@@ -1189,8 +1189,6 @@ const CategoryPage = () => {
                 <Cata />
                 <Color />
                 <Size />
-                <Olganic />
-                <Caffein />
                 <Season />
                 <Subject />
                 <useGrade />
