@@ -11,15 +11,22 @@ import Recommendation from '../contents/Recommendation'
 const MainPage = () => {
     var arr=[A, B, C, D];
     const [i, setI] = useState(0);
+    const n = useRef(0);
 
     function showImage() {
-        if(i <= arr.length){
-            setI(i+1);
+        if(i < 3){
+            setI((n.current += 1));
         }
         else{
-            setI(0);
+            setI((n.current = 0));
         }
     }
+
+    useEffect(()=>{
+        setInterval(()=>{
+            showImage();
+        },1000);
+    },[]);
 
     let history = useHistory();
 
@@ -27,7 +34,7 @@ const MainPage = () => {
     const [value, setValue] = useState(1);
 
     const Sale = [{id: 1, img: A, name: "1"},{id: 1, img: A, name: "1"},{id: 1, img: A, name: "1"},{id: 1, img: A, name: "1"},{id: 1, img: A, name: "1"}];
-    const Best = [{id: 1, img: B, name: "1"},{id: 1, img: B, name: "1"},{id: 1, img: B, name: "1"},{id: 1, img: B, name: "1"},{id: 1, img: B, name: "1"}];
+    const Best = [{id: 1, img: B, name: "1"},{id: 1, img: B, name: "1"},{id: 1, img: B, name: "1"},{id: 1, img: B, name: "1"}];
     const New = [{id: 1, img: C, name: "1"},{id: 1, img: C, name: "1"},{id: 1, img: C, name: "1"},{id: 1, img: C, name: "1"},{id: 1, img: C, name: "1"}];
 
     return(
@@ -52,7 +59,7 @@ const MainPage = () => {
                 </S.CTDiv>
             </S.MainBanner>
             <S.BestItem>
-                <S.Best>최고의 인기 제품</S.Best>
+                <S.Best>중고거래 인기 제품</S.Best>
                 <S.BestDiv>
                     <Recommendation lists={Best} />
                 </S.BestDiv> 

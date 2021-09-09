@@ -8,7 +8,7 @@ const Admin = ({item}) => {
     let history = useHistory();
 
     return(
-        <S.ALi onClick={history.push(`/id?=${item.id}`)}>
+        <S.ALi onClick={()=>history.push(`/admin/id?=${item.id}`)}>
             {item.name}
         </S.ALi>
     )
@@ -17,7 +17,7 @@ const Admin = ({item}) => {
 const List = ({lists}) => {
     const itemlist = lists.map(
         item => (
-            <Admin item={item} key={item.id} id={item.id} name={item.name}/>
+            <Admin item={item} id={item.id} name={item.name}/>
         )
     )
     return itemlist

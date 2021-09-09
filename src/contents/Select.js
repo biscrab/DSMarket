@@ -21,19 +21,22 @@ const Select = ({item, path}) => {
             if(location.search.includes('&')){
                 var d = location.search.split('&');
                 console.log("123asd");
+                return;
             }
             else{
-            setL(`${location.search}` + `,${item.link}`);
+            setL(`,${item.link}`);
             }
         }
         else if(location.search === ""){
             setL(`?${a}`);
             console.log(l);
+            history.push(l);
         }
         else{
-            setL(`${location.search}` + `&${a}`);
-            console.log(l);
+            setL("&" + a);
+            console.log("l:"+l);
         }
+        history.push(location.search + l);
     }
 
     const Del = () => {
@@ -68,7 +71,6 @@ const Select = ({item, path}) => {
         if(location.search.includes(item.link)){
             console.log(item.link);
             setCheck(true);
-            setLink();
         }
     },[]);
 
@@ -77,17 +79,15 @@ const Select = ({item, path}) => {
         {check ? 
         <S.Box onClick={() => Del()}>
             <div style={{position:"relative", top:"50%", transform:"translateY(-50%)"}}>
-            <input type="checkbox" checked={check}></input>{item.i ? <S.Icon src={item.i}></S.Icon> : <></>}<span>{item.name}</span>
+            <input type="checkbox" checked={check}></input><span>{item.name}</span>
             </div>
         </S.Box> 
         :
-        <Link to={{search: `${l}`}} style={{color:"black", textDecoration:"none"}}>
-        <S.Box>
+        <S.Box onClick={() => setLink()}>
             <div style={{position:"relative", top:"50%", transform:"translateY(-50%)"}}>
-            <input type="checkbox" checked={check}></input>{item.i ? <S.Icon src={item.i}></S.Icon> : <></>}<span>{item.name}</span>
+            <input type="checkbox" checked={check}></input><span>{item.name}</span>
             </div>
         </S.Box>
-        </Link>
         }
         </>
     );

@@ -3,10 +3,10 @@ import * as S from '../styled/App'
 
 const Cart = ({item}) => {
 
-    const [v, setV] = useState();
+    const [v, setV] = useState(0);
 
     useEffect(()=>{
-        if(v < 1){
+        if(v < 0){
             setV(1);
         }
     })

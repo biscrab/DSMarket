@@ -10,10 +10,7 @@ const Recommendation = ({item}) => {
         <S.BDiv onClick={()=>history.push(`/item/${item.id}`)}>
         <S.BestImg src={item.img}></S.BestImg>
         <S.Bfont>{item.name}</S.Bfont>
-        <S.PDiv>
-            <S.Bprice>100</S.Bprice>
-            <S.Won>원</S.Won>
-        </S.PDiv>
+        <S.Bprice>100원</S.Bprice>
     </S.BDiv>
     );
 }

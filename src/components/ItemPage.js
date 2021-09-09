@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState, useEffect} from 'react'
 import * as S from '../styled/App'
 import A from '../images/c.jpg'
 import B from '../images/b.jpg'
@@ -6,7 +6,6 @@ import C from '../images/c.jpg'
 import D from '../images/d.jpg'
 import E from '../images/e.jpg'
 import Relate from '../contents/Relate'
-import Star from '../contents/Star'
 import Comment from '../contents/Comment'
 
 const ItemPge = () => {
@@ -25,18 +24,16 @@ const ItemPge = () => {
     const [imgN, setImgN] = useState(0);
     const comment = [{comment: "1", star: 2, name: 1}];
 
+
+
     return(
         <S.Item> 
             <S.IBorder>
                 <S.ItemImgDiv>
                 <S.Image src={img[imgN]}></S.Image>
-                <S.PlusImgDiv>
-                    <S.PlusImg onClick={()=>{setImgN(1)}} src={imgN[1]}></S.PlusImg>
-                    <S.PlusImg></S.PlusImg>
-                    <S.PlusImg></S.PlusImg>
-                </S.PlusImgDiv>
                 </S.ItemImgDiv>
                 <S.Info>
+                    <S.ATop>
                     <S.ADiv>
                         <h2>제품</h2>
                         <span classADiv="star-rating"></span>
@@ -44,15 +41,8 @@ const ItemPge = () => {
                     </S.ADiv>
                     <S.ADiv>
                         <S.DileveryTime>8/30일</S.DileveryTime>
-                        <S.Check>
-                            <S.CheckBox type="radio" />
-                            <span>로켓배송 상품 19,800원 이상 무료배송</span>
-                        </S.Check>
-                        <S.Check>
-                            <S.CheckBox type="radio" />
-                            <span>무료배송 + 무료반품</span>
-                        </S.Check>
-                    </S.ADiv>                
+                    </S.ADiv>
+                    </S.ATop>                
                     <S.ButtonDiv>
                         <S.Bucket>장바구니</S.Bucket>                     
                         <S.Buy>구매하기</S.Buy>

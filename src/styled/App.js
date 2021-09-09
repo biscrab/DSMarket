@@ -20,6 +20,9 @@ export const Logo = styled.h1`
     color: royalblue;
 `
 
+export const LogoImg = styled.img`
+`
+
 export const SBox = styled.span`
     display: flex;
     align-items: center;
@@ -75,12 +78,13 @@ export const BestItem = styled.div`
     height: 600px;
 `
 
-export const Best = styled.h2`
+export const Best = styled.h1`
     margin: 0px;
     position: relative;
-    width: 190px;
+    width: 280px;
     top: 10%;
-    left: 100px;
+    left: 50%;
+    transform: translateX(-50%);
 `
 
 export const CDiv = styled.div`
@@ -203,9 +207,10 @@ export const ItemImg = styled.img`
 `
 
 export const Image = styled.img`
-    width: 410px;
-    height: 410px;
+    width: 600px;
+    height: 600px;
     background-color: whitesmoke;
+    border-radius: 2%;
 `
 
 export const ItemImgDiv = styled.div`
@@ -213,22 +218,9 @@ export const ItemImgDiv = styled.div`
     flex-direction: column;
 `
 
-export const PlusImgDiv = styled.div`
-    display: flex;
-    justify-content: center;
-    position: relative;
-    top: 10px;
-`
-
-export const PlusImg = styled.img`
-    width: 50px;
-    height: 50px;
-    padding: 10px;
-`
-
 export const Info = styled.div`
     margin-left: 40px;
-    height: auto;
+    height: 410px;
     width: 500px;
 `
 
@@ -236,10 +228,6 @@ export const IBorder = styled.div`
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    margin-top: 100px;
-    display: flex;
-    width: 1000px;
-    height: 650px;
 `
 
 export const ADiv = styled.div`
@@ -279,11 +267,9 @@ export const Detail = styled.div`
 `
 
 export const ButtonDiv = styled.div`
-    position: relative;
     height: 60px;
     width: 500px;
     display: flex;
-    top: 10%;
     justify-content: space-between;
 `
 
@@ -379,13 +365,13 @@ export const BuyImg = styled.img`
 export const O = styled.div`
     display: flex;
     justify-content: center;
-    background-color: #eeeeee;
     position: relative;
     padding-bottom: 100px;
+    background-color: rgba(0, 0, 0, 0.02)
 `
 export const ODiv = styled.div`
     list-style: none;
-    height: 100px;
+    height: 70px;
     margin: 0;
     padding: 0;
     display: flex;
@@ -394,11 +380,11 @@ export const ODiv = styled.div`
 
 export const OBorder = styled.div`
     margin-top: 50px;
-    background-color: white;
     display: flex;
     flex-direction: column;
-    width: 1000px;
+    width: 800px;
     height: 900px;
+    list-style: none;
 `
 
 export const Have = styled.li`
@@ -421,14 +407,6 @@ export const HSpan = styled.p`
     top: 20px;
     margin: 0;
 `
-export const HNumber = styled.p`
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 40px;
-    font-size: 30px;
-    margin: 0;
-`
 
 export const CTDiv = styled.div`
     position: relative;
@@ -448,9 +426,9 @@ export const CBorder = styled.div`
 `
 
 export const BestImg = styled.img`
-    width: 230px;
-    height: 230px;
-    border-radius: 50%;
+    width: 600px;
+    height: 600px;
+    border-radius: 10px;
     background-color: whitesmoke;
 `
 
@@ -512,25 +490,15 @@ export const BDiv = styled.div`
     height: 350px;
 `
 export const Bfont = styled.p`
-    text-align: center;
     font-size: 18px;
     margin-bottom: 5px;
 `
 export const Bprice = styled.span`
     font-style: bold;
-    font-size: 25px;
+    font-size: 20px;
     margin: 0;
 `
 
-export const PDiv = styled.div`
-    display: flex;
-    justify-content: center;
-`
-
-export const Won = styled.span`
-    display: flex;
-    align-items: center;
-`
 export const BCDiv = styled.div`
     display: flex;
     flex-direction: column;
@@ -609,11 +577,6 @@ export const Qtext = styled.p`
     top: 50%;
     left: 3%;
     transform: translateY(-50%);
-`
-
-export const Icon = styled.img`
-    width: 20px;
-    height: 20px;
 `
 
 export const SDiv = styled.div`
@@ -715,8 +678,8 @@ export const Next = styled.div`
 export const LR = styled.div`
     display: flex;
     position: relative;
-    top: 25px;
-    left: 1100px;
+    top: 10px;
+    left: 1150px;
 `;
 
 export const S = styled.div`    
@@ -729,6 +692,13 @@ export const L = styled.span`
     margin-right: 20px;
     color: gray;
 `
+
+export const LogOut = styled.button`
+    background-color: white;
+    border: 1px solid #cccccc;
+    color: gray;
+`
+
 export const CTittle = styled.h3`
     color: gray;
     margin-bottom: 10px;
@@ -752,8 +722,8 @@ export const LoginDiv = styled.div`
     background-color: white;
     position: absolute;
     top: 20%;
-    width: 30%;
-    height: 70%;
+    width: 450px;
+    height: 550px;
     margin: 0;
 `
 
@@ -762,7 +732,7 @@ export const LoginInput = styled.input`
     margin-bottom: 50px;
     width: 80%;
     height: 40px;
-    margin-top: 20px;
+    margin-top: 10px;
     transform: translateX(-50%);
     left: 50%;
 `
@@ -772,14 +742,21 @@ export const LoginSpan = styled.span`
     position: relative;
     left: 40px;
     font-size: 20px;
+    color: darkgray;
+    margin: 0;
 `
 
 export const LoginTittle = styled.div`
     background-color: royalblue;
     color: white;
     font-size: 30px;
-    height: 50px;
+    height: 60px;
     margin-bottom: 30px;
+`
+
+export const LT = styled.span`
+    position: relative;
+    top: 10px;
 `
 
 export const LoginButton = styled.button`
@@ -824,7 +801,7 @@ export const ASDiv = styled.div`
 `
 
 export const AS = styled.li`
-    width: 250px;
+    width: 50%;
     height: 70px;
     color: white;
     display: flex;
@@ -841,7 +818,7 @@ export const AUl = styled.ul`
 `
 export const ALi = styled.li`
     height: 50px;
-    border-bottom: 1px solid gray;
+    border-bottom: 2px solid #eeeeee;
 `
 
 export const Box = styled.div`
@@ -1442,11 +1419,17 @@ export const HeaderIconDiv = styled.div`
 `
 
 export const CommentLi = styled.li`
-    border-bottom: 1px solid gray;
-    height: 50px;
+    border-bottom: 2px solid #eeeeee;
+    height: 60px;
     display: flex;
     align-items: center;
     padding: 0px 20px;
+    background-color: rgba(0, 0, 0, 0.015);
+`
+
+export const CProfile = styled.img`
+    height: 40px;
+    width: 40px;
 `
 
 export const CommentSpan = styled.span`
@@ -1455,6 +1438,8 @@ export const CommentSpan = styled.span`
 `
 export const CommentGray = styled.span`
     color: gray;
+    margin-left: 20px;
+    width: 100px;
 `
 
 export const CommentUl = styled.ul`
@@ -1487,3 +1472,32 @@ export const ItemPrice = styled.h3`
     color: crimson;
     margin: 0;
 ` 
+
+export const OrderItemDiv = styled.li`
+    background-color: white;
+    height: 100px;
+    border: 1px solid #eeeeee;
+    display: flex;
+`
+
+export const OrderItemImg = styled.img`
+    height: 80px;
+    width: 80px;
+    padding: 10px;
+`
+
+export const OrderItemSpan = styled.span`
+    width: 100px;
+    height: 20px;
+    font-size: 18px;
+    padding: 10px;
+`
+
+export const LN = styled.span`
+    color: gray;
+    margin-right: 5px;
+`
+
+export const ATop = styled.div`
+    height: 330px;
+`

@@ -1,11 +1,12 @@
 import React from 'react'
 import * as S from '../styled/App'
 import Star from '../contents/Star'
+import profile from '../images/profile.png'
 
 const Comment = ({item}) => {
     return(
         <S.CommentLi>
-            <Star star={1} /><S.CommentSpan>{item.comment}</S.CommentSpan><S.CommentGray>작성자:</S.CommentGray><span>{item.name}</span>
+            <S.CProfile src={profile}></S.CProfile><S.CommentGray>{item.name}</S.CommentGray><S.CommentSpan>{item.comment}</S.CommentSpan><Star star={1} />
         </S.CommentLi>
     );
 }

@@ -22,17 +22,13 @@ const AdminPage = () => {
         }   
     },[]);
 
+    const l = [{id: 1, name: 1}];
+
     return(
         <>
         <S.A>
             <S.AdminDiv>
                 <S.ASDiv>
-                    <S.AS onClick={() => history.push(`/admin/wait`)} color={location.pathname === '/admin/wait' ? "white" : "royalblue"}>
-                        <S.CSpan color={location.pathname === '/admin/wait' ? "royalblue" : "white"}>등록 대기중인 상품</S.CSpan>
-                    </S.AS>
-                    <S.AS onClick={() => history.push(`/admin/report`)} color={location.pathname === '/admin/report' ? "white" : "royalblue"}>
-                        <S.CSpan color={location.pathname === '/admin/report' ? "royalblue" : "white"}>신고 접수</S.CSpan>
-                    </S.AS>
                     <S.AS onClick={() => history.push(`/admin/notice`)} color={location.pathname === '/admin/notice' ? "white" : "royalblue"}>
                         <S.CSpan color={location.pathname === '/admin/notice' ? "royalblue" : "white"}>공지사항</S.CSpan>
                     </S.AS>
@@ -41,7 +37,7 @@ const AdminPage = () => {
                     </S.AS>
                 </S.ASDiv>
                 <S.AUl>
-                    
+                    <Admin lists={l}/>
                 </S.AUl>
             </S.AdminDiv>
         </S.A>

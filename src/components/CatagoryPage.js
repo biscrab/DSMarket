@@ -15,6 +15,7 @@ import Sta from '../contents/Star'
 import Page from '../contents/Page'
 import Catagory from '../contents/Catagory'
 import SetPath from '../contents/SetPath';
+import axios from 'axios';
 
 /*
     1 패션의류/잡화
@@ -864,10 +865,10 @@ const CategoryPage = () => {
     const SetD = () => {
         if(c >= 1 && c <=5){
             setD({name: "패션의류/잡화", path: 1});
-            setCatagory([{name: "의류" ,path: 2},
-            {name:"속옷/잠옷", path: 3},
-            {name:"신발", path: 4},
-            {name:"가방/잡화", path: 5}]);
+            setCatagory([{name: "여성패션" ,path: 2},
+            {name:"남성패션", path: 3},
+            {name:"남녀 공용 의류", path: 4},
+            {name:"유아동패션", path: 5}]);
 
         }
         else if(c >= 6 && c <= 19){
@@ -1093,6 +1094,8 @@ const CategoryPage = () => {
     {id: 1, name: "1", price: 190, star: 5, img: B, brand: "a", sell: 400, catagory: 1, review: 100},
     {id: 1, name: "1", price: 18, star: 6, img: B, brand: "a", sell: 500, catagory: 1, review: 100}
 ]);
+
+    const [rlist, setRlist]=useState(...list);
     const [p, setP] = useState(location.search.slice(2, location.search.length));
     const [option, setOption] = useState(1);
     const query = queryString.parse(location.search);
@@ -1104,28 +1107,30 @@ const CategoryPage = () => {
     const setO = (n) => {
         setOption(n);
         var s = list;
+        console.log(s);
         if(option === 1){ //별점순
             s.sort(function(a, b){
-                return b.star - a.star;
+                return b.star + a.star;
             });
         }
         else if(option === 2){ //낮은 가격순
             s.sort(function(a, b){
-                return b.price + a.price;
+                return b.price - a.price;
             });
         }
         else if(option === 3){ // 높은 가격순
             s.sort(function(a, b){
-                return b.price - a.price;
+                return b.price + a.price;
             });
             
         }
         else if(option === 4){ //판매량
             s.sort(function(a, b){
-                return b.sell - a.sell;
+                return b.sell + a.sell;
             });
         }
         setList(s);
+        console.log(s);
     }
 
     useEffect(()=>{
@@ -1138,7 +1143,24 @@ const CategoryPage = () => {
         setO(1);
         SetD();
         console.log("c:"+c);
+
+        /*
+        axios.get('백엔드 url')
+            .then(response => {
+                setList(response.data);
+            });*/
     },[]);
+
+    const SetPage = () => {
+        var pageN = (list.length / 16);
+        if(params.p === 1 || params.p === ""){
+            setRlist(list.slice(0, 15));
+        }
+        else{
+            setRlist(list.slice(params.p * 15 + 1 , params.p *15 + 16));
+        }
+        setList()
+    }
 
     const prev = () => {
         if(query.p >= 11){
@@ -1164,7 +1186,6 @@ const CategoryPage = () => {
         </S.OrderDiv>
         <S.C>
             <S.Select>
-                <Dilivery />
                 <Cata />
                 <Color />
                 <Size />
@@ -1199,7 +1220,7 @@ const CategoryPage = () => {
             </S.CBox>
         </S.C>
         <S.Next>
-            {query.p >= 1 ?
+            {query.p >= 2 ?
             <S.Pbutton onClick={()=>prev()}>{'<'}</S.Pbutton>
             : <S.Pbutton color="#eeeeee">{'<'}</S.Pbutton>}
             <Page lists={page}/>

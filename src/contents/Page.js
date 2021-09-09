@@ -12,11 +12,10 @@ const Page = ({item}) => {
         var a = `${path}=${link}`;
         console.log("search:"+location.search);
         if(location.search.includes(`${path}=`)){
-            if(location.search.includes('&')){
-            }
-            else{
-            setL(`,${link}`);
-            }
+            var b = location.search;
+            b = b.replace(`${path}=${query.p}`, "");
+            history.push(b+`${path}=${link}`);
+            return;
         }
         else if(location.search === ""){
             setL(`?${a}`);
