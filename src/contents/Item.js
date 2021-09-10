@@ -15,6 +15,7 @@ const Item = ({item, lists}) => {
             <S.ItemImg src={item.img}/>
                 <S.Ip>{item.name}</S.Ip>
                 <S.ItemPrice>{item.price}원</S.ItemPrice>
+                <i class="far fa-heart" style={{color:"red"}}></i>
         </S.ItemBox>
     );
 }

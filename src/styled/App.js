@@ -166,9 +166,9 @@ export const C = styled.div`
 
 export const ItemBox = styled.li`
     float: left;
-    width: 230px;
-    height: 405px;
-    margin: 5px;
+    width: 300px;
+    height: 355px;
+    margin: 20px;
     display: flex;
     flex-direction: column;
     background-color: white;
@@ -199,10 +199,10 @@ export const Border = styled.ul`
 `
 
 export const ItemImg = styled.img`
-    width: 234px;
-    height: 234px;
+    height: 190px;
     position: relative;
     background-color: whitesmoke;
+    border-radius: 10px;
 `
 
 export const Image = styled.img`
