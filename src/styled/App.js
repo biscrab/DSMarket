@@ -36,12 +36,12 @@ export const SBox = styled.span`
 `
 
 export const Search = styled.input`
-    width: 450px;
-    height: 40px;
+    height: 36px;
+    width: 100%;
     border: 0;
     font-size: 15px;
     outline: 0;
-    
+    margin: 0;
     position: relative;
 
     padding: 0px 10px;
@@ -187,29 +187,30 @@ export const Page = styled.div`
 export const Order = styled.ul`
     padding: 10px;
     background-color: whitesmoke;
-    height: 20px;
+    margin-bottom: 30px;
+    height: 45px;
     list-style: none;
     display: flex;
 `
 
-export const Border = styled.ul`
+export const Border = styled.div`
     padding: 0;
     width: 1080px;
     list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 `
 
 export const ItemImg = styled.img`
     height: 190px;
-    position: relative;
-    background-color: whitesmoke;
-    border-radius: 10px;
 `
 
 export const Image = styled.img`
-    width: 600px;
+    width: 650px;
     height: 500px;
-    background-color: whitesmoke;
     border-radius: 2%;
+    background-color: whitesmoke;
 `
 
 export const Info = styled.div`
@@ -219,8 +220,9 @@ export const Info = styled.div`
 
 export const IBorder = styled.div`
     position: relative;
+    margin-top: 30px;
     left: 50%;
-    width: 600px;
+    width: 650px;
     transform: translateX(-50%);
 `
 
@@ -577,9 +579,10 @@ export const Qtext = styled.p`
 `
 
 export const SDiv = styled.div`
-    width: 615px;
+    width: 500px;
     position: relative;
     left: 5px;
+    margin-right: 10px;
 `
 
 export const SBorder = styled.ul`
@@ -593,7 +596,7 @@ export const SBorder = styled.ul`
     z-index: 1;
     list-style: none;
     box-shadow: 0 0 20px 0 rgb(0 0 0 / 10%);
-    width: 650px;
+    width: 540px;
     height: 450px;
 `
 
@@ -1449,6 +1452,8 @@ export const Item = styled.div`
 `
 
 export const CatagoryH = styled.h3`
+    margin-top: 20px;
+    margin-bottom: 20px;
     :hover{
         color: royalblue;
         text-decoration: underline;
@@ -1486,4 +1491,9 @@ export const LN = styled.span`
 
 export const ATop = styled.div`
     height: 330px;
+`
+
+export const Card = styled.div`
+    width: 300px;
+    margin-bottom: 50px;
 `

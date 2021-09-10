@@ -61,7 +61,6 @@ const MainPage = () => {
             <S.BestItem>
                 <S.Best>중고거래 인기 제품</S.Best>
                 <S.BestDiv>
-                    <Recommendation lists={Best} />
                 </S.BestDiv> 
             </S.BestItem>
         </>

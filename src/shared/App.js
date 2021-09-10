@@ -4,6 +4,7 @@ import {Route, Switch, Router} from 'react-router-dom';
 import { ReactDOM } from 'react';
 import '../styled/App.css'
 import Header from '../contents/Header';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return(

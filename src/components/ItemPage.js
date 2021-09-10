@@ -25,11 +25,7 @@ const ItemPge = () => {
     const [imgN, setImgN] = useState(0);
     const comment = [{comment: "1", star: 2, name: 1}];
 
-
-
-    return(
-        <S.Item> 
-            <S.IBorder>
+    /*            <S.IBorder>
                 <S.Image src={img[imgN]}></S.Image>
                 <S.Info>
                     <S.ATop>
@@ -50,7 +46,33 @@ const ItemPge = () => {
                         <S.Buy>구매하기</S.Buy>
                     </S.ButtonDiv>
                 </S.Info>
-            </S.IBorder>
+            </S.IBorder> */
+
+
+
+    return(
+        <S.Item> 
+<S.IBorder id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <S.Image src={A} class="d-block w-100" alt="..." />
+    </div>
+    <div class="carousel-item">
+      <S.Image src={B} class="d-block w-100" alt="..." />
+    </div>
+    <div class="carousel-item">
+      <S.Image src={C} class="d-block w-100" alt="..." />
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</S.IBorder>
             <S.Related>
                 <S.RelatedH>관련 상품</S.RelatedH>
                 <S.RelatedDiv>

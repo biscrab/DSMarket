@@ -107,19 +107,17 @@ const Header = () => {
             <S.LogoImg src={Logo}></S.LogoImg>
             <S.Logo onClick={() => history.replace('/')}>대마마켓</S.Logo>
             <S.SBox>
+            <div class="dropdown" style={{position: "relative", left: "-1px"}}>
+  <a class="btn btn-primary dropdown-toggle" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+    카테고리
+  </a>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <li><a class="dropdown-item">Action</a></li>
+    <li><a class="dropdown-item">Another action</a></li>
+    <li><a class="dropdown-item">Something else here</a></li>
+  </ul>
+</div>
                 <S.SDiv>
-                    <S.Sel ref={select} onClick={()=>setLink(v, "search")}>
-                        <option value={0}>전체</option>
-                        <option value={1}>여성 패션</option>
-                        <option value={2}>남성 패션</option>
-                        <option value={3}>남녀 공용 의류</option>
-                        <option value={4}>뷰티</option>
-                        <option value={5}>식품</option>
-                        <option value={6}>주방용품</option>
-                        <option value={7}>생활용품</option>
-                        <option value={8}>홈인테리어</option>
-                        <option value={9}>가전디지털</option>
-                    </S.Sel>
                     <S.Search onChange={(e)=>setV(e.target.value)} value={v} onFocus={() => setTyping(true)} onBlur={() => setTyping(false)}></S.Search>
                     {typing ? 
                     <S.SBorder>
