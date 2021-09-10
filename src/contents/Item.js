@@ -8,16 +8,13 @@ const Item = ({item, lists}) => {
 
     let history = useHistory();
 
+    //<S.DText>내일 9/1 도착예정</S.DText>
+
     return(
         <S.ItemBox onClick={()=>history.push(`/item/id?=${item.id}`)}>
             <S.ItemImg src={item.img}/>
                 <S.Ip>{item.name}</S.Ip>
                 <S.ItemPrice>{item.price}원</S.ItemPrice>
-                <S.DText>내일 9/1 도착예정</S.DText>
-                <S.StDiv>
-                <Star star={item.star}/>
-                <S.StSpan>{`(${item.review})`}</S.StSpan>
-                </S.StDiv>
         </S.ItemBox>
     );
 }

@@ -33,8 +33,10 @@ const ItemPge = () => {
                 <S.Image src={img[imgN]}></S.Image>
                 <S.Info>
                     <S.ATop>
+                        <S.ADiv> 
+                        <S.AProfile src={Profile}></S.AProfile>
+                        </S.ADiv> 
                     <S.ADiv>
-                        <img src={Profile}></img>
                         <p>제품</p>
                         <span classADiv="star-rating"></span>
                         <S.PText>10,000원</S.PText>
@@ -73,16 +75,6 @@ const ItemPge = () => {
                     </S.MoreButtonDiv>
                 </S.MDiv>}
                 </S.EDiv>
-                <S.CommentH>상품평</S.CommentH>
-                {comment.length >= 10 ?
-                <S.CommentUl height="500px">
-                    <Comment lists={comment}/>
-                </S.CommentUl>
-                :
-                <S.CommentUl height="auto">
-                <Comment lists={comment}/>
-                </S.CommentUl>
-                }
                 </div>
                 <S.BuyDiv>
                     <S.BuyImgDiv>
@@ -104,6 +96,17 @@ const ItemPge = () => {
     );
 
     /*<S.PointDiv><S.Pspan>🟡100포인트</S.Pspan></S.PointDiv>*/
+
+    /*                <S.CommentH>상품평</S.CommentH>
+                {comment.length >= 10 ?
+                <S.CommentUl height="500px">
+                    <Comment lists={comment}/>
+                </S.CommentUl>
+                :
+                <S.CommentUl height="auto">
+                <Comment lists={comment}/>
+                </S.CommentUl>
+                }*/
 }
 
 export default ItemPge;

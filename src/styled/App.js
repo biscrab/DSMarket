@@ -167,13 +167,12 @@ export const C = styled.div`
 export const ItemBox = styled.li`
     float: left;
     width: 230px;
-    height: 445px;
+    height: 405px;
     margin: 5px;
     display: flex;
     flex-direction: column;
     background-color: white;
     border-bottom: 1px solid #eeeeee;
-    padding: 15px 15px 15px;
 
     :hover{
         box-shadow: 0 0 20px 0 rgb(0 0 0 / 10%);
@@ -208,7 +207,7 @@ export const ItemImg = styled.img`
 
 export const Image = styled.img`
     width: 600px;
-    height: 600px;
+    height: 500px;
     background-color: whitesmoke;
     border-radius: 2%;
 `
@@ -216,18 +215,22 @@ export const Image = styled.img`
 export const Info = styled.div`
     margin-left: 40px;
     height: 410px;
-    width: 500px;
 `
 
 export const IBorder = styled.div`
     position: relative;
     left: 50%;
+    width: 600px;
     transform: translateX(-50%);
 `
 
 export const ADiv = styled.div`
     height: auto;
     border-bottom: 1px solid #eeeeee;
+`
+
+export const AProfile = styled.img`
+    height: 50px;
 `
 
 export const Price = styled.div`
@@ -263,7 +266,6 @@ export const Detail = styled.div`
 
 export const ButtonDiv = styled.div`
     height: 60px;
-    width: 500px;
     display: flex;
     justify-content: space-between;
 `
@@ -1277,16 +1279,6 @@ export const None = styled.h2`
     text-align: center;
 `
 
-export const StDiv = styled.div`
-    display: flex;
-`
-
-export const StSpan = styled.span`
-    color: gold;
-    position: relative;
-    left: 10px;
-`
-
 export const RButton = styled.button`
     border: 1px solid lightgray;
     background-color: ${props => props.color};
@@ -1463,8 +1455,7 @@ export const CatagoryH = styled.h3`
     }
 `
 
-export const ItemPrice = styled.h3`
-    color: crimson;
+export const ItemPrice = styled.h4`
     margin: 0;
 ` 
 
