@@ -107,16 +107,6 @@ const Header = () => {
             <S.LogoImg src={Logo}></S.LogoImg>
             <S.Logo onClick={() => history.replace('/')}>대마마켓</S.Logo>
             <S.SBox>
-            <div class="dropdown" style={{position: "relative", left: "-1px"}}>
-  <a class="btn btn-primary dropdown-toggle" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-    카테고리
-  </a>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-    <li><a class="dropdown-item">Action</a></li>
-    <li><a class="dropdown-item">Another action</a></li>
-    <li><a class="dropdown-item">Something else here</a></li>
-  </ul>
-</div>
                 <S.SDiv>
                     <S.Search onChange={(e)=>setV(e.target.value)} value={v} onFocus={() => setTyping(true)} onBlur={() => setTyping(false)}></S.Search>
                     {typing ? 
@@ -141,7 +131,7 @@ const Header = () => {
             </S.SBox>
 
             <S.HeaderIconDiv>
-            <S.Link src={M} onClick={()=>history.replace(`/order`)}/>
+            <S.Link src={M} onClick={()=>history.replace(`/mypage`)}/>
 
             <div onClick={()=>history.replace(`/cart`)}>
             <S.Link src={C}/>

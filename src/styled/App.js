@@ -81,7 +81,8 @@ export const BestItem = styled.div`
 export const Best = styled.h1`
     margin: 0px;
     position: relative;
-    width: 280px;
+    width: 220px;
+    text-align: center;
     top: 10%;
     left: 50%;
     transform: translateX(-50%);
@@ -96,7 +97,7 @@ export const CDiv = styled.div`
 `
 
 export const TotalCategory = styled.button`
-    background-color: #30A8F7;
+    background-color: #A0BAED;
     font-size: 18px;
     color: white;
     margin: 0px;
@@ -114,11 +115,11 @@ export const Category = styled.span`
     display: flex;
     position: relative;
     justify-content: center;
-    background-color: #6FBFF5;
-    border-top: 1px solid #B2EBF4;
+    background-color: #B2CCFF;
+    border-top: 1px solid #D6F0FF;
 
     :hover{
-        color: #6FBFF5;
+        color: #B2CCFF;
         background-color: white;
     }
 `
@@ -579,7 +580,7 @@ export const Qtext = styled.p`
 `
 
 export const SDiv = styled.div`
-    width: 500px;
+    width: 600px;
     position: relative;
     left: 5px;
     margin-right: 10px;
@@ -701,6 +702,7 @@ export const LogOut = styled.button`
 
 export const CTittle = styled.h3`
     color: gray;
+    margin-top: 10px;
     margin-bottom: 10px;
 `
 
@@ -1138,7 +1140,7 @@ export const SignSpan = styled.span`
 
 export const OrderSpan = styled.span`
     position: relative;
-    left: 120px;
+    left: 125px;
     font-size: 16px;
     margin-right: 20px;
 
@@ -1406,15 +1408,6 @@ export const CatagoryDivUl = styled.ul`
 export const HeaderIconDiv = styled.div`
     width: 200px;
     display: flex;
-`
-
-export const CommentLi = styled.li`
-    border-bottom: 2px solid #eeeeee;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    padding: 0px 20px;
-    background-color: rgba(0, 0, 0, 0.015);
 `
 
 export const CProfile = styled.img`

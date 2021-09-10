@@ -2,9 +2,10 @@ import React,{useState} from 'react'
 import * as P from '../pages'
 import {Route, Switch, Router} from 'react-router-dom';
 import { ReactDOM } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styled/App.css'
 import Header from '../contents/Header';
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
   return(
@@ -21,9 +22,8 @@ function App() {
     <Route exact path="/regist" component={P.Regist}/>
     <Route path="/admin/:id" component={P.Admin}/>
     <Route path="/admin" component={P.Admin}/>
-    <Route exact path="/cart" component={P.Cart} />
+    <Route exact path="/mypage" component={P.MyPage} />
     <Route exact path="/signup" component={P.SignUp} />
-
     </Switch>
     </>
   );
