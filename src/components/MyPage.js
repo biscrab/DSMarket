@@ -4,6 +4,7 @@ import * as S from '../styled/MyPage'
 import Profile from '../images/profile.png'
 import { Link } from "react-router-dom";
 import MyItem from '../contents/MyItem'
+import Review from '../contents/Review'
 import A from '../images/a.jpg'
 import B from '../images/b.jpg'
 import C from '../images/c.jpg'
@@ -22,6 +23,8 @@ const MyPage = () => {
         {id: 1, name: "1", price: 18, star: 6, img: B, brand: "a", sell: 500, catagory: 1, review: 100}
     ]);
 
+    const review = [{review: "1", star: 2, name: 1}];
+
     return(
         <S.M>
             <S.Div>
@@ -36,11 +39,12 @@ const MyPage = () => {
                     <S.SSpan>판매 물품(1)</S.SSpan>
                     </Link>
                     <Link to={{search:"?review"}} style={{textDecoration:"none"}}>
-                    <S.SSpan>거래 후기</S.SSpan>
+                    <S.SSpan>거래 후기()</S.SSpan>
                     </Link>
                 </S.Select>
                 {location.search === "?review" ?
                 <S.Review>
+                    <Review lists={review}/>
                 </S.Review>
                 : 
                 <S.ItemDiv>

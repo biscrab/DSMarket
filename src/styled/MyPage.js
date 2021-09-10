@@ -61,9 +61,14 @@ export const Review = styled.div`
 
 export const ReviewLi = styled.li`
     border-bottom: 2px solid #eeeeee;
-    height: 60px;
+    height: auto;
     display: flex;
-    align-items: center;
-    padding: 0px 20px;
-    background-color: rgba(0, 0, 0, 0.015);
+    flex-direction: column;
+    padding: 20px 0px;
 ` 
+
+export const RProfile = styled.img`
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+`

@@ -1,19 +1,22 @@
 import React from 'react'
-import * as S from '../styled/App'
+import * as S from '../styled/MyPage'
 import profile from '../images/profile.png'
 
-const Comment = ({item}) => {
+const Review = ({item}) => {
     return(
-        <S.CommentLi>
-            <S.CProfile src={profile}></S.CProfile><S.CommentGray>{item.name}</S.CommentGray><S.CommentSpan>{item.comment}</S.CommentSpan>
-        </S.CommentLi>
+        <S.ReviewLi>
+            <div>
+            <S.RProfile src={profile}></S.RProfile><span>{item.name}</span>
+            </div>
+            <span>{item.review}</span>
+        </S.ReviewLi>
     );
 }
 
 const List = ({lists}) => {
     const itemList = lists.map(
         item => (
-            <Comment item={item} comment={item.comment} name={item.name}/>
+            <Review item={item} review={item.review} name={item.name}/>
         )
     ) 
     return itemList;

@@ -6,7 +6,7 @@ import C from '../images/c.jpg'
 import D from '../images/d.jpg'
 import E from '../images/e.jpg'
 import Relate from '../contents/Relate'
-import Comment from '../contents/Comment'
+import Comment from '../contents/Review'
 import Profile from '../images/profile.png'
 
 const ItemPge = () => {
@@ -23,7 +23,6 @@ const ItemPge = () => {
     const [more, setMore] = useState(false);
     const img = [A, B, C, D, E];
     const [imgN, setImgN] = useState(0);
-    const comment = [{comment: "1", star: 2, name: 1}];
 
     /*            <S.IBorder>
                 <S.Image src={img[imgN]}></S.Image>

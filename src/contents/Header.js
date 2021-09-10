@@ -163,7 +163,7 @@ const Header = () => {
         {login ? 
         <S.LoginBackground>
             <S.LoginDiv>
-                <S.LoginTittle><S.LT>대마몰</S.LT><S.X onClick={()=>setLogin(false)}>x</S.X></S.LoginTittle> 
+                <S.LoginTittle><S.LT>대마마켓</S.LT><S.X onClick={()=>setLogin(false)}>x</S.X></S.LoginTittle> 
                 <S.LoginSpan>아이디</S.LoginSpan>           
                 <S.LoginInput onChange={(e)=>setIp({id: e.target.value, password: ip.password})} value={ip.id}/>
                 <S.LoginSpan>비밀번호</S.LoginSpan>

@@ -76,6 +76,7 @@ export const BannerImage = styled.img`
 
 export const BestItem = styled.div`
     height: 600px;
+    background-color: rgba(1, 1, 1, 0.01);
 `
 
 export const Best = styled.h1`
@@ -1410,19 +1411,9 @@ export const HeaderIconDiv = styled.div`
     display: flex;
 `
 
-export const CProfile = styled.img`
-    height: 40px;
-    width: 40px;
-`
-
 export const CommentSpan = styled.span`
     width: 70%;
     margin-left: 20px;
-`
-export const CommentGray = styled.span`
-    color: gray;
-    margin-left: 20px;
-    width: 100px;
 `
 
 export const CommentUl = styled.ul`
