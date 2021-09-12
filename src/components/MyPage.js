@@ -24,7 +24,9 @@ const MyPage = () => {
         {id: 1, name: "1", price: 18, star: 6, img: B, brand: "a", sell: 500, catagory: 1, review: 100}
     ]);
 
-    const review = [{review: "1123123123123213", star: 2, name: 1}];
+    const [user, setUser] = useState({
+        review: [{review: "1123123123123213", star: 2, name: 1}]
+    }) 
     const [select, setSelect] = useState(-1);
 
     return(
@@ -37,22 +39,19 @@ const MyPage = () => {
                     </div>
                 </S.User>
                 <S.Select>
+                    <div>
                     <Link to={{search:""}} style={{textDecoration:"none"}}>
                     <S.SSpan>판매 물품(1)</S.SSpan>
                     </Link>
                     <Link to={{search:"?review"}} style={{textDecoration:"none"}}>
                     <S.SSpan>거래 후기()</S.SSpan>
                     </Link>
-                    <i class="fas fa-bars fa-lg" style={{color: "gray", position: "relative", left: "400px"}} onClick={()=>setSelect(select*-1)}></i>
-                    {select === 1 ? 
-                    <S.SelectUl>
-                        <S.SelectLi>d</S.SelectLi>
-                    </S.SelectUl> 
-                    : <></>}
+                    </div>
+
                 </S.Select>
                 {location.search === "?review" ?
                 <S.Review>
-                    <Review lists={review}/>
+                    <Review lists={user.review}/>
                 </S.Review>
                 : 
                 <S.ItemDiv>

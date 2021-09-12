@@ -11,14 +11,6 @@ export const Select = styled.div`
     height: 40px;
 `
 
-export const SelectUl = styled.ul`
-    position: absolute;
-`
-
-export const SelectLi = styled.li`
-    border-bottom: 1px solid #eeeeee;
-`
-
 export const SSpan = styled.span`
     font-size: 20px;
     font-style: bold;
@@ -26,6 +18,7 @@ export const SSpan = styled.span`
     color: ${props => props.color};
     padding: 8px 20px;
 `
+
 export const User = styled.div`
     height: 100px;
     display: flex;

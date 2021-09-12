@@ -60,7 +60,6 @@ const ItemPge = () => {
 
     return(
         <S.Item>
-<S.ItemDiv> 
 <S.IBorder id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -77,9 +76,8 @@ const ItemPge = () => {
   </button>
 </S.IBorder>
 <S.IUSer>
-
+    <S.Profile src={Profile}></S.Profile>
 </S.IUSer>
-</S.ItemDiv> 
     
         <S.Related>
             <S.RelatedD>

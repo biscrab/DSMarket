@@ -1454,7 +1454,11 @@ export const CommentH = styled.h2`
 `
 
 export const Item = styled.div`
-    padding-bottom: 200px;
+    padding-bottom: 100px;
+    width: 750px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 `
 
 export const CatagoryH = styled.h3`
@@ -1509,9 +1513,7 @@ export const IUSer = styled.div`
     border-bottom: 2px solid #eeeeee;
 `
 
-export const ItemDiv = styled.div`
-    width: 900px;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
+export const Profile = styled.img`
+    width: 50px;
+    height: 50px;
 `
