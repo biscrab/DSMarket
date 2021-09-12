@@ -204,6 +204,23 @@ export const Border = styled.div`
     justify-content: space-around;
 `
 
+export const LoadingDiv = styled.div`
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 20%;
+`
+
+export const LoadingD = styled.div`
+    display: flex;
+    flex-direction: column;
+`
+
+export const LoadingP = styled.p`
+    color: gray;
+    font-size: 20px;
+`
+
 export const ItemImg = styled.img`
     height: 190px;
 `
@@ -252,17 +269,20 @@ export const DText = styled.p`
 `
 export const Related = styled.div`
     margin: 0px;
+    border: 1px solid #eeeeee;
+    height: 600px;
+`
+
+export const RelatedD = styled.div`
+    width: 670px;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    border: 1px solid #eeeeee;
-    height: 600px;
 `
 
 export const RelatedH = styled.h3`
     color: gray;
     position: relative;
-    left: 430px;
     margin-top: 30px;
     margin-bottom: 20px;
 `
@@ -460,10 +480,6 @@ export const DileveryTime = styled.p`
 `
 
 export const RelatedDiv = styled.div`
-    width: 670px;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;

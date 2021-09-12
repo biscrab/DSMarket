@@ -80,13 +80,17 @@ const ItemPge = () => {
 
 </S.IUSer>
 </S.ItemDiv> 
-            <S.Related>
-                <S.RelatedH>관련 상품</S.RelatedH>
-                <S.RelatedDiv>
-                    <Relate lists={list}/>
-                </S.RelatedDiv>
-            </S.Related>           
-        </S.Item>
+    
+        <S.Related>
+            <S.RelatedD>
+            <S.RelatedH>관련 상품</S.RelatedH>
+            <S.RelatedDiv>
+                <Relate lists={list}/>
+            </S.RelatedDiv>
+            </S.RelatedD>  
+        </S.Related> 
+            
+</S.Item>
     );
 
     /*<S.PointDiv><S.Pspan>🟡100포인트</S.Pspan></S.PointDiv>*/

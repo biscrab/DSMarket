@@ -51,7 +51,6 @@ const Header = () => {
     const [logined, setLogined] = useState(false);
     const [ip, setIp] = useState({id : "", password: ""});
     const [name, setName] = useState("");
-    const admin = true;
 
     const [recent, setRecent] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 

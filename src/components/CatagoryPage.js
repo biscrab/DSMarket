@@ -15,6 +15,7 @@ import Page from '../contents/Page'
 import Catagory from '../contents/Catagory'
 import SetPath from '../contents/SetPath';
 import axios from 'axios';
+import { NULL } from 'node-sass';
 
 /*
     1 패션의류/잡화
@@ -166,7 +167,7 @@ const Select = ({item, path}) => {
             }
         },[]);
 
-        const SetLink = () => {
+        const setLink = () => {
             setCatagory(item.path, path=item.link);
 
             const serialize = obj => Object.keys(obj)
@@ -224,6 +225,14 @@ const Select = ({item, path}) => {
 }
 
 const CategoryPage = () => {
+
+    const [catagory, setCatagory] = useState({
+        color: "",
+        season: "",
+        size: "",
+        lowest: "",
+        highest: "",
+    });
 
     const [d, setD] = useState({name: "", path: ""});
 
@@ -763,10 +772,10 @@ const CategoryPage = () => {
     const Cata = () => {
         return(
             <>
-            { ?
+            {c ?
             <S.CatagoryDiv>
                 <S.CaTittle>{d.name}</S.CaTittle>
-                <Catagory lists={}></Catagory>
+                <Catagory lists={c}></Catagory>
             </S.CatagoryDiv>:
             <></>
             }
@@ -1038,7 +1047,6 @@ const CategoryPage = () => {
             setList(s);
         }
         if(query.search){
-            setCatagory(`"${query.search}"에 대한 검색 결과`);
             var s =  [];
             for(var i = 0; i < list.length; i++){
                 if(list[i].name.includes(query.search)){
@@ -1104,7 +1112,8 @@ const CategoryPage = () => {
         console.log(s);
     }
 
-    const [ca, sCa] = useState(Number(params.catagory));
+    const [ca, sCa] = useState(Number(params.catagory));    
+    const [loading , setLoading] = useState(NULL);
 
     useEffect(()=>{
         console.log(query);
@@ -1183,13 +1192,26 @@ const CategoryPage = () => {
                     <S.Cli color={option === 3 ? "royalblue" : "black"} onClick={()=>setO(3)}>높은 가격순</S.Cli>
                     <S.Cli color={option === 4 ? "royalblue" : "black"} onClick={()=>setO(4)}>판매량</S.Cli>
                 </S.Order>
+                {loading ? 
+                <S.LoadingDiv>
+                    <S.LoadingD>
+                    <div class="spinner-border text-secondary" style={{width: "4rem", height: "4rem"}} role="status">
+                    <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <S.LoadingP>
+                        로딩중...
+                    </S.LoadingP>
+                    </S.LoadingD>
+                </S.LoadingDiv> 
+                :
                 <S.Border>
-                    {list.length === 0 ?
-                    <S.None>해당 하는 상품이 없습니다.</S.None>
-                    :
-                    <Item lists={list}/> 
-                    }
-                </S.Border>
+                {list.length === 0 ?
+                <S.None>해당 하는 상품이 없습니다.</S.None>
+                :
+                <Item lists={list}/> 
+                } 
+                </S.Border>  
+                }
             </S.CBox>
         </S.C>
         <S.Next>
