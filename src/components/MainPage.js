@@ -23,9 +23,6 @@ const MainPage = () => {
     }
 
     useEffect(()=>{
-        setInterval(()=>{
-            showImage();
-        },1000);
     },[]);
 
     let history = useHistory();

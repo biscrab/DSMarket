@@ -1,7 +1,6 @@
 import React from 'react'
 import queryString from 'query-string'
 import { useHistory, useLocation, useParams } from 'react-router-dom'
-import Star from '../contents/Star'
 import * as S from '../styled/App'
 
 const Item = ({item, lists}) => {

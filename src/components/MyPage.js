@@ -9,6 +9,7 @@ import A from '../images/a.jpg'
 import B from '../images/b.jpg'
 import C from '../images/c.jpg'
 import D from '../images/d.jpg'
+import { getRoles } from "@testing-library/dom";
 
 const MyPage = () => {
 
@@ -24,6 +25,7 @@ const MyPage = () => {
     ]);
 
     const review = [{review: "1123123123123213", star: 2, name: 1}];
+    const [select, setSelect] = useState(-1);
 
     return(
         <S.M>
@@ -41,6 +43,12 @@ const MyPage = () => {
                     <Link to={{search:"?review"}} style={{textDecoration:"none"}}>
                     <S.SSpan>거래 후기()</S.SSpan>
                     </Link>
+                    <i class="fas fa-bars fa-lg" style={{color: "gray", position: "relative", left: "400px"}} onClick={()=>setSelect(select*-1)}></i>
+                    {select === 1 ? 
+                    <S.SelectUl>
+                        <S.SelectLi>d</S.SelectLi>
+                    </S.SelectUl> 
+                    : <></>}
                 </S.Select>
                 {location.search === "?review" ?
                 <S.Review>

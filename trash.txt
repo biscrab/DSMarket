@@ -1,3 +1,4 @@
+별
 import React,{useState} from 'react'
 import * as S from '../styled/App'
 

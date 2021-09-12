@@ -4,7 +4,6 @@ import * as S from '../styled/App'
 
 const SetPath = () => {
 
-    let history = useHistory();
     let params = useParams();
 
     const c = [

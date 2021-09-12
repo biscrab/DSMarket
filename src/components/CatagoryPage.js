@@ -10,12 +10,10 @@ import D from '../images/d.jpg'
 import { useHistory } from 'react-router-dom';
 import Item from '../contents/Item'
 import queryString from 'query-string';
-import Sta from '../contents/Star'
 import Page from '../contents/Page'
 import Catagory from '../contents/Catagory'
 import SetPath from '../contents/SetPath';
-import axios from 'axios';
-import { NULL } from 'node-sass';
+
 
 /*
     1 패션의류/잡화
@@ -141,91 +139,9 @@ import { NULL } from 'node-sass';
         135 소동물/가축용품
 */
 
-const Select = ({item, path}) => {
-
-    const [catagory, setCatagory] = useState({
-        color: "",
-        season: "",
-        size: "",
-        lowest: "",
-        highest: "",
-    });
-
-    const Select = () => {
-    
-        const [check, setCheck] = useState(false);
-    
-        let history = useHistory();
-        const location = useLocation();
-        const params = useParams();
-        const query = queryString.parse(location.search);
-
-        useEffect(()=>{       
-            if(location.search.includes(item.link)){
-                console.log(item.link);
-                setCheck(true);
-            }
-        },[]);
-
-        const setLink = () => {
-            setCatagory(item.path, path=item.link);
-
-            const serialize = obj => Object.keys(obj)
-                                    .map(key => `${path}=${encodeURIComponent(obj[key])}`)
-                                    .join('&')
-
-            history.push({
-                pathname: history.location.pathname,
-                search: serialize(catagory)
-            });
-        }
-
-        const Del = () => {
-            setCatagory(...catagory, path = "");
-                        const serialize = obj => Object.keys(obj)
-                                    .map(key => `${path}=${encodeURIComponent(obj[key])}`)
-                                    .join('&')
-
-            history.push({
-                pathname: history.location.pathname,
-                search: serialize(catagory)
-            });
-        }
-    
-        return(
-            <>
-            {check ? 
-            <S.Box onClick={() => setLink()}>
-                <div style={{position:"relative", top:"50%", transform:"translateY(-50%)"}}>
-                <input type="checkbox" checked={check} style={{marginRight: "5px"}}></input><span>{item.name}</span>
-                </div>
-            </S.Box> 
-            :
-            <S.Box onClick={() => Del()}>
-                <div style={{position:"relative", top:"50%", transform:"translateY(-50%)"}}>
-                <input type="checkbox" checked={check} style={{marginRight: "5px"}}></input><span>{item.name}</span>
-                </div>
-            </S.Box>
-            }
-            </>
-        );
-    }
-    
-    const List = ({lists, path}) => {
-    
-        const itemList = lists.map(
-            item => (
-                <Select item={item} key={item.name} name={item.name} i={item.i} link={item.link} path={path}/>
-            )
-        )
-        return itemList
-    }
-    
-    return List;
-}
-
 const CategoryPage = () => {
 
+    
     const [catagory, setCatagory] = useState({
         color: "",
         season: "",
@@ -233,6 +149,76 @@ const CategoryPage = () => {
         lowest: "",
         highest: "",
     });
+
+    const Select = ({item, path}) => {
+    
+        const Se = () => {
+        
+            const [check, setCheck] = useState(false);
+    
+            useEffect(()=>{       
+                if(location.search.includes(item.link)){
+                    console.log(item.link);
+                    setCheck(true);
+                }
+            },[]);
+
+            const setLink = () => {
+                setCatagory(item.path, path=item.link);
+    
+                const serialize = obj => Object.keys(obj)
+                                        .map(key => `${path}=${encodeURIComponent(obj[key])}`)
+                                        .join('&')
+    
+                history.push({
+                    pathname: history.location.pathname,
+                    search: serialize(catagory)
+                });
+            }
+    
+            const Del = () => {
+                setCatagory(...catagory, path = "");
+                            const serialize = obj => Object.keys(obj)
+                                        .map(key => `${path}=${encodeURIComponent(obj[key])}`)
+                                        .join('&')
+    
+                history.push({
+                    pathname: history.location.pathname,
+                    search: serialize(catagory)
+                });
+            }
+    
+            return(
+                <>
+                {check ? 
+                <S.Box onClick={() => setLink()}>
+                    <div style={{position:"relative", top:"50%", transform:"translateY(-50%)"}}>
+                    <input type="checkbox" checked={check} style={{marginRight: "5px"}}></input><span>{item.name}</span>
+                    </div>
+                </S.Box> 
+                :
+                <S.Box onClick={() => Del()}>
+                    <div style={{position:"relative", top:"50%", transform:"translateY(-50%)"}}>
+                    <input type="checkbox" checked={check} style={{marginRight: "5px"}}></input><span>{item.name}</span>
+                    </div>
+                </S.Box>
+                }
+                </>
+            );
+        }
+        
+        const List = ({lists, path}) => {
+        
+            const itemList = lists.map(
+                item => (
+                    <Se item={item} key={item.name} name={item.name} i={item.i} link={item.link} path={path}/>
+                )
+            )
+            return itemList
+        }
+        
+        return List;
+    }
 
     const [d, setD] = useState({name: "", path: ""});
 
@@ -303,7 +289,7 @@ const CategoryPage = () => {
             {c <= 6 ?
             <S.CatagoryDiv>
                 <S.CaTittle>사이즈</S.CaTittle>
-                <Select lists={list} path={"size"}/>
+                <Select lists={list} path={path}/>
             </S.CatagoryDiv>
             :<></>
             }
@@ -320,20 +306,6 @@ const CategoryPage = () => {
             </S.CatagoryDiv>
         )
     }
-
-    /*
-    const Star = () => {
-
-        return(
-            <S.CatagoryDiv>
-                <S.CaTittle>별점</S.CaTittle> 
-                <S.Box onClick={()=>setLink("star",1)}><div style={{display:"flex"}}><Sta star={4}/><span>4점 이상</span></div></S.Box>
-                <S.Box onClick={()=>setLink("star",2)}><div style={{display:"flex"}}><Sta star={3}/><span>3점 이상</span></div></S.Box>
-                <S.Box onClick={()=>setLink("star",3)}><div style={{display:"flex"}}><Sta star={2}/><span>2점 이상</span></div></S.Box>
-                <S.Box onClick={()=>setLink("star",4)}><div style={{display:"flex"}}><Sta star={1}/><span>1점 이상</span></div></S.Box>
-            </S.CatagoryDiv>
-        )
-    }*/
         
     const Price = () => {   
 
@@ -354,7 +326,7 @@ const CategoryPage = () => {
     }
         
     const Caffein = () => {
-        const list = [{name:"카페인"},{name: "무카페인"}];
+        const list = [{name:"카페인", link: "none"},{name: "무카페인", link: "caffein"}];
         return(
             <>
             {c === 27 ?
@@ -1113,13 +1085,9 @@ const CategoryPage = () => {
     }
 
     const [ca, sCa] = useState(Number(params.catagory));    
-    const [loading , setLoading] = useState(NULL);
+    const [loading , setLoading] = useState(true);
 
     useEffect(()=>{
-        console.log(query);
-        console.dir(params.catagory);
-        console.dir(match);
-        console.dir(location);
         SetP(params.catagory);
         sCa(Number(params.catagory));
         setO(1);
@@ -1133,7 +1101,7 @@ const CategoryPage = () => {
     },[]);
 
     useEffect(()=>{
-        SetD(Number(params.catagory));
+        
     })
 
     const SetPage = () => {
@@ -1181,6 +1149,7 @@ const CategoryPage = () => {
                 <Language />
                 <ShapeOfBook />             
                 <Price />
+                <Caffein />
             </S.Select>
             <S.CBox>
                 {query.search ?
@@ -1192,18 +1161,6 @@ const CategoryPage = () => {
                     <S.Cli color={option === 3 ? "royalblue" : "black"} onClick={()=>setO(3)}>높은 가격순</S.Cli>
                     <S.Cli color={option === 4 ? "royalblue" : "black"} onClick={()=>setO(4)}>판매량</S.Cli>
                 </S.Order>
-                {loading ? 
-                <S.LoadingDiv>
-                    <S.LoadingD>
-                    <div class="spinner-border text-secondary" style={{width: "4rem", height: "4rem"}} role="status">
-                    <span class="visually-hidden">Loading...</span>
-                    </div>
-                    <S.LoadingP>
-                        로딩중...
-                    </S.LoadingP>
-                    </S.LoadingD>
-                </S.LoadingDiv> 
-                :
                 <S.Border>
                 {list.length === 0 ?
                 <S.None>해당 하는 상품이 없습니다.</S.None>
@@ -1211,7 +1168,6 @@ const CategoryPage = () => {
                 <Item lists={list}/> 
                 } 
                 </S.Border>  
-                }
             </S.CBox>
         </S.C>
         <S.Next>
@@ -1226,3 +1182,30 @@ const CategoryPage = () => {
 }
 
 export default CategoryPage
+
+/*                {loading ? 
+                <S.LoadingDiv>
+                    <S.LoadingD>
+                    <div class="spinner-border text-secondary" style={{width: "4rem", height: "4rem"}} role="status">
+                    <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <S.LoadingP>
+                        로딩중...
+                    </S.LoadingP>
+                    </S.LoadingD>
+                </S.LoadingDiv> 
+                : */
+
+    /*
+    const Star = () => {
+
+        return(
+            <S.CatagoryDiv>
+                <S.CaTittle>별점</S.CaTittle> 
+                <S.Box onClick={()=>setLink("star",1)}><div style={{display:"flex"}}><Sta star={4}/><span>4점 이상</span></div></S.Box>
+                <S.Box onClick={()=>setLink("star",2)}><div style={{display:"flex"}}><Sta star={3}/><span>3점 이상</span></div></S.Box>
+                <S.Box onClick={()=>setLink("star",3)}><div style={{display:"flex"}}><Sta star={2}/><span>2점 이상</span></div></S.Box>
+                <S.Box onClick={()=>setLink("star",4)}><div style={{display:"flex"}}><Sta star={1}/><span>1점 이상</span></div></S.Box>
+            </S.CatagoryDiv>
+        )
+    }*/

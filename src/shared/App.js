@@ -1,11 +1,9 @@
-import React,{useState} from 'react'
+import React from 'react'
 import * as P from '../pages'
-import {Route, Switch, Router} from 'react-router-dom';
-import { ReactDOM } from 'react';
+import {Route, Switch} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styled/App.css'
 import Header from '../contents/Header';
-
 
 function App() {
   return(
