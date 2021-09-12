@@ -192,9 +192,9 @@ const Border = ({h, value}) => {
                 break;
             case 4:
                 setMenu(["청결도구","청소도구","기타"]);
-                setA([{name: "헤어/바디/세안", path: 1},{name: "구강/면도", path: 1},{name: "화장지/물티슈", path: 1},{name: "생리대/성인기저귀", path: 1},{name: "기저귀", path: 1},{name: "세탁", path: 1},{name: "청소용품", path: 1},{name: "탈취/방향/살충", path: 1},{name: "건강/의료용품", path: 1},{name: "욕실 용품", path: 1},{name: "생활전기용품", path: 1},{name: "수납/정리", path: 1},{name: "생활잡화", path: ""}]);
-                setB([]);
-                setC([]);
+                setA([{name: "헤어/바디/세안", path: 1},{name: "구강/면도", path: 1},{name: "세탁", path: 1},{name: "욕실 용품", path: 1},{name: "생활전기용품", path: 1}]);
+                setB([{name: "청소용품", path: 1},{name: "화장지/물티슈", path: 1},{name: "수납/정리", path: 1},]);
+                setC([{name: "생리대/성인기저귀", path: 1},{name: "기저귀", path: 1},{name: "건강/의료용품", path: 1},{name: "탈취/방향/살충", path: 1},{name: "생활잡화", path: ""}]);
                 break;
             case 5:
                 setMenu(["생활가전","PC","기타"]);
@@ -203,16 +203,28 @@ const Border = ({h, value}) => {
                 setC([{name: "계절가전", path: 1},{name: "이미용가전", path: 1},{name: "건강가전", path: 1},{name: "주방가전", path: 1}]);
                 break;
             case 6:
-
+                setMenu(["가구", "수납/정리", "기타"]);
+                setA([]);
+                setB([]);
+                setC([]);
                 break;
             case 7:
-
+                setMenu(["실내스포츠", "실외스포츠", "의류"]);
+                setA([]);
+                setB([]);
+                setC([]);
                 break;
             case 8:
-                setMenu(["도서","음반","DVD"]);
+                setMenu([["도서","음반","DVD"]]);
+                setA([]);
+                setB([]);
+                setC([]);
                 break;
             case 9:
-                
+                setMenu(["반려동물용품", "기타", ""]);
+                setA([]);
+                setB([]);
+                setC([]);
                 break;
             default :
                 /*
@@ -220,7 +232,7 @@ const Border = ({h, value}) => {
                 setMenu(["스포츠", "건강", "렌탈"],[],[]);
                 break;
             default:
-                setMenu(["강아지 사료/용품"],["고양이 사료/용품"],["관상어 용품", "소동물/가축용품"])/*/
+                setMenu([],[],["관상어 용품", "소동물/가축용품"])/*/
         }
     }
 

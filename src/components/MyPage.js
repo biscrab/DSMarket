@@ -23,7 +23,7 @@ const MyPage = () => {
         {id: 1, name: "1", price: 18, star: 6, img: B, brand: "a", sell: 500, catagory: 1, review: 100}
     ]);
 
-    const review = [{review: "1", star: 2, name: 1}];
+    const review = [{review: "1123123123123213", star: 2, name: 1}];
 
     return(
         <S.M>

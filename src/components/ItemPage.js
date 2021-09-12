@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from 'react'
+import React,{useState, useEffect, useRef} from 'react'
 import * as S from '../styled/App'
 import A from '../images/c.jpg'
 import B from '../images/b.jpg'
@@ -18,11 +18,14 @@ const ItemPge = () => {
     {id: 5, img: E, price: 100, name: 1,catagory: 1},
     {id: 5, img: E, price: 100, name: 1,catagory: 1},
     {id: 5, img: E, price: 100, name: 1,catagory: 1},
+    {id: 5, img: E, price: 100, name: 1,catagory: 1},
 ];
 
     const [more, setMore] = useState(false);
     const img = [A, B, C, D, E];
     const [imgN, setImgN] = useState(0);
+
+    let i = useRef();
 
     /*            <S.IBorder>
                 <S.Image src={img[imgN]}></S.Image>
@@ -47,38 +50,59 @@ const ItemPge = () => {
                 </S.Info>
             </S.IBorder> */
 
+            const change = (n) => {
 
+            }
+
+    useEffect(()=>{
+        i.current.src = img[0];
+    },[]);
 
     return(
-        <S.Item> 
+        <S.Item>
+<S.ItemDiv> 
 <S.IBorder id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <S.Image src={A} class="d-block w-100" alt="..." />
-    </div>
-    <div class="carousel-item">
-      <S.Image src={B} class="d-block w-100" alt="..." />
-    </div>
-    <div class="carousel-item">
-      <S.Image src={C} class="d-block w-100" alt="..." />
+      <S.Image ref={i} class="d-block w-100" alt="..." />
     </div>
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+  <button onClick={()=>change(-1)} class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
   </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+  <button onClik={()=>change(1)}class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
 </S.IBorder>
+<S.IUSer>
+
+</S.IUSer>
+</S.ItemDiv> 
             <S.Related>
                 <S.RelatedH>관련 상품</S.RelatedH>
                 <S.RelatedDiv>
                     <Relate lists={list}/>
                 </S.RelatedDiv>
-            </S.Related>
-            <S.IDiv>
+            </S.Related>           
+        </S.Item>
+    );
+
+    /*<S.PointDiv><S.Pspan>🟡100포인트</S.Pspan></S.PointDiv>*/
+
+    /*                <S.CommentH>상품평</S.CommentH>
+                {comment.length >= 10 ?
+                <S.CommentUl height="500px">
+                    <Comment lists={comment}/>
+                </S.CommentUl>
+                :
+                <S.CommentUl height="auto">
+                <Comment lists={comment}/>
+                </S.CommentUl>
+                }*/
+
+                /*<S.IDiv>
                 <div>
                 <S.EDiv>
                     <S.EI>
@@ -112,22 +136,7 @@ const ItemPge = () => {
                     <S.BB color="black" bkcolor="white" border="1px">장바구니</S.BB>                     
                     <S.BB color="white" bkcolor="royalblue" border="0px">구매하기</S.BB>
                 </S.BuyDiv>
-            </S.IDiv>                
-        </S.Item>
-    );
-
-    /*<S.PointDiv><S.Pspan>🟡100포인트</S.Pspan></S.PointDiv>*/
-
-    /*                <S.CommentH>상품평</S.CommentH>
-                {comment.length >= 10 ?
-                <S.CommentUl height="500px">
-                    <Comment lists={comment}/>
-                </S.CommentUl>
-                :
-                <S.CommentUl height="auto">
-                <Comment lists={comment}/>
-                </S.CommentUl>
-                }*/
+            </S.IDiv>     */
 }
 
 export default ItemPge;

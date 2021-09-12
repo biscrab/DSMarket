@@ -72,3 +72,10 @@ export const RProfile = styled.img`
     width: 30px;
     margin-right: 10px;
 `
+
+export const Span = styled.span`
+    position: relative;
+    top: 5px;
+    left: 40px;
+    color: gray;
+`

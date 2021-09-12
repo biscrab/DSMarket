@@ -69,35 +69,35 @@ import axios from 'axios';
         49 홈데코
         50 가구
         51 수납/정리
-        66 침구
-        67 커튼/블라인드
-        68 카페트/쿠션/거실화
-        69 수예/수선
-        70 욕실용품
-        71 조명/스탠드
-        72 원예/가드닝
-    73 가전디지털
-        74 TV/영상가전
-        75 냉장고
-        76 세탁기/건조기
-        77 청소기
-        78 계절가전
-        79 이미용가전
-        80 건강가전
-        81 주방가전
-        82 노트북
-        83 데스크탑
-        84 저장장치
-        85 프린터/복합기
-        86 PC 부품/주변기기
-        87 휴대폰
-        88 태블릿PC
-        89 스마트워치/밴드
-        90 음향기기
-        91 게임콘솔
-        92 카메라
-        93 차량용 디지털
-    94 스포츠/레저
+        52 침구
+        53 커튼/블라인드
+        54 카페트/쿠션/거실화
+        55 수예/수선
+        56 욕실용품
+        57 조명/스탠드
+        58 원예/가드닝
+    59 가전디지털
+        60 TV/영상가전
+        61 냉장고
+        62 세탁기/건조기
+        63 청소기
+        64 계절가전
+        65 이미용가전
+        66 건강가전
+        67 주방가전
+        68 노트북
+        69 데스크탑
+        70 저장장치
+        71 프린터/복합기
+        72 PC 부품/주변기기
+        73 휴대폰
+        74 태블릿PC
+        75 스마트워치/밴드
+        76 음향기기
+        77 게임콘솔
+        78 카메라
+        79 차량용 디지털
+    80 스포츠/레저
         95 캠핑
         96 홈트레이닝
         97 수영/수상스포츠
@@ -170,26 +170,26 @@ const CategoryPage = () => {
 
     const Del = (path, link) => {
         var a;
-        if(location.search.includes(`&${path}=${c}`)){
-            if(location.search.includes(`&${path}=${c},`)){
-                a = location.search.replace(`${c},`,""); 
+        if(location.search.includes(`&${path}=${link}`)){
+            if(location.search.includes(`&${path}=${link},`)){
+                a = location.search.replace(`${link},`,""); 
             }
             else{
-                a = location.search.replace(`&${path}=${c}`,""); 
+                a = location.search.replace(`&${path}=${link}`,""); 
             }   
         }
-        else if(location.search.includes(`${path}=${c},`)){
-            a = location.search.replace(`${c},`,""); 
+        else if(location.search.includes(`${path}=${link},`)){
+            a = location.search.replace(`${link},`,""); 
         }
-        else if(location.search.includes(`,${c}`)){
-            a = location.search.replace(`,${c}`,""); 
+        else if(location.search.includes(`,${link}`)){
+            a = location.search.replace(`,${link}`,""); 
         }
-        else if(location.search.includes(`${c}&`)){
-            a = location.search.replace(`${c}`,""); 
+        else if(location.search.includes(`${link}&`)){
+            a = location.search.replace(`${link}`,""); 
         }
         else{
-            a = location.search.replace(`&${path}=${c}`,"");
-            a = location.search.replace(`?${path}=${c}`,"");
+            a = location.search.replace(`&${path}=${link}`,"");
+            a = location.search.replace(`?${path}=${link}`,"");
             a = a.replace(`${path}=${c}`,"");
         }
 
@@ -204,19 +204,7 @@ const CategoryPage = () => {
 
     const [highest, setHighest] = useState();
     const [lowest, setLowest] = useState();
-
-
-    const Brand = () => {
-        const list = {}
-        return(
-            <S.CatagoryDiv>
-                <S.CaTittle>브랜드</S.CaTittle>
-                <Select lists={list}/>
-            </S.CatagoryDiv>
-        )
-    }
     
-        
     const Color = () => {
         const list = [{name: "블랙", link:"black"}, 
                     {name: "네이비", link:"navy"}, 
@@ -848,7 +836,7 @@ const CategoryPage = () => {
         setList(s);
     }
 
-    const SetD = () => {
+    const SetD = (c) => {
         if(c >= 1 && c <=5){
             setD({name: "패션의류/잡화", path: 1});
             setCatagory([{name: "여성패션" ,path: 2},
@@ -874,125 +862,125 @@ const CategoryPage = () => {
             {name: "선물세트/키트", path: 19}]);
         }
         else if(c >= 20 && c <= 34){
-            setD({name: "주방용품", path: 21});
+            setD({name: "주방용품", path: 20});
             setCatagory([
-            {name:"냄비/프라이팬" ,path: 22},
-            {name:"칼/도마" ,path: 23},
-            {name:"주방조리도구" ,path: 24},
-            {name:"그릇/홈세트" ,path: 25},
-            {name:"수저/커트러리" ,path: 26},
-            {name:"컵/잔/텀블러" ,path: 27},
-            {name:"밀폐저장/도시락" ,path: 28},
-            {name:"주방잡화" ,path: 29},
-            {name:"일회용품/종이컵" ,path: 30},
-            {name:"보온/보냉용품" ,path: 31},
-            {name:"이유/유아식기" ,path: 32},
-            {name:"베이킹용품" ,path: 33},
-            {name:"교자상/제수용품", path: 34}]);
+            {name:"냄비/프라이팬" ,path: 21},
+            {name:"칼/도마" ,path: 22},
+            {name:"주방조리도구" ,path: 23},
+            {name:"그릇/홈세트" ,path: 24},
+            {name:"수저/커트러리" ,path: 25},
+            {name:"컵/잔/텀블러" ,path: 26},
+            {name:"밀폐저장/도시락" ,path: 27},
+            {name:"주방잡화" ,path: 28},
+            {name:"일회용품/종이컵" ,path: 29},
+            {name:"보온/보냉용품" ,path: 30},
+            {name:"이유/유아식기" ,path: 31},
+            {name:"베이킹용품" ,path: 32},
+            {name:"교자상/제수용품", path: 33}]);
         }
-        else if(c >= 48 && c <= 61){
-            setD({name: "생활용품", path: 48});
-            setCatagory([{name: "헤어/바디/세안", path: 49},
-            {name: "구강/면도", path: 50},
-            {name: "화장지/물티슈", path: 51},
-            {name: "생리대/기저귀", path: 52},
-            {name: "기저귀", path: 53},
-            {name: "세탁", path: 54},
-            {name: "청소용품", path: 55},
-            {name: "틸취/방향/살충", path: 56},
-            {name: "건강/의료용품", path: 57},
-            {name: "욕실 용품", path: 58},
-            {name: "생활전기용품", path: 59},
-            {name: "수납/정리", path: 60},
-            {name: "생활잡화", path: 61},])
+        else if(c >= 34 && c <= 47){
+            setD({name: "생활용품", path: 34});
+            setCatagory([{name: "헤어/바디/세안", path: 35},
+            {name: "구강/면도", path: 36},
+            {name: "화장지/물티슈", path: 37},
+            {name: "생리대/기저귀", path: 38},
+            {name: "기저귀", path: 39},
+            {name: "세탁", path: 40},
+            {name: "청소용품", path: 41},
+            {name: "틸취/방향/살충", path: 42},
+            {name: "건강/의료용품", path: 43},
+            {name: "욕실 용품", path: 44},
+            {name: "생활전기용품", path: 45},
+            {name: "수납/정리", path: 46},
+            {name: "생활잡화", path: 47},])
         }
-        else if(c >= 62 && c <=72){
-            setD({name: "홈인테리어", path: 62 });
+        else if(c >= 48 && c <= 58){
+            setD({name: "홈인테리어", path: 48 });
             setCatagory([
-            {path: 63, name: "홈데코"},
-            {path: 64, name: "가구"},
-            {path: 65, name: "수납/정리"},
-            {path: 66, name: "침구"},
-            {path: 67, name: "커튼/블라인드"},
-            {path: 68, name: "카페트/쿠션/거실화"},
-            {path: 69, name: "수예/수선"},
-            {path: 70, name: "욕실용품"},
-            {path: 71, name: "조명/스탠드"},
-            {path: 72, name: "원예/가드닝"},
+            {path: 49, name: "홈데코"},
+            {path: 50, name: "가구"},
+            {path: 51, name: "수납/정리"},
+            {path: 52, name: "침구"},
+            {path: 53, name: "커튼/블라인드"},
+            {path: 54, name: "카페트/쿠션/거실화"},
+            {path: 55, name: "수예/수선"},
+            {path: 56, name: "욕실용품"},
+            {path: 57, name: "조명/스탠드"},
+            {path: 58, name: "원예/가드닝"},
             ])
         }
-        else if(c >= 73 && c <= 93){
-            setD({name: "가전디지털", path: 73});
-            setCatagory([{name: "TV/영상가전" ,path: 74}, 
-            {name:"냉장고" ,path: 75}, 
-            {name:"세탁기/건조기" ,path: 76},
-            {name:"청소기", path: 77},
-            {name:"계절가전", path: 78},
-            {name:"이미용가전" ,path: 79}, 
-            {name:"건강가전" ,path: 80},
-            {name:"주방가전" ,path: 81},  
-            {name:"노트북" ,path: 82},
-            {name:"데스크탑" ,path: 83}, 
-            {name:"저장장치" ,path: 84}, 
-            {name:"프린터/복합기" ,path: 85}, 
-            {name:"PC 부품/주변기기" ,path: 86},
-            {name:"휴대폰" ,path: 87},
+        else if(c >= 59 && c <= 78){
+            setD({name: "가전디지털", path: 59});
+            setCatagory([{name: "TV/영상가전" ,path: 60}, 
+            {name:"냉장고" ,path: 61}, 
+            {name:"세탁기/건조기" ,path: 62},
+            {name:"청소기", path: 63},
+            {name:"계절가전", path: 64},
+            {name:"이미용가전" ,path: 65}, 
+            {name:"건강가전" ,path: 66},
+            {name:"주방가전" ,path: 67},  
+            {name:"노트북" ,path: 68},
+            {name:"데스크탑" ,path: 69}, 
+            {name:"저장장치" ,path: 70}, 
+            {name:"프린터/복합기" ,path: 71}, 
+            {name:"PC 부품/주변기기" ,path: 72},
+            {name:"휴대폰" ,path: 73},
             {name:"태블릿PC" ,path: 88}, 
-            {name:"스마트워치/밴드" ,path: 89},
-            {name:"음향기기" ,path: 90},
-            {name:"게임콘솔" ,path: 91}, 
-            {name:"카메라" ,path: 92}, 
-            {name:"차량용 디지털" ,path: 93}]);
+            {name:"스마트워치/밴드" ,path: 74},
+            {name:"음향기기" ,path: 75},
+            {name:"게임콘솔" ,path: 76}, 
+            {name:"카메라" ,path: 77}, 
+            {name:"차량용 디지털" ,path: 78}]);
         }
-        else if(c >= 94 && c <= 113){
-            setD({name: "스포츠/레저", path: 94});
-            setCatagory([{name: "캠핑" ,path: 95},
-            {name:"홈트레이닝" ,path: 96},
-            {name:"수영/수상스포츠" ,path: 97},
-            {name:"골프" ,path: 98},
-            {name:"자전거" ,path: 99},
-            {name:"킥보드/스케이트" ,path: 100},
-            {name:"낚시" ,path: 101},
-            {name:"등산/아웃도어" ,path: 102},
-            {name:"스포츠신발" ,path: 103},
-            {name:"남성스포츠의류" ,path: 104},
-            {name:"여성스포츠의류" ,path: 105},
-            {name:"유아스포츠의류" ,path: 1}, 
-            {name:"스포츠잡화" ,path: 106},
-            {name:"구기스포츠" ,path: 107},
-            {name:"라켓스포츠" ,path: 108}, 
-            {name:"헬스/요가/댄스" ,path: 109},
-            {name:"복싱/검도/태권도" ,path: 110}, 
-            {name:"학교 체육 준비" ,path: 111}, 
-            {name:"기타스포츠" ,path: 112},
-            {name:"스키/겨울스포츠", path: 113}]);
+        else if(c >= 79 && c <= 99){
+            setD({name: "스포츠/레저", path: 79});
+            setCatagory([{name: "캠핑" ,path: 80},
+            {name:"홈트레이닝" ,path: 81},
+            {name:"수영/수상스포츠" ,path: 82},
+            {name:"골프" ,path: 83},
+            {name:"자전거" ,path: 84},
+            {name:"킥보드/스케이트" ,path: 85},
+            {name:"낚시" ,path: 86},
+            {name:"등산/아웃도어" ,path: 87},
+            {name:"스포츠신발" ,path: 88},
+            {name:"남성스포츠의류" ,path: 89},
+            {name:"여성스포츠의류" ,path: 90},
+            {name:"유아스포츠의류" ,path: 91}, 
+            {name:"스포츠잡화" ,path: 92},
+            {name:"구기스포츠" ,path: 93},
+            {name:"라켓스포츠" ,path: 94}, 
+            {name:"헬스/요가/댄스" ,path: 95},
+            {name:"복싱/검도/태권도" ,path: 96}, 
+            {name:"학교 체육 준비" ,path: 97}, 
+            {name:"기타스포츠" ,path: 98},
+            {name:"스키/겨울스포츠", path: 99}]);
         }
-        else if(c >= 114 && c <= 130){
-            setD({name: "도서/음반/DVD", path: 114});
-            setCatagory([{name: "유아/어린이", path: 115},
-            {name: "소설/에세이/시", path: 116},
-            {name:"초중고참고서", path: 117},
-            {name: "가정 살림", path: 118},
-            {name: "건강 취미", path: 119},
-            {name: "경제 경영", path: 120},
-            {name: "과학/공학", path: 121},
-            {name: "국어/외국어/사전", path: 122},
-            {name: "대학교재", path: 123},
-            {name: "만화/라이트노벨", path: 124},
-            {name: "사회 정치", path: 125},
-            {name: "수험서/자격증", path: 126},
-            {name: "여행", path: 127},
-            {name: "역사", path: 128},
-            {name: "예술", path: 129},
-            {name: "인문", path: 130},
+        else if(c >= 100 && c <= 116){
+            setD({name: "도서/음반/DVD", path: 100});
+            setCatagory([{name: "유아/어린이", path: 101},
+            {name: "소설/에세이/시", path: 102},
+            {name:"초중고참고서", path: 103},
+            {name: "가정 살림", path: 104},
+            {name: "건강 취미", path: 105},
+            {name: "경제 경영", path: 106},
+            {name: "과학/공학", path: 107},
+            {name: "국어/외국어/사전", path: 108},
+            {name: "대학교재", path: 109},
+            {name: "만화/라이트노벨", path: 110},
+            {name: "사회 정치", path: 111},
+            {name: "수험서/자격증", path: 112},
+            {name: "여행", path: 113},
+            {name: "역사", path: 114},
+            {name: "예술", path: 115},
+            {name: "인문", path: 116},
         ])
         }
-        else if(c >= 131 && c <= 135){
-            setD({name: "반려동물용품", path: 131});
-            setCatagory([{name: "강아지 사료/용품" , path: 132}, 
-            {name: "고양이 사료/용품",path: 133}, 
-            {name: "관상어 용품" ,path: 134}, 
-            {name: "소동물/가축용품" ,path: 135}]);
+        else if(c >= 116 && c <= 117){
+            setD({name: "반려동물용품", path: 118});
+            setCatagory([{name: "강아지 사료/용품" , path: 119}, 
+            {name: "고양이 사료/용품",path: 120}, 
+            {name: "관상어 용품" ,path: 121}, 
+            {name: "소동물/가축용품" ,path: 122}]);
         }
         else{
             setD({name: "카테고리", path: ""});
@@ -1050,10 +1038,6 @@ const CategoryPage = () => {
         console.log(list);
     } 
 
-    const setS = () => {
-        
-    }
-
     const [list, setList] = useState([
     {id: 1, name: "1", price: 100, star: 1, img: A, brand: "samsung", sell: 50, catagory: 1, review: 100},
     {id: 1, name: "1", price: 10, star: 2, img: B, brand: "a", sell: 100 ,catagory: 1, review: 100},
@@ -1068,7 +1052,6 @@ const CategoryPage = () => {
     const [option, setOption] = useState(1);
     const query = queryString.parse(location.search);
     const [catagory, setCatagory] = useState([]);
-    const c = Number(params.catagory);
 
     const[page, setPage] = useState([1,2,3]);
 
@@ -1101,15 +1084,16 @@ const CategoryPage = () => {
         console.log(s);
     }
 
+    const [c, sC] = useState(Number(params.catagory));
+
     useEffect(()=>{
         console.log(query);
         console.dir(params.catagory);
         console.dir(match);
         console.dir(location);
         SetP(params.catagory);
-        setC();
+        sC(Number(params.catagory));
         setO(1);
-        SetD();
         console.log("c:"+c);
 
         /*
@@ -1118,6 +1102,10 @@ const CategoryPage = () => {
                 setList(response.data);
             });*/
     },[]);
+
+    useEffect(()=>{
+        SetD(Number(params.catagory));
+    })
 
     const SetPage = () => {
         var pageN = (list.length / 16);

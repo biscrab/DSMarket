@@ -77,13 +77,13 @@ const Select = ({item, path}) => {
     return(
         <>
         {check ? 
-        <S.Box onClick={() => Del()}>
+        <S.Box onClick={() => Del(item.path, item.link)}>
             <div style={{position:"relative", top:"50%", transform:"translateY(-50%)"}}>
             <input type="checkbox" checked={check} style={{marginRight: "5px"}}></input><span>{item.name}</span>
             </div>
         </S.Box> 
         :
-        <S.Box onClick={() => setLink()}>
+        <S.Box onClick={() => setLink(item.path, item.link)}>
             <div style={{position:"relative", top:"50%", transform:"translateY(-50%)"}}>
             <input type="checkbox" checked={check} style={{marginRight: "5px"}}></input><span>{item.name}</span>
             </div>

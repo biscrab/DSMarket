@@ -374,6 +374,13 @@ const RegistPage = () => {
             </S.RegistDiv>
 
             <S.RegistDiv>
+            <p>가격</p>
+            <S.InputDiv>
+            <S.Input placeholder="₩ 가격" onChange={(e)=>setTittle(e.target.value)} value={tittle}></S.Input>
+            </S.InputDiv>
+            </S.RegistDiv>
+
+            <S.RegistDiv>
             <p>카테고리</p>
             <div style={{display: "flex"}}>
             <S.CSDiv>
@@ -400,84 +407,21 @@ const RegistPage = () => {
             </div>
             </S.RegistDiv>
 
-            
+            <p>상세설명</p>
             <S.RegistDiv>
                 <S.RegistDetailUl>
-                    <span>상세설정</span>
+                    <span>옵션</span>
                     <RegistOption lists={list}/>
                 </S.RegistDetailUl>
             </S.RegistDiv>
 
+                <p>상품 이미지</p>             
             <S.RegistDiv>
-            <p>배송 관련 사항</p>
-            <S.Input></S.Input>
-            <p>반품/교환 관련 사항</p>
-            <S.Input></S.Input>
-            </S.RegistDiv>
-
-                <div>
-                <b>상품 이미지</b>
-                </div>                
-                <S.UploadButton onClick={()=>setRepre(1)} color={repre === 1 ? "white" : "black"} bkcolor={repre === 1 ? "royalblue" : "white"} border={repre === 1 ? "0px" : "1px"}>기본 등록</S.UploadButton>
-                <S.UploadButton onClick={()=>setRepre(2)} color={repre === 2 ? "white" : "black"} bkcolor={repre === 2 ? "royalblue" : "white"} border={repre === 2 ? "0px" : "1px"}>옵션별 등록</S.UploadButton>
-            <S.RegistDiv>
-                <p>대표 이미지</p>
+                <p>이미지(0/9)</p>
                 <S.RegistImg>
                     <S.RegistSpan>+</S.RegistSpan>
                 </S.RegistImg>
-            </S.RegistDiv>
-            <S.RegistDiv>
-                <p>추가 이미지(0/9)</p>
-                <S.RegistImg>
-                    <S.RegistSpan>+</S.RegistSpan>
-                </S.RegistImg>
-            </S.RegistDiv>
-            <p>상세설명</p>
-            <div>
-                <S.UploadButton onClick={()=>setUpload(1)} color={upload === 1 ? "white" : "black"} bkcolor={upload === 1 ? "royalblue" : "white"} border={upload === 1 ? "0px" : "1px"}>이미지 업로드</S.UploadButton>
-                <S.UploadButton onClick={()=>setUpload(2)} color={upload === 2 ? "white" : "black"} bkcolor={upload === 2 ? "royalblue" : "white"} border={upload === 2 ? "0px" : "1px"}>에디터 작성</S.UploadButton>
-                <S.UploadButton onClick={()=>setUpload(3)} color={upload === 3 ? "white" : "black"} bkcolor={upload === 3 ? "royalblue" : "white"} border={upload === 3 ? "0px" : "1px"}>HTML 작성</S.UploadButton>
-            </div>
-            <S.RegistDiv></S.RegistDiv>            
-            
-            <S.RegistDiv>
-            <S.RegistDetailUl>
-
-                <S.RegistDetail>
-                <S.DetailSpan>브랜드</S.DetailSpan>
-                <S.DetailDiv>
-                <S.OInput></S.OInput>
-                <input type="checkbox"></input>
-                <span>브랜드 없음 (또는 자체 제작)</span>
-                </S.DetailDiv>  
-                </S.RegistDetail>
-
-                <S.RegistDetail>
-                <S.DetailSpan>제조사</S.DetailSpan>
-                <S.DetailDiv>
-                <S.OInput></S.OInput>
-                </S.DetailDiv>  
-                </S.RegistDetail>
-
-                <S.RegistDetail>
-                <S.DetailSpan>판매기간</S.DetailSpan>
-                <S.DetailDiv>
-                <S.DetailSDiv>
-                <input type="radio"></input>
-                <span>설정함</span>
-                </S.DetailSDiv> 
-                <S.DetailSDiv>
-                <input type="radio"></input>
-                <span>설정안함</span>
-                </S.DetailSDiv> 
-                </S.DetailDiv>  
-                </S.RegistDetail>
-
-                </S.RegistDetailUl>
-            </S.RegistDiv>
-
-            <p>구비서류</p>
-            <p>옵션 설정</p>
+            </S.RegistDiv>    
             {t ?
             <S.RButton color="royalblue">판매요청</S.RButton>
             :
@@ -629,6 +573,63 @@ const RegistPage = () => {
                 </S.DetailSDiv> 
                 </S.DetailDiv>  
                 </S.RegistDetail>
+
+                            <S.RegistDiv>
+            <p>배송 관련 사항</p>
+            <S.Input></S.Input>
+            <p>반품/교환 관련 사항</p>
+            <S.Input></S.Input>
+            </S.RegistDiv>
+
+                        <p>상세설명</p>
+            <div>
+                <S.UploadButton onClick={()=>setUpload(1)} color={upload === 1 ? "white" : "black"} bkcolor={upload === 1 ? "royalblue" : "white"} border={upload === 1 ? "0px" : "1px"}>이미지 업로드</S.UploadButton>
+                <S.UploadButton onClick={()=>setUpload(2)} color={upload === 2 ? "white" : "black"} bkcolor={upload === 2 ? "royalblue" : "white"} border={upload === 2 ? "0px" : "1px"}>에디터 작성</S.UploadButton>
+                <S.UploadButton onClick={()=>setUpload(3)} color={upload === 3 ? "white" : "black"} bkcolor={upload === 3 ? "royalblue" : "white"} border={upload === 3 ? "0px" : "1px"}>HTML 작성</S.UploadButton>
+            </div>
+            <S.RegistDiv></S.RegistDiv>      
+            
+                        <S.RegistDiv>
+            <S.RegistDetailUl>
+
+                <S.RegistDetail>
+                <S.DetailSpan>브랜드</S.DetailSpan>
+                <S.DetailDiv>
+                <S.OInput></S.OInput>
+                <input type="checkbox"></input>
+                <span>브랜드 없음 (또는 자체 제작)</span>
+                </S.DetailDiv>  
+                </S.RegistDetail>
+
+                <S.RegistDetail>
+                <S.DetailSpan>제조사</S.DetailSpan>
+                <S.DetailDiv>
+                <S.OInput></S.OInput>
+                </S.DetailDiv>  
+                </S.RegistDetail>
+
+                <S.RegistDetail>
+                <S.DetailSpan>판매기간</S.DetailSpan>
+                <S.DetailDiv>
+                <S.DetailSDiv>
+                <input type="radio"></input>
+                <span>설정함</span>
+                </S.DetailSDiv> 
+                <S.DetailSDiv>
+                <input type="radio"></input>
+                <span>설정안함</span>
+                </S.DetailSDiv> 
+                </S.DetailDiv>  
+                </S.RegistDetail>
+
+                </S.RegistDetailUl>
+            </S.RegistDiv>
+
+                        <p>구비서류</p>
+            <p>옵션 설정</p>
+
+            <S.UploadButton onClick={()=>setRepre(1)} color={repre === 1 ? "white" : "black"} bkcolor={repre === 1 ? "royalblue" : "white"} border={repre === 1 ? "0px" : "1px"}>기본 등록</S.UploadButton>
+                <S.UploadButton onClick={()=>setRepre(2)} color={repre === 2 ? "white" : "black"} bkcolor={repre === 2 ? "royalblue" : "white"} border={repre === 2 ? "0px" : "1px"}>옵션별 등록</S.UploadButton>
 
     */
 

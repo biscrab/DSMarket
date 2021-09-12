@@ -6,7 +6,7 @@ import C from '../images/c.jpg'
 import D from '../images/d.jpg'
 import Border from '../contents/Border'
 import { useHistory } from 'react-router-dom'
-import Recommendation from '../contents/Recommendation'
+import MyItem from '../contents/MyItem'
 
 const MainPage = () => {
     var arr=[A, B, C, D];
@@ -37,6 +37,15 @@ const MainPage = () => {
     const Best = [{id: 1, img: B, name: "1"},{id: 1, img: B, name: "1"},{id: 1, img: B, name: "1"},{id: 1, img: B, name: "1"}];
     const New = [{id: 1, img: C, name: "1"},{id: 1, img: C, name: "1"},{id: 1, img: C, name: "1"},{id: 1, img: C, name: "1"},{id: 1, img: C, name: "1"}];
 
+    const [list, setList] = useState([
+        {id: 1, name: "1", price: 100, star: 1, img: A, brand: "samsung", sell: 50, catagory: 1, review: 100},
+        {id: 1, name: "1", price: 10, star: 2, img: B, brand: "a", sell: 100 ,catagory: 1, review: 100},
+        {id: 1, name: "1", price: 5, star: 3, img: C, brand: "a", sell: 200, catagory: 2, review: 100},
+        {id: 1, name: "1", price: 6, star: 4, img: D, brand: "a", sell: 300, catagory: 3, review: 100},
+        {id: 1, name: "1", price: 190, star: 5, img: B, brand: "a", sell: 400, catagory: 1, review: 100},
+        {id: 1, name: "1", price: 190, star: 5, img: B, brand: "a", sell: 400, catagory: 1, review: 100},
+    ]);
+
     return(
         <>
             <S.MainBanner>
@@ -61,6 +70,7 @@ const MainPage = () => {
             <S.BestItem>
                 <S.Best>중고거래 인기 제품</S.Best>
                 <S.BestDiv>
+                    <MyItem lists={list}/>
                 </S.BestDiv> 
             </S.BestItem>
         </>

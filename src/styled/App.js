@@ -82,11 +82,11 @@ export const BestItem = styled.div`
 export const Best = styled.h1`
     margin: 0px;
     position: relative;
+    left: 50%;
+    transform: translateX(-50%);
     width: 220px;
     text-align: center;
     top: 10%;
-    left: 50%;
-    transform: translateX(-50%);
 `
 
 export const CDiv = styled.div`
@@ -210,7 +210,7 @@ export const ItemImg = styled.img`
 
 export const Image = styled.img`
     width: 650px;
-    height: 500px;
+    height: 550px;
     border-radius: 2%;
     background-color: whitesmoke;
 `
@@ -226,6 +226,7 @@ export const IBorder = styled.div`
     left: 50%;
     width: 650px;
     transform: translateX(-50%);
+    margin-bottom: 30px;
 `
 
 export const ADiv = styled.div`
@@ -255,13 +256,15 @@ export const Related = styled.div`
     left: 50%;
     transform: translateX(-50%);
     border: 1px solid #eeeeee;
-    height: 300px;
+    height: 600px;
 `
 
 export const RelatedH = styled.h3`
     color: gray;
     position: relative;
-    left: 30px;
+    left: 430px;
+    margin-top: 30px;
+    margin-bottom: 20px;
 `
 
 export const Detail = styled.div`
@@ -426,19 +429,15 @@ export const CBorder = styled.div`
     background-color: white;
 `
 
-export const BestImg = styled.img`
-    width: 600px;
-    height: 600px;
-    border-radius: 10px;
-    background-color: whitesmoke;
-`
-
 export const BestDiv = styled.div`
     position: relative;
+    left: 50%;
+    transform: translateX(-50%);
     top: 100px;
-    height: 250px;
+    width: 790px;
     display: flex;
-    justify-content: center
+    justify-content: space-around;
+    flex-wrap: wrap;
 `
 export const Cli = styled.li`
     margin-right: 15px;
@@ -461,14 +460,19 @@ export const DileveryTime = styled.p`
 `
 
 export const RelatedDiv = styled.div`
+    width: 670px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
 `
 
 export const RDiv = styled.div`
     width: 150px;
     height: 200px;
-    align-content: space-around;
+    margin-bottom: 50px;
 `
 
 export const RImg = styled.img`
@@ -537,11 +541,13 @@ export const Ad = styled.div`
 
 export const ATittle = styled.h3`
     position: relative;
-    top: 30px;
+    margin: 0;
+    top: 40px;
 `
 
 export const AExplane = styled.p`
     position: relative;
+    top: 40px;
     color: gray;
 `
 
@@ -651,7 +657,7 @@ export const OInput = styled.input`
 
 export const Max = styled.div`
     background-color: #eeeeee;
-    height: 22px;
+    height: 30px;
     width: 70px;
     padding: 5px;
     text-align: center;
@@ -681,7 +687,7 @@ export const LR = styled.div`
     display: flex;
     position: relative;
     top: 10px;
-    left: 1150px;
+    left: 1155px;
 `;
 
 export const S = styled.div`    
@@ -1291,7 +1297,7 @@ export const RButton = styled.button`
     width: 200px;
     height: 50px;
     position: relative;
-    left: 890px;
+    left: 850px;
 `
 
 export const CaSelect = styled.input`
@@ -1480,4 +1486,16 @@ export const ATop = styled.div`
 export const Card = styled.div`
     width: 300px;
     margin-bottom: 50px;
+`
+
+export const IUSer = styled.div`
+    height: 60px;
+    border-bottom: 2px solid #eeeeee;
+`
+
+export const ItemDiv = styled.div`
+    width: 900px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 `

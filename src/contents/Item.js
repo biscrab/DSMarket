@@ -18,7 +18,7 @@ const Item = ({item, lists}) => {
         </S.ItemBox>*/
 
     return(
-    <S.Card>
+    <S.Card onClick={()=>history.push(`/item/${item.id}`)}>
     <div class="card" style={{width: "18rem;"}}>
     <S.ItemImg src={item.img} class="card-img-top" alt="..." />
     <div class="card-body">

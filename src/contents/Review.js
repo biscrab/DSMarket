@@ -8,7 +8,7 @@ const Review = ({item}) => {
             <div>
             <S.RProfile src={profile}></S.RProfile><span>{item.name}</span>
             </div>
-            <span>{item.review}</span>
+            <S.Span>{item.review}</S.Span>
         </S.ReviewLi>
     );
 }
