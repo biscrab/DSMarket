@@ -20,8 +20,6 @@ function App() {
     <Route exact path="/order/:id" component={P.Order}/>
     <Route exact path="/order" component={P.Order}/>
     <Route exact path="/regist" component={P.Regist}/>
-    <Route path="/admin/:id" component={P.Admin}/>
-    <Route path="/admin" component={P.Admin}/>
     <Route exact path="/mypage" component={P.MyPage} />
     <Route exact path="/signup" component={P.SignUp} />
     </Switch>

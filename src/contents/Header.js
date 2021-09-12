@@ -142,7 +142,6 @@ const Header = () => {
             }
             </div>
 
-            {admin ? <S.Link src={Admin} onClick={()=>history.replace(`/admin`)}></S.Link> : <></>}
             </S.HeaderIconDiv>
 
             </S.S>
@@ -178,3 +177,5 @@ const Header = () => {
 }
 
 export default Header
+
+/*             {admin ? <S.Link src={Admin} onClick={()=>history.replace(`/admin`)}></S.Link> : <></>}*/

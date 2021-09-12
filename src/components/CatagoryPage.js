@@ -7,7 +7,6 @@ import A from '../images/a.jpg'
 import B from '../images/b.jpg'
 import C from '../images/c.jpg'
 import D from '../images/d.jpg'
-import Select from '../contents/Select'
 import { useHistory } from 'react-router-dom';
 import Item from '../contents/Item'
 import queryString from 'query-string';
@@ -141,70 +140,98 @@ import axios from 'axios';
         135 소동물/가축용품
 */
 
+const Select = ({item, path}) => {
+
+    const [catagory, setCatagory] = useState({
+        color: "",
+        season: "",
+        size: "",
+        lowest: "",
+        highest: "",
+    });
+
+    const Select = () => {
+    
+        const [check, setCheck] = useState(false);
+    
+        let history = useHistory();
+        const location = useLocation();
+        const params = useParams();
+        const query = queryString.parse(location.search);
+
+        useEffect(()=>{       
+            if(location.search.includes(item.link)){
+                console.log(item.link);
+                setCheck(true);
+            }
+        },[]);
+
+        const SetLink = () => {
+            setCatagory(item.path, path=item.link);
+
+            const serialize = obj => Object.keys(obj)
+                                    .map(key => `${path}=${encodeURIComponent(obj[key])}`)
+                                    .join('&')
+
+            history.push({
+                pathname: history.location.pathname,
+                search: serialize(catagory)
+            });
+        }
+
+        const Del = () => {
+            setCatagory(...catagory, path = "");
+                        const serialize = obj => Object.keys(obj)
+                                    .map(key => `${path}=${encodeURIComponent(obj[key])}`)
+                                    .join('&')
+
+            history.push({
+                pathname: history.location.pathname,
+                search: serialize(catagory)
+            });
+        }
+    
+        return(
+            <>
+            {check ? 
+            <S.Box onClick={() => setLink()}>
+                <div style={{position:"relative", top:"50%", transform:"translateY(-50%)"}}>
+                <input type="checkbox" checked={check} style={{marginRight: "5px"}}></input><span>{item.name}</span>
+                </div>
+            </S.Box> 
+            :
+            <S.Box onClick={() => Del()}>
+                <div style={{position:"relative", top:"50%", transform:"translateY(-50%)"}}>
+                <input type="checkbox" checked={check} style={{marginRight: "5px"}}></input><span>{item.name}</span>
+                </div>
+            </S.Box>
+            }
+            </>
+        );
+    }
+    
+    const List = ({lists, path}) => {
+    
+        const itemList = lists.map(
+            item => (
+                <Select item={item} key={item.name} name={item.name} i={item.i} link={item.link} path={path}/>
+            )
+        )
+        return itemList
+    }
+    
+    return List;
+}
+
 const CategoryPage = () => {
 
-    const [l, setL] = useState();
     const [d, setD] = useState({name: "", path: ""});
-
-    const setLink = (path, link) => {
-        var a = `${path}=${link}`;
-        console.log("search:"+location.search);
-        if(location.search.includes(`${path}=`)){
-            if(location.search.includes('&')){
-            }
-            else{
-            setL(`,${link}`);
-            }
-        }
-        else if(location.search === ""){
-            setL(`?${a}`);
-            console.log(l);
-        }
-        else{
-            setL(`&${a}`);
-            console.log(l);
-        }
-
-        history.push(...location.search, l);
-    }
-
-    const Del = (path, link) => {
-        var a;
-        if(location.search.includes(`&${path}=${link}`)){
-            if(location.search.includes(`&${path}=${link},`)){
-                a = location.search.replace(`${link},`,""); 
-            }
-            else{
-                a = location.search.replace(`&${path}=${link}`,""); 
-            }   
-        }
-        else if(location.search.includes(`${path}=${link},`)){
-            a = location.search.replace(`${link},`,""); 
-        }
-        else if(location.search.includes(`,${link}`)){
-            a = location.search.replace(`,${link}`,""); 
-        }
-        else if(location.search.includes(`${link}&`)){
-            a = location.search.replace(`${link}`,""); 
-        }
-        else{
-            a = location.search.replace(`&${path}=${link}`,"");
-            a = location.search.replace(`?${path}=${link}`,"");
-            a = a.replace(`${path}=${c}`,"");
-        }
-
-        history.push(location.pathname + a);
-    }
-
 
     let history = useHistory();
     const match = useRouteMatch();
     const params = useParams();
     const location = useLocation();
 
-    const [highest, setHighest] = useState();
-    const [lowest, setLowest] = useState();
-    
     const Color = () => {
         const list = [{name: "블랙", link:"black"}, 
                     {name: "네이비", link:"navy"}, 
@@ -261,12 +288,13 @@ const CategoryPage = () => {
     
     const Size = () => {
         const list = [{name:"XS", link:"XS"}, {name:"S", link:"S"}, {name:"M", link:"M"}, {name:"L", link:"L"}, {name:"XL", link:"XL"}, {name:"2XL", link:"2XL"}, {name:"3XL", link:"3XL"}, {name:"FREE (One Size)", link:"FREE"}];
+        const path = "size"
         return(
             <>
             {c <= 6 ?
             <S.CatagoryDiv>
                 <S.CaTittle>사이즈</S.CaTittle>
-                <Select lists={list}/>
+                <Select lists={list} path={"size"}/>
             </S.CatagoryDiv>
             :<></>
             }
@@ -284,6 +312,7 @@ const CategoryPage = () => {
         )
     }
 
+    /*
     const Star = () => {
 
         return(
@@ -295,32 +324,21 @@ const CategoryPage = () => {
                 <S.Box onClick={()=>setLink("star",4)}><div style={{display:"flex"}}><Sta star={1}/><span>1점 이상</span></div></S.Box>
             </S.CatagoryDiv>
         )
-    }
+    }*/
         
     const Price = () => {   
-
-        const SetPrice = ({highest, lowest}) => { 
-            if(highest){
-                setLink("heighest", highest);
-            }
-            if(lowest){
-                setLink("lowest", lowest);
-            }
-        }
 
         return(
             <S.CatagoryDiv>
                 <S.CaTittle>가격</S.CaTittle>
-                <S.Box onClick={()=>SetPrice("", 7000)}>7천원 이하</S.Box>
-                <S.Box onClick={()=>SetPrice(7000, 14000)}>7천원~1만 4천원</S.Box>
-                <S.Box onClick={()=>SetPrice(14000, 28000)}>1만 4천원~2만 8천원</S.Box>
-                <S.Box onClick={()=>SetPrice(28000, "")}>2만 8천원 이상</S.Box>
+                <S.Box onClick={()=>setCatagory({highest: "", lowest: 7000})}>7천원 이하</S.Box>
+                <S.Box onClick={()=>setCatagory({highest: 7000, lowest: 14000})}>7천원~1만 4천원</S.Box>
+                <S.Box onClick={()=>setCatagory({highest: 14000, lowest: 28000})}>1만 4천원~2만 8천원</S.Box>
+                <S.Box onClick={()=>setCatagory({highest: 28000, lowest: ""})}>2만 8천원 이상</S.Box>
                 <S.PriceDiv>
-                <S.PriceInput onChange={(e)=>setLowest(e.target.value)} value={lowest}></S.PriceInput>~
-                <S.PriceInput onChange={(e)=>setHighest(e.target.value)} value={highest}></S.PriceInput>원
-                <Link to={{search:`lowest=${lowest}&highest=${highest}`}}>
-                <S.PriceButton onClick={()=>SetPrice(highest, lowest)}>검색</S.PriceButton>
-                </Link>
+                <S.PriceInput onChange={(e)=>setCatagory(e.target.value)} value={catagory.lowest}></S.PriceInput>~
+                <S.PriceInput onChange={(e)=>setCatagory(e.target.value)} value={catagory.highest}></S.PriceInput>원
+                <S.PriceButton>검색</S.PriceButton>
                 </S.PriceDiv>
             </S.CatagoryDiv>
         )
@@ -669,6 +687,9 @@ const CategoryPage = () => {
         )
     }
 
+    const [c, setC] = useState([]);
+
+    /*
     const SetC = () => {
 
         setCatagory([{name:"과일", link: 21},
@@ -737,15 +758,15 @@ const CategoryPage = () => {
                     {name: "수집품" ,link: 1},
                     {name: "키덜트샵", link: 1}]);
 
-    }
+    }*/
 
     const Cata = () => {
         return(
             <>
-            {catagory ?
+            { ?
             <S.CatagoryDiv>
                 <S.CaTittle>{d.name}</S.CaTittle>
-                <Catagory lists={catagory}></Catagory>
+                <Catagory lists={}></Catagory>
             </S.CatagoryDiv>:
             <></>
             }
@@ -839,7 +860,7 @@ const CategoryPage = () => {
     const SetD = (c) => {
         if(c >= 1 && c <=5){
             setD({name: "패션의류/잡화", path: 1});
-            setCatagory([{name: "여성패션" ,path: 2},
+            setC([{name: "여성패션" ,path: 2},
             {name:"남성패션", path: 3},
             {name:"남녀 공용 의류", path: 4},
             {name:"유아동패션", path: 5}]);
@@ -847,7 +868,7 @@ const CategoryPage = () => {
         }
         else if(c >= 6 && c <= 19){
             setD({name: "뷰티", path: 6});
-            setCatagory([{name: "명품뷰티", path: 7},
+            setC([{name: "명품뷰티", path: 7},
             {name: "스킨케어", path: 8},
             {name: "클렌징/필링", path: 9},
             {name: "메이크업", path: 10},
@@ -863,7 +884,7 @@ const CategoryPage = () => {
         }
         else if(c >= 20 && c <= 34){
             setD({name: "주방용품", path: 20});
-            setCatagory([
+            setC([
             {name:"냄비/프라이팬" ,path: 21},
             {name:"칼/도마" ,path: 22},
             {name:"주방조리도구" ,path: 23},
@@ -880,7 +901,7 @@ const CategoryPage = () => {
         }
         else if(c >= 34 && c <= 47){
             setD({name: "생활용품", path: 34});
-            setCatagory([{name: "헤어/바디/세안", path: 35},
+            setC([{name: "헤어/바디/세안", path: 35},
             {name: "구강/면도", path: 36},
             {name: "화장지/물티슈", path: 37},
             {name: "생리대/기저귀", path: 38},
@@ -896,7 +917,7 @@ const CategoryPage = () => {
         }
         else if(c >= 48 && c <= 58){
             setD({name: "홈인테리어", path: 48 });
-            setCatagory([
+            setC([
             {path: 49, name: "홈데코"},
             {path: 50, name: "가구"},
             {path: 51, name: "수납/정리"},
@@ -911,7 +932,7 @@ const CategoryPage = () => {
         }
         else if(c >= 59 && c <= 78){
             setD({name: "가전디지털", path: 59});
-            setCatagory([{name: "TV/영상가전" ,path: 60}, 
+            setC([{name: "TV/영상가전" ,path: 60}, 
             {name:"냉장고" ,path: 61}, 
             {name:"세탁기/건조기" ,path: 62},
             {name:"청소기", path: 63},
@@ -934,7 +955,7 @@ const CategoryPage = () => {
         }
         else if(c >= 79 && c <= 99){
             setD({name: "스포츠/레저", path: 79});
-            setCatagory([{name: "캠핑" ,path: 80},
+            setC([{name: "캠핑" ,path: 80},
             {name:"홈트레이닝" ,path: 81},
             {name:"수영/수상스포츠" ,path: 82},
             {name:"골프" ,path: 83},
@@ -957,7 +978,7 @@ const CategoryPage = () => {
         }
         else if(c >= 100 && c <= 116){
             setD({name: "도서/음반/DVD", path: 100});
-            setCatagory([{name: "유아/어린이", path: 101},
+            setC([{name: "유아/어린이", path: 101},
             {name: "소설/에세이/시", path: 102},
             {name:"초중고참고서", path: 103},
             {name: "가정 살림", path: 104},
@@ -977,14 +998,14 @@ const CategoryPage = () => {
         }
         else if(c >= 116 && c <= 117){
             setD({name: "반려동물용품", path: 118});
-            setCatagory([{name: "강아지 사료/용품" , path: 119}, 
+            setC([{name: "강아지 사료/용품" , path: 119}, 
             {name: "고양이 사료/용품",path: 120}, 
             {name: "관상어 용품" ,path: 121}, 
             {name: "소동물/가축용품" ,path: 122}]);
         }
         else{
             setD({name: "카테고리", path: ""});
-            setCatagory([
+            setC([
                 {name: "패션의류/잡화", path: 1},
                 {name: "뷰티", path: 6},
                 {name: "식품", path: 20},
@@ -999,7 +1020,7 @@ const CategoryPage = () => {
         }   
     }
 
-    const setC = () => {
+    const setLi = () => {
         if(query.lowest){
             console.log(Number(query.lowest));
             setList(list.filter(Number(query.lowest) <= list.price));
@@ -1051,7 +1072,6 @@ const CategoryPage = () => {
     const [p, setP] = useState(location.search.slice(2, location.search.length));
     const [option, setOption] = useState(1);
     const query = queryString.parse(location.search);
-    const [catagory, setCatagory] = useState([]);
 
     const[page, setPage] = useState([1,2,3]);
 
@@ -1084,7 +1104,7 @@ const CategoryPage = () => {
         console.log(s);
     }
 
-    const [c, sC] = useState(Number(params.catagory));
+    const [ca, sCa] = useState(Number(params.catagory));
 
     useEffect(()=>{
         console.log(query);
@@ -1092,7 +1112,7 @@ const CategoryPage = () => {
         console.dir(match);
         console.dir(location);
         SetP(params.catagory);
-        sC(Number(params.catagory));
+        sCa(Number(params.catagory));
         setO(1);
         console.log("c:"+c);
 
@@ -1151,7 +1171,6 @@ const CategoryPage = () => {
                 <KindofLanguageTest />
                 <Language />
                 <ShapeOfBook />             
-                <Star />
                 <Price />
             </S.Select>
             <S.CBox>
