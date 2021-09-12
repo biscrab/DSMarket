@@ -1,4 +1,4 @@
-import React,{useState, useEffect, useRef} from 'react'
+import React,{useState, useEffect, Component} from 'react'
 import * as S from '../styled/App'
 import A from '../images/a.jpg'
 import B from '../images/b.jpg'
@@ -11,19 +11,23 @@ import MyItem from '../contents/MyItem'
 const MainPage = () => {
     var arr=[A, B, C, D];
     const [i, setI] = useState(0);
-    const n = useRef(0);
 
     function showImage() {
         if(i < 3){
-            setI((n.current += 1));
+            setI(i + 1);
         }
         else{
-            setI((n.current = 0));
+            setI(0);
         }
     }
 
     useEffect(()=>{
-    },[]);
+        const interval = setInterval(()=>{
+            showImage();
+            console.log(i);
+        }, 1000)
+        return () => interval();
+    },[])
 
     let history = useHistory();
 
