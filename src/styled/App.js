@@ -226,7 +226,7 @@ export const ItemImg = styled.img`
 `
 
 export const Image = styled.img`
-    width: 650px;
+    width: 100%;
     height: 550px;
     border-radius: 2%;
     background-color: whitesmoke;
@@ -241,7 +241,6 @@ export const IBorder = styled.div`
     position: relative;
     margin-top: 30px;
     left: 50%;
-    width: 650px;
     transform: translateX(-50%);
     margin-bottom: 30px;
 `
@@ -1455,7 +1454,7 @@ export const CommentH = styled.h2`
 
 export const Item = styled.div`
     padding-bottom: 100px;
-    width: 750px;
+    width: 700px;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
