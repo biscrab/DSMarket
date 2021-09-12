@@ -3,6 +3,7 @@ import * as S from '../styled/App'
 import CSLi from '../contents/Csli'
 import RegistOption from '../contents/RegistOption';
 import SetPath from '../contents/SetPath';
+import axios from 'axios';
 
 /*
     1 패션의류/잡화
@@ -150,6 +151,12 @@ const RegistPage = () => {
     const [repre, setRepre] = useState(1);
     const [catagory, setCatagory] = useState([]);
     const [option, setOption] = useState([]);
+    const [item, setItem] = useState({
+        name: "",
+        price: "",
+        catagory: "",
+        option: [],
+    });
 
     /*
     <S.RegistDiv>
@@ -358,6 +365,12 @@ const RegistPage = () => {
 
     useEffect(()=>{
     },[]);
+
+    const Regist = () => {
+        axios.post('/item', {
+
+        })
+    }
 
     return(
         <S.R>
