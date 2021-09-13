@@ -17,8 +17,6 @@ const ItemPge = () => {
     {id: 4, img: D, price: 100, name: 1, catagory: 1},
     {id: 5, img: E, price: 100, name: 1,catagory: 1},
     {id: 5, img: E, price: 100, name: 1,catagory: 1},
-    {id: 5, img: E, price: 100, name: 1,catagory: 1},
-    {id: 5, img: E, price: 100, name: 1,catagory: 1},
 ];
 
     const [more, setMore] = useState(false);
@@ -51,12 +49,19 @@ const ItemPge = () => {
             </S.IBorder> */
 
             const change = (n) => {
+                setImgN(imgN + n);
 
+                if(imgN < 0){
+                    setImgN(img.length-1);
+                }
+                if(imgN > img.length-1){
+                    setImgN(0);
+                }
             }
 
     useEffect(()=>{
-        i.current.src = img[0];
-    },[]);
+        i.current.src = img[imgN];
+    });
 
     return(
         <S.Item>
@@ -77,15 +82,14 @@ const ItemPge = () => {
 </S.IBorder>
 <S.IUSer>
     <S.Profile src={Profile}></S.Profile>
+    <S.ProfileSpan>유저</S.ProfileSpan>
 </S.IUSer>
     
         <S.Related>
-            <S.RelatedD>
             <S.RelatedH>관련 상품</S.RelatedH>
             <S.RelatedDiv>
                 <Relate lists={list}/>
             </S.RelatedDiv>
-            </S.RelatedD>  
         </S.Related> 
             
 </S.Item>

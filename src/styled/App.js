@@ -13,6 +13,14 @@ export const Header = styled.div`
     border-bottom: 1px solid #eeeeee;
 `
 
+export const HDiv = styled.div`
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 950px;
+    display: flex;
+`
+
 export const Logo = styled.h1`
     position: relative;
     margin: 0px;
@@ -30,7 +38,7 @@ export const SBox = styled.span`
     display: flex;
     border: 3px solid royalblue;
     border-radius: 10px;
-    width: 660px;
+    width: 550px;
     height: 42px;
     background-color: white;
 `
@@ -49,10 +57,10 @@ export const Search = styled.input`
 
 export const Link = styled.img`
     position: relative;
-    left: 40px;
-    margin-right: 30px;
-    width: 30px;
-    height: 30px;
+    bottom: 10px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
 `
 export const MainBanner = styled.div`
     background-color: white;
@@ -111,7 +119,7 @@ export const Category = styled.span`
     font-style: bold;
     font-size: 18px;
     width: 200px;
-    height: 45px;
+    height: 47px;
     color: white;
     display: flex;
     position: relative;
@@ -227,7 +235,7 @@ export const ItemImg = styled.img`
 
 export const Image = styled.img`
     width: 100%;
-    height: 550px;
+    height: 500px;
     border-radius: 2%;
     background-color: whitesmoke;
 `
@@ -268,15 +276,7 @@ export const DText = styled.p`
 `
 export const Related = styled.div`
     margin: 0px;
-    border: 1px solid #eeeeee;
     height: 600px;
-`
-
-export const RelatedD = styled.div`
-    width: 670px;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
 `
 
 export const RelatedH = styled.h3`
@@ -480,19 +480,19 @@ export const DileveryTime = styled.p`
 
 export const RelatedDiv = styled.div`
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-wrap: wrap;
 `
 
 export const RDiv = styled.div`
-    width: 150px;
-    height: 200px;
-    margin-bottom: 50px;
+    width: 200px;
+    margin-bottom: 10px;
 `
 
 export const RImg = styled.img`
-    height: 150px;
-    width: 150px;
+    height: 200px;
+    width: 200px;
+    border-radius: 5%;
 `
 
 export const CheckBox = styled.input`
@@ -602,7 +602,7 @@ export const Qtext = styled.p`
 `
 
 export const SDiv = styled.div`
-    width: 600px;
+    width: 495px;
     position: relative;
     left: 5px;
     margin-right: 10px;
@@ -700,9 +700,9 @@ export const Next = styled.div`
 
 export const LR = styled.div`
     display: flex;
-    position: relative;
-    top: 10px;
-    left: 1155px;
+    position: relative;;
+    top: 30px;
+    left: 10px;
 `;
 
 export const S = styled.div`    
@@ -717,9 +717,12 @@ export const L = styled.span`
 `
 
 export const LogOut = styled.button`
+    position: relative;
+    left: 10px;
     background-color: white;
     border: 1px solid #cccccc;
     color: gray;
+    height: 25px;
 `
 
 export const CTittle = styled.h3`
@@ -930,6 +933,7 @@ export const Si  = styled.div`
     display: flex;
     flex-direction: column;
     padding-bottom: 100px;
+    padding-top: 20px;
 `
 
 export const SignUpInput = styled.input`
@@ -961,6 +965,18 @@ export const RegistDiv = styled.div`
     border: 1px solid lightgray;
     padding: 20px;
     margin-bottom: 20px;
+`
+
+export const Explane = styled.textarea`
+    width: 80%;
+    height: 300px;
+    resize: none;
+`
+
+export const CS = styled.p`
+    position: relative;
+    font-size: 20px;
+    left: 20px;
 `
 
 export const CSDiv = styled.div`
@@ -1308,7 +1324,8 @@ export const None = styled.h2`
 
 export const RButton = styled.button`
     border: 1px solid lightgray;
-    background-color: ${props => props.color};
+    background-color: ${props => props.bkcolor};
+    color: ${props => props.color};
     width: 200px;
     height: 50px;
     position: relative;
@@ -1427,11 +1444,6 @@ export const CatagoryDivUl = styled.ul`
     margin: 0;
 `
 
-export const HeaderIconDiv = styled.div`
-    width: 200px;
-    display: flex;
-`
-
 export const CommentSpan = styled.span`
     width: 70%;
     margin-left: 20px;
@@ -1453,8 +1465,8 @@ export const CommentH = styled.h2`
 `
 
 export const Item = styled.div`
-    padding-bottom: 100px;
-    width: 700px;
+    padding-bottom: 50px;
+    width: 650px;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
@@ -1494,6 +1506,8 @@ export const OrderItemSpan = styled.span`
 `
 
 export const LN = styled.span`
+    position: relative;
+    left: 10px;
     color: gray;
     margin-right: 5px;
 `
@@ -1510,9 +1524,16 @@ export const Card = styled.div`
 export const IUSer = styled.div`
     height: 60px;
     border-bottom: 2px solid #eeeeee;
+    margin-bottom: 20px;  
 `
 
 export const Profile = styled.img`
     width: 50px;
     height: 50px;
+`
+
+export const ProfileSpan = styled.span`
+    position: relative;
+    left: 10px;
+    font-size: 20px;
 `

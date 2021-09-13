@@ -45,6 +45,13 @@ export const ItemDiv = styled.div`
     justify-content: space-between;
 `
 
+export const Introduce = styled.textarea`
+    position: relative;
+    top: 20px;
+    height: 400px;
+    resize: none;
+`
+
 export const Card = styled.div`
     width: 200px;
     margin-bottom: 50px;

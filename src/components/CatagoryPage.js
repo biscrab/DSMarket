@@ -148,11 +148,11 @@ const CategoryPage = () => {
         size: "",
         lowest: "",
         highest: "",
+        p: "",
+        order: "",
     });
 
     const Select = ({item, path}) => {
-    
-        const Se = () => {
         
             const [check, setCheck] = useState(false);
     
@@ -164,18 +164,14 @@ const CategoryPage = () => {
             },[]);
 
             const setLink = () => {
-                setCatagory(item.path, path=item.link);
-    
-                const serialize = obj => Object.keys(obj)
-                                        .map(key => `${path}=${encodeURIComponent(obj[key])}`)
-                                        .join('&')
-    
+                setCatagory({...catagory, path: item.link});
+  
                 history.push({
                     pathname: history.location.pathname,
-                    search: serialize(catagory)
+                    search: "",
                 });
             }
-    
+            /*
             const Del = () => {
                 setCatagory(...catagory, path = "");
                             const serialize = obj => Object.keys(obj)
@@ -186,38 +182,25 @@ const CategoryPage = () => {
                     pathname: history.location.pathname,
                     search: serialize(catagory)
                 });
-            }
+            }*/
     
             return(
-                <>
-                {check ? 
                 <S.Box onClick={() => setLink()}>
                     <div style={{position:"relative", top:"50%", transform:"translateY(-50%)"}}>
                     <input type="checkbox" checked={check} style={{marginRight: "5px"}}></input><span>{item.name}</span>
                     </div>
                 </S.Box> 
-                :
+            );
+            
+            /*
+            {check ? 
                 <S.Box onClick={() => Del()}>
                     <div style={{position:"relative", top:"50%", transform:"translateY(-50%)"}}>
                     <input type="checkbox" checked={check} style={{marginRight: "5px"}}></input><span>{item.name}</span>
                     </div>
                 </S.Box>
                 }
-                </>
-            );
-        }
-        
-        const List = ({lists, path}) => {
-        
-            const itemList = lists.map(
-                item => (
-                    <Se item={item} key={item.name} name={item.name} i={item.i} link={item.link} path={path}/>
-                )
-            )
-            return itemList
-        }
-        
-        return List;
+            </> */
     }
 
     const [d, setD] = useState({name: "", path: ""});
@@ -255,7 +238,10 @@ const CategoryPage = () => {
             {c <= 6 ? 
             <S.CatagoryDiv>
                 <S.CaTittle>색상</S.CaTittle>
-                <Select lists={clist} path={path}/>
+                    {clist.map(item =>{
+                        var a = <Select item={item} name={item.name} link={item.link} path={path}></Select>;
+                        return a;
+                    })}
                 {list.length > 6 && clist.length <= 6 ? <S.More onClick={() => setClist([...list])}>+더보기</S.More> : <S.More onClick={() => setClist(list.slice(0, 5))}>-닫기</S.More>}
             </S.CatagoryDiv>
             :<></>
@@ -273,7 +259,10 @@ const CategoryPage = () => {
             {c <= 6 ? 
             <S.CatagoryDiv>
                 <S.CaTittle>사용계절</S.CaTittle>
-                <Select lists={list} path={path}/>
+                {list.map(item =>{
+                        var a = <Select item={item} name={item.name} link={item.link} path={path}></Select>;
+                        return a;
+                    })}
             </S.CatagoryDiv>
             : <></>
             }
@@ -289,7 +278,10 @@ const CategoryPage = () => {
             {c <= 6 ?
             <S.CatagoryDiv>
                 <S.CaTittle>사이즈</S.CaTittle>
-                <Select lists={list} path={path}/>
+                {list.map(item =>{
+                        var a = <Select item={item} name={item.name} link={item.link} path={path}></Select>;
+                        return a;
+                    })}
             </S.CatagoryDiv>
             :<></>
             }
@@ -297,57 +289,38 @@ const CategoryPage = () => {
         )
     }
 
-    const Patern = () => {
-        const list = [{name: "", link: ""},{name: "", link: ""},{name: "", link: ""},{name: "", link: ""},{name: "", link: ""},{name: "", link: ""}]
-        return(
-            <S.CatagoryDiv>
-                <span></span>
-                <Select lists={list}/>
-            </S.CatagoryDiv>
-        )
-    }
-        
     const Price = () => {   
+
+        const [price, setPrice] = useState({lowest: "", highest: ""});
 
         return(
             <S.CatagoryDiv>
                 <S.CaTittle>가격</S.CaTittle>
-                <S.Box onClick={()=>setCatagory({highest: "", lowest: 7000})}>7천원 이하</S.Box>
-                <S.Box onClick={()=>setCatagory({highest: 7000, lowest: 14000})}>7천원~1만 4천원</S.Box>
-                <S.Box onClick={()=>setCatagory({highest: 14000, lowest: 28000})}>1만 4천원~2만 8천원</S.Box>
-                <S.Box onClick={()=>setCatagory({highest: 28000, lowest: ""})}>2만 8천원 이상</S.Box>
+                <S.Box onClick={()=>setCatagory({...catagory, highest: "", lowest: 7000})}>7천원 이하</S.Box>
+                <S.Box onClick={()=>setCatagory({...catagory, highest: 7000, lowest: 14000})}>7천원~1만 4천원</S.Box>
+                <S.Box onClick={()=>setCatagory({...catagory, highest: 14000, lowest: 28000})}>1만 4천원~2만 8천원</S.Box>
+                <S.Box onClick={()=>setCatagory({...catagory, highest: 28000, lowest: ""})}>2만 8천원 이상</S.Box>
                 <S.PriceDiv>
-                <S.PriceInput onChange={(e)=>setCatagory(e.target.value)} value={catagory.lowest}></S.PriceInput>~
-                <S.PriceInput onChange={(e)=>setCatagory(e.target.value)} value={catagory.highest}></S.PriceInput>원
-                <S.PriceButton>검색</S.PriceButton>
+                <S.PriceInput onChange={(e)=>setPrice({...price, lowest: e.target.value})} value={price.lowest}></S.PriceInput>~
+                <S.PriceInput onChange={(e)=>setPrice({...price, highest: e.target.value})} value={price.highest}></S.PriceInput>원
+                <S.PriceButton onClick={()=>setCatagory({...catagory, highest: price.highest, lowest: price.lowest})}>검색</S.PriceButton>
                 </S.PriceDiv>
             </S.CatagoryDiv>
         )
     }
-        
-    const Caffein = () => {
-        const list = [{name:"카페인", link: "none"},{name: "무카페인", link: "caffein"}];
-        return(
-            <>
-            {c === 27 ?
-            <S.CatagoryDiv>
-                <S.CaTittle>카페인</S.CaTittle>
-                <Select lists={list}/>
-            </S.CatagoryDiv>:
-            <></>
-            }
-            </>
-        )
-    }
     
     const Language = () => {
-        const list = [{name: "한국어"},{name: "영어"},{name: "일본어"},{name: "중국어"},{name: "독일어"},{name: "프랑스어"},{name: "스페인어"},{name: "이탈리어어"},{name: "러시아어"},{name: "증동/아랍어"}]
+        const list = [{name: "한국어", link: "korean"},{name: "영어", link: "english"},{name: "일본어", link: "japanese"},{name: "중국어", link: ""},{name: "독일어", link: ""},{name: "프랑스어", link: ""},{name: "스페인어", link: ""},{name: "이탈리어어", link: ""},{name: "러시아어", link: ""},{name: "증동/아랍어"}]
+        const path = "language";
         return(
             <>
             {c === 116 || c === 117 || c === 125 ?  
             <S.CatagoryDiv>
                 <S.CaTittle>언어</S.CaTittle>
-                <Select lists={list}/>
+                {list.map(item =>{
+                        var a = <Select item={item} name={item.name} link={item.link} path={path}></Select>;
+                        return a;
+                })}
             </S.CatagoryDiv>:
             <></>
             }
@@ -369,28 +342,6 @@ const CategoryPage = () => {
             </>
         )
     }
-        
-    const Flavor = () => {
-        const list = {}
-        return(
-            <S.CatagoryDiv>
-                <span></span>
-                <Select lists={list}/>
-            </S.CatagoryDiv>
-        )
-    }
-
-        
-    const Sugar = () => {
-        const list = {}
-        return(
-            <S.CatagoryDiv>
-                <span></span>
-                <Select lists={list}/>
-            </S.CatagoryDiv>
-        )
-    }
-
         
     const Compatible = () => {
         const list = {}
@@ -592,22 +543,6 @@ const CategoryPage = () => {
         )
     }
 
-    const Dilivery = () => {
-        const list = [{name:"로켓", i:R, link:"rocket"}, {name:"무료배송", i:P, link:"free"}]
-        const path = 'dilivery'
-        return(
-            <>
-            {c ?
-            <S.CatagoryDiv>
-                <S.CaTittle>배송</S.CaTittle>
-                <Select lists={list} path={path}></Select>
-            </S.CatagoryDiv> :
-            <></>
-            }
-            </>
-        );
-    }
-
     const Subject = () => {
         const list = [{name: "국어"},{name: "수학"},{name: "영어"},{name: "사회"},{name: "역사"},{name: "과학"},{name: "한자/한문"},{name: "예체능"},{name: "제2외국어"},{name: "논술/작문"},{name: "전과목"}];
         return(
@@ -638,28 +573,13 @@ const CategoryPage = () => {
         )
     }
 
-    const Olganic = () => {
-        const list = [{name: "인증 있음"}];
-        return(
-            <>
-            {c >= 21 && c <= 24 ?
-            <S.CatagoryDiv>
-                <S.CaTittle>유기농/친환경 등</S.CaTittle>
-                <Select lists={list}></Select>
-            </S.CatagoryDiv> :
-            <></>
-            }
-            </>
-        )
-    }
-
     const KindofLanguageTest = () => {
         const list = [{name: "TOEIC"},{name: "TEPS"},{name: "TOFLE"},{name: "NEAT"},{name: "TOSEL"},{name: "SAT"},{name: "GRE"},{name: "G-TELP"},{name: "IELTS"},{name: "PELT"},{name: "OPIc"},{name: "JLPT"},{name: "HSK"},{name: "한자능력검정"}];
         return(
             <>
             {c === 123 ?
             <S.CatagoryDiv>
-                <S.CaTittle>유기농/친환경 등</S.CaTittle>
+                <S.CaTittle>어학시험 종류</S.CaTittle>
                 <Select lists={list}></Select>
             </S.CatagoryDiv> :
             <></>
@@ -669,77 +589,6 @@ const CategoryPage = () => {
     }
 
     const [c, setC] = useState([]);
-
-    /*
-    const SetC = () => {
-
-        setCatagory([{name:"과일", link: 21},
-                    {name:"견과/건과", link: 22},
-                    {name:"채소", link: 23},
-                    {name:"쌀/잡곡", link: 24},
-                    {name:"축산/계란", link: 12},
-                    {name:"수산물/건어물", link: 13},
-                    {name:"생수/음료", link: 14},
-                    {name:"커피/원두/차", link: 15},
-                    {name:"과자/초콜릿/시리얼", link: 16},
-                    {name:"면/통조림/가공식품", link: 17},
-                    {name:"가루/조미료/오일", link: 18},
-                    {name:"장/소스/드레싱/식초", link: 19},
-                    {name:"유제품/아이스크림", link: 20},
-                    {name:"냉장/냉동/간편요리", link: 21},
-                    {name:"건강식품", link: 22}]);
-
-        setCatagory([{name: "사무용품 전문관", link: 1},
-                    {name: "미술/화방용품", link: 1},
-                    {name: "학용품/수업준비", link: 1},
-                    {name: "필기류", link: 1},
-                    {name: "노트/메모지", link: 1},
-                    {name: "다이어리/플래너", link: 1},
-                    {name: "바인더/파일", link: 1},
-                    {name: "파티/이벤트", link: 1},
-                    {name:"데코/포장용품", link: 1},
-                    {name:"카드/엽서/봉투", link: 1},
-                    {name:"앨범", link: 1},
-                    {name:"복사용품/라벨지", link: 1},
-                    {name:"보드/칠판/광고", link: 1}]);
-
-        setCatagory([{name: "유아/어린이", link: 1},
-                    {name: "소설/에세이/시", link: 1},
-                    {name:"초중고참고서", link: 1},
-                    {name: "가정 살림", link: 1},
-                    {name: "건강 취미", link: 1},
-                    {name: "경제 경영", link: 1},
-                    {name: "과학/공학", link: 1},
-                    {name: "국어/외국어/사전", link: 1},
-                    {name: "대학교재", link: 1},
-                    {name: "만화/라이트노벨", link: 1},
-                    {name: "사회 정치", link: 1},
-                    {name: "수험서/자격증", link: 1}])
-
-        setCatagory([{name:"신생아/영아완구" ,link: 1},
-                    {name:"로봇/작동완구" ,link: 1},
-                    {name:"역할놀이" ,link: 1},
-                    {name:"블록놀이" ,link: 1},
-                    {name:"인형" ,link: 1},
-                    {name:"물놀이/계절완구" ,link: 1},
-                    {name:"승용완구" ,link: 1},
-                    {name:"실내대형완구" ,link: 1},
-                    {name:"STEAM완구" ,link: 1},
-                    {name:"학습완구/교구" ,link: 1},
-                    {name:"보드게임" ,link: 1},
-                    {name:"RC완구/부품" ,link: 1},
-                    {name:"퍼즐/큐브/피젯토이" ,link: 1},
-                    {name:"프라모델" ,link: 1},
-                    {name:"피규어/다이캐스트" ,link: 1},
-                    {name:"콘솔/휴대용 게임기" ,link: 1},
-                    {name: "파티/마술용품" ,link: 1},
-                    {name: "DIY" ,link: 1},
-                    {name: "악기/음향기기" ,link: 1},
-                    {name: "원예/가드닝" ,link: 1},
-                    {name: "수집품" ,link: 1},
-                    {name: "키덜트샵", link: 1}]);
-
-    }*/
 
     const Cata = () => {
         return(
@@ -1098,10 +947,13 @@ const CategoryPage = () => {
             .then(response => {
                 setList(response.data);
             });*/
+
+        if(catagory.p === ""){
+            setCatagory({...catagory, p: 1});
+        }
     },[]);
 
-    useEffect(()=>{
-        
+    useEffect(()=>{    
     })
 
     const SetPage = () => {
@@ -1139,27 +991,20 @@ const CategoryPage = () => {
         </S.OrderDiv>
         <S.C>
             <S.Select>
-                <Cata />
                 <Color />
                 <Size />
-                <Season />
-                <Subject />
-                <useGrade />
-                <KindofLanguageTest />
                 <Language />
-                <ShapeOfBook />             
                 <Price />
-                <Caffein />
             </S.Select>
             <S.CBox>
                 {query.search ?
                 <S.SearchH>'{query.search}'에 대한 검색결과</S.SearchH> : <></> }
                 {<SetPath/> === "" ? <S.CatagoryH><SetPath/></S.CatagoryH> : <S.CatagoryH>{d.name}</S.CatagoryH>}
                 <S.Order> 
-                    <S.Cli color={option === 1 ? "royalblue" : "black"} onClick={()=>setO(1)}>별점순</S.Cli>
-                    <S.Cli color={option === 2 ? "royalblue" : "black"} onClick={()=>setO(2)}>낮은 가격순</S.Cli>
-                    <S.Cli color={option === 3 ? "royalblue" : "black"} onClick={()=>setO(3)}>높은 가격순</S.Cli>
-                    <S.Cli color={option === 4 ? "royalblue" : "black"} onClick={()=>setO(4)}>판매량</S.Cli>
+                    <S.Cli color={catagory.order === "latest" ? "royalblue" : "black"} onClick={()=>setCatagory({...catagory, order:"latest"})}>최신순</S.Cli>
+                    <S.Cli color={catagory.order === "old" ? "royalblue" : "black"} onClick={()=>setCatagory({...catagory, order:"old"})}>오래된순</S.Cli>
+                    <S.Cli color={catagory.order === "lowest" ? "royalblue" : "black"} onClick={()=>setCatagory({...catagory, order:"lowest"})}>낮은 가격순</S.Cli>
+                    <S.Cli color={catagory.order === "highest" ? "royalblue" : "black"} onClick={()=>setCatagory({...catagory, order:"highest"})}>높은 가격순</S.Cli>
                 </S.Order>
                 <S.Border>
                 {list.length === 0 ?
@@ -1177,6 +1022,7 @@ const CategoryPage = () => {
             <Page lists={page}/>
             <S.Pbutton>{'>'}</S.Pbutton>
         </S.Next>
+        <button onClick={()=>console.log(catagory)}>112</button>
         </>
     )
 }
@@ -1208,4 +1054,142 @@ export default CategoryPage
                 <S.Box onClick={()=>setLink("star",4)}><div style={{display:"flex"}}><Sta star={1}/><span>1점 이상</span></div></S.Box>
             </S.CatagoryDiv>
         )
+    }*/
+
+        /*
+    const SetC = () => {
+
+        setCatagory([{name:"과일", link: 21},
+                    {name:"견과/건과", link: 22},
+                    {name:"채소", link: 23},
+                    {name:"쌀/잡곡", link: 24},
+                    {name:"축산/계란", link: 12},
+                    {name:"수산물/건어물", link: 13},
+                    {name:"생수/음료", link: 14},
+                    {name:"커피/원두/차", link: 15},
+                    {name:"과자/초콜릿/시리얼", link: 16},
+                    {name:"면/통조림/가공식품", link: 17},
+                    {name:"가루/조미료/오일", link: 18},
+                    {name:"장/소스/드레싱/식초", link: 19},
+                    {name:"유제품/아이스크림", link: 20},
+                    {name:"냉장/냉동/간편요리", link: 21},
+                    {name:"건강식품", link: 22}]);
+
+        setCatagory([{name: "사무용품 전문관", link: 1},
+                    {name: "미술/화방용품", link: 1},
+                    {name: "학용품/수업준비", link: 1},
+                    {name: "필기류", link: 1},
+                    {name: "노트/메모지", link: 1},
+                    {name: "다이어리/플래너", link: 1},
+                    {name: "바인더/파일", link: 1},
+                    {name: "파티/이벤트", link: 1},
+                    {name:"데코/포장용품", link: 1},
+                    {name:"카드/엽서/봉투", link: 1},
+                    {name:"앨범", link: 1},
+                    {name:"복사용품/라벨지", link: 1},
+                    {name:"보드/칠판/광고", link: 1}]);
+
+        setCatagory([{name: "유아/어린이", link: 1},
+                    {name: "소설/에세이/시", link: 1},
+                    {name:"초중고참고서", link: 1},
+                    {name: "가정 살림", link: 1},
+                    {name: "건강 취미", link: 1},
+                    {name: "경제 경영", link: 1},
+                    {name: "과학/공학", link: 1},
+                    {name: "국어/외국어/사전", link: 1},
+                    {name: "대학교재", link: 1},
+                    {name: "만화/라이트노벨", link: 1},
+                    {name: "사회 정치", link: 1},
+                    {name: "수험서/자격증", link: 1}])
+
+        setCatagory([{name:"신생아/영아완구" ,link: 1},
+                    {name:"로봇/작동완구" ,link: 1},
+                    {name:"역할놀이" ,link: 1},
+                    {name:"블록놀이" ,link: 1},
+                    {name:"인형" ,link: 1},
+                    {name:"물놀이/계절완구" ,link: 1},
+                    {name:"승용완구" ,link: 1},
+                    {name:"실내대형완구" ,link: 1},
+                    {name:"STEAM완구" ,link: 1},
+                    {name:"학습완구/교구" ,link: 1},
+                    {name:"보드게임" ,link: 1},
+                    {name:"RC완구/부품" ,link: 1},
+                    {name:"퍼즐/큐브/피젯토이" ,link: 1},
+                    {name:"프라모델" ,link: 1},
+                    {name:"피규어/다이캐스트" ,link: 1},
+                    {name:"콘솔/휴대용 게임기" ,link: 1},
+                    {name: "파티/마술용품" ,link: 1},
+                    {name: "DIY" ,link: 1},
+                    {name: "악기/음향기기" ,link: 1},
+                    {name: "원예/가드닝" ,link: 1},
+                    {name: "수집품" ,link: 1},
+                    {name: "키덜트샵", link: 1}]);
+
+                        const Caffein = () => {
+        const list = [{name:"카페인", link: "none"},{name: "무카페인", link: "caffein"}];
+        return(
+            <>
+            {c === 27 ?
+            <S.CatagoryDiv>
+                <S.CaTittle>카페인</S.CaTittle>
+                <Select lists={list}/>
+            </S.CatagoryDiv>:
+            <></>
+            }
+            </>
+        )
+    }
+
+    }
+    
+        const Flavor = () => {
+        const list = {}
+        return(
+            <S.CatagoryDiv>
+                <span></span>
+                <Select lists={list}/>
+            </S.CatagoryDiv>
+        )
+    }
+
+        
+    const Sugar = () => {
+        const list = {}
+        return(
+            <S.CatagoryDiv>
+                <span></span>
+                <Select lists={list}/>
+            </S.CatagoryDiv>
+        )
+
+            const Olganic = () => {
+        const list = [{name: "인증 있음"}];
+        return(
+            <>
+            {c >= 21 && c <= 24 ?
+            <S.CatagoryDiv>
+                <S.CaTittle>유기농/친환경 등</S.CaTittle>
+                <Select lists={list}></Select>
+            </S.CatagoryDiv> :
+            <></>
+            }
+            </>
+        )
+    }
+    }
+    
+        const Dilivery = () => {
+        const list = [{name:"로켓", i:R, link:"rocket"}, {name:"무료배송", i:P, link:"free"}]
+        const path = 'dilivery'
+        return(
+            <>
+            {c ?
+            <S.CatagoryDiv>
+                <S.CaTittle>배송</S.CaTittle>
+                <Select lists={list} path={path}></Select>
+            </S.CatagoryDiv> :
+            <></>
+            }
+            </>
+        );
     }*/

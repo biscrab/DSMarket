@@ -1,10 +1,7 @@
 import React,{useState, useRef} from 'react'
 import { useHistory, useLocation} from 'react-router-dom'
 import * as S from '../styled/App'
-import A from '../images/s.png'
-import M from '../images/man.png'
-import C from '../images/cart.png'
-import Admin from '../images/admin.png'
+import Profile from '../images/profile.png'
 import Logo from '../images/Logo.png'
 
 const Header = () => {
@@ -67,10 +64,6 @@ const Header = () => {
         setLogin(false);
     }
 
-    const Search = () => {
-        console.log(select.value);
-    }
-
     const Login = () => {
         if(ip.id === ""){
 
@@ -102,6 +95,7 @@ const Header = () => {
     return(
         <>
         <S.Header>
+            <S.HDiv>  
             <S.S>
             <S.LogoImg src={Logo}></S.LogoImg>
             <S.Logo onClick={() => history.replace('/')}>대마마켓</S.Logo>
@@ -124,31 +118,17 @@ const Header = () => {
                     </S.SBorder> 
                     : <></>}
                </S.SDiv> 
-               <div onClick={()=>Search()} onKeyPress={(e) => {if(e.key === 'Enter'){history.push(`/catagory?search=${v}`)}}}>
-               <i class="fa fa-search fa-2x" onClick={()=>Search()}></i>
+               <div>
+               <i class="fa fa-search fa-lg" style={{color: "gray"}}></i>
                </div>
             </S.SBox>
-
-            <S.HeaderIconDiv>
-            <S.Link src={M} onClick={()=>history.replace(`/mypage`)}/>
-
-            <div onClick={()=>history.replace(`/cart`)}>
-            <S.Link src={C}/>
-            {cart >= 9 ?
-            <S.CartNumber>{cart}</S.CartNumber>
-            :
-            <S.CartNumber>9+</S.CartNumber>
-            }
-            </div>
-
-            </S.HeaderIconDiv>
-
             </S.S>
             <S.LR>
             {logined ?
-                <>
+                <>                
+                <S.Link src={Profile} onClick={()=>history.replace(`/mypage`)}/>
                 <S.LN>{name}님</S.LN>
-                <S.LogOut onClick={()=>setLogined(false)}>로그아웃</S.LogOut>
+                <S.LogOut onClick={()=>setLogined(false)}>로그아웃</S.LogOut>            
                 </>
             :
             <>
@@ -157,6 +137,7 @@ const Header = () => {
             </>
             }
             </S.LR>
+            </S.HDiv>
         </S.Header>
         {login ? 
         <S.LoginBackground>
@@ -178,3 +159,12 @@ const Header = () => {
 export default Header
 
 /*             {admin ? <S.Link src={Admin} onClick={()=>history.replace(`/admin`)}></S.Link> : <></>}*/
+
+/*            <div onClick={()=>history.replace(`/cart`)}>
+            <S.Link src={C}/>
+            {cart >= 9 ?
+            <S.CartNumber>{cart}</S.CartNumber>
+            :
+            <S.CartNumber>9+</S.CartNumber>
+            }
+            </div> */

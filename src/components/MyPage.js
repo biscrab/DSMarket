@@ -3,6 +3,7 @@ import { useLocation } from "react-router";
 import * as S from '../styled/MyPage'
 import Profile from '../images/profile.png'
 import { Link } from "react-router-dom";
+import axios from "axios";
 import MyItem from '../contents/MyItem'
 import Review from '../contents/Review'
 import A from '../images/a.jpg'
@@ -29,6 +30,30 @@ const MyPage = () => {
     }) 
     const [select, setSelect] = useState(-1);
 
+    const Border = () => {
+        if(location.search === "?sell"){
+            return(
+                <S.Review>
+                    <Review lists={user.review}/>
+                </S.Review>
+            );
+        }
+        else if(location.search === "?review"){
+            return(
+            <S.ItemDiv>
+                <MyItem lists={list}></MyItem>
+            </S.ItemDiv>
+            );
+        }   
+        else{
+            return(
+                <S.Introduce>
+
+                </S.Introduce>
+            )
+        }
+    }
+
     return(
         <S.M>
             <S.Div>
@@ -39,25 +64,19 @@ const MyPage = () => {
                     </div>
                 </S.User>
                 <S.Select>
-                    <div>
+                    <div>                    
                     <Link to={{search:""}} style={{textDecoration:"none"}}>
+                    <S.SSpan>유저 정보</S.SSpan>
+                    </Link>
+                    <Link to={{search:"?sell"}} style={{textDecoration:"none"}}>
                     <S.SSpan>판매 물품(1)</S.SSpan>
                     </Link>
                     <Link to={{search:"?review"}} style={{textDecoration:"none"}}>
                     <S.SSpan>거래 후기()</S.SSpan>
                     </Link>
                     </div>
-
                 </S.Select>
-                {location.search === "?review" ?
-                <S.Review>
-                    <Review lists={user.review}/>
-                </S.Review>
-                : 
-                <S.ItemDiv>
-                    <MyItem lists={list}></MyItem>
-                </S.ItemDiv>
-                }
+                <Border />
             </S.Div>
         </S.M>
     )

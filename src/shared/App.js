@@ -13,10 +13,7 @@ function App() {
     <Switch>
     <Route path="/catagory/:catagory" component={P.Catagory}/>
     <Route path="/catagory" component={P.Catagory}/>
-    <Route exact path="/payment" component={P.Payment} />
     <Route path="/item" component={P.Item}/>
-    <Route exact path="/order/:id" component={P.Order}/>
-    <Route exact path="/order" component={P.Order}/>
     <Route exact path="/regist" component={P.Regist}/>
     <Route exact path="/mypage" component={P.MyPage} />
     <Route exact path="/signup" component={P.SignUp} />
