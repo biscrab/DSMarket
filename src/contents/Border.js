@@ -192,9 +192,9 @@ const Border = ({h, value}) => {
                 break;
             case 6:
                 setMenu(["실내스포츠", "실외스포츠", "의류"]);
-                setA([]);
-                setB([]);
-                setC([]);
+                setA([{name: "헬스/요가/댄스", path: ""},{name: "복싱/검도/태권도", path: ""},]);
+                setB([{name: "캠핑", path: ""},{name: "골프", path: ""},{name: "자전거", path: ""},{name: "킥보드/스케이트", path: ""},{name: "낚시", path: ""},]);
+                setC([{name: "기타스포츠", path: ""},{name: "스포츠잡화", path: ""},]);
                 break;
             case 7:
                 setMenu([["도서","음반","DVD"]]);
@@ -204,8 +204,8 @@ const Border = ({h, value}) => {
                 break;
             case 8:
                 setMenu(["반려동물용품", "기타", ""]);
-                setA([]);
-                setB([]);
+                setA([{name: "강아지 사료/용품", path: ""},{name: "고양이 사료/용품", path: ""},]);
+                setB([{name: "관상어 용품", path: ""},{name: "소동물/가축용품", path: ""}]);
                 setC([]);
                 break;
             default :

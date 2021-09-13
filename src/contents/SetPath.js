@@ -7,7 +7,6 @@ const SetPath = () => {
     let params = useParams();
 
     const c = [
-"",
 "여성패션",
 "남성패션",
 "남녀 공용 의류",

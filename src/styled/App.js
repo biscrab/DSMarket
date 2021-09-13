@@ -702,7 +702,7 @@ export const LR = styled.div`
     display: flex;
     position: relative;;
     top: 30px;
-    left: 10px;
+    left: 15px;
 `;
 
 export const S = styled.div`    
@@ -712,7 +712,7 @@ export const S = styled.div`
     justify-content: center;
 `
 export const L = styled.span`
-    margin-right: 20px;
+    margin-right: 10px;
     color: gray;
 `
 

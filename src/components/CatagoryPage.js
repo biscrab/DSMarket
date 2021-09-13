@@ -376,11 +376,15 @@ const CategoryPage = () => {
     }
 
     const DSize = () => {
-        const list = [{name:"소형견", link:"small"},{name:"중형견", link:"middle"},{name:"대형견", link:"big"},{name:"전체", link:"all"}]
+        const list = [{name:"소형견", link:"small"},{name:"중형견", link:"middle"},{name:"대형견", link:"big"},{name:"전체", link:"all"}];
+        const path="size"
         return(
             <S.CatagoryDiv>
                 <S.CaTittle>대상크기</S.CaTittle>
-                <Select lists={list}/>
+                {list.map(item =>{
+                        var a = <Select item={item} name={item.name} link={item.link} path={path}></Select>;
+                        return a;
+                })}
             </S.CatagoryDiv>
         )
     }
@@ -518,31 +522,6 @@ const CategoryPage = () => {
         )
     }
 
-    const Oven = () => {
-        const list = [{name:"오븐 가능"}]
-        return(
-            <S.CatagoryDiv>
-                <S.CaTittle>오븐 가능 여부</S.CaTittle>
-                <Select lists={list}/>
-            </S.CatagoryDiv>
-        )
-    }
-
-    const Range = () => {
-        const list = {name:"전자 레인지 가능"}
-        return(
-            <>
-            {c ?
-            <S.CatagoryDiv>
-                <S.CaTittle>전자 레인지 가능 여부</S.CaTittle>
-                <Select lists={list}/>
-            </S.CatagoryDiv> :
-            <></>
-            }
-            </>
-        )
-    }
-
     const Subject = () => {
         const list = [{name: "국어"},{name: "수학"},{name: "영어"},{name: "사회"},{name: "역사"},{name: "과학"},{name: "한자/한문"},{name: "예체능"},{name: "제2외국어"},{name: "논술/작문"},{name: "전과목"}];
         return(
@@ -588,7 +567,7 @@ const CategoryPage = () => {
         )
     }
 
-    const [c, setC] = useState([]);
+    const [c, setC] = useState(Number(history.catagory));
 
     const Cata = () => {
         return(
@@ -969,15 +948,20 @@ const CategoryPage = () => {
 
     const prev = () => {
         if(query.p >= 11){
-            history.push(`?p=${p-10}`);
+            setCatagory({...catagory, p: Number(query.p)-10});
         }
         else{
-            history.push(`?p=1`)
+            setCatagory({...catagory, p: 1})
         }
     }
 
     const next = () => {
-
+        if(query.p + 10 >= list.length-1){
+            setCatagory({...catagory, p: list.length-1});
+        }
+        else{
+            setCatagory({...catagory, p: Number(query.p) + 10});
+        }
     }
 
     return(
@@ -994,6 +978,7 @@ const CategoryPage = () => {
                 <Color />
                 <Size />
                 <Language />
+                <DSize />
                 <Price />
             </S.Select>
             <S.CBox>
@@ -1018,7 +1003,7 @@ const CategoryPage = () => {
         <S.Next>
             {query.p >= 2 ?
             <S.Pbutton onClick={()=>prev()}>{'<'}</S.Pbutton>
-            : <S.Pbutton color="#eeeeee">{'<'}</S.Pbutton>}
+            : <S.Pbutton color="#eeeeee" onClick={()=>next()}>{'<'}</S.Pbutton>}
             <Page lists={page}/>
             <S.Pbutton>{'>'}</S.Pbutton>
         </S.Next>
@@ -1192,4 +1177,30 @@ export default CategoryPage
             }
             </>
         );
+
+            const Oven = () => {
+        const list = [{name:"오븐 가능"}]
+        return(
+            <S.CatagoryDiv>
+                <S.CaTittle>오븐 가능 여부</S.CaTittle>
+                <Select lists={list}/>
+            </S.CatagoryDiv>
+        )
+    }
+
+    const Range = () => {
+        const list = {name:"전자 레인지 가능"}
+        return(
+            <>
+            {c ?
+            <S.CatagoryDiv>
+                <S.CaTittle>전자 레인지 가능 여부</S.CaTittle>
+                <Select lists={list}/>
+            </S.CatagoryDiv> :
+            <></>
+            }
+            </>
+        )
+    }
+
     }*/
