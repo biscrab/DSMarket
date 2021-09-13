@@ -12,21 +12,16 @@ const MainPage = () => {
     var arr=[A, B, C, D];
     const [i, setI] = useState(0);
 
-    function showImage() {
-        if(i < 3){
-            setI(i + 1);
-        }
-        else{
-            setI(0);
-        }
-    }
-
     useEffect(()=>{
-        /*const interval = setInterval(()=>{
-            showImage();
-            console.log(i);
-        }, 1000)
-        return () => interval();*/
+        const interval = setInterval(()=>{
+            if(i < 3){
+                setI(i + 1);
+            }
+            else{
+                setI(0);
+            }
+        }, 500);
+        return () => clearInterval(interval);
     },[])
 
     let history = useHistory();

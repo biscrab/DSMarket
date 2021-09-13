@@ -152,6 +152,26 @@ const CategoryPage = () => {
         order: "",
     });
 
+    const changeLink = () => {
+
+        let a = "";
+
+        for(const property in catagory){
+            if(catagory[property]){
+                if(a){
+                    a += `&${property}=${catagory[property]}`
+                }else{
+                    a += `?${property}=${catagory[property]}`
+                }
+            }
+        }
+
+        history.push({
+            pathname: history.location.pathname,
+            search: a
+        })
+    }
+
     const Select = ({item, path}) => {
         
             const [check, setCheck] = useState(false);
@@ -165,11 +185,7 @@ const CategoryPage = () => {
 
             const setLink = () => {
                 setCatagory({...catagory, path: item.link});
-  
-                history.push({
-                    pathname: history.location.pathname,
-                    search: "",
-                });
+                changeLink();
             }
             /*
             const Del = () => {
@@ -929,6 +945,7 @@ const CategoryPage = () => {
 
         if(catagory.p === ""){
             setCatagory({...catagory, p: 1});
+            changeLink();
         }
     },[]);
 
