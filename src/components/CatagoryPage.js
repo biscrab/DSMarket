@@ -141,32 +141,60 @@ import SetPath from '../contents/SetPath';
 
 const CategoryPage = () => {
 
+    let history = useHistory();
+    const match = useRouteMatch();
+    const params = useParams();
+    const location = useLocation();
+
+    const [list, setList] = useState([
+        {id: 1, name: "1", price: 100, star: 1, img: A, brand: "samsung", sell: 50, catagory: 1, review: 100},
+        {id: 1, name: "1", price: 10, star: 2, img: B, brand: "a", sell: 100 ,catagory: 1, review: 100},
+        {id: 1, name: "1", price: 5, star: 3, img: C, brand: "a", sell: 200, catagory: 2, review: 100},
+        {id: 1, name: "1", price: 6, star: 4, img: D, brand: "a", sell: 300, catagory: 3, review: 100},
+        {id: 1, name: "1", price: 190, star: 5, img: B, brand: "a", sell: 400, catagory: 1, review: 100},
+        {id: 1, name: "1", price: 18, star: 6, img: B, brand: "a", sell: 500, catagory: 1, review: 100}
+    ]);
+    
+
+    const [rlist, setRlist]=useState(...list);
+    const [p, setP] = useState(location.search.slice(2, location.search.length));
+    const [option, setOption] = useState(1);
+    
+    const[page, setPage] = useState([1,2,3]);
+
+    const query = queryString.parse(location.search);
     
     const [catagory, setCatagory] = useState({
-        color: "",
-        season: "",
-        size: "",
-        lowest: "",
-        highest: "",
-        language: "",
-        p: "",
-        order: "",
-        search: "",
+        color: query.color,
+        season: query.season,
+        size: query.size,
+        lowest: query.lowest,
+        highest: query.highest,
+        language: query.language,
+        p: query.p,
+        order: query.order,
+        search: query.search,
+        weight: query.weight,
     });
+
+    const [a, setA] = useState("");
 
     const changeLink = () => {
 
-        let a = "";
-
         for(const property in catagory){
+
+            console.log(`?${property}=${catagory[property]}`);
+
             if(catagory[property]){
                 if(a){
-                    a += `&${property}=${catagory[property]}`
+                    setA(a + `&${property}=${catagory[property]}`)
                 }else{
-                    a += `?${property}=${catagory[property]}`
+                    setA(a + `?${property}=${catagory[property]}`)
                 }
             }
         }
+
+        console.log("a:" + a);
 
         history.push({
             pathname: history.location.pathname,
@@ -224,11 +252,6 @@ const CategoryPage = () => {
     }
 
     const [d, setD] = useState({name: "", path: ""});
-
-    let history = useHistory();
-    const match = useRouteMatch();
-    const params = useParams();
-    const location = useLocation();
 
     const Color = () => {
         const list = [{name: "블랙", link:"black"}, 
@@ -428,18 +451,6 @@ const CategoryPage = () => {
 
     }
 
-        
-    const Coting = () => {//코딩
-        const list = {}
-        return(
-            <S.CatagoryDiv>
-                <span></span>
-                <Select lists={list}/>
-            </S.CatagoryDiv>
-        )
-    }
-
-        
     const Lid = () => {
         return(
             <S.CatagoryDiv>
@@ -455,7 +466,7 @@ const CategoryPage = () => {
         const path = "shape"
         return(
             <S.CatagoryDiv>
-                <S.CTittle>형태</S.CTittle>
+                <S.CaTittle>형태</S.CaTittle>
                 {list.map(item =>{
                         var a = <Select item={item} name={item.name} link={item.link} path={path}></Select>;
                         return a;
@@ -486,18 +497,6 @@ const CategoryPage = () => {
         )
     }
 
-        
-    const Wish = () => { //식기세척기
-        const list = {}
-        return(
-            <S.CatagoryDiv>
-                <span></span>
-                <Select lists={list}/>
-            </S.CatagoryDiv>
-        )
-    }
-
-        
     const Diameter = () => {//지름
         const list = {}
         return(
@@ -545,16 +544,6 @@ const CategoryPage = () => {
         return(
             <S.CatagoryDiv>
                 <span></span>
-                <Select lists={list}/>
-            </S.CatagoryDiv>
-        )
-    }
-
-    const WomanSocks = () => {
-        const list = {name:"덧신", name:"스니커즈 양말", name:"발목 양말", name:"무릎 양말", name:"허벅지 양말", name:"발목 양말", name:"허벅지 양말", name:"발가락 양말", name:"수면 양말", name:"양말세트", name:"레그워머"}
-        return(
-            <S.CatagoryDiv>
-                <S.CaTittle>여성 양말 종류</S.CaTittle>
                 <Select lists={list}/>
             </S.CatagoryDiv>
         )
@@ -915,22 +904,6 @@ const CategoryPage = () => {
         console.log(list);
     } 
 
-    const [list, setList] = useState([
-    {id: 1, name: "1", price: 100, star: 1, img: A, brand: "samsung", sell: 50, catagory: 1, review: 100},
-    {id: 1, name: "1", price: 10, star: 2, img: B, brand: "a", sell: 100 ,catagory: 1, review: 100},
-    {id: 1, name: "1", price: 5, star: 3, img: C, brand: "a", sell: 200, catagory: 2, review: 100},
-    {id: 1, name: "1", price: 6, star: 4, img: D, brand: "a", sell: 300, catagory: 3, review: 100},
-    {id: 1, name: "1", price: 190, star: 5, img: B, brand: "a", sell: 400, catagory: 1, review: 100},
-    {id: 1, name: "1", price: 18, star: 6, img: B, brand: "a", sell: 500, catagory: 1, review: 100}
-]);
-
-    const [rlist, setRlist]=useState(...list);
-    const [p, setP] = useState(location.search.slice(2, location.search.length));
-    const [option, setOption] = useState(1);
-    const query = queryString.parse(location.search);
-
-    const[page, setPage] = useState([1,2,3]);
-
     const setO = (n) => {
         setOption(n);
         var s = list;
@@ -966,6 +939,7 @@ const CategoryPage = () => {
     useEffect(()=>{
         SetP(params.catagory);
         sCa(Number(params.catagory));
+        console.log(query);
         setO(1);
         /*
         axios.get('백엔드 url')
@@ -977,6 +951,7 @@ const CategoryPage = () => {
             setCatagory({...catagory, p: 1});
             changeLink();
         }
+        console.log(query);
     },[]);
 
     useEffect(()=>{    
@@ -1028,6 +1003,7 @@ const CategoryPage = () => {
                 <Language />
                 <DSize />
                 <ShapeOfBook />
+                <Shape />
                 <KindofLanguageTest />
                 <Price />
             </S.Select>

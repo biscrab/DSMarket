@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-import { useLocation } from "react-router";
+import { useLocation, useHistory } from "react-router";
 import * as S from '../styled/MyPage'
 import Profile from '../images/profile.png'
 import { Link } from "react-router-dom";
@@ -15,34 +15,43 @@ import { getRoles } from "@testing-library/dom";
 const MyPage = () => {
 
     let location = useLocation();
-
-    const [list, setList] = useState([
-        {id: 1, name: "1", price: 100, star: 1, img: A, brand: "samsung", sell: 50, catagory: 1, review: 100},
-        {id: 1, name: "1", price: 10, star: 2, img: B, brand: "a", sell: 100 ,catagory: 1, review: 100},
-        {id: 1, name: "1", price: 5, star: 3, img: C, brand: "a", sell: 200, catagory: 2, review: 100},
-        {id: 1, name: "1", price: 6, star: 4, img: D, brand: "a", sell: 300, catagory: 3, review: 100},
-        {id: 1, name: "1", price: 190, star: 5, img: B, brand: "a", sell: 400, catagory: 1, review: 100},
-        {id: 1, name: "1", price: 18, star: 6, img: B, brand: "a", sell: 500, catagory: 1, review: 100}
-    ]);
+    let history = useHistory();
 
     const [user, setUser] = useState({
-        review: [{review: "1123123123123213", star: 2, name: 1}]
+        review: [{review: "1123123123123213", star: 2, name: 1}],
+        item: [{id: 1, name: "1", price: 100, star: 1, img: A, brand: "samsung", sell: 50, catagory: 1, review: 100},
+                {id: 1, name: "1", price: 10, star: 2, img: B, brand: "a", sell: 100 ,catagory: 1, review: 100},
+                {id: 1, name: "1", price: 5, star: 3, img: C, brand: "a", sell: 200, catagory: 2, review: 100},
+                {id: 1, name: "1", price: 6, star: 4, img: D, brand: "a", sell: 300, catagory: 3, review: 100},
+                {id: 1, name: "1", price: 190, star: 5, img: B, brand: "a", sell: 400, catagory: 1, review: 100},
+    {id: 1, name: "1", price: 18, star: 6, img: B, brand: "a", sell: 500, catagory: 1, review: 100}]
     }) 
     const [select, setSelect] = useState(-1);
 
     const Border = () => {
         if(location.search === "?sell"){
             return(
-                <S.Review>
-                    <Review lists={user.review}/>
-                </S.Review>
+                <>
+                {user.item ?
+                <>
+                <S.ItemDiv>
+                    <Relate lists={user.item}></Relate>
+                </S.ItemDiv>
+                    <S.RegistButton onClick={()=>history.push('/regist')}>상품등록</S.RegistButton>
+                </>
+                : 
+                <h3>
+                    판매중인 아이템이 없습니다
+                </h3>
+                }
+                </>
             );
         }
         else if(location.search === "?review"){
             return(
-            <S.ItemDiv>
-                <Relate lists={list}></Relate>
-            </S.ItemDiv>
+                <S.Review>
+                    <Review lists={user.review}/>
+                </S.Review>
             );
         }   
         else{

@@ -98,13 +98,13 @@ const Header = () => {
             <S.HDiv>  
             <S.S>
             <S.LogoImg src={Logo}></S.LogoImg>
-            <S.Logo onClick={() => history.replace('/')}>대마마켓</S.Logo>
+            <S.Logo onClick={() => history.replace('/')}>DS마켓</S.Logo>
             <S.SBox>
                 <S.SDiv>
-                    <S.Search onChange={(e)=>setV(e.target.value)} value={v} onFocus={() => setTyping(true)} onBlur={() => setTyping(false)}></S.Search>
+                    <S.Search onChange={(e)=>setV(e.target.value)} onFocus={(e)=>setTyping(true)} onBlur={()=>setTyping(false)} value={v} /*onFocus={() => setTyping(true)} onBlur={() => setTyping(false)}*/></S.Search>
                     {typing ? 
                     <S.SBorder>
-                        <S.Recent><p>최근 검색어</p></S.Recent>
+                        <S.Recent><S.RecentP>최근 검색어</S.RecentP></S.Recent>
                         <S.SLi onClick={()=>setV(recent[0])}><S.Sspan>{recent[0]}</S.Sspan></S.SLi>
                         <S.SLi onClick={()=>setV(recent[1])}><S.Sspan>{recent[1]}</S.Sspan></S.SLi>
                         <S.SLi onClick={()=>setV(recent[2])}><S.Sspan>{recent[2]}</S.Sspan></S.SLi>

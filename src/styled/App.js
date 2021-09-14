@@ -24,7 +24,7 @@ export const HDiv = styled.div`
 export const Logo = styled.h1`
     position: relative;
     margin: 0px;
-    margin-right: 20px;
+    margin-right: 10px;
     color: royalblue;
 `
 
@@ -282,7 +282,6 @@ export const Related = styled.div`
 export const RelatedH = styled.h3`
     color: gray;
     position: relative;
-    margin-top: 30px;
     margin-bottom: 20px;
 `
 
@@ -653,6 +652,12 @@ export const Recent = styled.div`
     border-bottom: 1px solid #eeeeee;
 `
 
+export const RecentP = styled.p`
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+`
+
 export const Input = styled.input`
     width: 80%;
     height: 30px;
@@ -867,7 +872,7 @@ export const Ca = styled.div`
 export const CaTittle = styled.span`
     color: gray;
     padding-top: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
 `
 export const PriceInput = styled.input`
     width: 40px;

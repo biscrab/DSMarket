@@ -4,6 +4,7 @@ import styled from 'styled-components'
 export const M = styled.div`
     display: flex;
     justify-content: center;
+    padding-bottom: 70px;
 `
 
 export const Select = styled.div`
@@ -43,6 +44,15 @@ export const ItemDiv = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+`
+
+export const RegistButton = styled.button`
+    height: 60px;
+    border: 0;
+    background-color: royalblue;
+    color: white;
+    font-size: 20px;
+    border-radius: 5px;
 `
 
 export const Introduce = styled.textarea`

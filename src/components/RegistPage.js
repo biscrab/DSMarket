@@ -267,6 +267,19 @@ const CSLi = () => {
         });
       };
 
+
+    function allowDrop(e){
+        console.log("drag");
+     }
+        
+    function drag(e){
+        
+    }
+        
+    function drop(e){
+        console.log("drop");
+     }
+
     return(
         <S.R>
             <div style={{width: "70%"}}>
@@ -329,9 +342,7 @@ const CSLi = () => {
                 <p>상품 이미지</p>             
             <S.RegistDiv>
                 <p>이미지(0/9)</p>
-                <S.RegistImg>
-                    <S.RegistSpan>+</S.RegistSpan>
-                </S.RegistImg>
+                <input type="file" multiple="multiple" accept="image/png, image/jpeg, image/jpg"/>
             </S.RegistDiv>
             <p>상품 설명</p>
             <S.RegistDiv>
@@ -347,6 +358,10 @@ const CSLi = () => {
     )
 
     /*
+
+                    <S.RegistImg>
+                    <S.RegistSpan>+</S.RegistSpan>
+                </S.RegistImg>
     <p>배송 관련 사항</p>
                 <S.RegistDetailUl>
 
