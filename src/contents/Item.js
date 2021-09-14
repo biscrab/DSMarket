@@ -1,41 +1,27 @@
-import React from 'react'
-import queryString from 'query-string'
-import { useHistory, useLocation, useParams } from 'react-router-dom'
+import React,{useState} from 'react'
+import { useHistory } from 'react-router';
 import * as S from '../styled/App'
 
-const Item = ({item, lists}) => {
+const Select = ({item}) => {
 
     let history = useHistory();
 
-    //<S.DText>내일 9/1 도착예정</S.DText>
-    /*        
-    <S.ItemBox onClick={()=>history.push(`/item/id?=${item.id}`)}>
-            <S.ItemImg src={item.img}/>
-                <S.Ip>{item.name}</S.Ip>
-                <S.ItemPrice>{item.price}원</S.ItemPrice>
-                <i class="far fa-heart" style={{color:"red"}}></i>
-        </S.ItemBox>*/
-
     return(
-    <S.Card onClick={()=>history.push(`/item/${item.id}`)}>
-    <div class="card" style={{width: "18rem;"}}>
-    <S.ItemImg src={item.img} class="card-img-top" alt="..." />
-    <div class="card-body">
-    <h5 class="card-title">{item.name}</h5>
-    <b class="card-text">{item.price}원</b>
-    </div>
-    </div>
-    </S.Card>
+        <S.RDiv>
+            <S.RImg src={item.img} onClick={()=>history.push(`/item/${item.id}`)}/>
+            <S.Rp>{item.name}</S.Rp>
+            <S.Rprice>{item.price}</S.Rprice>
+        </S.RDiv>
     );
 }
 
 const List = ({lists}) => {
     const itemList = lists.map(
-        item => (
-            <Item item={item} img={item.img} name={item.name} price={item.price} star={item.star} id={item.id} review={item.review}/>
+        item => ( 
+            <Select item={item} key={item.name} name={item.name} price={item.price} img={item.img} id={item.id}/>
         )
     )
-    return itemList;
+    return itemList
 }
 
-export default List
+export default List;

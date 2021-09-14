@@ -177,6 +177,36 @@ const CategoryPage = () => {
         weight: query.weight,
     });
 
+    const SetM = () => {
+        if(c >= 1 && c <= 5){
+            setD({name: "패션의류/잡화", path: 1});
+        }
+        else if(c >= 6 && c <= 19){
+            setD({name: "뷰티", path: 6});
+        }
+        else if(c >= 20 && c <= 33){
+            setD({name: "주방용품", path: 20});
+        }
+        else if(c >= 34 && c <= 47){
+            setD({name: "생활용품", path: 34});
+        }
+        else if(c >= 48 && c <= 58){
+            setD({name: "홈인테리어", path: 48});
+        }
+        else if(c >= 59 && c <= 79){
+            setD({name: "가전디지털", path: 59});
+        }
+        else if(c >= 80 && c <= 113){
+            setD({name: "스포츠/레저", path: 73});
+        }
+        else if(c >= 114 && c <= 130){
+            setD({name: "도서/음반/DVD", path: 114});
+        }
+        else if(c >= 131 && c <= 135){
+            setD({name: "반려동물용품", path: 131});
+        }
+    }
+
     const [a, setA] = useState("");
 
     const changeLink = () => {
@@ -213,6 +243,7 @@ const CategoryPage = () => {
                 }
             },[]);
 
+            
             const setLink = () => {
                 setCatagory({...catagory, [path]: item.link});
                 changeLink();

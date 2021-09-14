@@ -29,6 +29,9 @@ export const Logo = styled.h1`
 `
 
 export const LogoImg = styled.img`
+    height: 55px;
+    border-radius: 50%;
+    margin-right: 10px;
 `
 
 export const SBox = styled.span`
@@ -158,9 +161,9 @@ export const CSelect = styled.div`
 `
 
 export const CBox = styled.div`
-    width: 1080px;
+    width: 950px;
     height: 1500px;
-    margin-left: 20px;
+    margin-left: 40px;
 `
 
 export const SearchH = styled.h3`
@@ -203,7 +206,6 @@ export const Order = styled.ul`
 
 export const Border = styled.div`
     padding: 0;
-    width: 1080px;
     list-style: none;
     display: flex;
     flex-wrap: wrap;
@@ -1182,9 +1184,9 @@ export const SignSpan = styled.span`
 
 export const OrderSpan = styled.span`
     position: relative;
-    left: 125px;
+    left: 170px;
     font-size: 16px;
-    margin-right: 20px;
+    padding: 10px;
 
     :hover{
         color: royalblue;

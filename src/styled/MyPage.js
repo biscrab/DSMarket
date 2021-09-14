@@ -60,6 +60,7 @@ export const Introduce = styled.textarea`
     top: 20px;
     height: 400px;
     resize: none;
+    padding: 10px;
 `
 
 export const Card = styled.div`

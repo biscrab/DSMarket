@@ -220,7 +220,7 @@ const CSLi = () => {
         }
     }
 
-    const [list, setList] = useState();
+    const [list, setList] = useState({name: "", option:[]});
 
     const [tittle, setTittle] = useState("");
 
@@ -287,7 +287,7 @@ const CSLi = () => {
             const itemList = lists.map(
                 item => (
                 <option>
-                {item.name}
+                    {item.name}
                 </option> 
                 )
             )
@@ -304,15 +304,6 @@ const CSLi = () => {
         )
     
         //        <Option lists={item.option}/>
-    
-    const List = ({lists, path}) => {
-        const itemList = lists.map(
-            item => (
-                <RegistOption item={item} name={item.name} option={item.option}/>
-            )
-        )
-        return itemList;  
-    }
 }
 
     return(
@@ -352,11 +343,11 @@ const CSLi = () => {
                     <S.CSLi onClick={()=>SetC(8)}>반려/애완용품</S.CSLi>
                 </S.CSUl>
             </S.CSDiv>
-            {catagory ?  
+            {list ?  
             <S.CSDiv>
                 <S.CSUl>
-                    {catagory.map(item =>{
-                        var a = <S.CSLi item={item} name={item.name} link={item.link} value={item.link} onClick={()=>console.log(item.link)}>{item.name}</S.CSLi>;
+                    {list.map(item =>{
+                        var a = <S.CSLi item={item} name={item.name} option={item.option} onClick={()=>console.log(item.link)}>{item.name}</S.CSLi>;
                         return a;
                     })}
                 </S.CSUl>
@@ -370,7 +361,10 @@ const CSLi = () => {
             <S.RegistDiv>
                 <S.RegistDetailUl>
                     <span>옵션</span>
-                    <RegistOption lists={list}/>
+                    {list.map(item =>{
+                        var a = <RegistOption item={item} name={item.name} link={item.link}></RegistOption>;
+                        return a;
+                    })}
                 </S.RegistDetailUl>
             </S.RegistDiv>
 

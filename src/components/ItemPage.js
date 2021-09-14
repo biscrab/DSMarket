@@ -5,7 +5,7 @@ import B from '../images/b.jpg'
 import C from '../images/c.jpg'
 import D from '../images/d.jpg'
 import E from '../images/e.jpg'
-import Relate from '../contents/Relate'
+import Item from '../contents/Item'
 import Comment from '../contents/Review'
 import Profile from '../images/profile.png'
 
@@ -88,7 +88,7 @@ const ItemPge = () => {
         <S.Related>
             <S.RelatedH>관련 상품</S.RelatedH>
             <S.RelatedDiv>
-                <Relate lists={list}/>
+                <Item lists={list}/>
             </S.RelatedDiv>
         </S.Related> 
             

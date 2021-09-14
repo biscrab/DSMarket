@@ -10,37 +10,6 @@ const Header = () => {
 
     const select = useRef();
 
-    const [l, setL] = useState();
-
-    const setLink = (c, path) => {
-        var a = `${path}=${c}`;
-        var c = ""
-        if(location.search.includes(`${path}=`)){
-            if(location.search.includes('&')){
-                var b = location.search.split('&');
-                for(var i = 0; i < b.length; i++){
-                    console.log(b[i]);
-                    if(b[i].includes(`${path}=`)){
-                        b[i]+=`,${c}`;
-                    }
-                    c += b[i];
-                }
-                location.search = c;
-            }
-            else{
-            setL(`,${c}`);
-            }
-        }
-        else if(location.search === ""){
-            setL(`?${a}`);
-            console.log(l);
-        }
-        else{
-            setL(`&${a}`);
-            console.log(l);
-        }
-    }
-
     let history = useHistory();
     const [typing, setTyping] = useState(false);
     const [v, setV] = useState();
@@ -98,7 +67,7 @@ const Header = () => {
         <S.Header>
 
             <S.HDiv>  
-            <S.LogoImg src={Logo}></S.LogoImg>
+            <S.LogoImg src={Logo} onClick={()=>history.push('/')}></S.LogoImg>
             <S.Logo onClick={() => history.replace('/')}>DS마켓</S.Logo>
             <S.SBox>
                 <S.SDiv>
