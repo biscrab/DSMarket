@@ -148,8 +148,10 @@ const CategoryPage = () => {
         size: "",
         lowest: "",
         highest: "",
+        language: "",
         p: "",
         order: "",
+        search: "",
     });
 
     const changeLink = () => {
@@ -184,28 +186,30 @@ const CategoryPage = () => {
             },[]);
 
             const setLink = () => {
-                setCatagory({...catagory, path: item.link});
+                setCatagory({...catagory, [path]: item.link});
                 changeLink();
             }
-            /*
+
             const Del = () => {
-                setCatagory(...catagory, path = "");
-                            const serialize = obj => Object.keys(obj)
-                                        .map(key => `${path}=${encodeURIComponent(obj[key])}`)
-                                        .join('&')
-    
-                history.push({
-                    pathname: history.location.pathname,
-                    search: serialize(catagory)
-                });
-            }*/
+                setCatagory({...catagory, [path]: ""});
+                changeLink();
+            }
     
             return(
+                <>
+                {check ?
                 <S.Box onClick={() => setLink()}>
                     <div style={{position:"relative", top:"50%", transform:"translateY(-50%)"}}>
                     <input type="checkbox" checked={check} style={{marginRight: "5px"}}></input><span>{item.name}</span>
                     </div>
-                </S.Box> 
+                </S.Box>
+                :
+                <S.Box onClick={() => Del()}>
+                <div style={{position:"relative", top:"50%", transform:"translateY(-50%)"}}>
+                <input type="checkbox" checked={check} style={{marginRight: "5px"}}></input><span>{item.name}</span>
+                </div>
+                </S.Box>}
+                </>
             );
             
             /*
@@ -251,7 +255,7 @@ const CategoryPage = () => {
         const [clist, setClist] = useState(list.slice(0, 5));
         return(
             <>
-            {c <= 6 ? 
+            {ca <= 6 ? 
             <S.CatagoryDiv>
                 <S.CaTittle>색상</S.CaTittle>
                     {clist.map(item =>{
@@ -272,7 +276,7 @@ const CategoryPage = () => {
         const path = "season"
         return(
             <>
-            {c <= 6 ? 
+            {ca <= 6 ? 
             <S.CatagoryDiv>
                 <S.CaTittle>사용계절</S.CaTittle>
                 {list.map(item =>{
@@ -291,7 +295,7 @@ const CategoryPage = () => {
         const path = "size"
         return(
             <>
-            {c <= 6 ?
+            {ca <= 6 ?
             <S.CatagoryDiv>
                 <S.CaTittle>사이즈</S.CaTittle>
                 {list.map(item =>{
@@ -330,7 +334,7 @@ const CategoryPage = () => {
         const path = "language";
         return(
             <>
-            {c === 116 || c === 117 || c === 125 ?  
+            {ca === 112 /*=== 116 || ca === 117 || ca === 125*/ ?  
             <S.CatagoryDiv>
                 <S.CaTittle>언어</S.CaTittle>
                 {list.map(item =>{
@@ -348,7 +352,7 @@ const CategoryPage = () => {
         const list = [{name:"양장"},{name:"반양장"},{name:"페이퍼북"},{name:"보드북"},{name:"문고판"},{name:"큰글씨"},{name:"오디오북"}];
         return(
             <>
-            {c >= 115 && c <= 131 ?
+            {ca >= 114 && ca <= 130 ?
             <S.CatagoryDiv>
                 <span>도서형태</span>
                 <Select lists={list}/>
@@ -382,11 +386,21 @@ const CategoryPage = () => {
 
         
     const CMetarial = () => {
-        const list = [{name:"가죽", link:""},{name:"인조가죽", link:""},{name:"면", link:""},{name:"나일론", link:""},{name:"아크릴", link:""},{name:"폴리에스터", link:""},{name:"니트", link:""}]
+        const path = "metarial"
+        const list = [{name:"면", link:"cotton"},
+                      {name:"가죽", link:"leather"},
+                      {name:"인조가죽", link:"leatherette"},
+                      {name:"나일론", link:"nylon"},
+                      {name:"아크릴", link:"acryl"},
+                      {name:"폴리에스터", link:"polyester"},
+                      {name:"니트", link:"neat"}]
         return(
             <S.CatagoryDiv>
-                <span>소재</span>
-                <Select lists={list}/>
+                <S.CaTittle>소재</S.CaTittle>
+                {list.map(item =>{
+                        var a = <Select item={item} name={item.name} link={item.link} path={path}></Select>;
+                        return a;
+                })}
             </S.CatagoryDiv>
         )
     }
@@ -395,6 +409,8 @@ const CategoryPage = () => {
         const list = [{name:"소형견", link:"small"},{name:"중형견", link:"middle"},{name:"대형견", link:"big"},{name:"전체", link:"all"}];
         const path="size"
         return(
+            <>
+            {ca === 132?
             <S.CatagoryDiv>
                 <S.CaTittle>대상크기</S.CaTittle>
                 {list.map(item =>{
@@ -402,6 +418,9 @@ const CategoryPage = () => {
                         return a;
                 })}
             </S.CatagoryDiv>
+            :<></>
+            }
+            </>
         )
     }
 
@@ -422,10 +441,9 @@ const CategoryPage = () => {
 
         
     const Lid = () => {
-        const list = {}
         return(
             <S.CatagoryDiv>
-                <span></span>
+                <S.CTittle></S.CTittle>
                 <Select lists={list}/>
             </S.CatagoryDiv>
         )
@@ -433,11 +451,15 @@ const CategoryPage = () => {
 
         
     const Shape = () => {
-        const list = {}
+        const list = [{name: "원형", link: "circle"},{name: "티원형", link: "oval"},{name: "정사각형", link: "square"},{name: "직사각형", link: "rectangle"},{name: "다각형", link: "polygon"}];
+        const path = "shape"
         return(
             <S.CatagoryDiv>
-                <span></span>
-                <Select lists={list}/>
+                <S.CTittle>형태</S.CTittle>
+                {list.map(item =>{
+                        var a = <Select item={item} name={item.name} link={item.link} path={path}></Select>;
+                        return a;
+                })}
             </S.CatagoryDiv>
         )
     }
@@ -539,7 +561,17 @@ const CategoryPage = () => {
     }
 
     const Subject = () => {
-        const list = [{name: "국어"},{name: "수학"},{name: "영어"},{name: "사회"},{name: "역사"},{name: "과학"},{name: "한자/한문"},{name: "예체능"},{name: "제2외국어"},{name: "논술/작문"},{name: "전과목"}];
+        const list = [{name: "국어", link: "korean"},
+        {name: "수학", link: "math"},
+        {name: "영어", link: "english"},
+        {name: "사회", link: "social"},
+        {name: "역사", link: "history"},
+        {name: "과학", link: "science"},
+        {name: "한자/한문", link: "chinesecaracter"},
+        {name: "예체능", link: "artandphysical"},
+        {name: "제2외국어", link: "secondforeignlanguage"},
+        {name: "논술/작문", link: "essaywriting"},
+        {name: "전과목", link: "all"}];
         return(
             <>
             {c === 118?
@@ -569,7 +601,7 @@ const CategoryPage = () => {
     }
 
     const KindofLanguageTest = () => {
-        const list = [{name: "TOEIC"},{name: "TEPS"},{name: "TOFLE"},{name: "NEAT"},{name: "TOSEL"},{name: "SAT"},{name: "GRE"},{name: "G-TELP"},{name: "IELTS"},{name: "PELT"},{name: "OPIc"},{name: "JLPT"},{name: "HSK"},{name: "한자능력검정"}];
+        const list = [{name: "TOEIC", link: ""},{name: "TEPS", link: ""},{name: "TOFLE", link: ""},{name: "NEAT", link: ""},{name: "TOSEL", link: ""},{name: "SAT", link: ""},{name: "GRE", link: ""},{name: "G-TELP", link: ""},{name: "IELTS", link: ""},{name: "PELT", link: ""},{name: "OPIc", link: ""},{name: "JLPT", link: ""},{name: "HSK", link: ""},{name: "한자능력검정", link: ""}];
         return(
             <>
             {c === 123 ?
@@ -583,7 +615,7 @@ const CategoryPage = () => {
         )
     }
 
-    const [c, setC] = useState(Number(history.catagory));
+    const [c, setC] = useState([]);
 
     const Cata = () => {
         return(
@@ -935,8 +967,6 @@ const CategoryPage = () => {
         SetP(params.catagory);
         sCa(Number(params.catagory));
         setO(1);
-        console.log("c:"+c);
-
         /*
         axios.get('백엔드 url')
             .then(response => {
@@ -954,7 +984,7 @@ const CategoryPage = () => {
 
     const SetPage = () => {
         var pageN = (list.length / 16);
-        if(params.p === 1 || params.p === ""){
+        if(params.p === 1){
             setRlist(list.slice(0, 15));
         }
         else{
@@ -994,8 +1024,11 @@ const CategoryPage = () => {
             <S.Select>
                 <Color />
                 <Size />
+                <CMetarial />
                 <Language />
                 <DSize />
+                <ShapeOfBook />
+                <KindofLanguageTest />
                 <Price />
             </S.Select>
             <S.CBox>

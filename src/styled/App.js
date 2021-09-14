@@ -486,7 +486,8 @@ export const RelatedDiv = styled.div`
 
 export const RDiv = styled.div`
     width: 200px;
-    margin-bottom: 10px;
+    color: gray;
+    margin-bottom: 20px;
 `
 
 export const RImg = styled.img`
@@ -619,8 +620,8 @@ export const SBorder = styled.ul`
     z-index: 1;
     list-style: none;
     box-shadow: 0 0 20px 0 rgb(0 0 0 / 10%);
-    width: 540px;
-    height: 450px;
+    width: 530px;
+    height: 441px;
 `
 
 export const SLi = styled.li`
@@ -1300,7 +1301,6 @@ export const EI = styled.div`
 export const Rp = styled.p`
     margin: 0;
     width: 100%;
-    height: 40px;
     font-size: 18px;
 `
 export const Rprice = styled.p`
@@ -1522,7 +1522,7 @@ export const Card = styled.div`
 `
 
 export const IUSer = styled.div`
-    height: 60px;
+    height: 65px;
     border-bottom: 2px solid #eeeeee;
     margin-bottom: 20px;  
 `

@@ -152,7 +152,7 @@ const RegistPage = () => {
         price: "",
         image: [],
         catagory: "1",
-        option: {color: "", size: "", season: ""},
+        option: {color: "", size: "", season: "", language: ""},
     });
 
 /*
@@ -227,7 +227,8 @@ const CSLi = () => {
 
     const Color = () => {
         setList([...list,{name: "색상", option: 
-        [{name: "블랙", link:"black"},
+        [{name: "설정안함", link:""},
+        {name: "블랙", link:"black"},
         {name: "네이비", link:"navy"},
         {name: "그레이", link:"gray"},
         {name: "실버", link:"sliver"},
@@ -247,7 +248,12 @@ const CSLi = () => {
     }
 
     const Season = () => {
-        setList([...list,{name:"계절", option:[{name:"사계절용", link:"four"}, {name:"봄/가을용", link:"spfa"}, {name:"여름용", link: "summer"}, {name:"겨울용", link:"winter"}]}]);
+        setList([...list,{name:"계절", option:[
+            {name:"설정안함", link:""},
+            {name:"사계절용", link:"four"},
+            {name:"봄/가을용", link:"spfa"},
+            {name:"여름용", link: "summer"},
+            {name:"겨울용", link:"winter"}]}]);
     }
 
     useEffect(()=>{

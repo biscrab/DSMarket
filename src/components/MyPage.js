@@ -4,7 +4,7 @@ import * as S from '../styled/MyPage'
 import Profile from '../images/profile.png'
 import { Link } from "react-router-dom";
 import axios from "axios";
-import MyItem from '../contents/MyItem'
+import Relate from '../contents/Relate'
 import Review from '../contents/Review'
 import A from '../images/a.jpg'
 import B from '../images/b.jpg'
@@ -41,7 +41,7 @@ const MyPage = () => {
         else if(location.search === "?review"){
             return(
             <S.ItemDiv>
-                <MyItem lists={list}></MyItem>
+                <Relate lists={list}></Relate>
             </S.ItemDiv>
             );
         }   

@@ -6,7 +6,7 @@ import C from '../images/c.jpg'
 import D from '../images/d.jpg'
 import Border from '../contents/Border'
 import { useHistory } from 'react-router-dom'
-import MyItem from '../contents/MyItem'
+import Relate from '../contents/Relate'
 
 const MainPage = () => {
     var arr=[A, B, C, D];
@@ -65,7 +65,7 @@ const MainPage = () => {
             <S.BestItem>
                 <S.Best>중고거래 인기 제품</S.Best>
                 <S.BestDiv>
-                    <MyItem lists={list}/>
+                    <Relate lists={list}/>
                 </S.BestDiv> 
             </S.BestItem>
         </>
