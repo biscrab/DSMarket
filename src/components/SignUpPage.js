@@ -1,14 +1,25 @@
 import React,{useState} from 'react'
 import * as S from '../styled/App';
 import axios from 'axios';
+import { useHistory } from 'react-router';
 
 const SignUpPage = () => {
 
+    let history = useHistory();
+
     const SignUp = () => {
+        if(user.id && user.password && user.name && user.phonenumber){
+            alert("내용을 모두 입력해주세요");
+            return;
+        }
+
         if(user.password === check){
             //axios.get('/안진우url')
             //만약 아이디가 있으면
-            alert("중복되는 아이디 입니다.") 
+            alert("중복되는 아이디 입니다.");
+            //axios.post('/안진우url')
+            alert("등록이 완료되었습니다.");
+            history.push('/');
         }
         else{
             alert("비밀번호가 일치하지 않습니다.");
@@ -26,21 +37,29 @@ const SignUpPage = () => {
             });
     };
 
+    const changeId = (e) => {
+        setUser({...user, id: e.target.value.replace(/[^A-Za-z]/ig, '')});
+    }
+
+    const changePassword = (e) => {
+        setUser({...user, password: e.target.value.replace(/[^A-Za-z]/ig, '')});
+    }
+
     return(
         <S.Si>
             <S.SiDiv>
             <h1>회원가입</h1>
             <S.SignUpDiv>
             <S.SignSpan>아이디</S.SignSpan>
-            <S.SignUpInput placeholder="아이디" name="id" onChange={(e)=>onChange(e)}></S.SignUpInput>
+            <S.SignUpInput placeholder="아이디" name="id" onChange={(e)=>changeId(e)}></S.SignUpInput>
             </S.SignUpDiv>
             <S.SignUpDiv>
             <S.SignSpan>비밀번호</S.SignSpan>
-            <S.SignUpInput placeholder="비밀번호" name="password" onChange={(e)=>onChange(e)}></S.SignUpInput>
+            <S.SignUpInput placeholder="비밀번호" type="password" name="password" onChange={(e)=>onChange(e)}></S.SignUpInput>
             </S.SignUpDiv>
             <S.SignUpDiv>
             <S.SignSpan>비밀번호 확인</S.SignSpan>
-            <S.SignUpInput placeholder="비밀번호 확인" onChange={(e)=>setCheck(e.target.value)}></S.SignUpInput>
+            <S.SignUpInput placeholder="비밀번호 확인" type="password" onChange={(e)=>setCheck(e.target.value)}></S.SignUpInput>
             </S.SignUpDiv>
             <S.SignUpDiv>
             <S.SignSpan>이름</S.SignSpan>
@@ -48,9 +67,9 @@ const SignUpPage = () => {
             </S.SignUpDiv>
             <S.SignUpDiv>
             <S.SignSpan>휴대폰 번호</S.SignSpan>
-            <S.SignUpInput placeholder="휴대폰 번호" name="phonenumber" onChange={(e)=>onChange(e)}></S.SignUpInput>
+            <S.SignUpInput placeholder="휴대폰 번호" name="phonenumber" onChange={(e)=>changePassword(e)}></S.SignUpInput>
             </S.SignUpDiv>
-            <S.SiButton>회원가입하기</S.SiButton>
+            <S.SiButton onClick={()=>SignUp()}>회원가입하기</S.SiButton>
             </S.SiDiv>
         </S.Si>
     )

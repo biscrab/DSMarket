@@ -7,7 +7,7 @@ export const Header = styled.div`
     margin: 0px;    
     width: 100%;
     display: flex;
-    flex-direction: column;
+    align-items: center;
     height: 100px;
     background-color: white;
     border-bottom: 1px solid #eeeeee;
@@ -17,8 +17,8 @@ export const HDiv = styled.div`
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    width: 950px;
     display: flex;
+    align-items: center;
 `
 
 export const Logo = styled.h1`
@@ -56,8 +56,6 @@ export const Search = styled.input`
 `
 
 export const Link = styled.img`
-    position: relative;
-    bottom: 10px;
     width: 45px;
     height: 45px;
     border-radius: 50%;
@@ -706,9 +704,7 @@ export const Next = styled.div`
 
 export const LR = styled.div`
     display: flex;
-    position: relative;;
-    top: 30px;
-    left: 15px;
+    padding-left: 10px;
 `;
 
 export const S = styled.div`    
@@ -718,17 +714,17 @@ export const S = styled.div`
     justify-content: center;
 `
 export const L = styled.span`
-    margin-right: 10px;
+    padding: 10px;
     color: gray;
 `
 
 export const LogOut = styled.button`
     position: relative;
-    left: 10px;
     background-color: white;
     border: 1px solid #cccccc;
     color: gray;
     height: 25px;
+    margin: 10px;
 `
 
 export const CTittle = styled.h3`
@@ -946,6 +942,7 @@ export const SignUpInput = styled.input`
     width: 400px;
     height: 40px;
     margin-bottom: 55px;
+    padding: 0px 10px;
 `
 
 export const SiDiv = styled.div`
@@ -962,6 +959,7 @@ export const SiButton = styled.button`
     font-size: 20px;
     color: white;
     border: 0;
+    border-radius: 5px;
 `
 
 export const RegistDiv = styled.div`
@@ -1508,13 +1506,6 @@ export const OrderItemSpan = styled.span`
     height: 20px;
     font-size: 18px;
     padding: 10px;
-`
-
-export const LN = styled.span`
-    position: relative;
-    left: 10px;
-    color: gray;
-    margin-right: 5px;
 `
 
 export const ATop = styled.div`

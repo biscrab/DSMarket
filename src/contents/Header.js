@@ -60,6 +60,7 @@ const Header = () => {
     const [cart, setCart] = useState(5);
 
     const SignUp = () => {
+        setIp({id : "", password: ""});
         history.push('/signup');
         setLogin(false);
     }
@@ -95,8 +96,8 @@ const Header = () => {
     return(
         <>
         <S.Header>
+
             <S.HDiv>  
-            <S.S>
             <S.LogoImg src={Logo}></S.LogoImg>
             <S.Logo onClick={() => history.replace('/')}>DS마켓</S.Logo>
             <S.SBox>
@@ -122,12 +123,12 @@ const Header = () => {
                <i class="fa fa-search fa-lg" style={{color: "gray"}}></i>
                </div>
             </S.SBox>
-            </S.S>
+
             <S.LR>
             {logined ?
                 <>                
                 <S.Link src={Profile} onClick={()=>history.replace(`/mypage`)}/>
-                <S.LN>{name}님</S.LN>
+                <S.L>{name}님</S.L>
                 <S.LogOut onClick={()=>setLogined(false)}>로그아웃</S.LogOut>            
                 </>
             :
@@ -138,6 +139,7 @@ const Header = () => {
             }
             </S.LR>
             </S.HDiv>
+
         </S.Header>
         {login ? 
         <S.LoginBackground>
@@ -146,7 +148,7 @@ const Header = () => {
                 <S.LoginSpan>아이디</S.LoginSpan>           
                 <S.LoginInput onChange={(e)=>setIp({id: e.target.value, password: ip.password})} value={ip.id}/>
                 <S.LoginSpan>비밀번호</S.LoginSpan>
-                <S.LoginInput onChange={(e)=>setIp({id: ip.id, password: e.target.value})} value={ip.password}/>
+                <S.LoginInput type="password" onChange={(e)=>setIp({id: ip.id, password: e.target.value})} value={ip.password}/>
                 <S.LoginButton color="royalblue" c="white" onClick={()=>Login()}>로그인</S.LoginButton>
                 <S.LoginButton c="black" onClick={()=>SignUp()}>회원가입</S.LoginButton>
             </S.LoginDiv>

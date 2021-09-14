@@ -314,7 +314,14 @@ const CategoryPage = () => {
     }
     
     const Size = () => {
-        const list = [{name:"XS", link:"XS"}, {name:"S", link:"S"}, {name:"M", link:"M"}, {name:"L", link:"L"}, {name:"XL", link:"XL"}, {name:"2XL", link:"2XL"}, {name:"3XL", link:"3XL"}, {name:"FREE (One Size)", link:"FREE"}];
+        const list = [{name:"XS", link:"XS"},
+                      {name:"S", link:"S"},
+                      {name:"M", link:"M"},
+                      {name:"L", link:"L"},
+                      {name:"XL", link:"XL"},
+                      {name:"2XL", link:"2XL"},
+                      {name:"3XL", link:"3XL"},
+                      {name:"FREE (One Size)", link:"FREE"}];
         const path = "size"
         return(
             <>
@@ -336,6 +343,10 @@ const CategoryPage = () => {
 
         const [price, setPrice] = useState({lowest: "", highest: ""});
 
+        const changePrice = () => {
+
+        }
+
         return(
             <S.CatagoryDiv>
                 <S.CaTittle>가격</S.CaTittle>
@@ -353,7 +364,15 @@ const CategoryPage = () => {
     }
     
     const Language = () => {
-        const list = [{name: "한국어", link: "korean"},{name: "영어", link: "english"},{name: "일본어", link: "japanese"},{name: "중국어", link: ""},{name: "독일어", link: ""},{name: "프랑스어", link: ""},{name: "스페인어", link: ""},{name: "이탈리어어", link: ""},{name: "러시아어", link: ""},{name: "증동/아랍어"}]
+        const list = [{name: "한국어", link: "korean"},
+                    {name: "영어", link: "english"},
+                    {name: "일본어", link: "japanese"},
+                    {name: "중국어", link: "chinese"},
+                    {name: "독일어", link: "german"},
+                    {name: "프랑스어", link: "french"},
+                    {name: "스페인어", link: "spanish"},
+                    {name: "이탈리어어", link: "italian"},
+                    {name: "러시아어", link: "russian"}];
         const path = "language";
         return(
             <>

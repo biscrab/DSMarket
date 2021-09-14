@@ -1,6 +1,5 @@
 import React,{useState, useEffect} from 'react'
 import * as S from '../styled/App'
-import RegistOption from '../contents/RegistOption';
 import axios from 'axios';
 
 /*
@@ -221,12 +220,12 @@ const CSLi = () => {
         }
     }
 
-    const [list, setList] = useState([]);
+    const [list, setList] = useState();
 
     const [tittle, setTittle] = useState("");
 
     const Color = () => {
-        setList([...list,{name: "색상", option: 
+        setList([...list, {name: "색상", option: 
         [{name: "설정안함", link:""},
         {name: "블랙", link:"black"},
         {name: "네이비", link:"navy"},
@@ -256,7 +255,22 @@ const CSLi = () => {
             {name:"겨울용", link:"winter"}]}]);
     }
 
+    const Language = () => {
+        setList([...list,{name: "언어", option:[{name: "한국어", link: "korean"},
+        {name: "영어", link: "english"},
+        {name: "일본어", link: "japanese"},
+        {name: "중국어", link: "chinese"},
+        {name: "독일어", link: "german"},
+        {name: "프랑스어", link: "french"},
+        {name: "스페인어", link: "spanish"},
+        {name: "이탈리어어", link: "italian"},
+        {name: "러시아어", link: "russian"}]}]);
+    }
+
     useEffect(()=>{
+        Color();
+        Season();
+        Language();
     },[]);
 
     const onChange = (e) => {
@@ -267,18 +281,39 @@ const CSLi = () => {
         });
       };
 
+    const RegistOption = ({item}) => {
 
-    function allowDrop(e){
-        console.log("drag");
-     }
-        
-    function drag(e){
-        
+        const Option = ({lists}) => {
+            const itemList = lists.map(
+                item => (
+                <option>
+                {item.name}
+                </option> 
+                )
+            )
+            return itemList;
+        }
+    
+        return(
+                <S.RegistDetail>
+                <S.DetailSpan>{item.name}</S.DetailSpan>
+                <S.DetailSelect>
+                    <Option lists={item.option}/>
+                </S.DetailSelect>  
+                </S.RegistDetail>
+        )
+    
+        //        <Option lists={item.option}/>
+    
+    const List = ({lists, path}) => {
+        const itemList = lists.map(
+            item => (
+                <RegistOption item={item} name={item.name} option={item.option}/>
+            )
+        )
+        return itemList;  
     }
-        
-    function drop(e){
-        console.log("drop");
-     }
+}
 
     return(
         <S.R>
