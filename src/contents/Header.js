@@ -60,8 +60,17 @@ const Header = () => {
         console.log(ip.password);
     }
 
+    const Logout = () => {
+        localStorage.removeItem('user');
+        setLogined(false);
+    }
+
     useEffect(() => {
-        const d = JSON.parse(localStorage.getItem("user"));
+        const d = JSON.parse(localStorage.user);
+        if(d){
+            setIp({id: d.id , password: d.password});
+            Login();
+        }
         console.log(d);
       }, []);
 
@@ -101,7 +110,7 @@ const Header = () => {
                 <>                
                 <S.Link src={Profile} onClick={()=>history.replace(`/mypage`)}/>
                 <S.L>{name}님</S.L>
-                <S.LogOut onClick={()=>setLogined(false)}>로그아웃</S.LogOut>            
+                <S.LogOut onClick={()=>Logout()}>로그아웃</S.LogOut>            
                 </>
             :
             <>

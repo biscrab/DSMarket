@@ -8,6 +8,9 @@ const SignUpPage = () => {
     let history = useHistory();
 
     const SignUp = () => {
+        
+        console.log("user:"+user);
+
         if(user.id && user.password && user.name && user.phonenumber){
             alert("내용을 모두 입력해주세요");
             return;
@@ -25,7 +28,7 @@ const SignUpPage = () => {
                 setUser(response.data);
             });*/
 
-            localStorage.getItem("user", JSON.stringify(user));
+            localStorage.user = JSON.stringify(user);
 
             alert("등록이 완료되었습니다.");
             history.push('/');

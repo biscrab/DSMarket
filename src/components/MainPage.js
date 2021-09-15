@@ -10,19 +10,6 @@ import Item from '../contents/Item'
 import Banner from '../images/banner.png'
 
 const MainPage = () => {
-    const [i, setI] = useState(0);
-
-    useEffect(()=>{
-        const interval = setInterval(()=>{
-            if(i < 3){
-                setI(i + 1);
-            }
-            else{
-                setI(0);
-            }
-        }, 500);
-        return () => clearInterval(interval);
-    },[])
 
     let history = useHistory();
 

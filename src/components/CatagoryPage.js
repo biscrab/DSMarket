@@ -10,8 +10,6 @@ import D from '../images/d.jpg'
 import { useHistory } from 'react-router-dom';
 import Item from '../contents/Item'
 import queryString from 'query-string';
-import Page from '../contents/Page'
-import Catagory from '../contents/Catagory'
 import axios from 'axios';
 
 
@@ -167,7 +165,9 @@ const CategoryPage = () => {
         {id: 1, name: "상품1", price: 5, star: 3, img: C, brand: "a", sell: 200, catagory: 2, review: 100},
         {id: 1, name: "상품1", price: 6, star: 4, img: D, brand: "a", sell: 300, catagory: 3, review: 100},
         {id: 1, name: "상품1", price: 190, star: 5, img: B, brand: "a", sell: 400, catagory: 1, review: 100},
-        {id: 1, name: "상품1", price: 18, star: 6, img: B, brand: "a", sell: 500, catagory: 1, review: 100}
+        {id: 1, name: "상품1", price: 18, star: 6, img: B, brand: "a", sell: 500, catagory: 1, review: 100},
+        {id: 1, name: "상품1", price: 18, star: 6, img: B, brand: "a", sell: 500, catagory: 1, review: 100},
+        {id: 1, name: "상품1", price: 18, star: 6, img: B, brand: "a", sell: 500, catagory: 1, review: 100},
     ]);
     
 
@@ -179,21 +179,20 @@ const CategoryPage = () => {
 
     const query = queryString.parse(location.search);
 
-    const [a, setA] = useState("");
-
     const changeLink = () => {
 
-        for(const property in catagory){
+        let a = ""
 
-            console.log(`?${property}=${catagory[property]}`);
-
-            if(catagory[property]){
-                if(a){
-                    setA(a + `&${property}=${catagory[property]}`)
-                }else{
-                    setA(a + `?${property}=${catagory[property]}`)
-                }
+        if(catagory.p){
+            if(catagory.order){
+                a += `?p=${catagory.p}&order=${catagory.order}`
             }
+            else{
+                a += `?p=${catagory.p}`
+            }
+        }
+        else if(catagory.order){
+            a += `?order=${catagory.order}`
         }
 
         console.log("a:" + a);
@@ -204,73 +203,9 @@ const CategoryPage = () => {
         })
     }
 
-    const Select = ({item, path}) => {
-        
-            const [check, setCheck] = useState(false);
-    
-            useEffect(()=>{       
-                if(location.search.includes(item.link)){
-                    console.log(item.link);
-                    setCheck(-1);
-                }
-            },[]);
-
-            
-            const setLink = () => {
-                setCatagory({...catagory, [path]: item.link});
-                changeLink();
-            }
-
-            const Del = () => {
-                setCatagory({...catagory, [path]: ""});
-                changeLink();
-            }
-    
-            return(
-                <>
-                {check ?
-                <S.Box onClick={() => setLink()}>
-                    <div style={{position:"relative", top:"50%", transform:"translateY(-50%)"}}>
-                    <input type="checkbox" checked={check} style={{marginRight: "5px"}}></input><span>{item.name}</span>
-                    </div>
-                </S.Box>
-                :
-                <S.Box onClick={() => Del()}>
-                <div style={{position:"relative", top:"50%", transform:"translateY(-50%)"}}>
-                <input type="checkbox" checked={check} style={{marginRight: "5px"}}></input><span>{item.name}</span>
-                </div>
-                </S.Box>}
-                </>
-            );
-            
-            /*
-            {check ? 
-                <S.Box onClick={() => Del()}>
-                    <div style={{position:"relative", top:"50%", transform:"translateY(-50%)"}}>
-                    <input type="checkbox" checked={check} style={{marginRight: "5px"}}></input><span>{item.name}</span>
-                    </div>
-                </S.Box>
-                }
-            </> */
-    }
-
     const [d, setD] = useState({name: "", path: ""});
 
     const [c, setC] = useState([]);
-
-    const Cata = () => {
-        return(
-            <>
-            {c ?
-            <S.CatagoryDiv>
-                <S.CaTittle>{d.name}</S.CaTittle>
-                <Catagory lists={c}></Catagory>
-            </S.CatagoryDiv>:
-            <></>
-            }
-            </>
-        )
-    }
 
     const SetP = (n) => {
         var s = [];
@@ -684,6 +619,19 @@ const CategoryPage = () => {
         }
     }
 
+    useEffect(()=>{
+        changeLink();
+    },[catagory]);
+
+    const Page = ({item}) => {
+        
+        return(
+            <S.Pbutton onClick={()=>setCatagory({...catagory, p: item})} bkcolor={Number(query.p) === item ? "royalblue" : "white"} color={Number(query.p) === item ? "white" : "black"}>
+                {item}
+            </S.Pbutton>
+        )
+    }
+
     return(
         <>
         <S.OrderDiv>
@@ -729,224 +677,16 @@ const CategoryPage = () => {
             {query.p >= 2 ?
             <S.Pbutton onClick={()=>prev()}>{'<'}</S.Pbutton>
             : <S.Pbutton color="#eeeeee" onClick={()=>next()}>{'<'}</S.Pbutton>}
-            <Page lists={page}/>
+            {page.map(i => {
+                return(
+                <Page item={i}/>
+                );
+            })}
             <S.Pbutton>{'>'}</S.Pbutton>
         </S.Next>
+        <button onClick={()=>console.log(catagory)}></button>
         </>
     )
 }
 
 export default CategoryPage
-
-/*                {loading ? 
-                <S.LoadingDiv>
-                    <S.LoadingD>
-                    <div class="spinner-border text-secondary" style={{width: "4rem", height: "4rem"}} role="status">
-                    <span class="visually-hidden">Loading...</span>
-                    </div>
-                    <S.LoadingP>
-                        로딩중...
-                    </S.LoadingP>
-                    </S.LoadingD>
-                </S.LoadingDiv> 
-                : */
-
-    /*
-    const Star = () => {
-
-        return(
-            <S.CatagoryDiv>
-                <S.CaTittle>별점</S.CaTittle> 
-                <S.Box onClick={()=>setLink("star",1)}><div style={{display:"flex"}}><Sta star={4}/><span>4점 이상</span></div></S.Box>
-                <S.Box onClick={()=>setLink("star",2)}><div style={{display:"flex"}}><Sta star={3}/><span>3점 이상</span></div></S.Box>
-                <S.Box onClick={()=>setLink("star",3)}><div style={{display:"flex"}}><Sta star={2}/><span>2점 이상</span></div></S.Box>
-                <S.Box onClick={()=>setLink("star",4)}><div style={{display:"flex"}}><Sta star={1}/><span>1점 이상</span></div></S.Box>
-            </S.CatagoryDiv>
-        )
-    }*/
-
-        /*
-    const SetC = () => {
-
-        setCatagory([{name:"과일", link: 21},
-                    {name:"견과/건과", link: 22},
-                    {name:"채소", link: 23},
-                    {name:"쌀/잡곡", link: 24},
-                    {name:"축산/계란", link: 12},
-                    {name:"수산물/건어물", link: 13},
-                    {name:"생수/음료", link: 14},
-                    {name:"커피/원두/차", link: 15},
-                    {name:"과자/초콜릿/시리얼", link: 16},
-                    {name:"면/통조림/가공식품", link: 17},
-                    {name:"가루/조미료/오일", link: 18},
-                    {name:"장/소스/드레싱/식초", link: 19},
-                    {name:"유제품/아이스크림", link: 20},
-                    {name:"냉장/냉동/간편요리", link: 21},
-                    {name:"건강식품", link: 22}]);
-
-        setCatagory([{name: "사무용품 전문관", link: 1},
-                    {name: "미술/화방용품", link: 1},
-                    {name: "학용품/수업준비", link: 1},
-                    {name: "필기류", link: 1},
-                    {name: "노트/메모지", link: 1},
-                    {name: "다이어리/플래너", link: 1},
-                    {name: "바인더/파일", link: 1},
-                    {name: "파티/이벤트", link: 1},
-                    {name:"데코/포장용품", link: 1},
-                    {name:"카드/엽서/봉투", link: 1},
-                    {name:"앨범", link: 1},
-                    {name:"복사용품/라벨지", link: 1},
-                    {name:"보드/칠판/광고", link: 1}]);
-
-        setCatagory([{name: "유아/어린이", link: 1},
-                    {name: "소설/에세이/시", link: 1},
-                    {name:"초중고참고서", link: 1},
-                    {name: "가정 살림", link: 1},
-                    {name: "건강 취미", link: 1},
-                    {name: "경제 경영", link: 1},
-                    {name: "과학/공학", link: 1},
-                    {name: "국어/외국어/사전", link: 1},
-                    {name: "대학교재", link: 1},
-                    {name: "만화/라이트노벨", link: 1},
-                    {name: "사회 정치", link: 1},
-                    {name: "수험서/자격증", link: 1}])
-
-        setCatagory([{name:"신생아/영아완구" ,link: 1},
-                    {name:"로봇/작동완구" ,link: 1},
-                    {name:"역할놀이" ,link: 1},
-                    {name:"블록놀이" ,link: 1},
-                    {name:"인형" ,link: 1},
-                    {name:"물놀이/계절완구" ,link: 1},
-                    {name:"승용완구" ,link: 1},
-                    {name:"실내대형완구" ,link: 1},
-                    {name:"STEAM완구" ,link: 1},
-                    {name:"학습완구/교구" ,link: 1},
-                    {name:"보드게임" ,link: 1},
-                    {name:"RC완구/부품" ,link: 1},
-                    {name:"퍼즐/큐브/피젯토이" ,link: 1},
-                    {name:"프라모델" ,link: 1},
-                    {name:"피규어/다이캐스트" ,link: 1},
-                    {name:"콘솔/휴대용 게임기" ,link: 1},
-                    {name: "파티/마술용품" ,link: 1},
-                    {name: "DIY" ,link: 1},
-                    {name: "악기/음향기기" ,link: 1},
-                    {name: "원예/가드닝" ,link: 1},
-                    {name: "수집품" ,link: 1},
-                    {name: "키덜트샵", link: 1}]);
-
-                        const Caffein = () => {
-        const list = [{name:"카페인", link: "none"},{name: "무카페인", link: "caffein"}];
-        return(
-            <>
-            {c === 27 ?
-            <S.CatagoryDiv>
-                <S.CaTittle>카페인</S.CaTittle>
-                <Select lists={list}/>
-            </S.CatagoryDiv>:
-            <></>
-            }
-            </>
-        )
-    }
-
-    }
-    
-        const Flavor = () => {
-        const list = {}
-        return(
-            <S.CatagoryDiv>
-                <span></span>
-                <Select lists={list}/>
-            </S.CatagoryDiv>
-        )
-    }
-
-        
-    const Sugar = () => {
-        const list = {}
-        return(
-            <S.CatagoryDiv>
-                <span></span>
-                <Select lists={list}/>
-            </S.CatagoryDiv>
-        )
-
-            const Olganic = () => {
-        const list = [{name: "인증 있음"}];
-        return(
-            <>
-            {c >= 21 && c <= 24 ?
-            <S.CatagoryDiv>
-                <S.CaTittle>유기농/친환경 등</S.CaTittle>
-                <Select lists={list}></Select>
-            </S.CatagoryDiv> :
-            <></>
-            }
-            </>
-        )
-    }
-    }
-    
-        const Dilivery = () => {
-        const list = [{name:"로켓", i:R, link:"rocket"}, {name:"무료배송", i:P, link:"free"}]
-        const path = 'dilivery'
-        return(
-            <>
-            {c ?
-            <S.CatagoryDiv>
-                <S.CaTittle>배송</S.CaTittle>
-                <Select lists={list} path={path}></Select>
-            </S.CatagoryDiv> :
-            <></>
-            }
-            </>
-        );
-
-            const Oven = () => {
-        const list = [{name:"오븐 가능"}]
-        return(
-            <S.CatagoryDiv>
-                <S.CaTittle>오븐 가능 여부</S.CaTittle>
-                <Select lists={list}/>
-            </S.CatagoryDiv>
-        )
-    }
-
-    const Range = () => {
-        const list = {name:"전자 레인지 가능"}
-        return(
-            <>
-            {c ?
-            <S.CatagoryDiv>
-                <S.CaTittle>전자 레인지 가능 여부</S.CaTittle>
-                <Select lists={list}/>
-            </S.CatagoryDiv> :
-            <></>
-            }
-            </>
-        )
-    }
-
-        const [catagory, setCatagory] = useState({
-        color: query.color,
-        season: query.season,
-        size: query.size,
-        lowest: query.lowest,
-        highest: query.highest,
-        language: query.language,
-        p: query.p,
-        order: query.order,
-        search: query.search,
-        weight: query.weight,
-    });
-
-    }
-    
-            if(catagory.p === ""){
-            setCatagory({...catagory, p: 1});
-            changeLink();
-        }
-        console.log(query);
-        SetD(Number(params.catagory));
-    },[]);
-    */

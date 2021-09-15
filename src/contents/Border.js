@@ -90,7 +90,7 @@ const Border = ({h, value}) => {
 
     useEffect(()=>{
         set();
-    })
+    });
 
     return(
         <>

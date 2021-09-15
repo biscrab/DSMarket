@@ -59,7 +59,6 @@ export const Search = styled.input`
 `
 
 export const M = styled.div`
-    padding-bottom: 70px;
 `
 
 export const Link = styled.img`
@@ -88,7 +87,7 @@ export const BannerImage = styled.img`
 `
 
 export const BestItem = styled.div`
-    height: 600px;
+    height: 900px;
     background-color: rgba(1, 1, 1, 0.01);
 `
 
@@ -246,7 +245,7 @@ export const ItemImg = styled.img`
 
 export const Image = styled.img`
     width: 100%;
-    height: 500px;
+    height: 550px;
     border-radius: 10px;
     background-color: whitesmoke;
 `
@@ -480,17 +479,6 @@ export const BestDiv = styled.div`
 export const Cli = styled.li`
     margin-right: 15px;
     color: ${props => props.color}
-`
-
-export const CatagoryDiv = styled.div`
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    margin-left: 10px;
-    margin-right: 10px;
-    width: 160px;
-    height: auto;
-    border-bottom: 1px solid #eeeeee;
 `
 
 export const DileveryTime = styled.p`
@@ -747,13 +735,15 @@ export const LogOut = styled.button`
     border: 1px solid #cccccc;
     color: gray;
     height: 25px;
-    margin: 10px;
+    margin: 0px;
+    top: 10px;
 `
 
 export const CTittle = styled.h3`
     color: gray;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    position: relative;
+    top: 20px;
+    margin-bottom: 35px;
 `
 
 export const LoginBackground = styled.div`
@@ -888,11 +878,6 @@ export const Ca = styled.div`
     height: 1000px;
 `
 
-export const CaTittle = styled.span`
-    color: gray;
-    padding-top: 10px;
-    padding-bottom: 5px;
-`
 export const PriceInput = styled.input`
     width: 40px;
     height: 25px;
@@ -1483,6 +1468,7 @@ export const PaymentButton = styled.button`
 export const CatagoryDivLi = styled.li`
     width: 100%;
     font-size: 17px;
+    text-align: center;
     color: gray;
     padding: 5px;
 `
@@ -1517,7 +1503,7 @@ export const CommentH = styled.h2`
 
 export const Item = styled.div`
     padding-bottom: 50px;
-    width: 700px;
+    width: 750px;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
