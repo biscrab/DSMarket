@@ -1,0 +1,414 @@
+    /*
+    const Color = () => {
+        const list = [{name: "블랙", link:"black"}, 
+                    {name: "네이비", link:"navy"}, 
+                    {name: "그레이", link:"gray"}, 
+                    {name: "실버", link:"sliver"}, 
+                    {name: "레드", link:"red"}, 
+                    {name: "오렌지", link:"orange"},
+                    {name: "옐로우", link:"yellow"}, 
+                    {name: "그린", link:"green"}, 
+                    {name: "블루", link:"blue"}, 
+                    {name: "퍼플", link:"purple"}, 
+                    {name: "핑크", link:"pink"}, 
+                    {name: "화이트", link:"white"}, 
+                    {name: "브라운", link:"brown"}, 
+                    {name: "골드", link:"gold"}, 
+                    {name: "베이지", link:"beiege"}, 
+                    {name: "혼합", link:"mixed"}, 
+                    {name: "투명", link:"limpidity"}
+    ];
+
+        const path = "color";
+
+        const [clist, setClist] = useState(list.slice(0, 5));
+        return(
+            <>
+            {ca <= 6 ? 
+            <S.CatagoryDiv>
+                <S.CaTittle>색상</S.CaTittle>
+                    {clist.map(item =>{
+                        var a = <Select item={item} name={item.name} link={item.link} path={path}></Select>;
+                        return a;
+                    })}
+                {list.length > 6 && clist.length <= 6 ? <S.More onClick={() => setClist([...list])}>+더보기</S.More> : <S.More onClick={() => setClist(list.slice(0, 5))}>-닫기</S.More>}
+            </S.CatagoryDiv>
+            :<></>
+            }
+            </>
+        )
+
+    }
+   
+    const Season = () => {
+        const list = [{name:"사계절용", link:"four"}, {name:"봄/가을용", link:"spfa"}, {name:"여름용", link: "summer"}, {name:"겨울용", link:"winter"}];
+        const path = "season"
+        return(
+            <>
+            {ca <= 6 ? 
+            <S.CatagoryDiv>
+                <S.CaTittle>사용계절</S.CaTittle>
+                {list.map(item =>{
+                        var a = <Select item={item} name={item.name} link={item.link} path={path}></Select>;
+                        return a;
+                    })}
+            </S.CatagoryDiv>
+            : <></>
+            }
+            </>
+        )
+    }
+    
+    const Size = () => {
+        const list = [{name:"XS", link:"XS"},
+                      {name:"S", link:"S"},
+                      {name:"M", link:"M"},
+                      {name:"L", link:"L"},
+                      {name:"XL", link:"XL"},
+                      {name:"2XL", link:"2XL"},
+                      {name:"3XL", link:"3XL"},
+                      {name:"FREE (One Size)", link:"FREE"}];
+        const path = "size"
+        return(
+            <>
+            {ca <= 6 ?
+            <S.CatagoryDiv>
+                <S.CaTittle>사이즈</S.CaTittle>
+                {list.map(item =>{
+                        var a = <Select item={item} name={item.name} link={item.link} path={path}></Select>;
+                        return a;
+                    })}
+            </S.CatagoryDiv>
+            :<></>
+            }
+            </>
+        )
+    }
+
+    const Price = () => {   
+
+        const [price, setPrice] = useState({lowest: "", highest: ""});
+
+        const changePrice = () => {
+
+        }
+
+        return(
+            <S.CatagoryDiv>
+                <S.CaTittle>가격</S.CaTittle>
+                <S.Box onClick={()=>setCatagory({...catagory, highest: "", lowest: 7000})}>7천원 이하</S.Box>
+                <S.Box onClick={()=>setCatagory({...catagory, highest: 7000, lowest: 14000})}>7천원~1만 4천원</S.Box>
+                <S.Box onClick={()=>setCatagory({...catagory, highest: 14000, lowest: 28000})}>1만 4천원~2만 8천원</S.Box>
+                <S.Box onClick={()=>setCatagory({...catagory, highest: 28000, lowest: ""})}>2만 8천원 이상</S.Box>
+                <S.PriceDiv>
+                <S.PriceInput onChange={(e)=>setPrice({...price, lowest: e.target.value})} value={price.lowest}></S.PriceInput>~
+                <S.PriceInput onChange={(e)=>setPrice({...price, highest: e.target.value})} value={price.highest}></S.PriceInput>원
+                <S.PriceButton onClick={()=>setCatagory({...catagory, highest: price.highest, lowest: price.lowest})}>검색</S.PriceButton>
+                </S.PriceDiv>
+            </S.CatagoryDiv>
+        )
+    }
+    
+    const Language = () => {
+        const list = [{name: "한국어", link: "korean"},
+                    {name: "영어", link: "english"},
+                    {name: "일본어", link: "japanese"},
+                    {name: "중국어", link: "chinese"},
+                    {name: "독일어", link: "german"},
+                    {name: "프랑스어", link: "french"},
+                    {name: "스페인어", link: "spanish"},
+                    {name: "이탈리어어", link: "italian"},
+                    {name: "러시아어", link: "russian"}];
+        const path = "language";
+        return(
+            <>
+            {ca === 112 === 116 || ca === 117 || ca === 125 ?  
+            <S.CatagoryDiv>
+                <S.CaTittle>언어</S.CaTittle>
+                {list.map(item =>{
+                        var a = <Select item={item} name={item.name} link={item.link} path={path}></Select>;
+                        return a;
+                })}
+            </S.CatagoryDiv>:
+            <></>
+            }
+            </>
+        )
+    }
+    
+    const ShapeOfBook = () => {
+        const list = [{name:"양장"},{name:"반양장"},{name:"페이퍼북"},{name:"보드북"},{name:"문고판"},{name:"큰글씨"},{name:"오디오북"}];
+        return(
+            <>
+            {ca >= 114 && ca <= 130 ?
+            <S.CatagoryDiv>
+                <span>도서형태</span>
+                <Select lists={list}/>
+            </S.CatagoryDiv> :
+            <></>
+            }
+            </>
+        )
+    }
+        
+    const Compatible = () => {
+        const list = {}
+        return(
+            <S.CatagoryDiv>
+                <span></span>
+                <Select lists={list}/>
+            </S.CatagoryDiv>
+        )
+    }
+
+        
+    const Weight = () => {
+        const list = {}
+        return(
+            <S.CatagoryDiv>
+                <span></span>
+                <Select lists={list}/>
+            </S.CatagoryDiv>
+        )
+    }
+
+        
+    const CMetarial = () => {
+        const path = "metarial"
+        const list = [{name:"면", link:"cotton"},
+                      {name:"가죽", link:"leather"},
+                      {name:"인조가죽", link:"leatherette"},
+                      {name:"나일론", link:"nylon"},
+                      {name:"아크릴", link:"acryl"},
+                      {name:"폴리에스터", link:"polyester"},
+                      {name:"니트", link:"neat"}]
+        return(
+            <S.CatagoryDiv>
+                <S.CaTittle>소재</S.CaTittle>
+                {list.map(item =>{
+                        var a = <Select item={item} name={item.name} link={item.link} path={path}></Select>;
+                        return a;
+                })}
+            </S.CatagoryDiv>
+        )
+    }
+
+    const DSize = () => {
+        const list = [{name:"소형견", link:"small"},{name:"중형견", link:"middle"},{name:"대형견", link:"big"},{name:"전체", link:"all"}];
+        const path="size"
+        return(
+            <>
+            {ca === 132?
+            <S.CatagoryDiv>
+                <S.CaTittle>대상크기</S.CaTittle>
+                {list.map(item =>{
+                        var a = <Select item={item} name={item.name} link={item.link} path={path}></Select>;
+                        return a;
+                })}
+            </S.CatagoryDiv>
+            :<></>
+            }
+            </>
+        )
+    }
+
+    const Rawmaterial = () => {
+
+    }
+
+    const Lid = () => {
+        return(
+            <S.CatagoryDiv>
+                <S.CTittle></S.CTittle>
+                <Select lists={list}/>
+            </S.CatagoryDiv>
+        )
+    }
+
+        
+    const Shape = () => {
+        const list = [{name: "원형", link: "circle"},{name: "티원형", link: "oval"},{name: "정사각형", link: "square"},{name: "직사각형", link: "rectangle"},{name: "다각형", link: "polygon"}];
+        const path = "shape"
+        return(
+            <S.CatagoryDiv>
+                <S.CaTittle>형태</S.CaTittle>
+                {list.map(item =>{
+                        var a = <Select item={item} name={item.name} link={item.link} path={path}></Select>;
+                        return a;
+                })}
+            </S.CatagoryDiv>
+        )
+    }
+
+        
+    const Kind = () => {//종류
+        const list = {}
+        return(
+            <S.CatagoryDiv>
+                <span></span>
+                <Select lists={list}/>
+            </S.CatagoryDiv>
+        )
+    }
+
+        
+    const Configuration = () => {
+        const list = {}
+        return(
+            <S.CatagoryDiv>
+                <span></span>
+                <Select lists={list}/>
+            </S.CatagoryDiv>
+        )
+    }
+
+    const Diameter = () => {//지름
+        const list = {}
+        return(
+            <S.CatagoryDiv>
+                <span></span>
+                <Select lists={list}/>
+            </S.CatagoryDiv>
+        )
+    }
+
+        
+    const Induction = () => {
+        const list = {}
+        return(
+            <S.CatagoryDiv>
+                <span></span>
+                <Select lists={list}/>
+            </S.CatagoryDiv>
+        )
+    }
+
+        
+    const Antibacterial = () => { //향균
+        const list = {}
+        return(
+            <S.CatagoryDiv>
+                <span></span>
+                <Select lists={list}/>
+            </S.CatagoryDiv>
+        )
+    }
+
+    const Function = () => {
+        const list = {}
+        return(
+            <S.CatagoryDiv>
+                <span>기능</span>
+                <Select lists={list}/>
+            </S.CatagoryDiv>
+        )
+    }
+    
+    const Direction = () => {
+        const list = {}
+        return(
+            <S.CatagoryDiv>
+                <span></span>
+                <Select lists={list}/>
+            </S.CatagoryDiv>
+        )
+    }
+
+    const Subject = () => {
+        const list = [{name: "국어", link: "korean"},
+        {name: "수학", link: "math"},
+        {name: "영어", link: "english"},
+        {name: "사회", link: "social"},
+        {name: "역사", link: "history"},
+        {name: "과학", link: "science"},
+        {name: "한자/한문", link: "chinesecaracter"},
+        {name: "예체능", link: "artandphysical"},
+        {name: "제2외국어", link: "secondforeignlanguage"},
+        {name: "논술/작문", link: "essaywriting"},
+        {name: "전과목", link: "all"}];
+        return(
+            <>
+            {c === 118?
+            <S.CatagoryDiv>
+                <S.CaTittle>과목</S.CaTittle>
+                <Select lists={list}></Select>
+            </S.CatagoryDiv> :
+            <></>
+            }
+            </>
+        )
+    }
+
+    const useGrade = () => {
+        const list = [{name: "초등1학년" , link: ""},{name: "초등2학년" , link: ""},{name: "초등3학년", link: ""},{name: "초등4학년", link: ""},{name: "초등5학년"},{name: "초등6학년"},{name: "중등1학년"},{name: "중등2학년"},{name: "중등3학년"},{name: "고등학생"}];
+        return(
+            <>
+            {c === 118 ?
+            <S.CatagoryDiv>
+                <S.CaTittle>사용학년</S.CaTittle>
+                <Select lists={list}></Select>
+            </S.CatagoryDiv> :
+            <></>
+            }
+            </>
+        )
+    }
+
+    const KindofLanguageTest = () => {
+        const list = [{name: "TOEIC", link: ""},{name: "TEPS", link: ""},{name: "TOFLE", link: ""},{name: "NEAT", link: ""},{name: "TOSEL", link: ""},{name: "SAT", link: ""},{name: "GRE", link: ""},{name: "G-TELP", link: ""},{name: "IELTS", link: ""},{name: "PELT", link: ""},{name: "OPIc", link: ""},{name: "JLPT", link: ""},{name: "HSK", link: ""},{name: "한자능력검정", link: ""}];
+        return(
+            <>
+            {c === 123 ?
+            <S.CatagoryDiv>
+                <S.CaTittle>어학시험 종류</S.CaTittle>
+                <Select lists={list}></Select>
+            </S.CatagoryDiv> :
+            <></>
+            }
+            </>
+        )
+    }*/
+
+        /*
+    const Color = () => {
+        setList([...list, {name: "색상", option: 
+        [{name: "설정안함", link:""},
+        {name: "블랙", link:"black"},
+        {name: "네이비", link:"navy"},
+        {name: "그레이", link:"gray"},
+        {name: "실버", link:"sliver"},
+        {name: "레드", link:"red"},
+        {name: "오렌지", link:"orange"},
+        {name: "옐로우", link:"yellow"},
+        {name: "그린", link:"green"},
+        {name: "블루", link:"blue"},
+        {name: "퍼플", link:"purple"},
+        {name: "핑크", link:"pink"},
+        {name: "화이트", link:"white"},
+        {name: "브라운", link:"brown"},
+        {name: "골드", link:"gold"},
+        {name: "베이지", link:"beiege"},
+        {name: "혼합", link:"mixed"},
+        {name: "투명", link:"limpidity"}]}]);
+    }
+
+    const Season = () => {
+        setList([...list,{name:"계절", option:[
+            {name:"설정안함", link:""},
+            {name:"사계절용", link:"four"},
+            {name:"봄/가을용", link:"spfa"},
+            {name:"여름용", link: "summer"},
+            {name:"겨울용", link:"winter"}]}]);
+    }
+
+    const Language = () => {
+        setList([...list,{name: "언어", option:[{name: "한국어", link: "korean"},
+        {name: "영어", link: "english"},
+        {name: "일본어", link: "japanese"},
+        {name: "중국어", link: "chinese"},
+        {name: "독일어", link: "german"},
+        {name: "프랑스어", link: "french"},
+        {name: "스페인어", link: "spanish"},
+        {name: "이탈리어어", link: "italian"},
+        {name: "러시아어", link: "russian"}]}]);
+    }*/

@@ -688,6 +688,7 @@ export const Max = styled.div`
 export const R = styled.div`
     display: flex;
     justify-content: center;
+    padding-top: 20px;
     padding-bottom: 100px;
 `
 export const ImgDiv = styled.div`
