@@ -7,9 +7,9 @@ import D from '../images/d.jpg'
 import Border from '../contents/Border'
 import { useHistory } from 'react-router-dom'
 import Item from '../contents/Item'
+import Banner from '../images/banner.png'
 
 const MainPage = () => {
-    var arr=[A, B, C, D];
     const [i, setI] = useState(0);
 
     useEffect(()=>{
@@ -45,7 +45,7 @@ const MainPage = () => {
     return(
         <>
             <S.MainBanner>
-                <S.BannerImage src={arr[i]}></S.BannerImage>
+                <S.BannerImage src={Banner}></S.BannerImage>
                 <S.CTDiv onMouseEnter={()=>setHover(true)} onMouseLeave={()=>setHover(false)}>
                 <S.CDiv>
                     <S.TotalCategory onClick={() => history.push('/catagory')}>전체 카테고리</S.TotalCategory>

@@ -10,7 +10,7 @@ const Select = ({item}) => {
         <S.RDiv>
             <S.RImg src={item.img} onClick={()=>history.push(`/item/${item.id}`)}/>
             <S.Rp>{item.name}</S.Rp>
-            <S.Rprice>{item.price}</S.Rprice>
+            <S.Rprice>{item.price}원</S.Rprice>
         </S.RDiv>
     );
 }

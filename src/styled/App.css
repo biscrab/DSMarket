@@ -10,3 +10,7 @@ body{
   -webkit-user-select: none;
   user-select: none;
 }
+
+p{
+  font-family: 'Nanum Gothic', sans-serif;
+}

@@ -161,18 +161,20 @@ export const CSelect = styled.div`
 `
 
 export const CBox = styled.div`
-    width: 950px;
+    width: 1000px;
     height: 1500px;
     margin-left: 40px;
 `
 
-export const SearchH = styled.h3`
+export const SearchH = styled.h5`
     color: royalblue;
 `
 
 export const C = styled.div`
     display: flex;
     justify-content: center;
+    position: relative;
+    top: 20px;
 `
 
 export const ItemBox = styled.li`
@@ -196,15 +198,19 @@ export const Page = styled.div`
 `
 
 export const Order = styled.ul`
+    position: relative;
+    top: 20px;
     padding: 10px;
     background-color: whitesmoke;
-    margin-bottom: 30px;
     height: 45px;
+    margin: 0;
     list-style: none;
     display: flex;
 `
 
 export const Border = styled.div`
+    position: relative;
+    top: 20px;
     padding: 0;
     list-style: none;
     display: flex;
@@ -215,8 +221,9 @@ export const Border = styled.div`
 export const LoadingDiv = styled.div`
     display: flex;
     justify-content: center;
-    position: relative;
-    top: 20%;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
 `
 
 export const LoadingD = styled.div`
@@ -236,8 +243,15 @@ export const ItemImg = styled.img`
 export const Image = styled.img`
     width: 100%;
     height: 500px;
-    border-radius: 2%;
+    border-radius: 10px;
     background-color: whitesmoke;
+`
+
+export const Heart = styled.div`
+    position: relative;
+    bottom: 40px;
+    left: 605px;
+    color: white;
 `
 
 export const Info = styled.div`
@@ -276,6 +290,8 @@ export const DText = styled.p`
 `
 export const Related = styled.div`
     margin: 0px;
+    position: relative;
+    top: 20px;
     height: 600px;
 `
 
@@ -485,6 +501,7 @@ export const RelatedDiv = styled.div`
 
 export const RDiv = styled.div`
     width: 200px;
+    margin: 25px;
     margin-bottom: 40px;
 `
 
@@ -1184,7 +1201,7 @@ export const SignSpan = styled.span`
 
 export const OrderSpan = styled.span`
     position: relative;
-    left: 300px;
+    left: 270px;
     font-size: 16px;
     padding: 10px;
 
@@ -1306,10 +1323,12 @@ export const EI = styled.div`
 export const Rp = styled.p`
     margin: 0;
     width: 100%;
-    font-size: 18px;
+    padding: 5px 0px;
+    font-size: 16px;
 `
 export const Rprice = styled.p`
-    font-size: 17px;
+    font-size: 15px;
+    font-style: bold;
     margin: 0;
 `
 
@@ -1471,24 +1490,20 @@ export const CommentH = styled.h2`
 
 export const Item = styled.div`
     padding-bottom: 50px;
-    width: 650px;
+    width: 700px;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
 `
 
 export const CatagoryH = styled.h3`
-    margin-top: 20px;
-    margin-bottom: 20px;
+    position: relative;
+    top: 5px;
     :hover{
         color: royalblue;
         text-decoration: underline;
     }
 `
-
-export const ItemPrice = styled.h4`
-    margin: 0;
-` 
 
 export const OrderItemDiv = styled.li`
     background-color: white;
@@ -1523,6 +1538,14 @@ export const IUSer = styled.div`
     height: 65px;
     border-bottom: 2px solid #eeeeee;
     margin-bottom: 20px;  
+`
+
+export const IExplane = styled.div`
+    border-bottom: 2px solid #eeeeee;
+`
+
+export const ItemPrice = styled.p`
+    font-size: 20px;
 `
 
 export const Profile = styled.img`

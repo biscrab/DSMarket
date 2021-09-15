@@ -11,6 +11,14 @@ import Profile from '../images/profile.png'
 
 const ItemPge = () => {
 
+    const [item, setItem] = useState({
+        id: "",
+        img: [],
+        name: "이름",
+        price: 5000,
+        explane: "ㅁㄴㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ"
+    })
+
     const list = [{id: 1, img: A, price: 100, name: 1 ,catagory: 1},
     {id: 2, img: B, price: 100, name: 1, catagory: 1},
     {id: 3, img: C, price: 100, name: 1, catagory: 1},
@@ -18,35 +26,13 @@ const ItemPge = () => {
     {id: 5, img: E, price: 100, name: 1,catagory: 1},
     {id: 5, img: E, price: 100, name: 1,catagory: 1},
 ];
-
+    
+    const [heart, setHeart] = useState(false);
     const [more, setMore] = useState(false);
     const img = [A, B, C, D, E];
     const [imgN, setImgN] = useState(0);
 
     let i = useRef();
-
-    /*            <S.IBorder>
-                <S.Image src={img[imgN]}></S.Image>
-                <S.Info>
-                    <S.ATop>
-                        <S.ADiv> 
-                        <S.AProfile src={Profile}></S.AProfile>
-                        </S.ADiv> 
-                    <S.ADiv>
-                        <p>제품</p>
-                        <span classADiv="star-rating"></span>
-                        <S.PText>10,000원</S.PText>
-                    </S.ADiv>
-                    <S.ADiv>
-                        <S.DileveryTime>8/30일</S.DileveryTime>
-                    </S.ADiv>
-                    </S.ATop>                
-                    <S.ButtonDiv>
-                        <S.Bucket>장바구니</S.Bucket>                     
-                        <S.Buy>구매하기</S.Buy>
-                    </S.ButtonDiv>
-                </S.Info>
-            </S.IBorder> */
 
             const change = (n) => {
                 setImgN(imgN + n);
@@ -69,7 +55,6 @@ const ItemPge = () => {
   <div class="carousel-inner">
     <div class="carousel-item active">
       <S.Image ref={i} class="d-block w-100" alt="..." />
-      <i class="far fa-heart"></i>
     </div>
   </div>
   <button onClick={()=>change(-1)} class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
@@ -85,6 +70,11 @@ const ItemPge = () => {
     <S.Profile src={Profile}></S.Profile>
     <S.ProfileSpan>유저</S.ProfileSpan>
 </S.IUSer>
+<S.IExplane>
+    <h3>{item.name}</h3>
+    <S.ItemPrice>{item.price}원</S.ItemPrice>
+    <p>{item.explane}</p>
+</S.IExplane>
     
         <S.Related>
             <S.RelatedH>관련 상품</S.RelatedH>
@@ -147,3 +137,27 @@ const ItemPge = () => {
 }
 
 export default ItemPge;
+
+
+    /*            <S.IBorder>
+                <S.Image src={img[imgN]}></S.Image>
+                <S.Info>
+                    <S.ATop>
+                        <S.ADiv> 
+                        <S.AProfile src={Profile}></S.AProfile>
+                        </S.ADiv> 
+                    <S.ADiv>
+                        <p>제품</p>
+                        <span classADiv="star-rating"></span>
+                        <S.PText>10,000원</S.PText>
+                    </S.ADiv>
+                    <S.ADiv>
+                        <S.DileveryTime>8/30일</S.DileveryTime>
+                    </S.ADiv>
+                    </S.ATop>                
+                    <S.ButtonDiv>
+                        <S.Bucket>장바구니</S.Bucket>                     
+                        <S.Buy>구매하기</S.Buy>
+                    </S.ButtonDiv>
+                </S.Info>
+            </S.IBorder> */

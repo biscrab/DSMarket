@@ -1,7 +1,7 @@
 import React from 'react'
 import queryString from 'query-string'
 import { useHistory, useLocation, useParams } from 'react-router-dom'
-import * as S from '../styled/App'
+import * as S from '../src/styled/App'
 
 const Item = ({item, lists}) => {
 

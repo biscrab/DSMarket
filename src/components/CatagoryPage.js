@@ -13,6 +13,7 @@ import queryString from 'query-string';
 import Page from '../contents/Page'
 import Catagory from '../contents/Catagory'
 import SetPath from '../contents/SetPath';
+import axios from 'axios';
 
 
 /*
@@ -147,16 +148,16 @@ const CategoryPage = () => {
     const location = useLocation();
 
     const [list, setList] = useState([
-        {id: 1, name: "1", price: 100, star: 1, img: A, brand: "samsung", sell: 50, catagory: 1, review: 100},
-        {id: 1, name: "1", price: 10, star: 2, img: B, brand: "a", sell: 100 ,catagory: 1, review: 100},
-        {id: 1, name: "1", price: 5, star: 3, img: C, brand: "a", sell: 200, catagory: 2, review: 100},
-        {id: 1, name: "1", price: 6, star: 4, img: D, brand: "a", sell: 300, catagory: 3, review: 100},
-        {id: 1, name: "1", price: 190, star: 5, img: B, brand: "a", sell: 400, catagory: 1, review: 100},
-        {id: 1, name: "1", price: 18, star: 6, img: B, brand: "a", sell: 500, catagory: 1, review: 100},
-        {id: 1, name: "1", price: 5, star: 3, img: C, brand: "a", sell: 200, catagory: 2, review: 100},
-        {id: 1, name: "1", price: 6, star: 4, img: D, brand: "a", sell: 300, catagory: 3, review: 100},
-        {id: 1, name: "1", price: 190, star: 5, img: B, brand: "a", sell: 400, catagory: 1, review: 100},
-        {id: 1, name: "1", price: 18, star: 6, img: B, brand: "a", sell: 500, catagory: 1, review: 100}
+        {id: 1, name: "상품1", price: 100, star: 1, img: A, brand: "samsung", sell: 50, catagory: 1, review: 100},
+        {id: 1, name: "상품1", price: 10, star: 2, img: B, brand: "a", sell: 100 ,catagory: 1, review: 100},
+        {id: 1, name: "상품1", price: 5, star: 3, img: C, brand: "a", sell: 200, catagory: 2, review: 100},
+        {id: 1, name: "상품1", price: 6, star: 4, img: D, brand: "a", sell: 300, catagory: 3, review: 100},
+        {id: 1, name: "상품1", price: 190, star: 5, img: B, brand: "a", sell: 400, catagory: 1, review: 100},
+        {id: 1, name: "상품1", price: 18, star: 6, img: B, brand: "a", sell: 500, catagory: 1, review: 100},
+        {id: 1, name: "상품1", price: 5, star: 3, img: C, brand: "a", sell: 200, catagory: 2, review: 100},
+        {id: 1, name: "상품1", price: 6, star: 4, img: D, brand: "a", sell: 300, catagory: 3, review: 100},
+        {id: 1, name: "상품1", price: 190, star: 5, img: B, brand: "a", sell: 400, catagory: 1, review: 100},
+        {id: 1, name: "상품1", price: 18, star: 6, img: B, brand: "a", sell: 500, catagory: 1, review: 100}
     ]);
     
 
@@ -167,19 +168,6 @@ const CategoryPage = () => {
     const[page, setPage] = useState([1,2,3]);
 
     const query = queryString.parse(location.search);
-    
-    const [catagory, setCatagory] = useState({
-        color: query.color,
-        season: query.season,
-        size: query.size,
-        lowest: query.lowest,
-        highest: query.highest,
-        language: query.language,
-        p: query.p,
-        order: query.order,
-        search: query.search,
-        weight: query.weight,
-    });
 
     const [a, setA] = useState("");
 
@@ -588,25 +576,22 @@ const CategoryPage = () => {
     }
 
     const [ca, sCa] = useState(Number(params.catagory));    
-    const [loading , setLoading] = useState(true);
+    const [loading , setLoading] = useState(false);
 
     useEffect(()=>{
         SetP(params.catagory);
         sCa(Number(params.catagory));
         console.log(query);
         setO(1);
+        SetD(params.catagory);
         /*
         axios.get('백엔드 url')
             .then(response => {
                 setList(response.data);
             });*/
 
-        if(catagory.p === ""){
-            setCatagory({...catagory, p: 1});
-            changeLink();
-        }
-        console.log(query);
-        SetD(Number(params.catagory));
+        const data = axios.get('https://www.everdevel.com/ReactJS/axios/myDeviceData.json');
+        console.log('data is ' + JSON.stringify(data));
     },[]);
 
     const SetPage = () => {
@@ -638,6 +623,44 @@ const CategoryPage = () => {
         }
     }
 
+    const [catagory, setCatagory] = useState({
+        p: query.p,
+        order: query.order,
+    });
+
+    const [path, setPath] = useState(true);
+    const [tpath, setTpath] = useState(false);
+
+    const SETP = () => {
+        console.log(1);
+        if(path === true){
+            setPath(false);
+        }
+        else{
+            setPath(true);
+        }
+    }
+
+    const SetTpath = () => {
+        if(tpath === true){
+            setTpath(false);
+        }
+        else{
+            setTpath(true);
+        }
+    }
+
+                    /*{<SetPath /> ?
+                <h2><SetPath /></h2>
+                :
+                <>
+                {d.name ?
+                <h2>{d.name}</h2>
+                :
+                <h2>카테고리</h2>}
+                </>
+                }*/
+
     return(
         <>
         <S.OrderDiv>
@@ -651,7 +674,8 @@ const CategoryPage = () => {
             <S.CBox>
                 {query.search ?
                 <S.SearchH>'{query.search}'에 대한 검색결과</S.SearchH> : <></> }
-                {<SetPath/> === "" ? <S.CatagoryH><SetPath/></S.CatagoryH> : <S.CatagoryH>{d.name}</S.CatagoryH>}
+                {<SetPath/> ? <S.CatagoryH onClick={()=>SETP()}><SetPath/></S.CatagoryH> : <S.CatagoryH onClick={()=>SetTpath()}>{d.name}</S.CatagoryH>}
+                {path === true ? <button>1</button>: <></>}
                 <S.Order> 
                     <S.Cli color={catagory.order === "latest" ? "royalblue" : "black"} onClick={()=>setCatagory({...catagory, order:"latest"})}>최신순</S.Cli>
                     <S.Cli color={catagory.order === "old" ? "royalblue" : "black"} onClick={()=>setCatagory({...catagory, order:"old"})}>오래된순</S.Cli>
@@ -659,12 +683,25 @@ const CategoryPage = () => {
                     <S.Cli color={catagory.order === "highest" ? "royalblue" : "black"} onClick={()=>setCatagory({...catagory, order:"highest"})}>높은 가격순</S.Cli>
                 </S.Order>
                 <S.Border>
+                {loading ? 
+                <S.LoadingDiv>
+                    <S.LoadingD>
+                    <div class="spinner-border text-secondary" style={{width: "4rem", height: "4rem"}} role="status">
+                    <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <S.LoadingP>
+                        로딩중...
+                    </S.LoadingP>
+                    </S.LoadingD>
+                </S.LoadingDiv> :
+                <>
                 {list.length === 0 ?
                 <S.None>해당 하는 상품이 없습니다.</S.None>
                 :
                 <Item lists={list}/> 
                 } 
-                </S.Border>  
+                </>} 
+                </S.Border>
             </S.CBox>
         </S.C>
         <S.Next>
@@ -674,7 +711,6 @@ const CategoryPage = () => {
             <Page lists={page}/>
             <S.Pbutton>{'>'}</S.Pbutton>
         </S.Next>
-        <button onClick={()=>console.log(catagory)}>112</button>
         </>
     )
 }
@@ -870,4 +906,26 @@ export default CategoryPage
         )
     }
 
-    }*/
+        const [catagory, setCatagory] = useState({
+        color: query.color,
+        season: query.season,
+        size: query.size,
+        lowest: query.lowest,
+        highest: query.highest,
+        language: query.language,
+        p: query.p,
+        order: query.order,
+        search: query.search,
+        weight: query.weight,
+    });
+
+    }
+    
+            if(catagory.p === ""){
+            setCatagory({...catagory, p: 1});
+            changeLink();
+        }
+        console.log(query);
+        SetD(Number(params.catagory));
+    },[]);
+    */
