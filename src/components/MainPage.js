@@ -43,7 +43,7 @@ const MainPage = () => {
     ]);
 
     return(
-        <>
+        <S.M>
             <S.MainBanner>
                 <S.BannerImage src={Banner}></S.BannerImage>
                 <S.CTDiv onMouseEnter={()=>setHover(true)} onMouseLeave={()=>setHover(false)}>
@@ -68,7 +68,7 @@ const MainPage = () => {
                     <Item lists={list}/>
                 </S.BestDiv> 
             </S.BestItem>
-        </>
+        </S.M>
     );
     /*            <S.BestItem>
                 <S.Best>세일 중인 제품</S.Best>

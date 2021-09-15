@@ -36,7 +36,7 @@ export const Profile = styled.img`
 export const Div = styled.div`
     display: flex;
     flex-direction: column;
-    width: 700px;
+    width: 800px;
 `
 
 export const ItemDiv = styled.div`

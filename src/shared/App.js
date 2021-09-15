@@ -9,8 +9,8 @@ function App() {
   return(
     <>
     <Header />
-    <Route exact path="/" component={P.Main}/>
     <Switch>
+    <Route exact path="/" component={P.Main}/>
     <Route path="/catagory/:catagory" component={P.Catagory}/>
     <Route path="/catagory" component={P.Catagory}/>
     <Route path="/item" component={P.Item}/>

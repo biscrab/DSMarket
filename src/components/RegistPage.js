@@ -2,143 +2,6 @@ import React,{useState, useEffect} from 'react'
 import * as S from '../styled/App'
 import axios from 'axios';
 
-/*
-    1 패션의류/잡화
-        2 여성패션
-        3 남성패션
-        4 남녀 공용 의류
-        5 유아동패션
-    6 뷰티
-        7 명품뷰티
-        8 스킨케어
-        9 클렌징/필링
-        10 메이크업
-        11 향수
-        12 남성화장품
-        13 네일
-        14 뷰티소품
-        15 어린이화장품
-        16 로드샵
-        17 헤어
-        18 바디
-        19 선물세트/키트
-    20 식품
-        21 과일
-        22 견과/건과
-        23 채소
-        24 쌀/잡곡
-        25 축산/계란
-        26 수산물/건어물
-        27 음료
-        28 과자/시리얼
-        29 면/통조림/가공식품
-        30 가루/조미료/오일
-        31 장/소스/드레싱/식초
-        32 유제품/아이스크림
-        33 건강식품
-    34 주방용품
-        35 냄비/프라이팬
-        36 칼/도마
-        37 주방조리도구
-        38 그릇/홈세트
-        39 수저/커트러리
-        40 컵/잔/텀블러
-        41 밀폐저장/도시락
-        42 주방잡화
-        43 일회용품/종이컵
-        44 보온/보냉용품
-        45 이유/유아식기
-        46 베이킹용품
-        47 교자상/제수용품
-    48 생활용품
-        49 헤어/바디/세안
-        50 구강/면도
-        51 화장지/물티슈
-        52 생리대/성인기저귀
-        53 기저귀
-        54 세탁
-        55 청소용품
-        56 탈취/방향/살충
-        57 건강/의료용품
-        58 욕실 용품
-        59 생활전기용품
-        60 수납/정리
-        61 생활잡화
-    62 홈인테리어
-        63 홈데코
-        64 가구
-        65 수납/정리
-        66 침구
-        67 커튼/블라인드
-        68 카페트/쿠션/거실화
-        69 수예/수선
-        70 욕실용품
-        71 조명/스탠드
-        72 원예/가드닝
-    73 가전디지털
-        74 TV/영상가전
-        75 냉장고
-        76 세탁기/건조기
-        77 청소기
-        78 계절가전
-        79 이미용가전
-        80 건강가전
-        81 주방가전
-        82 노트북
-        83 데스크탑
-        84 저장장치
-        85 프린터/복합기
-        86 PC 부품/주변기기
-        87 휴대폰
-        88 태블릿PC
-        89 스마트워치/밴드
-        90 음향기기
-        91 게임콘솔
-        92 카메라
-        93 차량용 디지털
-    94 스포츠/레저
-        95 캠핑
-        96 홈트레이닝
-        97 수영/수상스포츠
-        98 골프
-        99 자전거
-        100 킥보드/스케이트
-        101 낚시
-        102 등산/아웃도어
-        103 스포츠신발
-        104 남성스포츠의류
-        105 여성스포츠의류
-        106 유아스포츠의류
-        107 스포츠잡화
-        108 구기스포츠
-        109 라켓스포츠
-        110 헬스/요가/댄스
-        111 복싱/검도/태권도
-        112 기타스포츠
-        113 스키/겨울스포츠
-    114 도서/음반/DVD
-        115 유아/어린이
-        116 소설/에세이/사
-        117 초중고참고서
-        118 가정 살림
-        119 건강 취미
-        110 경재 경영
-        111 과학/공학
-        112 국어/외국어/사전
-        123 대학교재
-        124 만화/라이트노벨
-        125 사회 정치
-        126 수험서/자격증
-        127 여행
-        128 역사
-        129 예술
-        130 인문
-    131 반려동물용품
-        132 강아지 사료/용품
-        133 고양이 사료 용품
-        134 관상어 용품
-        135 소동물/가축용품
-*/
 
 const RegistPage = () => {
 
@@ -151,33 +14,18 @@ const RegistPage = () => {
         price: "",
         image: [],
         catagory: "1",
-        option: {color: "", size: "", season: "", language: ""},
     });
 
-/*
-const CSLi = () => {
-    const Item = ({item}) => {
-
-        return(
-            <S.CSLi onClick={() => setItem}>{item}</S.CSLi>
-        );
-    }
-    
-    const List = ({lists}) => {
-        const itemList = lists.map(
-            item => (
-                <Item item={item}/>
-            )
-        )
-        return itemList;
-    }
-    
-    return List
-}*/
+    const baseURL = "안진우 url";
 
     const Regist = () => {
-        /*axios.post('/item', {
-        }*/
+        axios
+        .post(baseURL, {
+            item
+        })
+        .then((response) => {
+          setItem(response.data);
+        });
     }
 
     useEffect(()=>{
@@ -273,32 +121,6 @@ const CSLi = () => {
         });
       };
 
-      /*
-    const RegistOption = ({item}) => {
-
-        const Option = ({lists}) => {
-            const itemList = lists.map(
-                item => (
-                <option>
-                    {item.name}
-                </option> 
-                )
-            )
-            return itemList;
-        }
-    
-        return(
-                <S.RegistDetail>
-                <S.DetailSpan>{item.name}</S.DetailSpan>
-                <S.DetailSelect>
-                    <Option lists={item.option}/>
-                </S.DetailSelect>  
-                </S.RegistDetail>
-        )
-    
-        //        <Option lists={item.option}/>
-}*/
-
     const [c, setC] = useState();
 
     const changeCatagory = (link, name) => {
@@ -376,6 +198,53 @@ const CSLi = () => {
             </div>
         </S.R>
     )
+
+    /*
+const CSLi = () => {
+    const Item = ({item}) => {
+
+        return(
+            <S.CSLi onClick={() => setItem}>{item}</S.CSLi>
+        );
+    }
+    
+    const List = ({lists}) => {
+        const itemList = lists.map(
+            item => (
+                <Item item={item}/>
+            )
+        )
+        return itemList;
+    }
+    
+    return List
+}*/
+
+          /*
+    const RegistOption = ({item}) => {
+
+        const Option = ({lists}) => {
+            const itemList = lists.map(
+                item => (
+                <option>
+                    {item.name}
+                </option> 
+                )
+            )
+            return itemList;
+        }
+    
+        return(
+                <S.RegistDetail>
+                <S.DetailSpan>{item.name}</S.DetailSpan>
+                <S.DetailSelect>
+                    <Option lists={item.option}/>
+                </S.DetailSelect>  
+                </S.RegistDetail>
+        )
+    
+        //        <Option lists={item.option}/>
+}*/
 
     /*
 

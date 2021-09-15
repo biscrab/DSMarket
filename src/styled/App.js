@@ -58,6 +58,10 @@ export const Search = styled.input`
     padding: 0px 10px;
 `
 
+export const M = styled.div`
+    padding-bottom: 70px;
+`
+
 export const Link = styled.img`
     width: 45px;
     height: 45px;
@@ -1115,6 +1119,16 @@ export const OrderDiv = styled.div`
     align-items: center;
 `
 
+export const OrderDivD = styled.div`
+    height: 40px;
+    border-top: 1px solid #eeeeee;
+    border-bottom: 1px solid #eeeeee;
+    background-color: #eeeeee;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid lightgray;
+`
+
 export const CaDiv = styled.div`
     display: flex;
     flex-direction: column;
@@ -1202,6 +1216,16 @@ export const SignSpan = styled.span`
 export const OrderSpan = styled.span`
     position: relative;
     left: 270px;
+    font-size: 16px;
+    padding: 10px;
+
+    :hover{
+        color: royalblue;
+    }
+`
+
+export const OrderSpanD = styled.span`
+    position: relative;
     font-size: 16px;
     padding: 10px;
 
@@ -1323,10 +1347,13 @@ export const EI = styled.div`
 export const Rp = styled.p`
     margin: 0;
     width: 100%;
-    padding: 5px 0px;
+    position: relative;
+    top: 10px;
     font-size: 16px;
 `
 export const Rprice = styled.p`
+    position: relative;
+    top: 7px;
     font-size: 15px;
     font-style: bold;
     margin: 0;

@@ -13,13 +13,22 @@ const SignUpPage = () => {
             return;
         }
 
+        const baseURL = "안진우url";
+
         if(user.password === check){
             //axios.get('/안진우url')
             //만약 아이디가 있으면
             alert("중복되는 아이디 입니다.");
-            //axios.post('/안진우url')
+
+            /*
+            axios.get(`${baseURL}/`).then((response) => {
+                setUser(response.data);
+            });*/
+
+            localStorage.getItem("user", JSON.stringify(user));
+
             alert("등록이 완료되었습니다.");
-            history.push('/main');
+            history.push('/');
         }
         else{
             alert("비밀번호가 일치하지 않습니다.");

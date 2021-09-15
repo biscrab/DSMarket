@@ -1,4 +1,4 @@
-import React,{useState, useRef} from 'react'
+import React,{useState, useRef, useEffect, Component} from 'react'
 import { useHistory, useLocation} from 'react-router-dom'
 import * as S from '../styled/App'
 import Profile from '../images/profile.png'
@@ -25,8 +25,6 @@ const Header = () => {
         {name: "asd", id: "asd1", password: "a", age: 20},
         {name: "asd", id: "asd2", password: "a", age: 30},
     ])
-
-    const [cart, setCart] = useState(5);
 
     const SignUp = () => {
         setIp({id : "", password: ""});
@@ -61,6 +59,11 @@ const Header = () => {
         console.log(ip.id);
         console.log(ip.password);
     }
+
+    useEffect(() => {
+        const d = JSON.parse(localStorage.getItem("user"));
+        console.log(d);
+      }, []);
 
     return(
         <>

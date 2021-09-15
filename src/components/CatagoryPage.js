@@ -12,140 +12,150 @@ import Item from '../contents/Item'
 import queryString from 'query-string';
 import Page from '../contents/Page'
 import Catagory from '../contents/Catagory'
-import SetPath from '../contents/SetPath';
 import axios from 'axios';
 
 
-/*
-    1 패션의류/잡화
-        2 여성패션
-        3 남성패션
-        4 남녀 공용 의류
-        5 유아동패션
-    6 뷰티
-        7 명품뷰티
-        8 스킨케어
-        9 클렌징/필링
-        10 메이크업
-        11 향수
-        12 남성화장품
-        13 네일
-        14 뷰티소품
-        15 어린이화장품
-        16 로드샵
-        17 헤어
-        18 바디
-        19 선물세트/키트
-    20 주방용품
-        21 냄비/프라이팬
-        22 칼/도마
-        23 주방조리도구
-        24 그릇/홈세트
-        25 수저/커트러리
-        26 컵/잔/텀블러
-        27 밀폐저장/도시락
-        28 주방잡화
-        29 일회용품/종이컵
-        30 보온/보냉용품
-        31 이유/유아식기
-        32 베이킹용품
-        33 교자상/제수용품
-    34 생활용품
-        35 헤어/바디/세안
-        36 구강/면도
-        37 화장지/물티슈
-        38 생리대/성인기저귀
-        39 기저귀
-        40 세탁
-        41 청소용품
-        42 탈취/방향/살충
-        43 건강/의료용품
-        44 욕실 용품
-        45 생활전기용품
-        46 수납/정리
-        47 생활잡화
-    48 홈인테리어
-        49 홈데코
-        50 가구
-        51 수납/정리
-        52 침구
-        53 커튼/블라인드
-        54 카페트/쿠션/거실화
-        55 수예/수선
-        56 욕실용품
-        57 조명/스탠드
-        58 원예/가드닝
-    59 가전디지털
-        60 TV/영상가전
-        61 냉장고
-        62 세탁기/건조기
-        63 청소기
-        64 계절가전
-        65 이미용가전
-        66 건강가전
-        67 주방가전
-        68 노트북
-        69 데스크탑
-        70 저장장치
-        71 프린터/복합기
-        72 PC 부품/주변기기
-        73 휴대폰
-        74 태블릿PC
-        75 스마트워치/밴드
-        76 음향기기
-        77 게임콘솔
-        78 카메라
-        79 차량용 디지털
-    80 스포츠/레저
-        95 캠핑
-        96 홈트레이닝
-        97 수영/수상스포츠
-        98 골프
-        99 자전거
-        100 킥보드/스케이트
-        101 낚시
-        102 등산/아웃도어
-        103 스포츠신발
-        104 남성스포츠의류
-        105 여성스포츠의류
-        106 유아스포츠의류
-        107 스포츠잡화
-        108 구기스포츠
-        109 라켓스포츠
-        110 헬스/요가/댄스
-        111 복싱/검도/태권도
-        112 기타스포츠
-        113 스키/겨울스포츠
-    114 도서/음반/DVD
-        115 유아/어린이
-        116 소설/에세이/사
-        117 초중고참고서
-        118 가정 살림
-        119 건강 취미
-        110 경재 경영
-        111 과학/공학
-        112 국어/외국어/사전
-        123 대학교재
-        124 만화/라이트노벨
-        125 사회 정치
-        126 수험서/자격증
-        127 여행
-        128 역사
-        129 예술
-        130 인문
-    131 반려동물용품
-        132 강아지 사료/용품
-        133 고양이 사료/용품
-        134 관상어 용품
-        135 소동물/가축용품
-*/
+const CategoryPage = () => {    
 
-const CategoryPage = () => {
+    const cac = [
+        "여성패션",
+        "남성패션",
+        "남녀 공용 의류",
+        "유아동패션",
+        
+        "",
+        "명품뷰티",
+        "스킨케어",
+        "클렌징/필링",
+        "메이크업",
+        "향수",
+        "남성화장품",
+        "네일",
+        "뷰티소품",
+        "어린이화장품",
+        "로드샵",
+        "헤어",
+        "바디",
+        "선물세트/키트",
+        
+        "",
+        "냄비/프라이팬",
+        "칼/도마",
+        "주방조리도구",
+        "그릇/홈세트",
+        "수저/커트러리",
+        "컵/잔/텀블러",
+        "밀폐저장/도시락",
+        "주방잡화",
+        "일회용품/종이컵",
+        "보온/보냉용품",
+        "이유/유아식기",
+        "베이킹용품",
+        "교자상/제수용품",
+        
+        "",
+        "헤어/바디/세안",
+        "구강/면도",
+        "화장지/물티슈",
+        "생리대/성인기저귀",
+        "기저귀",
+        "세탁",
+        "청소용품",
+        "탈취/방향/살충",
+        "건강/의료용품",
+        "욕실 용품",
+        "생활전기용품",
+        "수납/정리",
+        "생활잡화",
+        
+        "",
+        "홈데코",
+        "가구",
+        "수납/정리",
+        "침구",
+        "커튼/블라인드",
+        "카페트/쿠션/거실화",
+        "수예/수선",
+        "욕실용품",
+        "조명/스탠드",
+        "원예/가드닝",
+        
+        "",
+        "TV/영상가전",
+        "냉장고",
+        "세탁기/건조기",
+        "청소기",
+        "계전가전",
+        "이미용가전",
+        "건강가전",
+        "주방가전",
+        "노트북",
+        "데스크탑",
+        "모니터",
+        "키보드 마우스",
+        "저장장치",
+        "프린터/복합기",
+        "PC 부품/주변기기",
+        "태블릿PC",
+        "스마트워치/밴드",
+        "음향기기",
+        "게임콘솔",
+        "카메라",
+        "차량용 디지털",
+        
+        "",
+        "캠핑",
+        "홈트레이닝",
+        "수영/수상스포츠",
+        "골프",
+        "자전거",
+        "킥보드/스케이트",
+        "낚시",
+        "등산/아웃도어",
+        "스포츠신발",
+        "남성스포츠의류",
+        "여성스포츠의류",
+        "유아스포츠의류",
+        "스포츠잡화",
+        "구기스포츠",
+        "라켓스포츠",
+        "헬스/요가/댄스",
+        
+        "",
+        "유아/어린이",
+        "소설/에세이/사",
+        "초중고참고서",
+        "가정 살림",
+        "건강 취미",
+        "경재 경영",
+        "과학/공학",
+        "국어/외국어/사전",
+        "대학교재",
+        "만화/라이트노벨",
+        "사회 정치",
+        "수험서/자격증",
+        "여행",
+        "역사",
+        "예술",
+        "인문",
+        
+        "",
+        "강아지 사료/용품",
+        "고양이 사료 용품",
+        "관상어 용품",
+        "소동물/가축용품",
+        ]
 
     let history = useHistory();
     const match = useRouteMatch();
     const params = useParams();
     const location = useLocation();
+    
+    let sp;
+
+    if(params.catagory){
+        sp = cac[Number(params.catagory)-1];
+    }
 
     const [list, setList] = useState([
         {id: 1, name: "상품1", price: 100, star: 1, img: A, brand: "samsung", sell: 50, catagory: 1, review: 100},
@@ -201,7 +211,7 @@ const CategoryPage = () => {
             useEffect(()=>{       
                 if(location.search.includes(item.link)){
                     console.log(item.link);
-                    setCheck(true);
+                    setCheck(-1);
                 }
             },[]);
 
@@ -583,7 +593,7 @@ const CategoryPage = () => {
         sCa(Number(params.catagory));
         console.log(query);
         setO(1);
-        SetD(params.catagory);
+        SetD(Number(params.catagory));
         /*
         axios.get('백엔드 url')
             .then(response => {
@@ -628,27 +638,7 @@ const CategoryPage = () => {
         order: query.order,
     });
 
-    const [path, setPath] = useState(true);
-    const [tpath, setTpath] = useState(false);
-
-    const SETP = () => {
-        console.log(1);
-        if(path === true){
-            setPath(false);
-        }
-        else{
-            setPath(true);
-        }
-    }
-
-    const SetTpath = () => {
-        if(tpath === true){
-            setTpath(false);
-        }
-        else{
-            setTpath(true);
-        }
-    }
+    const [path, setPath] = useState("");
 
                     /*{<SetPath /> ?
                 <h2><SetPath /></h2>
@@ -661,21 +651,52 @@ const CategoryPage = () => {
                 </>
                 }*/
 
+    const SETP = (n) => {
+        if(path !== n){
+            setPath(n);
+        }
+        else{
+            setPath("");
+        }
+    }
+
+    const SelectD = () => {
+        if(path === "a"){
+            return(
+                <S.OrderDivD>
+
+                </S.OrderDivD>
+            );
+        }
+        else if(path === "b"){
+            return(
+                <S.OrderDivD>
+                    {c.map(i =>{
+                        <S.OrderSpanD i={i} name={i.name} path={i.path} onClick={()=>history.push(`/${i.path}`)}>{i.name}</S.OrderSpanD>
+                    })}
+                </S.OrderDivD>
+            );
+        }
+        else if(path === ""){
+            return(
+                <></>
+            );
+        }
+    }
+
     return(
         <>
         <S.OrderDiv>
             <S.OrderSpan onClick={()=>history.push('/catagory')}>전체</S.OrderSpan>
-            <S.OrderSpan onClick={()=>history.push(`/catagory/${d.path}`)}>{d.name}</S.OrderSpan>
-            {params.catagory ?
-            <S.OrderSpan onClick={()=>history.push(`/catagory/${Number(params.catagory)}`)}><SetPath /></S.OrderSpan>
-            :<></>}
+            <S.OrderSpan onClick={()=>SETP("a")}>{d.name}</S.OrderSpan>
+            <S.OrderSpan onClick={()=>SETP("b")}>{sp}</S.OrderSpan>
         </S.OrderDiv>
+        <SelectD />
         <S.C>
             <S.CBox>
                 {query.search ?
                 <S.SearchH>'{query.search}'에 대한 검색결과</S.SearchH> : <></> }
-                {<SetPath/> ? <S.CatagoryH onClick={()=>SETP()}><SetPath/></S.CatagoryH> : <S.CatagoryH onClick={()=>SetTpath()}>{d.name}</S.CatagoryH>}
-                {path === true ? <button>1</button>: <></>}
+                {sp ? <S.CatagoryH>{sp}</S.CatagoryH> : <S.CatagoryH>{d.name}</S.CatagoryH>}
                 <S.Order> 
                     <S.Cli color={catagory.order === "latest" ? "royalblue" : "black"} onClick={()=>setCatagory({...catagory, order:"latest"})}>최신순</S.Cli>
                     <S.Cli color={catagory.order === "old" ? "royalblue" : "black"} onClick={()=>setCatagory({...catagory, order:"old"})}>오래된순</S.Cli>

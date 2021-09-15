@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useEffect, useState} from "react";
 import { useLocation, useHistory } from "react-router";
 import * as S from '../styled/MyPage'
 import Profile from '../images/profile.png'
@@ -71,6 +71,13 @@ const MyPage = () => {
             )
         }
     }
+
+    useEffect(()=>{
+        /*
+        axios.get(baseURL).then((response) => {
+            setPost(response.data);
+          });*/
+    },[]);
 
     return(
         <S.M>
