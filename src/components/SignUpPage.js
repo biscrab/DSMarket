@@ -19,7 +19,7 @@ const SignUpPage = () => {
             alert("중복되는 아이디 입니다.");
             //axios.post('/안진우url')
             alert("등록이 완료되었습니다.");
-            history.push('/');
+            history.push('/main');
         }
         else{
             alert("비밀번호가 일치하지 않습니다.");

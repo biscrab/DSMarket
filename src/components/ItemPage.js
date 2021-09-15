@@ -69,6 +69,7 @@ const ItemPge = () => {
   <div class="carousel-inner">
     <div class="carousel-item active">
       <S.Image ref={i} class="d-block w-100" alt="..." />
+      <i class="far fa-heart"></i>
     </div>
   </div>
   <button onClick={()=>change(-1)} class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">

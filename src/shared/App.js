@@ -17,6 +17,7 @@ function App() {
     <Route exact path="/regist" component={P.Regist}/>
     <Route exact path="/mypage" component={P.MyPage} />
     <Route exact path="/signup" component={P.SignUp} />
+    <Route path='*' exact={true} component={P.Unknown} />
     </Switch>
     </>
   );

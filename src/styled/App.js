@@ -485,8 +485,7 @@ export const RelatedDiv = styled.div`
 
 export const RDiv = styled.div`
     width: 200px;
-    color: gray;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 `
 
 export const RImg = styled.img`
@@ -1185,7 +1184,7 @@ export const SignSpan = styled.span`
 
 export const OrderSpan = styled.span`
     position: relative;
-    left: 170px;
+    left: 300px;
     font-size: 16px;
     padding: 10px;
 
@@ -1535,4 +1534,17 @@ export const ProfileSpan = styled.span`
     position: relative;
     left: 10px;
     font-size: 20px;
+`
+
+export const Unknown = styled.h1`
+    position: relative;
+    top: 50px;
+    font-size: 50px;
+    text-align: center;
+`
+
+export const Gohome = styled.h4`
+    position: relative;
+    top: 60px;
+    text-align: center;
 `
