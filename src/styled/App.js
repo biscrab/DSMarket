@@ -495,12 +495,41 @@ export const RDiv = styled.div`
     width: 200px;
     margin: 25px;
     margin-bottom: 40px;
+` 
+
+export const RImgDiv = styled.div`
+    height: 200px;
 `
 
 export const RImg = styled.img`
     height: 200px;
     width: 200px;
     border-radius: 5%;
+`
+
+export const SMY = styled.button`
+    background-color: white;
+    border: 0;
+    position: relative;
+    z-index: 1;
+    left: 165px;
+    bottom: 195px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    color: gray;
+`
+
+export const SelectMyUl = styled.ul`
+    border: 1px solid #eeeeee;
+    background-color: white;
+    list-style: none;
+    padding: 0;
+    z-index: 2;
+`
+
+export const SelectLi = styled.li`
+    border-bottom: 1px solid #eeeeee;
 `
 
 export const CheckBox = styled.input`
@@ -1517,10 +1546,6 @@ export const Item = styled.div`
 export const CatagoryH = styled.h3`
     position: relative;
     top: 5px;
-    :hover{
-        color: royalblue;
-        text-decoration: underline;
-    }
 `
 
 export const OrderItemDiv = styled.li`

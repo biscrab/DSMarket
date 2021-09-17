@@ -528,8 +528,11 @@ const CategoryPage = () => {
     const [loading , setLoading] = useState(false);
 
     useEffect(()=>{
-        if(catagory.p){
+        if(catagory.p === ""){
             setCatagory({...catagory, p: 1});
+        }
+        if(catagory.order === ""){
+            setCatagory({...catagory, order: "latest"});
         }     
     })
 
@@ -545,18 +548,19 @@ const CategoryPage = () => {
             .then(response => {
                 setList(response.data);
             });*/
+        SetMax();
 
         const data = axios.get('https://www.everdevel.com/ReactJS/axios/myDeviceData.json');
         console.log('data is ' + JSON.stringify(data));
     },[]);
 
     const SetPage = () => {
-        const page = Number(params.p);
-        if(page === 1){
+        const pa = Number(params.p);
+        if(pa === 1){
             setRlist(list.slice(0, 15));
         }
         else{
-            setRlist(list.slice(page * 15 + 1 , page * 15 + 16));
+            setRlist(list.slice(pa * 15 + 1 , pa * 15 + 16));
         }
         setList(rlist)
     }
@@ -613,7 +617,7 @@ const CategoryPage = () => {
             return(
                 <S.OrderDivD>
                     {cat.map(i => {
-                        <S.OrderSpanD i={i} name={i.name} path={i.path} onClick={()=>history.push(`/${i.path}`)}>{i.name}</S.OrderSpanD>
+                        <span i={i}>1</span>
                     })}     
                 </S.OrderDivD>
             );
@@ -647,6 +651,20 @@ const CategoryPage = () => {
             </S.Pbutton>
         )
     }
+
+    const SetMax = () => {
+        if(list.length === 16){
+            setMaxpage(1);
+        }
+        else if(list.length + 1 / 16 === 0){
+            setMaxpage(list.length + 1 / 16);
+        }
+        else{
+            setMaxpage(list.length / 16 + 1);
+        }
+    }
+
+    const [maxpage, setMaxpage] = useState();
 
     return(
         <S.CA>
@@ -698,12 +716,12 @@ const CategoryPage = () => {
                 <Page item={i}/>
                 );
             })}
-            {catagory.p < list.length/16 + 1 ?
+            {Number(catagory.p) < maxpage ?
                 <S.Pbutton onClick={()=>prev()} >{'>'}</S.Pbutton> 
                 : <S.Pbutton onClick={()=>prev()} color="#eeeeee">{'>'}</S.Pbutton>
             }
         </S.Next>
-        <button onClick={()=>console.log(catagory)}></button>
+        <button onClick={()=>console.log(catagory)}>{maxpage}</button>
         </S.CA>
     )
 }

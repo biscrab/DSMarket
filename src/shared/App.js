@@ -1,11 +1,18 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import * as P from '../pages'
-import {Route, Switch} from 'react-router-dom';
+import {Route, Switch, useLocation} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styled/App.css'
 import Header from '../contents/Header';
 
 function App() {
+
+  const {pathname} = useLocation();
+
+  useEffect(()=>{
+    document.querySelector('body').scrollTo(0,0);
+  },[pathname]);
+
   return(
     <>
     <Header />

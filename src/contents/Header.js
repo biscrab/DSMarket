@@ -32,16 +32,16 @@ const Header = () => {
         setLogin(false);
     }
 
-    const Login = () => {
-        if(ip.id === ""){
+    const Login = ({id, password}) => {
+        if(id === ""){
             alert("아이디를 입력해주세요");
         }   
-        else if(ip.password === ""){
+        else if(password === ""){
             alert("비밀번호를 입력해주세요");
         }
         else{
         function isTrue(element)  {
-            if(element.id === ip.id && element.password === ip.password)  {
+            if(element.id === id && element.password === password)  {
               return true;
             }
           }
@@ -72,15 +72,14 @@ const Header = () => {
         }
       }
 
-    /*
     useEffect(() => {
         const d = JSON.parse(localStorage.user);
-        if(d){
+        if(d.id&&d.password){
             Login({id: d.id , password: d.password});
         }
         console.log(d);
-    },[]);*/
-      
+    },[]);
+
     return(
         <>
         <S.Header>
@@ -137,7 +136,7 @@ const Header = () => {
                 <S.LoginInput onChange={(e)=>setIp({id: e.target.value, password: ip.password})} value={ip.id}/>
                 <S.LoginSpan>비밀번호</S.LoginSpan>
                 <S.LoginInput type="password" onChange={(e)=>setIp({id: ip.id, password: e.target.value})} value={ip.password}/>
-                <S.LoginButton color="royalblue" c="white" onClick={()=>Login()}>로그인</S.LoginButton>
+                <S.LoginButton color="royalblue" c="white" onClick={()=>Login({id: ip.id, password: ip.password})}>로그인</S.LoginButton>
                 <S.LoginButton c="black" onClick={()=>SignUp()}>회원가입</S.LoginButton>
             </S.LoginDiv>
         </S.LoginBackground>

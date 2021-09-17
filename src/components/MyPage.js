@@ -4,7 +4,7 @@ import * as S from '../styled/MyPage'
 import Profile from '../images/profile.png'
 import { Link } from "react-router-dom";
 import axios from "axios";
-import Item from '../contents/Item'
+import Item from '../contents/MyItem'
 import Review from '../contents/Review'
 import A from '../images/a.jpg'
 import B from '../images/b.jpg'
