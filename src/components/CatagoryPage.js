@@ -168,10 +168,14 @@ const CategoryPage = () => {
         {id: 1, name: "상품1", price: 18, star: 6, img: B, brand: "a", sell: 500, catagory: 1, review: 100},
         {id: 1, name: "상품1", price: 18, star: 6, img: B, brand: "a", sell: 500, catagory: 1, review: 100},
         {id: 1, name: "상품1", price: 18, star: 6, img: B, brand: "a", sell: 500, catagory: 1, review: 100},
+        {id: 1, name: "상품1", price: 190, star: 5, img: B, brand: "a", sell: 400, catagory: 1, review: 100},
+        {id: 1, name: "상품1", price: 18, star: 6, img: B, brand: "a", sell: 500, catagory: 1, review: 100},
+        {id: 1, name: "상품1", price: 18, star: 6, img: B, brand: "a", sell: 500, catagory: 1, review: 100},
+        {id: 1, name: "상품1", price: 18, star: 6, img: B, brand: "a", sell: 500, catagory: 1, review: 100},
     ]);
     
 
-    const [rlist, setRlist]=useState(...list);
+    const [rlist, setRlist]=useState(list);
     const [p, setP] = useState(location.search.slice(2, location.search.length));
     const [option, setOption] = useState(1);
     
@@ -290,8 +294,8 @@ const CategoryPage = () => {
         setList(s);
     }
 
-    const SetD = (cat) => {
-        if(cat>= 1 && cat<=5){
+    const SetD = (c ) => {
+        if(c >= 1 && c <=5){
             setD({name: "패션의류/잡화", path: 1});
             setC([{name: "여성패션" ,path: 2},
             {name:"남성패션", path: 3},
@@ -299,7 +303,7 @@ const CategoryPage = () => {
             {name:"유아동패션", path: 5}]);
 
         }
-        else if(cat>= 6 && cat<= 19){
+        else if(c >= 6 && c <= 19){
             setD({name: "뷰티", path: 6});
             setC([{name: "명품뷰티", path: 7},
             {name: "스킨케어", path: 8},
@@ -315,7 +319,7 @@ const CategoryPage = () => {
             {name: "바디", path: 18},
             {name: "선물세트/키트", path: 19}]);
         }
-        else if(cat>= 20 && cat <= 33){
+        else if(c >= 20 && c  <= 33){
             setD({name: "주방용품", path: 20});
             setC([
             {name:"냄비/프라이팬" ,path: 21},
@@ -332,7 +336,7 @@ const CategoryPage = () => {
             {name:"베이킹용품" ,path: 32},
             {name:"교자상/제수용품", path: 33}]);
         }
-        else if(cat>= 34 && cat<= 47){
+        else if(c >= 34 && c <= 47){
             setD({name: "생활용품", path: 34});
             setC([{name: "헤어/바디/세안", path: 35},
             {name: "구강/면도", path: 36},
@@ -348,7 +352,7 @@ const CategoryPage = () => {
             {name: "수납/정리", path: 46},
             {name: "생활잡화", path: 47},])
         }
-        else if(cat>= 48 && cat<= 58){
+        else if(c >= 48 && c <= 58){
             setD({name: "홈인테리어", path: 48 });
             setC([
             {path: 49, name: "홈데코"},
@@ -363,7 +367,7 @@ const CategoryPage = () => {
             {path: 58, name: "원예/가드닝"},
             ])
         }
-        else if(cat>= 59 && cat<= 78){
+        else if(c >= 59 && c <= 78){
             setD({name: "가전디지털", path: 59});
             setC([{name: "TV/영상가전" ,path: 60}, 
             {name:"냉장고" ,path: 61}, 
@@ -377,7 +381,7 @@ const CategoryPage = () => {
             {name:"데스크탑" ,path: 69}, 
             {name:"저장장치" ,path: 70}, 
             {name:"프린터/복합기" ,path: 71}, 
-            {name:"Pcat부품/주변기기" ,path: 72},
+            {name:"PC부품/주변기기" ,path: 72},
             {name:"휴대폰" ,path: 73},
             {name:"태블릿PC" ,path: 88}, 
             {name:"스마트워치/밴드" ,path: 74},
@@ -386,7 +390,7 @@ const CategoryPage = () => {
             {name:"카메라" ,path: 77}, 
             {name:"차량용 디지털" ,path: 78}]);
         }
-        else if(cat>= 79 && cat<= 99){
+        else if(c >= 79 && c <= 99){
             setD({name: "스포츠/레저", path: 79});
             setC([{name: "캠핑" ,path: 80},
             {name:"홈트레이닝" ,path: 81},
@@ -409,7 +413,7 @@ const CategoryPage = () => {
             {name:"기타스포츠" ,path: 98},
             {name:"스키/겨울스포츠", path: 99}]);
         }
-        else if(cat>= 100 && cat<= 116){
+        else if(c >= 100 && c <= 116){
             setD({name: "도서/음반/DVD", path: 100});
             setC([{name: "유아/어린이", path: 101},
             {name: "소설/에세이/시", path: 102},
@@ -429,7 +433,7 @@ const CategoryPage = () => {
             {name: "인문", path: 116},
         ])
         }
-        else if(cat>= 116 && cat<= 117){
+        else if(c >= 116 && c <= 117){
             setD({name: "반려동물용품", path: 118});
             setC([{name: "강아지 사료/용품" , path: 119}, 
             {name: "고양이 사료/용품",path: 120}, 
@@ -524,11 +528,18 @@ const CategoryPage = () => {
     const [loading , setLoading] = useState(false);
 
     useEffect(()=>{
-        SetP(params.catagory);
+        if(catagory.p){
+            setCatagory({...catagory, p: 1});
+        }     
+    })
+
+    useEffect(()=>{
+        //SetP(params.catagory);
         sCa(Number(params.catagory));
         console.log(query);
         setO(1);
-        SetD(Number(params.catagory));
+        SetD(Number(params.catagory));   
+        SetPage();
         /*
         axios.get('백엔드 url')
             .then(response => {
@@ -540,19 +551,19 @@ const CategoryPage = () => {
     },[]);
 
     const SetPage = () => {
-        var pageN = (list.length / 16);
-        if(params.p === 1){
+        const page = Number(params.p);
+        if(page === 1){
             setRlist(list.slice(0, 15));
         }
         else{
-            setRlist(list.slice(params.p * 15 + 1 , params.p *15 + 16));
+            setRlist(list.slice(page * 15 + 1 , page * 15 + 16));
         }
-        setList()
+        setList(rlist)
     }
 
     const prev = () => {
-        if(query.p >= 11){
-            setCatagory({...catagory, p: Number(query.p)-10});
+        if(catagory.p >= 11){
+            setCatagory({...catagory, p: catagory.p-10});
         }
         else{
             setCatagory({...catagory, p: 1})
@@ -560,11 +571,11 @@ const CategoryPage = () => {
     }
 
     const next = () => {
-        if(query.p + 10 >= list.length-1){
+        if(catagory.p + 10 >= list.length-1){
             setCatagory({...catagory, p: list.length-1});
         }
         else{
-            setCatagory({...catagory, p: Number(query.p) + 10});
+            setCatagory({...catagory, p: catagory.p + 10});
         }
     }
 
@@ -595,18 +606,22 @@ const CategoryPage = () => {
         }
     }
 
+    const cat = [{name: "패션의류/잡화", path: 1},{name: "뷰티", path: 6},{name: "주방용품", path: 20},{name: "생횔용품", path: 34},{name: "홈인테리어", path: 48},{name: "가전디지털", path: 59},{name: "스포츠 레저", path: 80},{name: "도서/음반/DVD", path: 100},{name: "반려동물용품", path: 117}];
+
     const SelectD = () => {
         if(path === "a"){
             return(
                 <S.OrderDivD>
-
+                    {cat.map(i => {
+                        <S.OrderSpanD i={i} name={i.name} path={i.path} onClick={()=>history.push(`/${i.path}`)}>{i.name}</S.OrderSpanD>
+                    })}     
                 </S.OrderDivD>
             );
         }
         else if(path === "b"){
             return(
                 <S.OrderDivD>
-                    {c.map(i =>{
+                    {c.map(i => {
                         <S.OrderSpanD i={i} name={i.name} path={i.path} onClick={()=>history.push(`/${i.path}`)}>{i.name}</S.OrderSpanD>
                     })}
                 </S.OrderDivD>
@@ -621,6 +636,7 @@ const CategoryPage = () => {
 
     useEffect(()=>{
         changeLink();
+        setO();
     },[catagory]);
 
     const Page = ({item}) => {
@@ -633,11 +649,11 @@ const CategoryPage = () => {
     }
 
     return(
-        <>
+        <S.CA>
         <S.OrderDiv>
-            <S.OrderSpan onClick={()=>history.push('/catagory')}>전체</S.OrderSpan>
-            <S.OrderSpan onClick={()=>SETP("a")}>{d.name}</S.OrderSpan>
-            <S.OrderSpan onClick={()=>SETP("b")}>{sp}</S.OrderSpan>
+            <S.OrderSpan onClick={()=>SETP("a")}>전체</S.OrderSpan>
+            <S.OrderSpan onClick={()=>SETP("b")}>{d.name}</S.OrderSpan>
+            <S.OrderSpan>{sp}</S.OrderSpan>
         </S.OrderDiv>
         <SelectD />
         <S.C>
@@ -674,18 +690,21 @@ const CategoryPage = () => {
             </S.CBox>
         </S.C>
         <S.Next>
-            {query.p >= 2 ?
+            {catagory.p >= 2 ?
             <S.Pbutton onClick={()=>prev()}>{'<'}</S.Pbutton>
-            : <S.Pbutton color="#eeeeee" onClick={()=>next()}>{'<'}</S.Pbutton>}
+            : <S.Pbutton onClick={()=>prev()} color="#eeeeee">{'<'}</S.Pbutton>}
             {page.map(i => {
                 return(
                 <Page item={i}/>
                 );
             })}
-            <S.Pbutton>{'>'}</S.Pbutton>
+            {catagory.p < list.length/16 + 1 ?
+                <S.Pbutton onClick={()=>prev()} >{'>'}</S.Pbutton> 
+                : <S.Pbutton onClick={()=>prev()} color="#eeeeee">{'>'}</S.Pbutton>
+            }
         </S.Next>
         <button onClick={()=>console.log(catagory)}></button>
-        </>
+        </S.CA>
     )
 }
 

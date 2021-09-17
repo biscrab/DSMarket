@@ -34,10 +34,10 @@ const Header = () => {
 
     const Login = () => {
         if(ip.id === ""){
-
-        }
+            alert("아이디를 입력해주세요");
+        }   
         else if(ip.password === ""){
-
+            alert("비밀번호를 입력해주세요");
         }
         else{
         function isTrue(element)  {
@@ -50,6 +50,7 @@ const Header = () => {
                 setName(a.name);
                 setLogined(true);
                 setLogin(false);
+                localStorage.user = JSON.stringify(ip);
             }
             else{
                 alert("아이디나 비밀번호가 틀렸습니다.");
@@ -65,15 +66,21 @@ const Header = () => {
         setLogined(false);
     }
 
+      const handleKeyPress = e => {
+        if(e.key === 'Enter') {
+            console.log("key");
+        }
+      }
+
+    /*
     useEffect(() => {
         const d = JSON.parse(localStorage.user);
         if(d){
-            setIp({id: d.id , password: d.password});
-            Login();
+            Login({id: d.id , password: d.password});
         }
         console.log(d);
-      }, []);
-
+    },[]);*/
+      
     return(
         <>
         <S.Header>
@@ -101,7 +108,7 @@ const Header = () => {
                     : <></>}
                </S.SDiv> 
                <div>
-               <i class="fa fa-search fa-lg" style={{color: "gray"}}></i>
+               <i class="fa fa-search fa-lg" style={{color: "gray"}} onKeyPress={(e) => handleKeyPress(e)}></i>
                </div>
             </S.SBox>
 
@@ -134,7 +141,8 @@ const Header = () => {
                 <S.LoginButton c="black" onClick={()=>SignUp()}>회원가입</S.LoginButton>
             </S.LoginDiv>
         </S.LoginBackground>
-        : <></>}            
+        : <></>}
+        <p>{ip.id}</p>        
         </>
     )
 }

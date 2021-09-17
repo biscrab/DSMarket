@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import * as S from '../styled/App';
 import axios from 'axios';
 import { useHistory } from 'react-router';
+import { useTheme } from 'styled-components';
 
 const SignUpPage = () => {
 
@@ -28,7 +29,7 @@ const SignUpPage = () => {
                 setUser(response.data);
             });*/
 
-            localStorage.user = JSON.stringify(user);
+            localStorage.user = JSON.stringify({id: user.id, password: user.password});
 
             alert("등록이 완료되었습니다.");
             history.push('/');

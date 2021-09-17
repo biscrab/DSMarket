@@ -165,7 +165,7 @@ export const CSelect = styled.div`
 
 export const CBox = styled.div`
     width: 1000px;
-    height: 1500px;
+    height: auto;
     margin-left: 40px;
 `
 
@@ -301,7 +301,7 @@ export const Related = styled.div`
 export const RelatedH = styled.h3`
     color: gray;
     position: relative;
-    margin-bottom: 20px;
+    margin: 0;
 `
 
 export const Detail = styled.div`
@@ -705,7 +705,8 @@ export const ImgDiv = styled.div`
     border: 1px solid #eeeeee;
 `
 export const Next = styled.div`
-    margin-top: 50px;
+    position: relative;
+    top: 50px;
     display: flex;
     justify-content: center;
     width: 100%;
@@ -1093,6 +1094,10 @@ export const Bill = styled.div`
     border-bottom: 1px solid #eeeeee;
     display: flex;
     flex-direction: column;
+`
+
+export const CA = styled.div`
+    padding-bottom: 100px;
 `
 
 export const OrderDiv = styled.div`
@@ -1558,7 +1563,11 @@ export const IExplane = styled.div`
 `
 
 export const ItemPrice = styled.p`
-    font-size: 20px;
+    font-size: 18px;
+`
+
+export const Gray = styled.p`
+    color: gray;
 `
 
 export const Profile = styled.img`

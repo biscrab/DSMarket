@@ -16,7 +16,8 @@ const ItemPge = () => {
         img: [],
         name: "이름",
         price: 5000,
-        explane: "ㅁㄴㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ"
+        explane: "ㅁㄴㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ",
+        adress: "",
     })
 
     const list = [{id: 1, img: A, price: 100, name: 1 ,catagory: 1},
@@ -71,9 +72,10 @@ const ItemPge = () => {
     <S.ProfileSpan>유저</S.ProfileSpan>
 </S.IUSer>
 <S.IExplane>
-    <h3>{item.name}</h3>
+    <h4>{item.name}</h4>
     <S.ItemPrice>{item.price}원</S.ItemPrice>
     <p>{item.explane}</p>
+    <S.Gray>연락처: </S.Gray>
 </S.IExplane>
     
         <S.Related>
