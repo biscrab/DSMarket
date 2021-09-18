@@ -493,7 +493,8 @@ export const RelatedDiv = styled.div`
 
 export const RDiv = styled.div`
     width: 200px;
-    margin: 25px;
+    height: 250px;
+    margin: 23px;
     margin-bottom: 40px;
 ` 
 
@@ -519,17 +520,22 @@ export const SMY = styled.button`
     border-radius: 50%;
     color: gray;
 `
-
 export const SelectMyUl = styled.ul`
     border: 1px solid #eeeeee;
     background-color: white;
     list-style: none;
-    padding: 0;
+    padding: 0px 10px;
+    width: 100px;
+    position: relative;
+    left: 175px;
+    bottom: 190px;
     z-index: 2;
 `
 
 export const SelectLi = styled.li`
     border-bottom: 1px solid #eeeeee;
+    background-color: white;
+    color: ${props => props.color};
 `
 
 export const CheckBox = styled.input`
@@ -1367,7 +1373,7 @@ export const Rp = styled.p`
     margin: 0;
     width: 100%;
     position: relative;
-    top: 10px;
+    top: 5px;
     font-size: 16px;
 `
 export const Rprice = styled.p`

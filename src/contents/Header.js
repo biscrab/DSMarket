@@ -50,7 +50,7 @@ const Header = () => {
                 setName(a.name);
                 setLogined(true);
                 setLogin(false);
-                localStorage.user = JSON.stringify(ip);
+                localStorage.user = JSON.stringify({id: id, password: password});
             }
             else{
                 alert("아이디나 비밀번호가 틀렸습니다.");
@@ -83,7 +83,6 @@ const Header = () => {
     return(
         <>
         <S.Header>
-
             <S.HDiv>  
             <S.LogoImg src={Logo} onClick={()=>history.push('/')}></S.LogoImg>
             <S.Logo onClick={() => history.replace('/')}>DS마켓</S.Logo>
@@ -140,8 +139,7 @@ const Header = () => {
                 <S.LoginButton c="black" onClick={()=>SignUp()}>회원가입</S.LoginButton>
             </S.LoginDiv>
         </S.LoginBackground>
-        : <></>}
-        <p>{ip.id}</p>        
+        : <></>}    
         </>
     )
 }

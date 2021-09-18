@@ -528,27 +528,27 @@ const CategoryPage = () => {
     const [loading , setLoading] = useState(false);
 
     useEffect(()=>{
-        if(catagory.p === ""){
-            setCatagory({...catagory, p: 1});
-        }
-        if(catagory.order === ""){
-            setCatagory({...catagory, order: "latest"});
-        }     
-    })
-
-    useEffect(()=>{
         //SetP(params.catagory);
         sCa(Number(params.catagory));
         console.log(query);
         setO(1);
         SetD(Number(params.catagory));   
         SetPage();
+        if(catagory.p === ""){
+            setCatagory({...catagory, p: 1});        
+            changeLink();
+        }
+        if(catagory.order === ""){
+            setCatagory({...catagory, order: "latest"});
+            setO();
+        }
+
+            
         /*
         axios.get('백엔드 url')
             .then(response => {
                 setList(response.data);
             });*/
-        SetMax();
 
         const data = axios.get('https://www.everdevel.com/ReactJS/axios/myDeviceData.json');
         console.log('data is ' + JSON.stringify(data));
@@ -652,20 +652,6 @@ const CategoryPage = () => {
         )
     }
 
-    const SetMax = () => {
-        if(list.length === 16){
-            setMaxpage(1);
-        }
-        else if(list.length + 1 / 16 === 0){
-            setMaxpage(list.length + 1 / 16);
-        }
-        else{
-            setMaxpage(list.length / 16 + 1);
-        }
-    }
-
-    const [maxpage, setMaxpage] = useState();
-
     return(
         <S.CA>
         <S.OrderDiv>
@@ -716,12 +702,12 @@ const CategoryPage = () => {
                 <Page item={i}/>
                 );
             })}
-            {Number(catagory.p) < maxpage ?
+            {Number(catagory.p) < rlist.length ?
                 <S.Pbutton onClick={()=>prev()} >{'>'}</S.Pbutton> 
                 : <S.Pbutton onClick={()=>prev()} color="#eeeeee">{'>'}</S.Pbutton>
             }
         </S.Next>
-        <button onClick={()=>console.log(catagory)}>{maxpage}</button>
+        <button onClick={()=>console.log(catagory)}>test</button>
         </S.CA>
     )
 }
