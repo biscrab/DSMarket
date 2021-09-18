@@ -1,9 +1,12 @@
 import React,{useState, useEffect} from 'react'
 import * as S from '../styled/App'
 import axios from 'axios';
+import { useHistory } from 'react-router';
 
 
 const RegistPage = () => {
+
+    let history = useHistory();
 
     const [upload, setUpload] = useState(false);
     const [repre, setRepre] = useState(1);
@@ -111,6 +114,13 @@ const RegistPage = () => {
     const [tittle, setTittle] = useState("");
 
     useEffect(()=>{
+        if(localStorage.id&&localStorage.password){
+            
+        }
+        else{
+            alert("로그인을 먼저 해주세요.");
+            history.push('/');
+        }
     },[]);
 
     const onChange = (e) => {

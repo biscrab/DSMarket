@@ -502,9 +502,10 @@ export const RelatedDiv = styled.div`
 
 export const RDiv = styled.div`
     width: 200px;
-    height: 250px;
+    height: 270px;
     margin: 23px;
     margin-bottom: 40px;
+    border: 2px solid #eeeeee;
 ` 
 
 export const RImgDiv = styled.div`
@@ -761,13 +762,13 @@ export const LR = styled.div`
     position: relative;
     background-color: white;
     border-bottom: 1px solid #eeeeee;
-    height: 45px;
+    height: 35px;
 `
 
 export const LD = styled.div`
     position: relative;
-    top: 10px;
-    left: 1050px;
+    top: 5px;
+    left: 1055px;
 `
 
 export const Head = styled.div`
@@ -1399,13 +1400,15 @@ export const Rp = styled.p`
     position: relative;
     top: 5px;
     font-size: 16px;
+    padding: 0px 5px;
 `
 export const Rprice = styled.p`
     position: relative;
-    top: 7px;
+    top: 10px;
     font-size: 15px;
-    font-style: bold;
+    text-decoration: bold;
     margin: 0;
+    padding: 0px 5px;
 `
 
 export const Sel = styled.select`

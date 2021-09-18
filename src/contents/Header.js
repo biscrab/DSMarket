@@ -76,6 +76,7 @@ const Header = () => {
         /*
         const d = JSON.parse(localStorage.user);
         if(d.id&&d.password){
+            console.log("log");
             Login({id: d.id , password: d.password});
         }
         console.log(d);*/
