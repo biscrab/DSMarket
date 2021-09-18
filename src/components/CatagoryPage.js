@@ -534,14 +534,14 @@ const CategoryPage = () => {
         setO(1);
         SetD(Number(params.catagory));   
         SetPage();
-        if(catagory.p === ""){
+        
+        if(catagory.p === undefined){
             setCatagory({...catagory, p: 1});        
-            changeLink();
         }
-        if(catagory.order === ""){
+        if(catagory.order === undefined){
             setCatagory({...catagory, order: "latest"});
-            setO();
         }
+        console.log(catagory);
 
             
         /*
@@ -703,8 +703,8 @@ const CategoryPage = () => {
                 );
             })}
             {Number(catagory.p) < rlist.length ?
-                <S.Pbutton onClick={()=>prev()} >{'>'}</S.Pbutton> 
-                : <S.Pbutton onClick={()=>prev()} color="#eeeeee">{'>'}</S.Pbutton>
+                <S.Pbutton onClick={()=>next()} >{'>'}</S.Pbutton> 
+                : <S.Pbutton onClick={()=>next()} color="#eeeeee">{'>'}</S.Pbutton>
             }
         </S.Next>
         <button onClick={()=>console.log(catagory)}>test</button>

@@ -73,15 +73,31 @@ const Header = () => {
       }
 
     useEffect(() => {
+        /*
         const d = JSON.parse(localStorage.user);
         if(d.id&&d.password){
             Login({id: d.id , password: d.password});
         }
-        console.log(d);
+        console.log(d);*/
     },[]);
 
     return(
-        <>
+        <S.Head>
+        <S.LR>
+            <S.LD>
+            {logined ?
+                <>                
+                <S.L>{name}님</S.L>
+                <S.LogOut onClick={()=>Logout()}>로그아웃</S.LogOut>            
+                </>
+            :
+            <>
+            <S.L onClick={()=>setLogin(true)}>로그인</S.L>
+            <S.L onClick={()=>history.replace('/signup')}>회원가입</S.L>
+            </>
+            }
+            </S.LD>
+        </S.LR>
         <S.Header>
             <S.HDiv>  
             <S.LogoImg src={Logo} onClick={()=>history.push('/')}></S.LogoImg>
@@ -109,23 +125,9 @@ const Header = () => {
                <i class="fa fa-search fa-lg" style={{color: "gray"}} onKeyPress={(e) => handleKeyPress(e)}></i>
                </div>
             </S.SBox>
-
-            <S.LR>
-            {logined ?
-                <>                
-                <S.Link src={Profile} onClick={()=>history.replace(`/mypage`)}/>
-                <S.L>{name}님</S.L>
-                <S.LogOut onClick={()=>Logout()}>로그아웃</S.LogOut>            
-                </>
-            :
-            <>
-            <S.L onClick={()=>setLogin(true)}>로그인</S.L>
-            <S.L onClick={()=>history.replace('/signup')}>회원가입</S.L>
-            </>
-            }
-            </S.LR>
+            <S.SSelect onClick={()=>history.push('/regist')}><i class="fas fa-archive"></i><S.SS>판매하기</S.SS></S.SSelect>
+            <S.SSelect onClick={()=>history.push('/mypage')}><i class="fas fa-user"></i><S.SS>내상점</S.SS></S.SSelect>
             </S.HDiv>
-
         </S.Header>
         {login ? 
         <S.LoginBackground>
@@ -140,7 +142,7 @@ const Header = () => {
             </S.LoginDiv>
         </S.LoginBackground>
         : <></>}    
-        </>
+        </S.Head>
     )
 }
 

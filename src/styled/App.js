@@ -1,14 +1,12 @@
 import styled from 'styled-components'
 
 export const Header = styled.div`
-    position: fixed;
-    z-index: 100;
     top: 0;
     margin: 0px;    
     width: 100%;
     display: flex;
     align-items: center;
-    height: 100px;
+    height: 70px;
     background-color: white;
     border-bottom: 1px solid #eeeeee;
 `
@@ -44,6 +42,17 @@ export const SBox = styled.span`
     width: 550px;
     height: 42px;
     background-color: white;
+`
+
+export const SSelect = styled.a`
+    margin-left: 20px;
+    font-size: 18px;
+    text-decoration: none;
+    color: black;
+`
+
+export const SS = styled.span`
+    margin-left: 5px;
 `
 
 export const Search = styled.input`
@@ -505,7 +514,6 @@ export const RImgDiv = styled.div`
 export const RImg = styled.img`
     height: 200px;
     width: 200px;
-    border-radius: 5%;
 `
 
 export const SMY = styled.button`
@@ -750,9 +758,26 @@ export const Next = styled.div`
 `
 
 export const LR = styled.div`
+    position: relative;
+    background-color: white;
+    border-bottom: 1px solid #eeeeee;
+    height: 45px;
+`
+
+export const LD = styled.div`
+    position: relative;
+    top: 10px;
+    left: 1050px;
+`
+
+export const Head = styled.div`
+    position: fixed;
+    width: 100%;
+    top: 0; 
+    z-index: 100;   
     display: flex;
-    padding-left: 10px;
-`;
+    flex-direction: column;
+`
 
 export const S = styled.div`    
     position: relative;
@@ -761,8 +786,8 @@ export const S = styled.div`
     justify-content: center;
 `
 export const L = styled.span`
-    padding: 10px;
     color: gray;
+    margin-right: 10px;
 `
 
 export const LogOut = styled.button`
@@ -772,7 +797,6 @@ export const LogOut = styled.button`
     color: gray;
     height: 25px;
     margin: 0px;
-    top: 10px;
 `
 
 export const CTittle = styled.h3`
