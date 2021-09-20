@@ -51,7 +51,7 @@ const SignUpPage = () => {
     };
 
     const changeId = (e) => {
-        setUser({...user, id: e.target.value.replace(/[^A-Za-z]/ig, '')});
+        setUser({...user, id: e.target.value});
     }
 
     const changePassword = (e) => {
@@ -80,7 +80,7 @@ const SignUpPage = () => {
             </S.SignUpDiv>
             <S.SignUpDiv>
             <S.SignSpan>휴대폰 번호</S.SignSpan>
-            <S.SignUpInput placeholder="휴대폰 번호" name="phonenumber" onChange={(e)=>changePassword(e)}></S.SignUpInput>
+            <S.SignUpInput placeholder="휴대폰 번호" name="phonenumber" onChange={(e)=>changePassword(e)} pattern="[0-9]*"></S.SignUpInput>
             </S.SignUpDiv>
             <S.SiButton onClick={()=>SignUp()}>회원가입하기</S.SiButton>
             </S.SiDiv>

@@ -40,10 +40,10 @@ const MainPage = () => {
                     <S.Category onMouseEnter={()=>setValue(1)} onClick={() => history.push('/catagory/6')}><S.CSpan>뷰티</S.CSpan></S.Category>
                     <S.Category onMouseEnter={()=>setValue(2)} onClick={() => history.push('/catagory/34')}><S.CSpan>주방용품</S.CSpan></S.Category>
                     <S.Category onMouseEnter={()=>setValue(3)} onClick={() => history.push('/catagory/48')}><S.CSpan>생활용품</S.CSpan></S.Category>
-                    <S.Category onMouseEnter={()=>setValue(4)} onClick={() => history.push('/catagory/62')}><S.CSpan>홈인테리어</S.CSpan></S.Category>
-                    <S.Category onMouseEnter={()=>setValue(5)} onClick={() => history.push('/catagory/73')}><S.CSpan>가전디지털</S.CSpan></S.Category>
+                    <S.Category onMouseEnter={()=>setValue(4)} onClick={() => history.push('/catagory/62')}><S.CSpan>가전디지털</S.CSpan></S.Category>
+                    <S.Category onMouseEnter={()=>setValue(5)} onClick={() => history.push('/catagory/73')}><S.CSpan>홈인테리어</S.CSpan></S.Category>
                     <S.Category onMouseEnter={()=>setValue(6)} onClick={() => history.push('/catagory/89')}><S.CSpan>스포츠레져</S.CSpan></S.Category>
-                    <S.Category onMouseEnter={()=>setValue(7)} onClick={() => history.push('/catagory/106')}><S.CSpan>도서/음반/DVD</S.CSpan></S.Category>
+                    <S.Category onMouseEnter={()=>setValue(7)} onClick={() => history.push('/catagory/106')}><S.CSpan>도서</S.CSpan></S.Category>
                     <S.Category onMouseEnter={()=>setValue(8)} onClick={() => history.push('/catagory/123')}><S.CSpan>반려동물용품</S.CSpan></S.Category>
                 </S.CDiv>
                 <Border h={hover} value={value}>1</Border>

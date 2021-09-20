@@ -1,5 +1,5 @@
 import React,{useState, useRef, useEffect, Component} from 'react'
-import { useHistory, useLocation} from 'react-router-dom'
+import { useHistory, useLocation, useParams} from 'react-router-dom'
 import * as S from '../styled/App'
 import Profile from '../images/profile.png'
 import Logo from '../images/Logo.png'
@@ -7,11 +7,12 @@ import Logo from '../images/Logo.png'
 const Header = () => {
 
     let location = useLocation();
+    let params = useParams();
 
     const select = useRef();
 
     let history = useHistory();
-    const [typing, setTyping] = useState(false);
+    const [typing, setTyping] = useState(-1);
     const [v, setV] = useState();
     const [login, setLogin] = useState(false);
     const [logined, setLogined] = useState(false);
@@ -73,14 +74,52 @@ const Header = () => {
       }
 
     useEffect(() => {
-        /*
-        const d = JSON.parse(localStorage.user);
-        if(d.id&&d.password){
+        
+        const d = JSON.parse(localStorage.getItem('user'));
+        
+        if(d){    
             console.log("log");
             Login({id: d.id , password: d.password});
+            console.log(d);
         }
-        console.log(d);*/
+
+        const s = JSON.parse(localStorage.getItem('search'));
+        
+        if(s){
+            setRecent(s);
+            console.log("s:"+s);
+        }
+        
     },[]);
+
+    const Search = () => {
+
+        let r = recent;
+
+        r.unshift(v)
+        r.slice(0, 9);
+        
+        if(params.catagory){
+            history.push(`catagory/${location.catagory}yyy?p=1&order=latest&search=${v}`);
+        }
+        else{
+            history.push(`catagory?p=1&order=latest&search=${v}`);
+        }
+
+        localStorage.search = JSON.stringify(r);
+    }
+
+    const SLi = ({num}) => {
+
+        const f = () => {
+            setV(recent[num]);
+            setTyping(-1);
+        }
+
+        return(
+            <S.SLi onClick={()=>f()}><S.Sspan>{recent[num]}</S.Sspan></S.SLi>
+        );
+    }
 
     return(
         <S.Head>
@@ -105,24 +144,24 @@ const Header = () => {
             <S.Logo onClick={() => history.replace('/')}>DS마켓</S.Logo>
             <S.SBox>
                 <S.SDiv>
-                    <S.Search onChange={(e)=>setV(e.target.value)} onFocus={(e)=>setTyping(true)} onBlur={()=>setTyping(false)} value={v} /*onFocus={() => setTyping(true)} onBlur={() => setTyping(false)}*/></S.Search>
-                    {typing ? 
+                    <S.Search onChange={(e)=>setV(e.target.value)} onClick={()=>setTyping(typing*-1)} value={v} /*onFocus={() => setTyping(true)} onBlur={() => setTyping(false)}*/></S.Search>
+                    {typing === 1? 
                     <S.SBorder>
                         <S.Recent><S.RecentP>최근 검색어</S.RecentP></S.Recent>
-                        <S.SLi onClick={()=>setV(recent[0])}><S.Sspan>{recent[0]}</S.Sspan></S.SLi>
-                        <S.SLi onClick={()=>setV(recent[1])}><S.Sspan>{recent[1]}</S.Sspan></S.SLi>
-                        <S.SLi onClick={()=>setV(recent[2])}><S.Sspan>{recent[2]}</S.Sspan></S.SLi>
-                        <S.SLi onClick={()=>setV(recent[3])}><S.Sspan>{recent[3]}</S.Sspan></S.SLi>
-                        <S.SLi onClick={()=>setV(recent[4])}><S.Sspan>{recent[4]}</S.Sspan></S.SLi>
-                        <S.SLi onClick={()=>setV(recent[5])}><S.Sspan>{recent[5]}</S.Sspan></S.SLi>
-                        <S.SLi onClick={()=>setV(recent[6])}><S.Sspan>{recent[6]}</S.Sspan></S.SLi>
-                        <S.SLi onClick={()=>setV(recent[7])}><S.Sspan>{recent[7]}</S.Sspan></S.SLi>
-                        <S.SLi onClick={()=>setV(recent[8])}><S.Sspan>{recent[8]}</S.Sspan></S.SLi>
-                        <S.SLi onClick={()=>setV(recent[9])}><S.Sspan>{recent[9]}</S.Sspan></S.SLi>
+                        <SLi num={0}></SLi>
+                        <SLi num={1}></SLi>
+                        <SLi num={2}></SLi>
+                        <SLi num={3}></SLi>
+                        <SLi num={4}></SLi>
+                        <SLi num={5}></SLi>
+                        <SLi num={6}></SLi>
+                        <SLi num={7}></SLi>
+                        <SLi num={8}></SLi>
+                        <SLi num={9}></SLi>
                     </S.SBorder> 
                     : <></>}
                </S.SDiv> 
-               <div>
+               <div onClick={()=>Search()}>
                <i class="fa fa-search fa-lg" style={{color: "gray"}} onKeyPress={(e) => handleKeyPress(e)}></i>
                </div>
             </S.SBox>

@@ -44,18 +44,17 @@ export const ItemDiv = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-`
-
-export const RegistButton = styled.button`
-    height: 60px;
-    border: 0;
-    background-color: royalblue;
-    color: white;
-    font-size: 20px;
-    border-radius: 5px;
-`
+ `
 
 export const Introduce = styled.textarea`
+    position: relative;
+    top: 20px;
+    height: 400px;
+    resize: none;
+    padding: 10px;
+`
+
+export const IntroduceDiv = styled.div`
     position: relative;
     top: 20px;
     height: 400px;

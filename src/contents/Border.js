@@ -20,7 +20,7 @@ const Border = ({h, value}) => {
     const [b, setB] = useState([]);
     const [c, setC] = useState([]);
 
-    const photo = [brand, fashion, kitchen, life, fenci, computer, sports, book, pet]
+    const photo = [brand, fashion, kitchen, life, computer, fenci, sports, book, pet]
 
     const set = () => {
         switch(value){
@@ -49,16 +49,22 @@ const Border = ({h, value}) => {
                 setC([{name: "생리대/성인기저귀", path: 1},{name: "기저귀", path: 1},{name: "건강/의료용품", path: 1},{name: "탈취/방향/살충", path: 1},{name: "생활잡화", path: ""}]);
                 break;
             case 4:
-                setMenu(["생활가전","PC","기타"]);
-                setA([{name: "TV/영상가전", path: 1},{name: "냉장고", path: 1},{name: "세탁기/건조기", path: 1},{name: "청소기", path: 1}]);
-                setB([{name: "노트북", path: 1},{name: "데스크탑", path: 1},{name: "모니터", path: 1},{name: "키보드 마우스", path: 1},{name: "저장장치", path: 1},{name: "프린터/복합기", path: 1},{name: "PC부품", path: 1}]);
-                setC([{name: "계절가전", path: 1},{name: "이미용가전", path: 1},{name: "건강가전", path: 1},{name: "주방가전", path: 1}]);
-                break;
-            case 5:
                 setMenu(["가구", "수납/정리", "기타"]);
-                setA([]);
-                setB([]);
-                setC([]);
+                setA([       
+                    {path: 49, name: "홈데코"},
+                    {path: 50, name: "가구"},
+                    {path: 52, name: "침구"},
+                ]);
+                setB([{path: 51, name: "수납/정리"},]);
+                setC([{path: 54, name: "카페트/쿠션/거실화"},{path: 57, name: "조명/스탠드"}, {path: 58, name: "원예/가드닝"},{path: 53, name: "커튼/블라인드"},
+                {path: 55, name: "수예/수선"},
+                {path: 56, name: "욕실용품"},]);
+            break;
+            case 5:
+                setMenu(["생활가전","PC","기타"]);
+                setA([{name: "TV/영상가전", path: 60},{name: "냉장고", path: 61},{name: "세탁기/건조기", path: 62},{name: "청소기", path: 63}]);
+                setB([{name: "노트북", path: 68},{name: "데스크탑", path: 69},{name: "저장장치", path: 70},{name: "프린터/복합기", path: 71},{name: "PC부품", path: 72}]);
+                setC([{name: "계절가전", path: 64},{name: "이미용가전", path: 65},{name: "건강가전", path: 66},{name: "주방가전", path: 67}]);
                 break;
             case 6:
                 setMenu(["실내스포츠", "실외스포츠", "의류"]);
@@ -67,31 +73,23 @@ const Border = ({h, value}) => {
                 setC([{name: "기타스포츠", path: ""},{name: "스포츠잡화", path: ""},]);
                 break;
             case 7:
-                setMenu(["도서","음반","DVD"]);
+                setMenu(["교육","교양","취미"]);
                 setA([        
 {path: 101, name: "유아/어린이"},
-{path: 102, name: "소설/에세이/사"},
 {path: 103, name: "초중고참고서"},
-{path: 104, name: "가정 살림"},
-{path: 105, name: "건강 취미"},
-{path: 106, name: "경재 경영"},
-{path: 107, name: "과학/공학"},
 {path: 108, name: "국어/외국어/사전"},
 {path: 109, name: "대학교재"},
-{path: 110, name: "만화/라이트노벨"},
-{path: 111, name: "사회 정치"},
-{path: 112, name: "수험서/자격증"},
-{path: 113, name: "여행"},
-{path: 114, name: "역사"},
-{path: 115, name: "예술"},
-{path: 116, name: "인문"}]);
-                setB([]);
-                setC([]);
+{path: 112, name: "수험서/자격증"},]);
+                setB([{path: 102, name: "소설/에세이/시"},{path: 104, name: "가정 살림"},{path: 106, name: "경재 경영"},{path: 107, name: "과학/공학"},{path: 111, name: "사회 정치"},{path: 113, name: "여행"},
+                {path: 114, name: "역사"},
+                {path: 115, name: "예술"},
+                {path: 116, name: "인문"}]);
+                setC([{path: 110, name: "만화/라이트노벨"},{path: 105, name: "건강 취미"}]);
                 break;
             case 8:
                 setMenu(["반려동물용품", "기타", ""]);
-                setA([{name: "강아지 사료/용품", path: ""},{name: "고양이 사료/용품", path: ""},]);
-                setB([{name: "관상어 용품", path: ""},{name: "소동물/가축용품", path: ""}]);
+                setA([{name: "강아지 사료/용품", path: 118},{name: "고양이 사료/용품", path: 119},]);
+                setB([{name: "관상어 용품", path: 120},{name: "소동물/가축용품", path: 121}]);
                 setC([]);
                 break;
             default :

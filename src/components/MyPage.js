@@ -26,7 +26,7 @@ const MyPage = () => {
     };
 
     const [user, setUser] = useState({
-        introduce: "",
+        introduce: "asdad",
         review: [{review: "1123123123123213", star: 2, name: 1}],
         item: [{id: 1, name: "1", price: 100, star: 1, img: A, brand: "samsung", sell: 50, catagory: 1, review: 100},
                 {id: 1, name: "1", price: 10, star: 2, img: B, brand: "a", sell: 100 ,catagory: 1, review: 100},
@@ -36,6 +36,15 @@ const MyPage = () => {
                 {id: 1, name: "1", price: 18, star: 6, img: B, brand: "a", sell: 500, catagory: 1, review: 100}]
     }) 
     const [select, setSelect] = useState(-1);
+    const [chexplane, setChexplane] = useState(-1);
+
+    const login = true;
+
+    const ChangeExplane = () => {
+        if(login === true){
+            setChexplane(-1*chexplane);
+        }
+    }
 
     const Border = () => {
         if(location.search === "?sell"){
@@ -46,7 +55,6 @@ const MyPage = () => {
                 <S.ItemDiv>
                     <Item lists={user.item}></Item>
                 </S.ItemDiv>
-                    <S.RegistButton onClick={()=>history.push('/regist')}>상품등록</S.RegistButton>
                 </>
                 : 
                 <h3>
@@ -65,9 +73,17 @@ const MyPage = () => {
         }   
         else{
             return(
-                <S.Introduce value={user.introduce} onChange={(e)=>setUser({...user, introduce: e.target.value})}>
+                <>
+                {chexplane === 1 ?
+                <S.Introduce value={user.introduce} onChange={(e)=>setUser({...user, introduce: e.target.value})} onMouseLeave={()=>ChangeExplane()}>
 
                 </S.Introduce>
+                :
+                <S.IntroduceDiv onClick={()=>ChangeExplane()}>
+                {user.introduce}
+                </S.IntroduceDiv>
+                }
+                </>
             )
         }
     }
@@ -77,12 +93,13 @@ const MyPage = () => {
         axios.get(baseURL).then((response) => {
             setPost(response.data);
           });*/
-        if(localStorage.id&&localStorage.password){
+        /*if(localStorage.id&&localStorage.password){
             
         }
         else{
             alert("로그인을 먼저 해주세요.");
-        }
+            history.push('/');
+        }*/
     },[]);
 
     return(

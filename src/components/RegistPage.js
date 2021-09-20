@@ -2,6 +2,7 @@ import React,{useState, useEffect} from 'react'
 import * as S from '../styled/App'
 import axios from 'axios';
 import { useHistory } from 'react-router';
+import { useDropzone } from 'react-dropzone';
 
 
 const RegistPage = () => {
@@ -114,7 +115,9 @@ const RegistPage = () => {
     const [tittle, setTittle] = useState("");
 
     useEffect(()=>{
-        if(localStorage.id&&localStorage.password){
+
+
+        if(JSON.parse(localStorage.getItem('user'))){
             
         }
         else{
@@ -138,6 +141,33 @@ const RegistPage = () => {
         setC(name);
     }
 
+    const {
+        acceptedFiles,
+        fileRejections,
+        getRootProps,
+        getInputProps
+      } = useDropzone({
+        accept: 'image/jpeg, image/png',    
+        maxFiles: 9
+      });
+    
+      const acceptedFileItems = acceptedFiles.map(file => (
+        <li key={file.path}>
+          {file.path} - {file.size} bytes
+        </li>
+      ));
+    
+      const fileRejectionItems = fileRejections.map(({ file, errors  }) => { 
+       return (
+         <li key={file.path}>
+              {file.path} - {file.size} bytes
+              <ul>
+                {errors.map(e => <li key={e.code}>{e.message}</li>)}
+             </ul>
+         </li>
+       ) 
+      });
+
     return(
         <S.R>
             <div style={{width: "70%"}}>
@@ -148,7 +178,7 @@ const RegistPage = () => {
             <p>상품명</p>
             <S.InputDiv>
             <S.Input placeholder="노출상품명 입력(브랜드 + 제품명)" name="name" onChange={(e)=>onChange(e)} value={item.name}></S.Input>
-            <S.Max>{item.name.length}/100</S.Max>
+            <S.Max>{item.name.length}/30</S.Max>
             </S.InputDiv>
             </S.RegistDiv>
 
@@ -170,7 +200,7 @@ const RegistPage = () => {
                     <S.CSLi onClick={()=>SetC(3)}>생활용품</S.CSLi>
                     <S.CSLi onClick={()=>SetC(4)}>가전/디지털</S.CSLi>
                     <S.CSLi onClick={()=>SetC(5)}>스포츠/레져</S.CSLi>
-                    <S.CSLi onClick={()=>SetC(6)}>도서/음반/DVD</S.CSLi>
+                    <S.CSLi onClick={()=>SetC(6)}>도서</S.CSLi>
                     <S.CSLi onClick={()=>SetC(7)}>완구/취미</S.CSLi>
                     <S.CSLi onClick={()=>SetC(8)}>반려/애완용품</S.CSLi>
                 </S.CSUl>
@@ -188,13 +218,20 @@ const RegistPage = () => {
             <S.CS>{c}</S.CS>
             </div>
             </S.RegistDiv>
-
-            <p>상세설명</p>
-
                 <p>상품 이미지</p>             
             <S.RegistDiv>
-                <p>이미지(0/9)</p>
-                <input type="file" multiple="multiple" accept="image/png, image/jpeg, image/jpg"/>
+                <p>이미지({acceptedFileItems.length}/9)</p>
+
+    <section className="container">
+      <S.Dropzone {...getRootProps({ className: 'dropzone' })}>
+        <input {...getInputProps()} />
+        <span>드래그로 이미지 등록</span>
+      </S.Dropzone>
+      <S.Aside>
+        <h4>등록된 이미지</h4>
+        <ul>{acceptedFileItems}</ul>
+      </S.Aside>
+    </section>
             </S.RegistDiv>
             <p>상품 설명</p>
             <S.RegistDiv>
@@ -208,6 +245,9 @@ const RegistPage = () => {
             </div>
         </S.R>
     )
+
+/*        <h4>Rejected files</h4>
+        <ul>{fileRejectionItems}</ul> */
 
     /*
 const CSLi = () => {

@@ -112,7 +112,7 @@ export const Best = styled.h1`
 
 export const CDiv = styled.div`
     position: relative;
-    height: 500px;
+    height: auto;
     width: 200px;
     display: flex;
     flex-direction: column;
@@ -504,7 +504,7 @@ export const RDiv = styled.div`
     width: 200px;
     height: 270px;
     margin: 23px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     border: 2px solid #eeeeee;
 ` 
 
@@ -513,20 +513,20 @@ export const RImgDiv = styled.div`
 `
 
 export const RImg = styled.img`
-    height: 200px;
-    width: 200px;
+    position: relative;
+    right: 1px;
+    bottom: 2px;
+    height: 198px;
+    width: 198px;
 `
 
 export const SMY = styled.button`
-    background-color: white;
+    background-color: rgba(0, 0, 0, 0);
     border: 0;
     position: relative;
     z-index: 1;
-    left: 165px;
+    left: 170px;
     bottom: 195px;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
     color: gray;
 `
 export const SelectMyUl = styled.ul`
@@ -534,10 +534,10 @@ export const SelectMyUl = styled.ul`
     background-color: white;
     list-style: none;
     padding: 0px 10px;
-    width: 100px;
+    width: 80px;
     position: relative;
     left: 175px;
-    bottom: 190px;
+    bottom: 195px;
     z-index: 2;
 `
 
@@ -767,7 +767,8 @@ export const LR = styled.div`
 
 export const LD = styled.div`
     position: relative;
-    top: 5px;
+    top: 50%;
+    transform: translateY(-50%);
     left: 1055px;
 `
 
@@ -1040,13 +1041,31 @@ export const RegistDiv = styled.div`
     margin-bottom: 20px;
 `
 
+export const Dropzone = styled.div`
+    background-color: rgba(0, 0, 0, 0.03);
+    height: 400px;
+    width: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: gray;
+    font-size: 20px;
+`
+
+export const Aside = styled.aside`
+    position: relative;
+    top: 20px;
+    color: gray;
+`
+
 export const Explane = styled.textarea`
     width: 80%;
     height: 300px;
+    padding: 10px;
     resize: none;
 `
 
-export const CS = styled.p`
+export const CS = styled.span`
     position: relative;
     font-size: 20px;
     left: 20px;
@@ -1175,8 +1194,19 @@ export const OrderDivD = styled.div`
     border-bottom: 1px solid #eeeeee;
     background-color: #eeeeee;
     display: flex;
+    justify-content: space-around;
     align-items: center;
     border-top: 1px solid lightgray;
+`
+
+export const OrderSpanD = styled.div`
+    position: relative;
+    font-size: 16px;
+    padding: 10px;
+
+    :hover{
+        color: royalblue;
+    }
 `
 
 export const CaDiv = styled.div`
@@ -1257,6 +1287,8 @@ export const DetailSDiv = styled.div`
 
 export const SignUpDiv = styled.div`
     display: flex;
+    position: relative;
+    top: 20px;
 `
 
 export const SignSpan = styled.span`
@@ -1266,16 +1298,6 @@ export const SignSpan = styled.span`
 export const OrderSpan = styled.span`
     position: relative;
     left: 270px;
-    font-size: 16px;
-    padding: 10px;
-
-    :hover{
-        color: royalblue;
-    }
-`
-
-export const OrderSpanD = styled.span`
-    position: relative;
     font-size: 16px;
     padding: 10px;
 
@@ -1402,7 +1424,7 @@ export const Rp = styled.p`
     font-size: 16px;
     padding: 0px 5px;
 `
-export const Rprice = styled.p`
+export const Rprice = styled.b`
     position: relative;
     top: 10px;
     font-size: 15px;
