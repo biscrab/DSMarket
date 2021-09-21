@@ -299,7 +299,7 @@ const CatagoryPage = () => {
         console.log('data is ' + JSON.stringify(data)); 
     },[]);        
 
-    const SetC = (cata) => {
+    const SetC = ({cata}) => {
 
         let abc;
 
@@ -337,19 +337,21 @@ const CatagoryPage = () => {
         return(abc);
     }
     
-    const SetD = (cata) => {
+    const SetD = () => {
 
-        let abc;
+        const [d, setD] = useState([]);
 
-        if(cata >= 1 && cata <=5){
-            abc = [{name: "여성패션" ,path: 2},
+        useEffect(()=>{
+
+        if(Number(params.catagory) >= 1 && Number(params.catagory) <=5){
+            setD([{name: "여성패션", path: 2},
             {name:"남성패션", path: 3},
             {name:"남녀 공용 의류", path: 4},
-            {name:"유아동패션", path: 5}]
+            {name:"유아동패션", path: 5}]);
 
         }
-        else if(cata >= 6 && cata <= 19){
-            abc = [{name: "명품뷰티", path: 7},
+        else if(Number(params.catagory) >= 6 && Number(params.catagory) <= 19){
+            setD([{name: "명품뷰티", path: 7},
             {name: "스킨케어", path: 8},
             {name: "클렌징/필링", path: 9},
             {name: "메이크업", path: 10},
@@ -361,10 +363,10 @@ const CatagoryPage = () => {
             {name: "로드샵", path: 16},
             {name: "헤어", path: 17},
             {name: "바디", path: 18},
-            {name: "선물세트/키트", path: 19}]
+            {name: "선물세트/키트", path: 19}]);
         }
-        else if(cata >= 20 && cata  <= 33){
-            abc = [{name:"냄비/프라이팬" ,path: 21},
+        else if(Number(params.catagory) >= 20 && Number(params.catagory)  <= 33){
+            setD([{name:"냄비/프라이팬" ,path: 21},
             {name:"칼/도마" ,path: 22},
             {name:"주방조리도구" ,path: 23},
             {name:"그릇/홈세트" ,path: 24},
@@ -376,10 +378,10 @@ const CatagoryPage = () => {
             {name:"보온/보냉용품" ,path: 30},
             {name:"이유/유아식기" ,path: 31},
             {name:"베이킹용품" ,path: 32},
-            {name:"교자상/제수용품", path: 33}]
+            {name:"교자상/제수용품", path: 33}]);
         }
-        else if(cata >= 34 && cata <= 47){
-            abc = [{name: "헤어/바디/세안", path: 35},
+        else if(Number(params.catagory) >= 34 && Number(params.catagory) <= 47){
+            setD([{name: "헤어/바디/세안", path: 35},
             {name: "구강/면도", path: 36},
             {name: "화장지/물티슈", path: 37},
             {name: "생리대/기저귀", path: 38},
@@ -391,10 +393,10 @@ const CatagoryPage = () => {
             {name: "욕실 용품", path: 44},
             {name: "생활전기용품", path: 45},
             {name: "수납/정리", path: 46},
-            {name: "생활잡화", path: 47}]
+            {name: "생활잡화", path: 47}]);
         }
-        else if(cata >= 48 && cata <= 58){
-            abc = [{path: 49, name: "홈데코"},
+        else if(Number(params.catagory) >= 48 && Number(params.catagory) <= 58){
+            setD([{path: 49, name: "홈데코"},
             {path: 50, name: "가구"},
             {path: 51, name: "수납/정리"},
             {path: 52, name: "침구"},
@@ -403,11 +405,11 @@ const CatagoryPage = () => {
             {path: 55, name: "수예/수선"},
             {path: 56, name: "욕실용품"},
             {path: 57, name: "조명/스탠드"},
-            {path: 58, name: "원예/가드닝"},
-            ]
+            {path: 58, name: "원예/가드닝"}
+            ]);
         }
-        else if(cata >= 59 && cata <= 78){
-            abc = [{name: "TV/영상가전" ,path: 60}, 
+        else if(Number(params.catagory) >= 59 && Number(params.catagory) <= 78){
+            setD([{name: "TV/영상가전" ,path: 60}, 
             {name:"냉장고" ,path: 61}, 
             {name:"세탁기/건조기" ,path: 62},
             {name:"청소기", path: 63},
@@ -426,10 +428,10 @@ const CatagoryPage = () => {
             {name:"음향기기" ,path: 75},
             {name:"게임콘솔" ,path: 76}, 
             {name:"카메라" ,path: 77}, 
-            {name:"차량용 디지털" ,path: 78}]
+            {name:"차량용 디지털" ,path: 78}]);
         }
-        else if(cata >= 79 && cata <= 99){
-            abc = [{name: "캠핑" ,path: 80},
+        else if(Number(params.catagory) >= 79 && Number(params.catagory) <= 99){
+            setD([{name: "캠핑" ,path: 80},
             {name:"홈트레이닝" ,path: 81},
             {name:"수영/수상스포츠" ,path: 82},
             {name:"골프" ,path: 83},
@@ -448,10 +450,10 @@ const CatagoryPage = () => {
             {name:"복싱/검도/태권도" ,path: 96}, 
             {name:"학교 체육 준비" ,path: 97}, 
             {name:"기타스포츠" ,path: 98},
-            {name:"스키/겨울스포츠", path: 99}]
+            {name:"스키/겨울스포츠", path: 99}]);
         }
-        else if(cata >= 100 && cata <= 116){
-            abc = [{name: "유아/어린이", path: 101},
+        else if(Number(params.catagory) >= 100 && Number(params.catagory) <= 116){
+            setD([{name: "유아/어린이", path: 101},
             {name: "소설/에세이/시", path: 102},
             {name:"초중고참고서", path: 103},
             {name: "가정 살림", path: 104},
@@ -466,29 +468,36 @@ const CatagoryPage = () => {
             {name: "여행", path: 113},
             {name: "역사", path: 114},
             {name: "예술", path: 115},
-            {name: "인문", path: 116}]
+            {name: "인문", path: 116}]);
         }      
-        else if(cata >= 116 && cata <= 117){
-            abc = [{name: "강아지 사료/용품" , path: 119}, 
+        else if(Number(params.catagory) >= 116 && Number(params.catagory) <= 117){
+            setD([{name: "강아지 사료/용품" , path: 119}, 
             {name: "고양이 사료/용품",path: 120}, 
             {name: "관상어 용품" ,path: 121}, 
-            {name: "소동물/가축용품" ,path: 122}]
+            {name: "소동물/가축용품" ,path: 122}]);
         }
         else{
-            abc = [{name: "패션의류/잡화", path: 1},
+            setD([{name: "패션의류/잡화", path: 1},
                 {name: "뷰티", path: 6},
-                {name: "식품", path: 20},
-                {name: "주방용품", path: 34},
-                {name: "생활용품", path: 48},
-                {name: "홈인테리어", path: 62},
-                {name: "가전디지털", path: 73},
-                {name: "스포츠/레저", path: 94},
-                {name: "도서/음반/DVD", path: 114},
-                {name: "반려동물용품", path: 131},
-            ]
+                {name: "주방용품", path: 20},
+                {name: "생활용품", path: 34},
+                {name: "홈인테리어", path: 48},
+                {name: "가전디지털", path: 59},
+                {name: "스포츠/레저", path: 80},
+                {name: "도서", path: 100},
+                {name: "반려동물용품", path: 117}]);
         }
-
-        return(abc);
+    });
+        
+        return(
+        <>
+        {d.map(i => {
+            return(
+            <S.OrderSpanD i={i} name={i.name} path={i.path} onClick={()=>history.push(`/catagory/${i.path}?p=1&order=latest`)}>{i.name}</S.OrderSpanD>
+            );
+        })}
+        </>
+        )
     }
 
     const SetPage = () => {
@@ -564,14 +573,9 @@ const CatagoryPage = () => {
             );
         }
         else if(path === "b"){
-            const d = <SetD />
             return(
                 <S.OrderDivD>
-                    {d.map(i => {
-                        return(
-                        <S.OrderSpanD i={i} name={i.name} path={i.path} onClick={()=>history.push(`/catagory/${i.path}?p=1&order=latest`)}>{i.name}</S.OrderSpanD>
-                        );
-                    })}
+                    <SetD />
                 </S.OrderDivD>
             );
         }
@@ -611,7 +615,7 @@ const CatagoryPage = () => {
         <S.CA>
         <S.OrderDiv>
             <S.OrderSpan onClick={()=>history.push('/catagory')}>전체</S.OrderSpan>
-            <S.OrderSpan onClick={()=>SETP("a")}>{<SetC />}</S.OrderSpan>
+            <S.OrderSpan onClick={()=>SETP("a")}>{<SetC cata={Number(params.catagory)}/>}</S.OrderSpan>
             <S.OrderSpan onClick={()=>SETP("b")}>{sp}</S.OrderSpan>
         </S.OrderDiv>
         <SelectD />
@@ -619,7 +623,7 @@ const CatagoryPage = () => {
             <S.CBox>
                 {query.search ?
                 <S.SearchH>'{query.search}'에 대한 검색결과</S.SearchH> : <></> }
-                {sp ? <S.CatagoryH>{sp}</S.CatagoryH> : <S.CatagoryH>{<SetD />}</S.CatagoryH>}
+                {sp ? <S.CatagoryH>{sp}</S.CatagoryH> : <S.CatagoryH><SetC cata={Number(params.catagory)}/></S.CatagoryH>}
                 <S.Order> 
                     <S.Cli color={query.order === "latest" ? "royalblue" : "black"} onClick={()=>setCatagory({...catagory, order:"latest"})}>최신순</S.Cli>
                     <S.Cli color={query.order === "old" ? "royalblue" : "black"} onClick={()=>setCatagory({...catagory, order:"old"})}>오래된순</S.Cli>
@@ -670,87 +674,3 @@ const CatagoryPage = () => {
 }
 
 export default CatagoryPage
-
-/*    const SetP = (n) => {
-        var s = [];
-        switch(n){
-        case "1" :
-            for(var i = 0; i < list.length; i++){
-                if(list[i].catagory >= 2 && list[i].catagory <= 5){
-                    s = [...s,list[i]];
-                }
-            }
-        break;
-        case "6" :
-            for(var i = 0; i < list.length; i++){
-                if(list[i].catagory >= 7 && list[i].catagory <= 19){
-                    s = [...s,list[i]];
-                }
-            }
-        break;
-        case "20" :
-            for(var i = 0; i < list.length; i++){
-                if(list[i].catagory >= 21 && list[i].catagory <= 33){
-                    s = [...s,list[i]];
-                }
-            }
-        break;
-        case "34" :
-            for(var i = 0; i < list.length; i++){
-                if(list[i].catagory >= 35 && list[i].catagory <= 57){
-                    s = [...s,list[i]];
-                }
-            }
-        break;
-        case "58" :
-            for(var i = 0; i < list.length; i++){
-                if(list[i].catagory >= 59 && list[i].catagory <= 71){
-                    s = [...s,list[i]];
-                }
-            }
-        break;
-        case "72" :
-            for(var i = 0; i < list.length; i++){
-                if(list[i].catagory >= 73 && list[i].catagory <= 82){
-                    s = [...s,list[i]];
-                }
-            }
-        break;
-        case "83" :
-            for(var i = 0; i < list.length; i++){
-                if(list[i].catagory >= 84 && list[i].catagory <= 98){
-                    s = [...s,list[i]];
-                }
-            }
-        break;
-        case "99" :
-            for(var i = 0; i < list.length; i++){
-                if(list[i].catagory >= 100 && list[i].catagory <= 114){
-                    s = [...s,list[i]];
-                }
-            }
-        break;
-        case "115" :
-            for(var i = 0; i < list.length; i++){
-                if(list[i].catagory >= 116 && list[i].catagory <= 131){
-                    s = [...s,list[i]];
-                }
-            }
-        break;
-        case "132" :
-            for(var i = 0; i < list.length; i++){
-                if(list[i].catagory >= 133 && list[i].catagory <= 135){
-                    s = [...s,list[i]];
-                }
-            }
-        break;
-        default :
-            for(var i = 0; i < list.length; i++){
-                if(list[i].catagory == Number(n)){
-                    s = [...s,list[i]];
-                }
-            }
-        }
-        setList(s);
-    }
- */
