@@ -17,3 +17,87 @@ const Star = ({star}) => {
 }
 
 export default Star
+
+/*    const SetP = (n) => {
+        var s = [];
+        switch(n){
+        case "1" :
+            for(var i = 0; i < list.length; i++){
+                if(list[i].catagory >= 2 && list[i].catagory <= 5){
+                    s = [...s,list[i]];
+                }
+            }
+        break;
+        case "6" :
+            for(var i = 0; i < list.length; i++){
+                if(list[i].catagory >= 7 && list[i].catagory <= 19){
+                    s = [...s,list[i]];
+                }
+            }
+        break;
+        case "20" :
+            for(var i = 0; i < list.length; i++){
+                if(list[i].catagory >= 21 && list[i].catagory <= 33){
+                    s = [...s,list[i]];
+                }
+            }
+        break;
+        case "34" :
+            for(var i = 0; i < list.length; i++){
+                if(list[i].catagory >= 35 && list[i].catagory <= 57){
+                    s = [...s,list[i]];
+                }
+            }
+        break;
+        case "58" :
+            for(var i = 0; i < list.length; i++){
+                if(list[i].catagory >= 59 && list[i].catagory <= 71){
+                    s = [...s,list[i]];
+                }
+            }
+        break;
+        case "72" :
+            for(var i = 0; i < list.length; i++){
+                if(list[i].catagory >= 73 && list[i].catagory <= 82){
+                    s = [...s,list[i]];
+                }
+            }
+        break;
+        case "83" :
+            for(var i = 0; i < list.length; i++){
+                if(list[i].catagory >= 84 && list[i].catagory <= 98){
+                    s = [...s,list[i]];
+                }
+            }
+        break;
+        case "99" :
+            for(var i = 0; i < list.length; i++){
+                if(list[i].catagory >= 100 && list[i].catagory <= 114){
+                    s = [...s,list[i]];
+                }
+            }
+        break;
+        case "115" :
+            for(var i = 0; i < list.length; i++){
+                if(list[i].catagory >= 116 && list[i].catagory <= 131){
+                    s = [...s,list[i]];
+                }
+            }
+        break;
+        case "132" :
+            for(var i = 0; i < list.length; i++){
+                if(list[i].catagory >= 133 && list[i].catagory <= 135){
+                    s = [...s,list[i]];
+                }
+            }
+        break;
+        default :
+            for(var i = 0; i < list.length; i++){
+                if(list[i].catagory == Number(n)){
+                    s = [...s,list[i]];
+                }
+            }
+        }
+        setList(s);
+    }
+ */

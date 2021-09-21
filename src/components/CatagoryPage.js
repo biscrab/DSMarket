@@ -16,14 +16,13 @@ import axios from 'axios';
 const CatagoryPage = () => {    
 
     const cac = [
-        "",
-        "카테고리",
+        "패션의류/잡화",
         "여성패션",
         "남성패션",
         "남녀 공용 의류",
         "유아동패션",
         
-        "카테고리",
+        "뷰티",
         "명품뷰티",
         "스킨케어",
         "클렌징/필링",
@@ -38,7 +37,7 @@ const CatagoryPage = () => {
         "바디",
         "선물세트/키트",
         
-        "카테고리",
+        "주방용품",
         "냄비/프라이팬",
         "칼/도마",
         "주방조리도구",
@@ -53,7 +52,7 @@ const CatagoryPage = () => {
         "베이킹용품",
         "교자상/제수용품",
         
-        "카테고리",
+        "생활용품",
         "헤어/바디/세안",
         "구강/면도",
         "화장지/물티슈",
@@ -68,7 +67,7 @@ const CatagoryPage = () => {
         "수납/정리",
         "생활잡화",
         
-        "카테고리",
+        "홈인테리어",
         "홈데코",
         "가구",
         "수납/정리",
@@ -80,7 +79,7 @@ const CatagoryPage = () => {
         "조명/스탠드",
         "원예/가드닝",
         
-        "카테고리",
+        "가전디지털",
         "TV/영상가전",
         "냉장고",
         "세탁기/건조기",
@@ -103,7 +102,7 @@ const CatagoryPage = () => {
         "카메라",
         "차량용 디지털",
         
-        "카테고리",
+        "스포츠/레저",
         "캠핑",
         "홈트레이닝",
         "수영/수상스포츠",
@@ -121,7 +120,7 @@ const CatagoryPage = () => {
         "라켓스포츠",
         "헬스/요가/댄스",
         
-        "카테고리",
+        "도서",
         "유아/어린이",
         "소설/에세이/사",
         "초중고참고서",
@@ -139,12 +138,12 @@ const CatagoryPage = () => {
         "예술",
         "인문",
         
-        "카테고리",
+        "반려동물용품",
         "강아지 사료/용품",
         "고양이 사료 용품",
         "관상어 용품",
         "소동물/가축용품",
-        ]
+    ]
 
     let history = useHistory();
     const match = useRouteMatch();
@@ -154,22 +153,7 @@ const CatagoryPage = () => {
     let sp;
 
     if(params.catagory){
-        switch(sp){
-            case 1:
-            case 6:
-            case 20:
-            case 34:
-            case 48:
-            case 59:
-            case 80:
-            case 100:
-            case 117:
-                sp = "";
-            break;
-            default:
-                sp = cac[Number(params.catagory)];
-            break;
-        }
+        sp = cac[Number(params.catagory)-1];
     }
 
     const [list, setList] = useState([
@@ -227,173 +211,6 @@ const CatagoryPage = () => {
             search: a
         })
     }
-
-    const [d, setD] = useState({name: "", path: ""});
-
-    const [c, setC] = useState([]);
-
-    const SetD = () => {
-
-        if(ca >= 1 && ca <=5){
-            setD({name: "패션의류/잡화", path: 1});
-            setC([{name: "여성패션" ,path: 2},
-            {name:"남성패션", path: 3},
-            {name:"남녀 공용 의류", path: 4},
-            {name:"유아동패션", path: 5}]);
-
-        }
-        else if(ca >= 6 && ca <= 19){
-            setD({name: "뷰티", path: 6});
-            setC([{name: "명품뷰티", path: 7},
-            {name: "스킨케어", path: 8},
-            {name: "클렌징/필링", path: 9},
-            {name: "메이크업", path: 10},
-            {name: "향수", path: 11},
-            {name: "남성화장품", path: 12},
-            {name: "네일", path: 13},
-            {name: "뷰티소품", path:14},
-            {name: "어린이화장품", path: 15},
-            {name: "로드샵", path: 16},
-            {name: "헤어", path: 17},
-            {name: "바디", path: 18},
-            {name: "선물세트/키트", path: 19}]);
-        }
-        else if(ca >= 20 && ca  <= 33){
-            setD({name: "주방용품", path: 20});
-            setC([
-            {name:"냄비/프라이팬" ,path: 21},
-            {name:"칼/도마" ,path: 22},
-            {name:"주방조리도구" ,path: 23},
-            {name:"그릇/홈세트" ,path: 24},
-            {name:"수저/커트러리" ,path: 25},
-            {name:"컵/잔/텀블러" ,path: 26},
-            {name:"밀폐저장/도시락" ,path: 27},
-            {name:"주방잡화" ,path: 28},
-            {name:"일회용품/종이컵" ,path: 29},
-            {name:"보온/보냉용품" ,path: 30},
-            {name:"이유/유아식기" ,path: 31},
-            {name:"베이킹용품" ,path: 32},
-            {name:"교자상/제수용품", path: 33}]);
-        }
-        else if(ca >= 34 && ca <= 47){
-            setD({name: "생활용품", path: 34});
-            setC([{name: "헤어/바디/세안", path: 35},
-            {name: "구강/면도", path: 36},
-            {name: "화장지/물티슈", path: 37},
-            {name: "생리대/기저귀", path: 38},
-            {name: "기저귀", path: 39},
-            {name: "세탁", path: 40},
-            {name: "청소용품", path: 41},
-            {name: "틸취/방향/살충", path: 42},
-            {name: "건강/의료용품", path: 43},
-            {name: "욕실 용품", path: 44},
-            {name: "생활전기용품", path: 45},
-            {name: "수납/정리", path: 46},
-            {name: "생활잡화", path: 47},])
-        }
-        else if(ca >= 48 && ca <= 58){
-            setD({name: "홈인테리어", path: 48 });
-            setC([
-            {path: 49, name: "홈데코"},
-            {path: 50, name: "가구"},
-            {path: 51, name: "수납/정리"},
-            {path: 52, name: "침구"},
-            {path: 53, name: "커튼/블라인드"},
-            {path: 54, name: "카페트/쿠션/거실화"},
-            {path: 55, name: "수예/수선"},
-            {path: 56, name: "욕실용품"},
-            {path: 57, name: "조명/스탠드"},
-            {path: 58, name: "원예/가드닝"},
-            ])
-        }
-        else if(ca >= 59 && ca <= 78){
-            setD({name: "가전디지털", path: 59});
-            setC([{name: "TV/영상가전" ,path: 60}, 
-            {name:"냉장고" ,path: 61}, 
-            {name:"세탁기/건조기" ,path: 62},
-            {name:"청소기", path: 63},
-            {name:"계절가전", path: 64},
-            {name:"이미용가전" ,path: 65}, 
-            {name:"건강가전" ,path: 66},
-            {name:"주방가전" ,path: 67},  
-            {name:"노트북" ,path: 68},
-            {name:"데스크탑" ,path: 69}, 
-            {name:"저장장치" ,path: 70}, 
-            {name:"프린터/복합기" ,path: 71}, 
-            {name:"PC부품/주변기기" ,path: 72},
-            {name:"휴대폰" ,path: 73},
-            {name:"태블릿PC" ,path: 88}, 
-            {name:"스마트워치/밴드" ,path: 74},
-            {name:"음향기기" ,path: 75},
-            {name:"게임콘솔" ,path: 76}, 
-            {name:"카메라" ,path: 77}, 
-            {name:"차량용 디지털" ,path: 78}]);
-        }
-        else if(ca >= 79 && ca <= 99){
-            setD({name: "스포츠/레저", path: 79});
-            setC([{name: "캠핑" ,path: 80},
-            {name:"홈트레이닝" ,path: 81},
-            {name:"수영/수상스포츠" ,path: 82},
-            {name:"골프" ,path: 83},
-            {name:"자전거" ,path: 84},
-            {name:"킥보드/스케이트" ,path: 85},
-            {name:"낚시" ,path: 86},
-            {name:"등산/아웃도어" ,path: 87},
-            {name:"스포츠신발" ,path: 88},
-            {name:"남성스포츠의류" ,path: 89},
-            {name:"여성스포츠의류" ,path: 90},
-            {name:"유아스포츠의류" ,path: 91}, 
-            {name:"스포츠잡화" ,path: 92},
-            {name:"구기스포츠" ,path: 93},
-            {name:"라켓스포츠" ,path: 94}, 
-            {name:"헬스/요가/댄스" ,path: 95},
-            {name:"복싱/검도/태권도" ,path: 96}, 
-            {name:"학교 체육 준비" ,path: 97}, 
-            {name:"기타스포츠" ,path: 98},
-            {name:"스키/겨울스포츠", path: 99}]);
-        }
-        else if(ca >= 100 && ca <= 116){
-            setD({name: "도서", path: 100});
-            setC([{name: "유아/어린이", path: 101},
-            {name: "소설/에세이/시", path: 102},
-            {name:"초중고참고서", path: 103},
-            {name: "가정 살림", path: 104},
-            {name: "건강 취미", path: 105},
-            {name: "경제 경영", path: 106},
-            {name: "과학/공학", path: 107},
-            {name: "국어/외국어/사전", path: 108},
-            {name: "대학교재", path: 109},
-            {name: "만화/라이트노벨", path: 110},
-            {name: "사회 정치", path: 111},
-            {name: "수험서/자격증", path: 112},
-            {name: "여행", path: 113},
-            {name: "역사", path: 114},
-            {name: "예술", path: 115},
-            {name: "인문", path: 116},
-        ])
-        }
-        else if(ca >= 116 && ca <= 117){
-            setD({name: "반려동물용품", path: 118});
-            setC([{name: "강아지 사료/용품" , path: 119}, 
-            {name: "고양이 사료/용품",path: 120}, 
-            {name: "관상어 용품" ,path: 121}, 
-            {name: "소동물/가축용품" ,path: 122}]);
-        }
-        else{
-            setD({name: "카테고리", path: ""});
-            setC([
-                {name: "패션의류/잡화", path: 1},
-                {name: "뷰티", path: 6},
-                {name: "식품", path: 20},
-                {name: "주방용품", path: 34},
-                {name: "생활용품", path: 48},
-                {name: "홈인테리어", path: 62},
-                {name: "가전디지털", path: 73},
-                {name: "스포츠/레저", path: 94},
-                {name: "도서/음반/DVD", path: 114},
-                {name: "반려동물용품", path: 131},
-            ])
-    }}
 
     const setLi = () => {
         if(query.lowest){
@@ -480,9 +297,199 @@ const CatagoryPage = () => {
 
         const data = axios.get('https://www.everdevel.com/ReactJS/axios/myDeviceData.json');
         console.log('data is ' + JSON.stringify(data)); 
+    },[]);        
 
-        SetD(Number(params.catagory));
-    },[]);
+    const SetC = (cata) => {
+
+        let abc;
+
+        if(cata >= 1 && cata <=5){
+            abc = "패션의류/잡화";
+        }
+        else if(cata >= 6 && cata <= 19){
+            abc = "뷰티";
+        }
+        else if(cata >= 20 && cata  <= 33){
+            abc ="주방용품"
+        }
+        else if(cata >= 34 && cata <= 47){
+            abc = "생활용품"
+        }
+        else if(cata >= 48 && cata <= 58){
+            abc = "홈인테리어"
+        }
+        else if(cata >= 59 && cata <= 78){
+            abc = "가전디지털"
+        }
+        else if(cata >= 79 && cata <= 99){
+            abc = "스포츠/레저"
+        }
+        else if(cata >= 100 && cata <= 116){
+            abc = "도서"
+        }      
+        else if(cata >= 116 && cata <= 117){
+            abc = "반려동물용품"
+        }
+        else{
+            abc = "카테고리"
+        }
+
+        return(abc);
+    }
+    
+    const SetD = (cata) => {
+
+        let abc;
+
+        if(cata >= 1 && cata <=5){
+            abc = [{name: "여성패션" ,path: 2},
+            {name:"남성패션", path: 3},
+            {name:"남녀 공용 의류", path: 4},
+            {name:"유아동패션", path: 5}]
+
+        }
+        else if(cata >= 6 && cata <= 19){
+            abc = [{name: "명품뷰티", path: 7},
+            {name: "스킨케어", path: 8},
+            {name: "클렌징/필링", path: 9},
+            {name: "메이크업", path: 10},
+            {name: "향수", path: 11},
+            {name: "남성화장품", path: 12},
+            {name: "네일", path: 13},
+            {name: "뷰티소품", path:14},
+            {name: "어린이화장품", path: 15},
+            {name: "로드샵", path: 16},
+            {name: "헤어", path: 17},
+            {name: "바디", path: 18},
+            {name: "선물세트/키트", path: 19}]
+        }
+        else if(cata >= 20 && cata  <= 33){
+            abc = [{name:"냄비/프라이팬" ,path: 21},
+            {name:"칼/도마" ,path: 22},
+            {name:"주방조리도구" ,path: 23},
+            {name:"그릇/홈세트" ,path: 24},
+            {name:"수저/커트러리" ,path: 25},
+            {name:"컵/잔/텀블러" ,path: 26},
+            {name:"밀폐저장/도시락" ,path: 27},
+            {name:"주방잡화" ,path: 28},
+            {name:"일회용품/종이컵" ,path: 29},
+            {name:"보온/보냉용품" ,path: 30},
+            {name:"이유/유아식기" ,path: 31},
+            {name:"베이킹용품" ,path: 32},
+            {name:"교자상/제수용품", path: 33}]
+        }
+        else if(cata >= 34 && cata <= 47){
+            abc = [{name: "헤어/바디/세안", path: 35},
+            {name: "구강/면도", path: 36},
+            {name: "화장지/물티슈", path: 37},
+            {name: "생리대/기저귀", path: 38},
+            {name: "기저귀", path: 39},
+            {name: "세탁", path: 40},
+            {name: "청소용품", path: 41},
+            {name: "틸취/방향/살충", path: 42},
+            {name: "건강/의료용품", path: 43},
+            {name: "욕실 용품", path: 44},
+            {name: "생활전기용품", path: 45},
+            {name: "수납/정리", path: 46},
+            {name: "생활잡화", path: 47}]
+        }
+        else if(cata >= 48 && cata <= 58){
+            abc = [{path: 49, name: "홈데코"},
+            {path: 50, name: "가구"},
+            {path: 51, name: "수납/정리"},
+            {path: 52, name: "침구"},
+            {path: 53, name: "커튼/블라인드"},
+            {path: 54, name: "카페트/쿠션/거실화"},
+            {path: 55, name: "수예/수선"},
+            {path: 56, name: "욕실용품"},
+            {path: 57, name: "조명/스탠드"},
+            {path: 58, name: "원예/가드닝"},
+            ]
+        }
+        else if(cata >= 59 && cata <= 78){
+            abc = [{name: "TV/영상가전" ,path: 60}, 
+            {name:"냉장고" ,path: 61}, 
+            {name:"세탁기/건조기" ,path: 62},
+            {name:"청소기", path: 63},
+            {name:"계절가전", path: 64},
+            {name:"이미용가전" ,path: 65}, 
+            {name:"건강가전" ,path: 66},
+            {name:"주방가전" ,path: 67},  
+            {name:"노트북" ,path: 68},
+            {name:"데스크탑" ,path: 69}, 
+            {name:"저장장치" ,path: 70}, 
+            {name:"프린터/복합기" ,path: 71}, 
+            {name:"PC부품/주변기기" ,path: 72},
+            {name:"휴대폰" ,path: 73},
+            {name:"태블릿PC" ,path: 88}, 
+            {name:"스마트워치/밴드" ,path: 74},
+            {name:"음향기기" ,path: 75},
+            {name:"게임콘솔" ,path: 76}, 
+            {name:"카메라" ,path: 77}, 
+            {name:"차량용 디지털" ,path: 78}]
+        }
+        else if(cata >= 79 && cata <= 99){
+            abc = [{name: "캠핑" ,path: 80},
+            {name:"홈트레이닝" ,path: 81},
+            {name:"수영/수상스포츠" ,path: 82},
+            {name:"골프" ,path: 83},
+            {name:"자전거" ,path: 84},
+            {name:"킥보드/스케이트" ,path: 85},
+            {name:"낚시" ,path: 86},
+            {name:"등산/아웃도어" ,path: 87},
+            {name:"스포츠신발" ,path: 88},
+            {name:"남성스포츠의류" ,path: 89},
+            {name:"여성스포츠의류" ,path: 90},
+            {name:"유아스포츠의류" ,path: 91}, 
+            {name:"스포츠잡화" ,path: 92},
+            {name:"구기스포츠" ,path: 93},
+            {name:"라켓스포츠" ,path: 94}, 
+            {name:"헬스/요가/댄스" ,path: 95},
+            {name:"복싱/검도/태권도" ,path: 96}, 
+            {name:"학교 체육 준비" ,path: 97}, 
+            {name:"기타스포츠" ,path: 98},
+            {name:"스키/겨울스포츠", path: 99}]
+        }
+        else if(cata >= 100 && cata <= 116){
+            abc = [{name: "유아/어린이", path: 101},
+            {name: "소설/에세이/시", path: 102},
+            {name:"초중고참고서", path: 103},
+            {name: "가정 살림", path: 104},
+            {name: "건강 취미", path: 105},
+            {name: "경제 경영", path: 106},
+            {name: "과학/공학", path: 107},
+            {name: "국어/외국어/사전", path: 108},
+            {name: "대학교재", path: 109},
+            {name: "만화/라이트노벨", path: 110},
+            {name: "사회 정치", path: 111},
+            {name: "수험서/자격증", path: 112},
+            {name: "여행", path: 113},
+            {name: "역사", path: 114},
+            {name: "예술", path: 115},
+            {name: "인문", path: 116}]
+        }      
+        else if(cata >= 116 && cata <= 117){
+            abc = [{name: "강아지 사료/용품" , path: 119}, 
+            {name: "고양이 사료/용품",path: 120}, 
+            {name: "관상어 용품" ,path: 121}, 
+            {name: "소동물/가축용품" ,path: 122}]
+        }
+        else{
+            abc = [{name: "패션의류/잡화", path: 1},
+                {name: "뷰티", path: 6},
+                {name: "식품", path: 20},
+                {name: "주방용품", path: 34},
+                {name: "생활용품", path: 48},
+                {name: "홈인테리어", path: 62},
+                {name: "가전디지털", path: 73},
+                {name: "스포츠/레저", path: 94},
+                {name: "도서/음반/DVD", path: 114},
+                {name: "반려동물용품", path: 131},
+            ]
+        }
+
+        return(abc);
+    }
 
     const SetPage = () => {
         const pa = Number(params.p);
@@ -557,9 +564,10 @@ const CatagoryPage = () => {
             );
         }
         else if(path === "b"){
+            const d = <SetD />
             return(
                 <S.OrderDivD>
-                    {c.map(i => {
+                    {d.map(i => {
                         return(
                         <S.OrderSpanD i={i} name={i.name} path={i.path} onClick={()=>history.push(`/catagory/${i.path}?p=1&order=latest`)}>{i.name}</S.OrderSpanD>
                         );
@@ -603,7 +611,7 @@ const CatagoryPage = () => {
         <S.CA>
         <S.OrderDiv>
             <S.OrderSpan onClick={()=>history.push('/catagory')}>전체</S.OrderSpan>
-            <S.OrderSpan onClick={()=>SETP("a")}>{d.name}</S.OrderSpan>
+            <S.OrderSpan onClick={()=>SETP("a")}>{<SetC />}</S.OrderSpan>
             <S.OrderSpan onClick={()=>SETP("b")}>{sp}</S.OrderSpan>
         </S.OrderDiv>
         <SelectD />
@@ -611,7 +619,7 @@ const CatagoryPage = () => {
             <S.CBox>
                 {query.search ?
                 <S.SearchH>'{query.search}'에 대한 검색결과</S.SearchH> : <></> }
-                {sp ? <S.CatagoryH>{sp}</S.CatagoryH> : <S.CatagoryH>{d.name}</S.CatagoryH>}
+                {sp ? <S.CatagoryH>{sp}</S.CatagoryH> : <S.CatagoryH>{<SetD />}</S.CatagoryH>}
                 <S.Order> 
                     <S.Cli color={query.order === "latest" ? "royalblue" : "black"} onClick={()=>setCatagory({...catagory, order:"latest"})}>최신순</S.Cli>
                     <S.Cli color={query.order === "old" ? "royalblue" : "black"} onClick={()=>setCatagory({...catagory, order:"old"})}>오래된순</S.Cli>
