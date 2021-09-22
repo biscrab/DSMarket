@@ -1,5 +1,5 @@
 import React from 'react'
-import * as S from '../styled/App'
+import * as S from '../src/styled/App'
 
 const PaymentPage = () => {
     return(

@@ -1,6 +1,6 @@
 import React,{useState, useEffect} from 'react'
 import { useHistory, Link, useLocation } from 'react-router-dom'
-import * as S from '../styled/App'
+import * as S from '../src/styled/App'
 
 const Catagory = ({item}) => {
 
