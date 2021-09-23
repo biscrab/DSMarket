@@ -117,13 +117,7 @@ const RegistPage = () => {
     useEffect(()=>{
 
 
-        if(JSON.parse(localStorage.getItem('user'))){
-            
-        }
-        else{
-            alert("로그인을 먼저 해주세요.");
-            history.push('/');
-        }
+
     },[]);
 
     const onChange = (e) => {

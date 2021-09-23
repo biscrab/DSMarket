@@ -46,17 +46,16 @@ const MainPage = () => {
                     <S.Category onMouseEnter={()=>setValue(7)} onClick={() => history.push('/catagory/106')}><S.CSpan>도서</S.CSpan></S.Category>
                     <S.Category onMouseEnter={()=>setValue(8)} onClick={() => history.push('/catagory/123')}><S.CSpan>반려동물용품</S.CSpan></S.Category>
                 </S.CDiv>
-                <Border h={hover} value={value}>1</Border>
                 </S.CTDiv>
             </S.MainBanner>
             <S.BestItem>
-                <S.Best>중고거래 인기 제품</S.Best>
                 <S.BestDiv>
                     <Item lists={list}/>
                 </S.BestDiv> 
             </S.BestItem>
         </S.M>
     );
+    //                <S.Best>중고거래 인기 제품</S.Best>
     /*            <S.BestItem>
                 <S.Best>세일 중인 제품</S.Best>
                 <S.BestDiv>

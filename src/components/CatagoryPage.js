@@ -84,17 +84,16 @@ const CatagoryPage = () => {
         "냉장고",
         "세탁기/건조기",
         "청소기",
-        "계전가전",
+        "계절가전",
         "이미용가전",
         "건강가전",
         "주방가전",
         "노트북",
         "데스크탑",
-        "모니터",
-        "키보드 마우스",
         "저장장치",
         "프린터/복합기",
         "PC 부품/주변기기",
+        "휴대폰",
         "태블릿PC",
         "스마트워치/밴드",
         "음향기기",
@@ -119,6 +118,9 @@ const CatagoryPage = () => {
         "구기스포츠",
         "라켓스포츠",
         "헬스/요가/댄스",
+        "복싱/검도/태권도",
+        "기타스포츠",
+        "스키/겨울스포츠",
         
         "도서",
         "유아/어린이",
@@ -423,32 +425,31 @@ const CatagoryPage = () => {
             {name:"프린터/복합기" ,path: 71}, 
             {name:"PC부품/주변기기" ,path: 72},
             {name:"휴대폰" ,path: 73},
-            {name:"태블릿PC" ,path: 88}, 
-            {name:"스마트워치/밴드" ,path: 74},
-            {name:"음향기기" ,path: 75},
-            {name:"게임콘솔" ,path: 76}, 
-            {name:"카메라" ,path: 77}, 
-            {name:"차량용 디지털" ,path: 78}]);
+            {name:"태블릿PC" ,path: 74}, 
+            {name:"스마트워치/밴드" ,path: 75},
+            {name:"음향기기" ,path: 76},
+            {name:"게임콘솔" ,path: 77}, 
+            {name:"카메라" ,path: 78}, 
+            {name:"차량용 디지털" ,path: 79}]);
         }
-        else if(Number(params.catagory) >= 79 && Number(params.catagory) <= 99){
-            setD([{name: "캠핑" ,path: 80},
-            {name:"홈트레이닝" ,path: 81},
-            {name:"수영/수상스포츠" ,path: 82},
-            {name:"골프" ,path: 83},
-            {name:"자전거" ,path: 84},
-            {name:"킥보드/스케이트" ,path: 85},
-            {name:"낚시" ,path: 86},
-            {name:"등산/아웃도어" ,path: 87},
-            {name:"스포츠신발" ,path: 88},
-            {name:"남성스포츠의류" ,path: 89},
-            {name:"여성스포츠의류" ,path: 90},
-            {name:"유아스포츠의류" ,path: 91}, 
-            {name:"스포츠잡화" ,path: 92},
-            {name:"구기스포츠" ,path: 93},
-            {name:"라켓스포츠" ,path: 94}, 
-            {name:"헬스/요가/댄스" ,path: 95},
-            {name:"복싱/검도/태권도" ,path: 96}, 
-            {name:"학교 체육 준비" ,path: 97}, 
+        else if(Number(params.catagory) >= 80 && Number(params.catagory) <= 99){
+            setD([{name: "캠핑" ,path: 81},
+            {name:"홈트레이닝" ,path: 82},
+            {name:"수영/수상스포츠" ,path: 83},
+            {name:"골프" ,path: 84},
+            {name:"자전거" ,path: 85},
+            {name:"킥보드/스케이트" ,path: 86},
+            {name:"낚시" ,path: 87},
+            {name:"등산/아웃도어" ,path: 88},
+            {name:"스포츠신발" ,path: 89},
+            {name:"남성스포츠의류" ,path: 90},
+            {name:"여성스포츠의류" ,path: 91},
+            {name:"유아스포츠의류" ,path: 92}, 
+            {name:"스포츠잡화" ,path: 93},
+            {name:"구기스포츠" ,path: 94},
+            {name:"라켓스포츠" ,path: 95}, 
+            {name:"헬스/요가/댄스" ,path: 96},
+            {name:"복싱/검도/태권도" ,path: 97}, 
             {name:"기타스포츠" ,path: 98},
             {name:"스키/겨울스포츠", path: 99}]);
         }
@@ -493,7 +494,7 @@ const CatagoryPage = () => {
         <>
         {d.map(i => {
             return(
-            <S.OrderSpanD i={i} name={i.name} path={i.path} onClick={()=>history.push(`/catagory/${i.path}?p=1&order=latest`)}>{i.name}</S.OrderSpanD>
+            <S.OrderSpan i={i} name={i.name} path={i.path} onClick={()=>history.push(`/catagory/${i.path}?p=1&order=latest`)}>{i.name}</S.OrderSpan>
             );
         })}
         </>
@@ -574,9 +575,11 @@ const CatagoryPage = () => {
         }
         else if(path === "b"){
             return(
-                <S.OrderDivD>
-                    <SetD />
-                </S.OrderDivD>
+                <S.OrderDiv>
+                    <S.OrderDivD>
+                            <SetD />
+                    </S.OrderDivD>
+                </S.OrderDiv>
             );
         }
         else if(path === ""){
@@ -616,7 +619,6 @@ const CatagoryPage = () => {
         <S.OrderDiv>
             <S.OrderSpan onClick={()=>history.push('/catagory')}>전체</S.OrderSpan>
             <S.OrderSpan onClick={()=>SETP("a")}>{<SetC cata={Number(params.catagory)}/>}</S.OrderSpan>
-            <S.OrderSpan onClick={()=>SETP("b")}>{sp}</S.OrderSpan>
         </S.OrderDiv>
         <SelectD />
         <S.C>

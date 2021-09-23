@@ -9,6 +9,8 @@ const SignUpPage = () => {
     let history = useHistory();
 
     const SignUp = () => {
+
+        var url = "url";
         
         console.log("user:"+user);
 
@@ -17,29 +19,25 @@ const SignUpPage = () => {
             return;
         }
 
-        const baseURL = "안진우url";
-
         if(user.password === check){
-            //axios.get('/안진우url')
             //만약 아이디가 있으면
-            alert("중복되는 아이디 입니다.");
-
+            
+            alert("중복되는 이메일 입니다.");
+            
             /*
-            axios.get(`${baseURL}/`).then((response) => {
-                setUser(response.data);
-            });*/
-
-            localStorage.user = JSON.stringify({id: user.id, password: user.password});
-
-            alert("등록이 완료되었습니다.");
-            history.push('/');
+            axios.post(`${url}/api/auth/signup`, user)
+                .then((function(response){
+                    localStorage.user = JSON.stringify({id: response.id, password: response.password});            
+                    alert("등록이 완료되었습니다.");
+                    history.push('/');
+                })*/
         }
         else{
             alert("비밀번호가 일치하지 않습니다.");
         }
     }
 
-    const [user, setUser] = useState({id: "", password: "", name: "", phonenumber: ""});
+    const [user, setUser] = useState({email: "", password: "", name: "", phonenumber: ""});
     const [check, setCheck] = useState();
 
     const onChange = (e) => {
@@ -63,8 +61,8 @@ const SignUpPage = () => {
             <S.SiDiv>
             <h1>회원가입</h1>
             <S.SignUpDiv>
-            <S.SignSpan>아이디</S.SignSpan>
-            <S.SignUpInput placeholder="아이디" name="id" onChange={(e)=>changeId(e)}></S.SignUpInput>
+            <S.SignSpan>이메일</S.SignSpan>
+            <S.SignUpInput placeholder="아이디" name="email" onChange={(e)=>changeId(e)}></S.SignUpInput>
             </S.SignUpDiv>
             <S.SignUpDiv>
             <S.SignSpan>비밀번호</S.SignSpan>

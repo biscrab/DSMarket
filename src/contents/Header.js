@@ -3,6 +3,7 @@ import { useHistory, useLocation, useParams} from 'react-router-dom'
 import * as S from '../styled/App'
 import Profile from '../images/profile.png'
 import Logo from '../images/Logo.png'
+import axios from 'axios'
 
 const Header = () => {
 
@@ -16,33 +17,47 @@ const Header = () => {
     const [v, setV] = useState();
     const [login, setLogin] = useState(false);
     const [logined, setLogined] = useState(false);
-    const [ip, setIp] = useState({id : "", password: ""});
+    const [ip, setIp] = useState({email : "", password: ""});
     const [name, setName] = useState("");
 
     const [recent, setRecent] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 
     const [user, setUser] = useState([
-        {name: "asd", id: "asd", password: "a", age: 11},
-        {name: "asd", id: "asd1", password: "a", age: 20},
-        {name: "asd", id: "asd2", password: "a", age: 30},
+        {name: "asd", email: "asd", password: "a", age: 11},
+        {name: "asd", email: "asd1", password: "a", age: 20},
+        {name: "asd", email: "asd2", password: "a", age: 30},
     ])
 
     const SignUp = () => {
-        setIp({id : "", password: ""});
+        setIp({email : "", password: ""});
         history.push('/signup');
         setLogin(false);
     }
 
-    const Login = ({id, password}) => {
-        if(id === ""){
-            alert("아이디를 입력해주세요");
+    const Login = ({email, password}) => {
+        if(email === ""){
+            alert("이메일을 입력해주세요");
         }   
         else if(password === ""){
             alert("비밀번호를 입력해주세요");
         }
         else{
+        
+        var url = "url";
+        axios.post(url, ip)
+            .then(function(response){
+                setName(response.name);
+                setLogined(true);
+                setLogin(false);
+                localStorage.user = JSON.stringify({email: email, password: password});
+            })
+            .catch(function(error){
+                alert("아이디나 비밀번호가 잘못됬습니다.");
+            })
+            /*
+
         function isTrue(element)  {
-            if(element.id === id && element.password === password)  {
+            if(element.email === email && element.password === password)  {
               return true;
             }
           }
@@ -51,11 +66,11 @@ const Header = () => {
                 setName(a.name);
                 setLogined(true);
                 setLogin(false);
-                localStorage.user = JSON.stringify({id: id, password: password});
+                localStorage.user = JSON.stringify({email: email, password: password});
             }
             else{
                 alert("아이디나 비밀번호가 틀렸습니다.");
-            }
+            }*/
         }
 
         console.log(ip.id);
@@ -67,7 +82,7 @@ const Header = () => {
         setLogined(false);
     }
 
-      const handleKeyPress = e => {
+    const handleKeyPress = e => {
         if(e.key === 'Enter') {
             console.log("key");
         }
@@ -79,7 +94,7 @@ const Header = () => {
         
         if(d){    
             console.log("log");
-            Login({id: d.id , password: d.password});
+            Login({email: d.email , password: d.password});
             console.log(d);
         }
 
@@ -173,11 +188,11 @@ const Header = () => {
         <S.LoginBackground>
             <S.LoginDiv>
                 <S.LoginTittle><S.LT>대마마켓</S.LT><S.X onClick={()=>setLogin(false)}>x</S.X></S.LoginTittle> 
-                <S.LoginSpan>아이디</S.LoginSpan>           
-                <S.LoginInput onChange={(e)=>setIp({id: e.target.value, password: ip.password})} value={ip.id}/>
+                <S.LoginSpan>이메일</S.LoginSpan>           
+                <S.LoginInput onChange={(e)=>setIp({email: e.target.value, password: ip.password})} value={ip.id}/>
                 <S.LoginSpan>비밀번호</S.LoginSpan>
-                <S.LoginInput type="password" onChange={(e)=>setIp({id: ip.id, password: e.target.value})} value={ip.password}/>
-                <S.LoginButton color="royalblue" c="white" onClick={()=>Login({id: ip.id, password: ip.password})}>로그인</S.LoginButton>
+                <S.LoginInput type="password" onChange={(e)=>setIp({email: ip.email, password: e.target.value})} value={ip.password}/>
+                <S.LoginButton color="royalblue" c="white" onClick={()=>Login({email: ip.email, password: ip.password})}>로그인</S.LoginButton>
                 <S.LoginButton c="black" onClick={()=>SignUp()}>회원가입</S.LoginButton>
             </S.LoginDiv>
         </S.LoginBackground>

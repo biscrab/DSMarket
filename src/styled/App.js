@@ -501,8 +501,8 @@ export const RelatedDiv = styled.div`
 `
 
 export const RDiv = styled.div`
-    width: 200px;
-    height: 270px;
+    width: 600px;
+    height: 800px;
     margin: 23px;
     margin-bottom: 20px;
     border: 2px solid #eeeeee;
@@ -516,8 +516,8 @@ export const RImg = styled.img`
     position: relative;
     right: 1px;
     bottom: 2px;
-    height: 198px;
-    width: 198px;
+    height: 600px;
+    width: 600px;
 `
 
 export const SMY = styled.button`
@@ -1180,23 +1180,17 @@ export const CA = styled.div`
 `
 
 export const OrderDiv = styled.div`
-    height: 40px;
+    height: auto;
     border-top: 1px solid #eeeeee;
     border-bottom: 1px solid #eeeeee;
     background-color: #eeeeee;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
 `
 
 export const OrderDivD = styled.div`
-    height: 40px;
-    border-top: 1px solid #eeeeee;
-    border-bottom: 1px solid #eeeeee;
-    background-color: #eeeeee;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    border-top: 1px solid lightgray;
+    width: 1130px;
 `
 
 export const OrderSpanD = styled.div`

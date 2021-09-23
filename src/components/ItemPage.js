@@ -77,7 +77,6 @@ const ItemPge = () => {
     <p>{item.explane}</p>
     <S.Gray>연락처: </S.Gray>
 </S.IExplane>
-    
         <S.Related>
             <S.RelatedH>관련 상품</S.RelatedH>
             <S.RelatedDiv>
