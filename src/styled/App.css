@@ -9,6 +9,7 @@ body{
   -khtml-user-select: none;
   -webkit-user-select: none;
   user-select: none;
+  background-color: rgb(252, 252, 252);
 }
 
 p{
@@ -17,4 +18,8 @@ p{
 
 b{
   font-family: 'Nanum Gothic', sans-serif;
+}
+
+img{
+  -webkit-user-drag: none;
 }

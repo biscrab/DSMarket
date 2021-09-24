@@ -8,35 +8,44 @@ export const M = styled.div`
 `
 
 export const Select = styled.div`
-    border-bottom: 2px solid #EAEAEA;
-    height: 40px;
+    border-top: 1px solid #EAEAEA;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `
 
 export const SSpan = styled.span`
-    font-size: 20px;
+    font-size: 16px;
     font-style: bold;
     color: #BDBDBD;
     color: ${props => props.color};
     padding: 8px 20px;
+    font-family: 'Nanum Gothic', sans-serif;
 `
 
 export const User = styled.div`
-    height: 100px;
+    height: 150px;
     display: flex;
     align-items: center;
 `
 
 export const Profile = styled.img`
     border-radius: 50%;
-    height: 60px;
-    width: 60px;
+    height: 100px;
+    width: 100px;
     margin-right: 20px;
+`
+
+export const UserInfo = styled.div`
+    display: flex;
+    flex-direction: column;
 `
 
 export const Div = styled.div`
     display: flex;
     flex-direction: column;
-    width: 800px;
+    width: 850px;
 `
 
 export const ItemDiv = styled.div`

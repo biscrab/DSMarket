@@ -101,3 +101,12 @@ export default Star
         setList(s);
     }
  */
+
+     const Page = ({item}) => {
+        
+        return(
+            <S.Pbutton onClick={()=>setCatagory({...catagory, p: item})} bkcolor={Number(query.p) === item ? "royalblue" : "white"} color={Number(query.p) === item ? "white" : "black"}>
+                {item}
+            </S.Pbutton>
+        )
+    }

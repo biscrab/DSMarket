@@ -16,7 +16,7 @@ const ItemPge = () => {
         img: [],
         name: "이름",
         price: 5000,
-        explane: "ㅁㄴㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ",
+        explane: "ㅁㄴㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ",
         adress: "",
     })
 
@@ -52,21 +52,10 @@ const ItemPge = () => {
 
     return(
         <S.Item>
-<S.IBorder id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <S.Image ref={i} class="d-block w-100" alt="..." />
-    </div>
-  </div>
-  <button onClick={()=>change(-1)} class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button onClik={()=>change(1)}class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</S.IBorder>
+    <S.ImageDiv>
+      <S.Image ref={i}/>
+    </S.ImageDiv>
+<S.ItDiv>
 <S.IUSer>
     <S.Profile src={Profile}></S.Profile>
     <S.ProfileSpan>유저</S.ProfileSpan>
@@ -77,13 +66,7 @@ const ItemPge = () => {
     <p>{item.explane}</p>
     <S.Gray>연락처: </S.Gray>
 </S.IExplane>
-        <S.Related>
-            <S.RelatedH>관련 상품</S.RelatedH>
-            <S.RelatedDiv>
-                <Item lists={list}/>
-            </S.RelatedDiv>
-        </S.Related> 
-            
+</S.ItDiv>      
 </S.Item>
     );
 
@@ -162,3 +145,10 @@ export default ItemPge;
                     </S.ButtonDiv>
                 </S.Info>
             </S.IBorder> */
+
+            /*        <S.Related>
+            <S.RelatedH>관련 상품</S.RelatedH>
+            <S.RelatedDiv>
+                <Item lists={list}/>
+            </S.RelatedDiv>
+        </S.Related>  */

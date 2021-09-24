@@ -107,9 +107,9 @@ const MyPage = () => {
             <S.Div>
                 <S.User>
                     <S.Profile src={Profile}/>
-                    <div>
+                    <S.UserInfo>
                         <h3>유저</h3>
-                    </div>
+                    </S.UserInfo>
                 </S.User>
                 <S.Select>
                     <div>                    

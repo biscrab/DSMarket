@@ -1,7 +1,7 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
-import { Item } from '../pages'
-import * as S from '../styled/App'
+import { Item } from '../src/pages'
+import * as S from '../src/styled/App'
 
 const Admin = ({item}) => {
 

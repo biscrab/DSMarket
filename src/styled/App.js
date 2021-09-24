@@ -68,6 +68,10 @@ export const Search = styled.input`
 `
 
 export const M = styled.div`
+    position: relative;
+    left: 50%;
+    width: 500px;
+    transform: translateX(-50%);
 `
 
 export const Link = styled.img`
@@ -93,11 +97,6 @@ export const BannerImage = styled.img`
             left: 100%;
         }
     }
-`
-
-export const BestItem = styled.div`
-    height: 900px;
-    background-color: rgba(1, 1, 1, 0.01);
 `
 
 export const Best = styled.h1`
@@ -173,9 +172,53 @@ export const CSelect = styled.div`
 `
 
 export const CBox = styled.div`
-    width: 1000px;
     height: auto;
-    margin-left: 40px;
+`
+
+export const MyDiv = styled.div`
+    padding: 20px;
+    width: 350px;
+    height: 400px;
+`
+
+export const My = styled.div`
+    display: flex;
+`
+
+export const MyImg = styled.img`
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+`
+
+export const MyInfoDiv = styled.div`
+    position: relative;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+`
+
+export const MyInfo = styled.span`
+    color: ${props => props.color};
+` 
+
+export const OtherUl = styled.ul`
+    display: flex;
+    flex-direction: column;
+`
+
+export const OtherLi = styled.li`
+    display: flex;
+`
+
+export const OtherTittle = styled.h5`
+    position: relative;
+    top: 20px;
+    color: gray;
+`
+
+export const OtherImg = styled.img`
+
 `
 
 export const SearchH = styled.h5`
@@ -186,7 +229,7 @@ export const C = styled.div`
     display: flex;
     justify-content: center;
     position: relative;
-    top: 20px;
+    top: 40px;
 `
 
 export const ItemBox = styled.li`
@@ -222,12 +265,10 @@ export const Order = styled.ul`
 
 export const Border = styled.div`
     position: relative;
-    top: 20px;
+    top: 40px;
     padding: 0;
     list-style: none;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
 `
 
 export const LoadingDiv = styled.div`
@@ -254,9 +295,12 @@ export const ItemImg = styled.img`
 
 export const Image = styled.img`
     width: 100%;
+    height: 100%;
+`
+
+export const ImageDiv = styled.div`
+    width: 550px;
     height: 550px;
-    border-radius: 10px;
-    background-color: whitesmoke;
 `
 
 export const Heart = styled.div`
@@ -271,12 +315,10 @@ export const Info = styled.div`
     height: 410px;
 `
 
-export const IBorder = styled.div`
-    position: relative;
-    margin-top: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-bottom: 30px;
+export const ItDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 250px;
 `
 
 export const ADiv = styled.div`
@@ -475,16 +517,6 @@ export const CBorder = styled.div`
     background-color: white;
 `
 
-export const BestDiv = styled.div`
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 100px;
-    width: 790px;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-`
 export const Cli = styled.li`
     margin-right: 15px;
     color: ${props => props.color}
@@ -502,22 +534,55 @@ export const RelatedDiv = styled.div`
 
 export const RDiv = styled.div`
     width: 600px;
-    height: 800px;
-    margin: 23px;
+    height: 700px;
+    margin: 0;
     margin-bottom: 20px;
     border: 2px solid #eeeeee;
+    display: flex;
+    flex-direction: column;
 ` 
+
+export const RHead = styled.div`
+    background-color: white;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 10px;
+`
+
+export const RHUser = styled.div`
+
+`
+
+export const RHImg  = styled.img`
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+`
 
 export const RImgDiv = styled.div`
     height: 200px;
+
 `
 
-export const RImg = styled.img`
-    position: relative;
-    right: 1px;
-    bottom: 2px;
-    height: 600px;
-    width: 600px;
+export const RImg = styled.img`   
+    height: 500px;
+    width: 100%;
+`
+
+export const MyRDiv = styled.div`
+    height: 250px;
+    width: 250px;
+`
+
+export const RBody = styled.div`
+    padding: 10px;
+`
+
+export const MyRImg = styled.img`
+    height: 250px;
+    width: 250px;
 `
 
 export const SMY = styled.button`
@@ -1585,11 +1650,12 @@ export const CommentH = styled.h2`
 `
 
 export const Item = styled.div`
-    padding-bottom: 50px;
-    width: 750px;
+    border: 1px solid #eeeeee;
+    width: 800px;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
+    display: flex;
 `
 
 export const CatagoryH = styled.h3`

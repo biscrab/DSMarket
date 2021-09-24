@@ -19,9 +19,8 @@ const Select = ({item}) => {
     }
 
     return(
-        <S.RDiv>
-            <S.RImgDiv>
-            <S.RImg src={item.img} onClick={()=>history.push(`/item/${item.id}`)}/>
+        <S.MyRDiv>
+            <S.MyRImg src={item.img}/>
             <S.SMY onClick={() => setChange(change*-1)}><i class="fas fa-bars "></i></S.SMY>
             {change === 1 ? 
                 <S.SelectMyUl>
@@ -32,10 +31,7 @@ const Select = ({item}) => {
                 :
                 <></>
             }
-            </S.RImgDiv>
-            <S.Rp>{item.name}</S.Rp>
-            <S.Rprice>{item.price}원</S.Rprice>
-        </S.RDiv>
+        </S.MyRDiv>
     );
 }
 

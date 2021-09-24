@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {useParams, useLocation, Link, useRouteMatch} from "react-router-dom";
 import * as S from '../styled/App'
-import P from '../images/p.png'
-import R from '../images/r.png'
 import A from '../images/a.jpg'
 import B from '../images/b.jpg'
 import C from '../images/c.jpg'
@@ -11,141 +9,11 @@ import { useHistory } from 'react-router-dom';
 import Item from '../contents/Item'
 import queryString from 'query-string';
 import axios from 'axios';
+import InfiniteScroll from 'react-infinite-scroll-component';
+import cac from '../catagory.json'
 
 
 const CatagoryPage = () => {    
-
-    const cac = [
-        "패션의류/잡화",
-        "여성패션",
-        "남성패션",
-        "남녀 공용 의류",
-        "유아동패션",
-        
-        "뷰티",
-        "명품뷰티",
-        "스킨케어",
-        "클렌징/필링",
-        "메이크업",
-        "향수",
-        "남성화장품",
-        "네일",
-        "뷰티소품",
-        "어린이화장품",
-        "로드샵",
-        "헤어",
-        "바디",
-        "선물세트/키트",
-        
-        "주방용품",
-        "냄비/프라이팬",
-        "칼/도마",
-        "주방조리도구",
-        "그릇/홈세트",
-        "수저/커트러리",
-        "컵/잔/텀블러",
-        "밀폐저장/도시락",
-        "주방잡화",
-        "일회용품/종이컵",
-        "보온/보냉용품",
-        "이유/유아식기",
-        "베이킹용품",
-        "교자상/제수용품",
-        
-        "생활용품",
-        "헤어/바디/세안",
-        "구강/면도",
-        "화장지/물티슈",
-        "생리대/성인기저귀",
-        "기저귀",
-        "세탁",
-        "청소용품",
-        "탈취/방향/살충",
-        "건강/의료용품",
-        "욕실 용품",
-        "생활전기용품",
-        "수납/정리",
-        "생활잡화",
-        
-        "홈인테리어",
-        "홈데코",
-        "가구",
-        "수납/정리",
-        "침구",
-        "커튼/블라인드",
-        "카페트/쿠션/거실화",
-        "수예/수선",
-        "욕실용품",
-        "조명/스탠드",
-        "원예/가드닝",
-        
-        "가전디지털",
-        "TV/영상가전",
-        "냉장고",
-        "세탁기/건조기",
-        "청소기",
-        "계절가전",
-        "이미용가전",
-        "건강가전",
-        "주방가전",
-        "노트북",
-        "데스크탑",
-        "저장장치",
-        "프린터/복합기",
-        "PC 부품/주변기기",
-        "휴대폰",
-        "태블릿PC",
-        "스마트워치/밴드",
-        "음향기기",
-        "게임콘솔",
-        "카메라",
-        "차량용 디지털",
-        
-        "스포츠/레저",
-        "캠핑",
-        "홈트레이닝",
-        "수영/수상스포츠",
-        "골프",
-        "자전거",
-        "킥보드/스케이트",
-        "낚시",
-        "등산/아웃도어",
-        "스포츠신발",
-        "남성스포츠의류",
-        "여성스포츠의류",
-        "유아스포츠의류",
-        "스포츠잡화",
-        "구기스포츠",
-        "라켓스포츠",
-        "헬스/요가/댄스",
-        "복싱/검도/태권도",
-        "기타스포츠",
-        "스키/겨울스포츠",
-        
-        "도서",
-        "유아/어린이",
-        "소설/에세이/사",
-        "초중고참고서",
-        "가정 살림",
-        "건강 취미",
-        "경재 경영",
-        "과학/공학",
-        "국어/외국어/사전",
-        "대학교재",
-        "만화/라이트노벨",
-        "사회 정치",
-        "수험서/자격증",
-        "여행",
-        "역사",
-        "예술",
-        "인문",
-        
-        "반려동물용품",
-        "강아지 사료/용품",
-        "고양이 사료 용품",
-        "관상어 용품",
-        "소동물/가축용품",
-    ]
 
     let history = useHistory();
     const match = useRouteMatch();
@@ -338,12 +206,193 @@ const CatagoryPage = () => {
 
         return(abc);
     }
-    
-    const SetD = () => {
 
-        const [d, setD] = useState([]);
+    const SetPage = () => {
+        const pa = Number(params.p);
+        if(pa === 1){
+            setRlist(list.slice(0, 15));
+        }
+        else{
+            setRlist(list.slice(pa * 15 + 1 , pa * 15 + 16));
+        }
+        setList(rlist)
+    }
 
-        useEffect(()=>{
+    const prev = () => {
+        if(catagory.p >= 11){
+            setCatagory({...catagory, p: catagory.p-10});
+        }
+        else{
+            setCatagory({...catagory, p: 1})
+        }
+    }
+
+    const next = () => {
+        if(catagory.p + 10 >= list.length-1){
+            setCatagory({...catagory, p: list.length-1});
+        }
+        else{
+            setCatagory({...catagory, p: catagory.p + 10});
+        }
+    }
+
+    const [catagory, setCatagory] = useState({
+        p: query.p,
+        order: query.order,
+        search: query.search
+    });
+
+    const [path, setPath] = useState("");
+
+                    /*{<SetPath /> ?
+                <h2><SetPath /></h2>
+                :
+                <>
+                {d.name ?
+                <h2>{d.name}</h2>
+                :
+                <h2>카테고리</h2>}
+                </>
+                }*/
+
+    const SETP = (n) => {
+        if(path !== n){
+            setPath(n);
+        }
+        else{
+            setPath("");
+        }
+    }
+
+    const cat = [{name: "패션의류/잡화", path: 1},{name: "뷰티", path: 6},{name: "주방용품", path: 20},{name: "생횔용품", path: 34},{name: "홈인테리어", path: 48},{name: "가전디지털", path: 59},{name: "스포츠 레저", path: 80},{name: "도서", path: 100},{name: "반려동물용품", path: 117}];
+
+    const SelectD = () => {
+
+        if(path === "a"){
+            return(
+                <S.OrderDiv>
+                    {cat.map(i => {
+                        return(
+                        <S.OrderSpan i={i} name={i.name} path={i.path} onClick={()=>history.push(`/catagory/${i.path}?p=1&order=latest`)}>{i.name}</S.OrderSpan>
+                        );
+                    })}
+                </S.OrderDiv>
+            );
+        }
+        else if(path === ""){
+            return(
+                <></>
+            );
+        }
+    }
+
+    useEffect(()=>{
+        changeLink();
+        setO();
+    },[catagory]);
+
+    useEffect(()=>{
+        if(catagory.p === undefined){
+            setCatagory({...catagory, p: 1});   
+            changeLink();    
+        }
+        if(catagory.order === undefined){
+            setCatagory({...catagory, order: "latest"});
+            changeLink();
+        }
+    })
+
+    const Loading = () => {
+            <S.LoadingDiv>
+                <S.LoadingD>
+                <div class="spinner-border text-secondary" style={{width: "4rem", height: "4rem"}} role="status">
+                <span class="visually-hidden">Loading...</span>
+                </div>
+                <S.LoadingP>
+                    로딩중...
+                </S.LoadingP>
+                </S.LoadingD>
+            </S.LoadingDiv>
+    }
+
+    return(
+        <S.CA>
+        <S.OrderDiv>
+            <S.OrderSpan onClick={()=>history.push('/catagory')}>전체</S.OrderSpan>
+            <S.OrderSpan onClick={()=>SETP("a")}>{<SetC cata={Number(params.catagory)}/>}</S.OrderSpan>
+        </S.OrderDiv>
+        <SelectD />
+        <S.C>
+            <S.CBox>
+                
+                {query.search ?
+                <S.SearchH>'{query.search}'에 대한 검색결과</S.SearchH> : <></> }
+                {sp ? <S.CatagoryH>{sp}</S.CatagoryH> : <S.CatagoryH><SetC cata={Number(params.catagory)}/></S.CatagoryH>}
+                <S.Order> 
+                    <S.Cli color={query.order === "latest" ? "royalblue" : "black"} onClick={()=>setCatagory({...catagory, order:"latest"})}>최신순</S.Cli>
+                    <S.Cli color={query.order === "old" ? "royalblue" : "black"} onClick={()=>setCatagory({...catagory, order:"old"})}>오래된순</S.Cli>
+                    <S.Cli color={query.order === "lowest" ? "royalblue" : "black"} onClick={()=>setCatagory({...catagory, order:"lowest"})}>낮은 가격순</S.Cli>
+                    <S.Cli color={query.order === "highest" ? "royalblue" : "black"} onClick={()=>setCatagory({...catagory, order:"highest"})}>높은 가격순</S.Cli>
+                </S.Order>
+                
+                
+                <S.Border>
+                <InfiniteScroll style={{display: 'flex', flexDirection:"column-reverse", overflowX:"hidden"}}
+                                dataLength={list.length}
+                                loader={<Loading />}
+                >
+                <>
+                {1 === 0 ?
+                <S.None>해당 하는 상품이 없습니다.</S.None>
+                :
+                <Item lists={list}/> 
+                } 
+                </>
+                </InfiniteScroll>            
+                <S.MyDiv>
+                    <S.My>
+                    <S.MyImg src={A}></S.MyImg>
+                    <S.MyInfoDiv>
+                        <S.MyInfo color="gray">이메일</S.MyInfo>
+                        <S.MyInfo>이름</S.MyInfo>
+                    </S.MyInfoDiv>
+                    </S.My>
+                    <S.OtherTittle>회원님만을 위한 추천</S.OtherTittle>
+                    <S.OtherUl>
+                        
+                    </S.OtherUl>
+                </S.MyDiv>
+
+                </S.Border>
+                
+
+            </S.CBox>   
+        </S.C>
+        </S.CA>
+    )
+}
+
+export default CatagoryPage
+
+/*        {1 === 0 ?
+        <></>:
+        <S.Next>
+            {catagory.p >= 2 ?
+            <S.Pbutton onClick={()=>prev()}>{'<'}</S.Pbutton>
+            : <S.Pbutton onClick={()=>prev()} color="#eeeeee">{'<'}</S.Pbutton>}
+            {page.map(i => {
+                return(
+                <Page item={i}/>
+                );
+            })}
+            {Number(catagory.p) < rlist.length ?
+                <S.Pbutton onClick={()=>next()} >{'>'}</S.Pbutton> 
+                : <S.Pbutton onClick={()=>next()} color="#eeeeee">{'>'}</S.Pbutton>
+            }
+        </S.Next>
+        } */
+
+/*        useEffect(()=>{
 
         if(Number(params.catagory) >= 1 && Number(params.catagory) <=5){
             setD([{name: "여성패션", path: 2},
@@ -488,7 +537,12 @@ const CatagoryPage = () => {
                 {name: "도서", path: 100},
                 {name: "반려동물용품", path: 117}]);
         }
-    });
+    }); */
+        
+
+    /*    const SetD = () => {
+
+        const [d, setD] = useState([]);
         
         return(
         <>
@@ -499,180 +553,4 @@ const CatagoryPage = () => {
         })}
         </>
         )
-    }
-
-    const SetPage = () => {
-        const pa = Number(params.p);
-        if(pa === 1){
-            setRlist(list.slice(0, 15));
-        }
-        else{
-            setRlist(list.slice(pa * 15 + 1 , pa * 15 + 16));
-        }
-        setList(rlist)
-    }
-
-    const prev = () => {
-        if(catagory.p >= 11){
-            setCatagory({...catagory, p: catagory.p-10});
-        }
-        else{
-            setCatagory({...catagory, p: 1})
-        }
-    }
-
-    const next = () => {
-        if(catagory.p + 10 >= list.length-1){
-            setCatagory({...catagory, p: list.length-1});
-        }
-        else{
-            setCatagory({...catagory, p: catagory.p + 10});
-        }
-    }
-
-    const [catagory, setCatagory] = useState({
-        p: query.p,
-        order: query.order,
-        search: query.search
-    });
-
-    const [path, setPath] = useState("");
-
-                    /*{<SetPath /> ?
-                <h2><SetPath /></h2>
-                :
-                <>
-                {d.name ?
-                <h2>{d.name}</h2>
-                :
-                <h2>카테고리</h2>}
-                </>
-                }*/
-
-    const SETP = (n) => {
-        if(path !== n){
-            setPath(n);
-        }
-        else{
-            setPath("");
-        }
-    }
-
-    const cat = [{name: "패션의류/잡화", path: 1},{name: "뷰티", path: 6},{name: "주방용품", path: 20},{name: "생횔용품", path: 34},{name: "홈인테리어", path: 48},{name: "가전디지털", path: 59},{name: "스포츠 레저", path: 80},{name: "도서", path: 100},{name: "반려동물용품", path: 117}];
-
-    const SelectD = () => {
-
-        if(path === "a"){
-            return(
-                <S.OrderDiv>
-                    {cat.map(i => {
-                        return(
-                        <S.OrderSpan i={i} name={i.name} path={i.path} onClick={()=>history.push(`/catagory/${i.path}?p=1&order=latest`)}>{i.name}</S.OrderSpan>
-                        );
-                    })}
-                </S.OrderDiv>
-            );
-        }
-        else if(path === "b"){
-            return(
-                <S.OrderDiv>
-                    <S.OrderDivD>
-                            <SetD />
-                    </S.OrderDivD>
-                </S.OrderDiv>
-            );
-        }
-        else if(path === ""){
-            return(
-                <></>
-            );
-        }
-    }
-
-    useEffect(()=>{
-        changeLink();
-        setO();
-    },[catagory]);
-
-    useEffect(()=>{
-        if(catagory.p === undefined){
-            setCatagory({...catagory, p: 1});   
-            changeLink();    
-        }
-        if(catagory.order === undefined){
-            setCatagory({...catagory, order: "latest"});
-            changeLink();
-        }
-    })
-
-    const Page = ({item}) => {
-        
-        return(
-            <S.Pbutton onClick={()=>setCatagory({...catagory, p: item})} bkcolor={Number(query.p) === item ? "royalblue" : "white"} color={Number(query.p) === item ? "white" : "black"}>
-                {item}
-            </S.Pbutton>
-        )
-    }
-
-    return(
-        <S.CA>
-        <S.OrderDiv>
-            <S.OrderSpan onClick={()=>history.push('/catagory')}>전체</S.OrderSpan>
-            <S.OrderSpan onClick={()=>SETP("a")}>{<SetC cata={Number(params.catagory)}/>}</S.OrderSpan>
-        </S.OrderDiv>
-        <SelectD />
-        <S.C>
-            <S.CBox>
-                {query.search ?
-                <S.SearchH>'{query.search}'에 대한 검색결과</S.SearchH> : <></> }
-                {sp ? <S.CatagoryH>{sp}</S.CatagoryH> : <S.CatagoryH><SetC cata={Number(params.catagory)}/></S.CatagoryH>}
-                <S.Order> 
-                    <S.Cli color={query.order === "latest" ? "royalblue" : "black"} onClick={()=>setCatagory({...catagory, order:"latest"})}>최신순</S.Cli>
-                    <S.Cli color={query.order === "old" ? "royalblue" : "black"} onClick={()=>setCatagory({...catagory, order:"old"})}>오래된순</S.Cli>
-                    <S.Cli color={query.order === "lowest" ? "royalblue" : "black"} onClick={()=>setCatagory({...catagory, order:"lowest"})}>낮은 가격순</S.Cli>
-                    <S.Cli color={query.order === "highest" ? "royalblue" : "black"} onClick={()=>setCatagory({...catagory, order:"highest"})}>높은 가격순</S.Cli>
-                </S.Order>
-                <S.Border>
-                {loading ? 
-                <S.LoadingDiv>
-                    <S.LoadingD>
-                    <div class="spinner-border text-secondary" style={{width: "4rem", height: "4rem"}} role="status">
-                    <span class="visually-hidden">Loading...</span>
-                    </div>
-                    <S.LoadingP>
-                        로딩중...
-                    </S.LoadingP>
-                    </S.LoadingD>
-                </S.LoadingDiv> :
-                <>
-                {1 === 0 ?
-                <S.None>해당 하는 상품이 없습니다.</S.None>
-                :
-                <Item lists={list}/> 
-                } 
-                </>} 
-                </S.Border>
-            </S.CBox>
-        </S.C>
-        {1 === 0 ?
-        <></>:
-        <S.Next>
-            {catagory.p >= 2 ?
-            <S.Pbutton onClick={()=>prev()}>{'<'}</S.Pbutton>
-            : <S.Pbutton onClick={()=>prev()} color="#eeeeee">{'<'}</S.Pbutton>}
-            {page.map(i => {
-                return(
-                <Page item={i}/>
-                );
-            })}
-            {Number(catagory.p) < rlist.length ?
-                <S.Pbutton onClick={()=>next()} >{'>'}</S.Pbutton> 
-                : <S.Pbutton onClick={()=>next()} color="#eeeeee">{'>'}</S.Pbutton>
-            }
-        </S.Next>
-        }
-        </S.CA>
-    )
-}
-
-export default CatagoryPage
+    } */
