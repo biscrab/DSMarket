@@ -11,6 +11,7 @@ import queryString from 'query-string';
 import axios from 'axios';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import cac from '../catagory.json'
+import OtherList from '../contents/OtherList'
 
 
 const MainPage = () => {    
@@ -315,22 +316,12 @@ const MainPage = () => {
             </S.LoadingDiv>
     }
 
+    const other = [{img: A, name: 5}]
+
     return(
         <S.CA>
         <S.C>
             <S.CBox>
-                
-                {query.search ?
-                <S.SearchH>'{query.search}'에 대한 검색결과</S.SearchH> : <></> }
-                {sp ? <S.CatagoryH>{sp}</S.CatagoryH> : <S.CatagoryH><SetC cata={Number(params.catagory)}/></S.CatagoryH>}
-                <S.Order> 
-                    <S.Cli color={query.order === "latest" ? "royalblue" : "black"} onClick={()=>setCatagory({...catagory, order:"latest"})}>최신순</S.Cli>
-                    <S.Cli color={query.order === "old" ? "royalblue" : "black"} onClick={()=>setCatagory({...catagory, order:"old"})}>오래된순</S.Cli>
-                    <S.Cli color={query.order === "lowest" ? "royalblue" : "black"} onClick={()=>setCatagory({...catagory, order:"lowest"})}>낮은 가격순</S.Cli>
-                    <S.Cli color={query.order === "highest" ? "royalblue" : "black"} onClick={()=>setCatagory({...catagory, order:"highest"})}>높은 가격순</S.Cli>
-                </S.Order>
-                
-                
                 <S.Border>
                 <InfiniteScroll style={{display: 'flex', flexDirection:"column-reverse", overflowX:"hidden"}}
                                 dataLength={list.length}
@@ -354,7 +345,7 @@ const MainPage = () => {
                     </S.My>
                     <S.OtherTittle>회원님만을 위한 추천</S.OtherTittle>
                     <S.OtherUl>
-                        
+                        <OtherList lists={other}/>
                     </S.OtherUl>
                 </S.MyDiv>
 
@@ -368,6 +359,16 @@ const MainPage = () => {
 }
 
 export default MainPage
+
+/*                {query.search ?
+                <S.SearchH>'{query.search}'에 대한 검색결과</S.SearchH> : <></> }
+                {sp ? <S.CatagoryH>{sp}</S.CatagoryH> : <S.CatagoryH><SetC cata={Number(params.catagory)}/></S.CatagoryH>}
+                <S.Order> 
+                    <S.Cli color={query.order === "latest" ? "royalblue" : "black"} onClick={()=>setCatagory({...catagory, order:"latest"})}>최신순</S.Cli>
+                    <S.Cli color={query.order === "old" ? "royalblue" : "black"} onClick={()=>setCatagory({...catagory, order:"old"})}>오래된순</S.Cli>
+                    <S.Cli color={query.order === "lowest" ? "royalblue" : "black"} onClick={()=>setCatagory({...catagory, order:"lowest"})}>낮은 가격순</S.Cli>
+                    <S.Cli color={query.order === "highest" ? "royalblue" : "black"} onClick={()=>setCatagory({...catagory, order:"highest"})}>높은 가격순</S.Cli>
+                </S.Order> */
 
 /*        <S.OrderDiv>
             <S.OrderSpan onClick={()=>history.push('/catagory')}>전체</S.OrderSpan>

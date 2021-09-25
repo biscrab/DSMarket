@@ -205,20 +205,32 @@ export const MyInfo = styled.span`
 export const OtherUl = styled.ul`
     display: flex;
     flex-direction: column;
+    padding: 0;
+    position: relative;
+    top: 30px;
 `
 
 export const OtherLi = styled.li`
     display: flex;
+    align-items: center;
+    height: 40px;
 `
 
-export const OtherTittle = styled.h5`
+export const OtherTittle = styled.span`
     position: relative;
     top: 20px;
     color: gray;
 `
 
 export const OtherImg = styled.img`
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+`
 
+export const OtherName = styled.span`
+    padding-left: 10px;
+    color: gray;
 `
 
 export const SearchH = styled.h5`
@@ -229,7 +241,7 @@ export const C = styled.div`
     display: flex;
     justify-content: center;
     position: relative;
-    top: 40px;
+    top: 20px;
 `
 
 export const ItemBox = styled.li`
@@ -559,6 +571,10 @@ export const RHImg  = styled.img`
     border-radius: 50%;
     height: 40px;
     width: 40px;
+`
+
+export const RHName = styled.span`
+    padding-left: 10px;
 `
 
 export const RImgDiv = styled.div`
