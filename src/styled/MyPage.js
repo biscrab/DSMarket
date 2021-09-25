@@ -45,7 +45,7 @@ export const UserInfo = styled.div`
 export const Div = styled.div`
     display: flex;
     flex-direction: column;
-    width: 850px;
+    width: 830px;
 `
 
 export const ItemDiv = styled.div`
@@ -89,7 +89,8 @@ export const ReviewLi = styled.li`
     border-bottom: 2px solid #eeeeee;
     height: auto;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     padding: 15px 0px;
 ` 
 
@@ -108,4 +109,5 @@ export const Span = styled.span`
 
 export const XButton = styled.button`
     background-color: rgba(0, 0, 0, 0);
+    border: 0;
 `

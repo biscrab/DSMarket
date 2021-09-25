@@ -20,16 +20,14 @@ const RegistPage = () => {
         catagory: "1",
     });
 
-    const baseURL = "안진우 url";
-
     const Regist = () => {
-        axios
-        .post(baseURL, {
-            item
+        axios.post(`${url}/api/auth/signup`)
+        .then(function(response){
+            alert("상품이 등록되었습니다.")
         })
-        .then((response) => {
-          setItem(response.data);
-        });
+        .catch(function(error){
+            alert("상품 등록에 실패했습니다.")
+        })
     }
 
     useEffect(()=>{
@@ -41,14 +39,11 @@ const RegistPage = () => {
     const [list, setList] = useState({name: "", option:[]});
 
     const [tittle, setTittle] = useState("");
+    
+    var url = "http://13.124.26.107:9095";
 
     useEffect(()=>{
-        var url = "http://13.124.26.107:9095";
-        axios.get(`${url}/api/item`, )
-            .then(response => {
-                setList(response.data);
-            });
-
+        
 
     },[]);
 
@@ -74,7 +69,7 @@ const RegistPage = () => {
         getInputProps
       } = useDropzone({
         accept: 'image/jpeg, image/png',    
-        maxFiles: 9
+        maxFiles: 1
       });
     
       const acceptedFileItems = acceptedFiles.map(file => (
@@ -118,12 +113,15 @@ const RegistPage = () => {
             <S.RegistDiv>
                 <p>이미지</p>
 
+    {1 ?
     <section className="container">
       <S.Dropzone {...getRootProps({ className: 'dropzone' })}>
         <input {...getInputProps()} />
         <span>드래그로 이미지 등록</span>
       </S.Dropzone>
     </section>
+    :
+    <></>}
             </S.RegistDiv>
             <p>상품 설명</p>
             <S.RegistDiv>

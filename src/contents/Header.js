@@ -43,8 +43,8 @@ const Header = () => {
         }
         else{
         
-        var url = "url";
-        axios.post(url, ip)
+        var url = "http://13.124.26.107:9095";
+        axios.post(`${url}/api/auth/login`, ip)
             .then(function(response){
                 setName(response.name);
                 setLogined(true);

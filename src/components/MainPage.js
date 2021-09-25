@@ -322,6 +322,7 @@ const MainPage = () => {
                 </>
                 </InfiniteScroll>            
                 <S.MyDiv>
+                    <S.MyFDiv>
                     <S.My>
                     <S.MyImg src={A} onClick={()=>history.push('/user')}></S.MyImg>
                     <S.MyInfoDiv>
@@ -333,6 +334,7 @@ const MainPage = () => {
                     <S.OtherUl>
                         <OtherList lists={other}/>
                     </S.OtherUl>
+                    </S.MyFDiv>
                 </S.MyDiv>
 
                 </S.Border>

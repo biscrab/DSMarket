@@ -178,7 +178,12 @@ export const CBox = styled.div`
 export const MyDiv = styled.div`
     padding: 20px;
     width: 350px;
-    height: 400px;
+`
+
+export const MyFDiv = styled.div`
+    width: 100%;
+    height: 450px;
+    position: fixed;
 `
 
 export const My = styled.div`
@@ -591,7 +596,7 @@ export const RImg = styled.img`
 export const MyRDiv = styled.div`
     height: 250px;
     width: 250px;
-    margin-bottom: 10px;
+    margin-bottom: 40px;
 `
 
 export const MyRBack = styled.div`

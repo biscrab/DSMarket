@@ -8,6 +8,18 @@ const SignUpPage = () => {
 
     let history = useHistory();
 
+    function CheckEmail(str){                                                 
+
+        var reg_email = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
+    
+        if(!reg_email.test(str)) {                            
+            return false;         
+        }                            
+        else {                       
+            return true;         
+        }                            
+    }   
+
     const SignUp = () => {
 
         var url = "url";
@@ -16,24 +28,28 @@ const SignUpPage = () => {
 
         if(user.id && user.password && user.name && user.phonenumber){
             alert("내용을 모두 입력해주세요");
-            return;
         }
-
-        if(user.password === check){
+        else if(!CheckEmail(user.email)){
+            alert("이미지 형식이 잘못 되었습니다.");
+        }
+        else if(user.password !== check){
             //만약 아이디가 있으면
             
-            alert("중복되는 이메일 입니다.");
+            alert("비밀번호가 일치하지 않습니다.");
             
-            /*
-            axios.post(`${url}/api/auth/signup`, user)
+            
+        }
+        else{            
+            /*axios.post(`${url}/api/auth/signup`, user)
                 .then((function(response){
                     localStorage.user = JSON.stringify({id: response.id, password: response.password});            
                     alert("등록이 완료되었습니다.");
                     history.push('/');
                 })*/
-        }
-        else{
-            alert("비밀번호가 일치하지 않습니다.");
+
+            if('이메일 중복'){
+                alert("중복되는 이메일 입니다.");
+            }
         }
     }
 
@@ -48,7 +64,7 @@ const SignUpPage = () => {
             });
     };
 
-    const changeId = (e) => {
+    const changeEmail = (e) => {
         setUser({...user, id: e.target.value});
     }
 
@@ -62,7 +78,7 @@ const SignUpPage = () => {
             <h1>회원가입</h1>
             <S.SignUpDiv>
             <S.SignSpan>이메일</S.SignSpan>
-            <S.SignUpInput placeholder="아이디" name="email" onChange={(e)=>changeId(e)}></S.SignUpInput>
+            <S.SignUpInput placeholder="아이디" name="email" onChange={(e)=>changeEmail(e)}></S.SignUpInput>
             </S.SignUpDiv>
             <S.SignUpDiv>
             <S.SignSpan>비밀번호</S.SignSpan>
