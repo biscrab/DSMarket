@@ -1,6 +1,5 @@
 export { default as Main } from './Main'
 export { default as Catagory } from './Catagory'
-export { default as Item } from './Item'
 export { default as Regist } from './Regist'
 export { default as SignUp } from './SignUp'
 export { default as MyPage} from './My'

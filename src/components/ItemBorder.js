@@ -51,6 +51,8 @@ const ItemPge = () => {
     });
 
     return(
+<S.LoginBackground>
+<div><S.Xbutton><div><svg color="#ffffff" fill="#ffffff" height="24" role="img" viewBox="0 0 48 48" width="24"><path clip-rule="evenodd" d="M41.8 9.8L27.5 24l14.2 14.2c.6.6.6 1.5 0 2.1l-1.4 1.4c-.6.6-1.5.6-2.1 0L24 27.5 9.8 41.8c-.6.6-1.5.6-2.1 0l-1.4-1.4c-.6-.6-.6-1.5 0-2.1L20.5 24 6.2 9.8c-.6-.6-.6-1.5 0-2.1l1.4-1.4c.6-.6 1.5-.6 2.1 0L24 20.5 38.3 6.2c.6-.6 1.5-.6 2.1 0l1.4 1.4c.6.6.6 1.6 0 2.2z" fill-rule="evenodd"></path></svg></div></S.Xbutton></div>
         <S.Item>
     <S.ImageDiv>
       <S.Image ref={i}/>
@@ -61,13 +63,14 @@ const ItemPge = () => {
     <S.ProfileSpan>유저</S.ProfileSpan>
 </S.IUSer>
 <S.IExplane>
-    <h4>{item.name}</h4>
+    <S.Iname>{item.name}</S.Iname>
     <S.ItemPrice>{item.price}원</S.ItemPrice>
     <p>{item.explane}</p>
     <S.Gray>연락처: </S.Gray>
 </S.IExplane>
 </S.ItDiv>      
 </S.Item>
+</S.LoginBackground>
     );
 
     /*<S.PointDiv><S.Pspan>🟡100포인트</S.Pspan></S.PointDiv>*/

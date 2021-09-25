@@ -18,7 +18,6 @@ function App() {
     <Header />
     <Switch>
     <Route exact path="/" component={P.Main}/>
-    <Route path="/item" component={P.Item}/>
     <Route exact path="/regist" component={P.Regist}/>
     <Route exact path="/mypage" component={P.MyPage} />
     <Route exact path="/signup" component={P.SignUp} />

@@ -328,9 +328,10 @@ export const Info = styled.div`
 `
 
 export const ItDiv = styled.div`
+    background-color: white;
     display: flex;
     flex-direction: column;
-    width: 250px;
+    width: 300px;
 `
 
 export const ADiv = styled.div`
@@ -590,6 +591,18 @@ export const RImg = styled.img`
 export const MyRDiv = styled.div`
     height: 250px;
     width: 250px;
+    margin-bottom: 10px;
+`
+
+export const MyRBack = styled.div`
+    position: relative;
+    top: -100%;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    :hover{
+        background-color: rgba(0, 0, 0, 0.5);
+    }
 `
 
 export const RBody = styled.div`
@@ -597,35 +610,8 @@ export const RBody = styled.div`
 `
 
 export const MyRImg = styled.img`
-    height: 250px;
-    width: 250px;
-`
-
-export const SMY = styled.button`
-    background-color: rgba(0, 0, 0, 0);
-    border: 0;
-    position: relative;
-    z-index: 1;
-    left: 170px;
-    bottom: 195px;
-    color: gray;
-`
-export const SelectMyUl = styled.ul`
-    border: 1px solid #eeeeee;
-    background-color: white;
-    list-style: none;
-    padding: 0px 10px;
-    width: 80px;
-    position: relative;
-    left: 175px;
-    bottom: 195px;
-    z-index: 2;
-`
-
-export const SelectLi = styled.li`
-    border-bottom: 1px solid #eeeeee;
-    background-color: white;
-    color: ${props => props.color};
+    height: 100%;
+    width: 100%;
 `
 
 export const CheckBox = styled.input`
@@ -897,7 +883,16 @@ export const LoginBackground = styled.div`
     width: 100%;
     height: 110%;
     top: -70px;
+    padding-top: 70px;
     background-color: rgba(0, 0, 0, 0.5);
+`
+
+export const Xbutton = styled.button`
+    background-color: rgba(0,0,0,0);
+    border: 0;
+    position: absolute;
+    left: 96%;
+    top: 12%;
 `
 
 export const LoginDiv = styled.div`
@@ -1131,12 +1126,6 @@ export const Dropzone = styled.div`
     justify-content: center;
     color: gray;
     font-size: 20px;
-`
-
-export const Aside = styled.aside`
-    position: relative;
-    top: 20px;
-    color: gray;
 `
 
 export const Explane = styled.textarea`
@@ -1666,12 +1655,13 @@ export const CommentH = styled.h2`
 `
 
 export const Item = styled.div`
-    border: 1px solid #eeeeee;
-    width: 800px;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
+    background-color: white;
+    width: 850px;
+    height: 550px;
     display: flex;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
 `
 
 export const CatagoryH = styled.h3`
@@ -1710,16 +1700,21 @@ export const Card = styled.div`
 
 export const IUSer = styled.div`
     height: 65px;
+    padding: 10px;
     border-bottom: 2px solid #eeeeee;
-    margin-bottom: 20px;  
 `
 
 export const IExplane = styled.div`
     border-bottom: 2px solid #eeeeee;
+    padding: 10px;
 `
 
 export const ItemPrice = styled.p`
-    font-size: 18px;
+    font-size: 16px;
+`
+
+export const Iname = styled.p`
+
 `
 
 export const Gray = styled.p`
@@ -1727,14 +1722,14 @@ export const Gray = styled.p`
 `
 
 export const Profile = styled.img`
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
 `
 
 export const ProfileSpan = styled.span`
     position: relative;
     left: 10px;
-    font-size: 20px;
+    font-size: 18px;
 `
 
 export const Unknown = styled.h1`

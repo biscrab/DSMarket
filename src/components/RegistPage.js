@@ -38,84 +38,16 @@ const RegistPage = () => {
         }
     })
 
-    const SetC = (c) => {
-        switch(c){
-            case 0:
-                setCatagory([{name: "여성패션", link: 2}, {name: "남성패션", link: 3}, {name: "남녀 공용 의류", link: 4}, {name: "유아동패션", link: 5}])
-            break;
-            case 1:
-                setCatagory([{name: "명품뷰티", link: 7}, {name: "스킨케어", link: 8}, {name: "클렌징/필링", link: 9}, {name: "메이크업", link: 10}, {name: "향수", link: 11}, {name: "남성화장품", link: 12}, {name: "네알", link: 13}, {name: "뷰티소품", link: 14},
-                {name: "어린이화장품", link: 15}, {name: "로드샵", link: 16}, {name: "헤어", link: 17}, {name: "바디", link: 18}, {name: "선물세트/키트", link: 19}]);
-            break;
-            case 2:
-                setCatagory([{name: "냄비/프라이팬", link: 21}, {name: "칼/도마", link: 22}, {name: "주방조리도구", link: 23}, {name: "그릇/홈세트", link: 24}, {name: "수저/커트러리", link: 25}, {name: "컵/잔/텀블러", link: 26}, {name: "밀폐저장/도시락", link: 27}, {name: "주방잡화", link: 28}, {name: "일회용품/종이컵", link: 29},
-                {name: "보온/보냉용품", link: 30}, {name: "이유/유아식기", link: 31}, {name: "베이킹용품", link: 32}, {name: "교자상/제수용품", link: 33}]);
-            break;
-            case 3: 
-            setCatagory([{name: "헤어/바디/세안", link: 35}, {name: "구강/면도", link: 36}, {name: "화장지/물티슈", link: 37}, {name: "생리대/성인기저귀", link: 38}, {name: "기저귀", link: 39}, {name: "세탁", link: 40}, {name: "청소용품", link: 41}, {name: "탈취/방향/살충", link: 42}, {name: "건강/의료용품", link: 43}, {name: "욕실 용품", link: 44}, {name: "생활전기용품", link: 45}, {name: "수납/정리", link: 46}, {name: "생활잡화", link: 47}])
-            break;
-            case 4:
-                setCatagory([{name: "홈데코", link: 49}, {name: "가구", link: 50}, {name: "수납/정리", link: 51}, {name: "침구", link: 52}, {name: "커튼/블라인드", link: 53}, {name: "카페트/쿠션/거실화", link: 54}, {name: "수예/수선", link: 55}, {name: "욕실용품", link: 56}, {name: "조명/스탠드", link: 57}, {name: "원예/가드닝", link: 58}
-                ])
-
-            break;
-            case 5:
-                setCatagory([{name: "TV/영상가전", link: 60}, {name: "냉장고", link: 61}, {name: "세탁기/건조기", link: 62}, {name: "청소기", link: 63}, {name: "계전가전", link: 64}, {name: "이미가", link: 65}, {name: "건강가전", link: 66}, {name: "주방가전", link: 67}, {name: "노트북", link: 68}, {name: "데스크탑", link: 69}, {name: "모니터", link: 70}, {name: "키보드 마우스", link: 71}, {name: "저장장치", link: 72}, {name: "프린터/복합기", link: 73}, {name: "PC부품/주변기기", link: 74}, {name: "휴대폰", link: 75},{name: "태블릿PC", link: 76},
-                {name: "게임콘솔", link: 77},{name: "카메라", link: 78},{name: "차량용 디지털", link: 79}])
-            break;
-            case 6:
-                setCatagory([  
-{link :81, name: "캠핑"},
-{link :82, name: "홈트레이닝"},
-{link :83, name: "수영/수상스포츠"},
-{link :84, name: "골프"},
-{link :85, name: "자전거"},
-{link :86, name: "킥보드/스케이트"},
-{link :87, name: "낚시"},
-{link :88, name: "등산/아웃도어"},
-{link :89, name: "스포츠신발"},
-{link :90, name: "남성스포츠의류"},
-{link :91, name: "여성스포츠의류"},
-{link :92, name: "유아스포츠의류"},
-{link :93, name: "스포츠잡화"},
-{link :94, name: "구기스포츠"},
-{link :95, name: "라켓스포츠"},
-{link :96, name: "헬스/요가/댄스"},
-{link :97, name: "복싱/검도/태권도"},
-{link :98, name: "기타스포츠"},
-{link :99, name: "스키/겨울스포츠"}])
-            break;
-            case 7:
-                setCatagory([{name: "유아/어린이", link: 101},
-                {name: "소설/에세이/사", link: 102},
-                {name: "초중고참고서", link: 103},
-                {name: "가정 살림", link: 104},
-                {name: "건강 취미", link: 105},
-                {name: "경재 경영", link: 106},
-                {name: "과학/공학", link: 107},
-                {name: "국어/외국어/사전", link: 108},
-                {name: "대학교재", link: 109},
-                {name: "만화/라이트노벨", link: 110},
-                {name: "사회 정치", link: 111},
-                {name: "수험서/자격증", link: 112},
-                {name: "여행", link: 113},
-                {name: "역사", link: 114},
-                {name: "예술", link: 115},
-                {name: "인문", link: 116}])
-            break;
-            case 8:
-                setCatagory([{name: "강아지 사료/용품", link: 1},{name: "고양이 사료 용품", link: 1},{name: "관상어 용품", link: 1},{name: "소동물/가축용품", link: 1}])
-            break;
-            default:
-        }
-    }
-
     const [list, setList] = useState({name: "", option:[]});
 
     const [tittle, setTittle] = useState("");
 
     useEffect(()=>{
-
+        var url = "http://13.124.26.107:9095";
+        axios.get(`${url}/api/item`, )
+            .then(response => {
+                setList(response.data);
+            });
 
 
     },[]);
@@ -182,49 +114,15 @@ const RegistPage = () => {
             <S.Input placeholder="₩ 가격" name="price" onChange={(e)=>onChange(e)} value={item.price}></S.Input>
             </S.InputDiv>
             </S.RegistDiv>
-
-            <S.RegistDiv>
-            <p>카테고리</p>
-            <div style={{display: "flex"}}>
-            <S.CSDiv>
-                <S.CSUl>
-                    <S.CSLi onClick={()=>SetC(0)}>패션의류잡화</S.CSLi>
-                    <S.CSLi onClick={()=>SetC(1)}>뷰티</S.CSLi>
-                    <S.CSLi onClick={()=>SetC(2)}>주방용품</S.CSLi>
-                    <S.CSLi onClick={()=>SetC(3)}>생활용품</S.CSLi>
-                    <S.CSLi onClick={()=>SetC(4)}>가전/디지털</S.CSLi>
-                    <S.CSLi onClick={()=>SetC(5)}>스포츠/레져</S.CSLi>
-                    <S.CSLi onClick={()=>SetC(6)}>도서</S.CSLi>
-                    <S.CSLi onClick={()=>SetC(7)}>완구/취미</S.CSLi>
-                    <S.CSLi onClick={()=>SetC(8)}>반려/애완용품</S.CSLi>
-                </S.CSUl>
-            </S.CSDiv>
-            {catagory ?  
-            <S.CSDiv>
-                <S.CSUl>
-                    {catagory.map(i =>{
-                        var a = <S.CSLi i={i} name={i.name} onClick={()=>changeCatagory(i.link, i.name)}>{i.name}</S.CSLi>;
-                        return a;
-                    })}
-                </S.CSUl>
-            </S.CSDiv> : <></>
-            }
-            <S.CS>{c}</S.CS>
-            </div>
-            </S.RegistDiv>
                 <p>상품 이미지</p>             
             <S.RegistDiv>
-                <p>이미지({acceptedFileItems.length}/9)</p>
+                <p>이미지</p>
 
     <section className="container">
       <S.Dropzone {...getRootProps({ className: 'dropzone' })}>
         <input {...getInputProps()} />
         <span>드래그로 이미지 등록</span>
       </S.Dropzone>
-      <S.Aside>
-        <h4>등록된 이미지</h4>
-        <ul>{acceptedFileItems}</ul>
-      </S.Aside>
     </section>
             </S.RegistDiv>
             <p>상품 설명</p>

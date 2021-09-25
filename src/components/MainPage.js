@@ -59,18 +59,7 @@ const MainPage = () => {
 
         let a = ""
 
-        if(catagory.p){
-            if(catagory.order){
-                a += `?p=${catagory.p}&order=${catagory.order}`
-            }
-            else{
-                a += `?p=${catagory.p}`
-            }
-        }
-        else if(catagory.order){
-            a += `?order=${catagory.order}`
-        }
-
+        a += `?order=${catagory.order}`
         if(catagory.search){
             a += `&search=${catagory.search}`
         }
@@ -159,15 +148,12 @@ const MainPage = () => {
         console.log(query);
         setO(1);  
         SetPage();
-            
-        /*
-        axios.get('백엔드 url')
+
+        var url = "http://13.124.26.107:9095";
+        axios.get(`${url}/api/item`, )
             .then(response => {
                 setList(response.data);
-            });*/
-
-        const data = axios.get('https://www.everdevel.com/ReactJS/axios/myDeviceData.json');
-        console.log('data is ' + JSON.stringify(data)); 
+            });
     },[]);        
 
     const SetC = ({cata}) => {

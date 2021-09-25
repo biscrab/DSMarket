@@ -21,16 +21,7 @@ const Select = ({item}) => {
     return(
         <S.MyRDiv>
             <S.MyRImg src={item.img}/>
-            <S.SMY onClick={() => setChange(change*-1)}><i class="fas fa-bars "></i></S.SMY>
-            {change === 1 ? 
-                <S.SelectMyUl>
-                    <S.SelectLi>판매중</S.SelectLi>
-                    <S.SelectLi>거래중</S.SelectLi>
-                    <S.SelectLi color="crimson" onClick={()=>Delete()}>삭제</S.SelectLi>
-                </S.SelectMyUl>
-                :
-                <></>
-            }
+            <S.MyRBack></S.MyRBack>
         </S.MyRDiv>
     );
 }
