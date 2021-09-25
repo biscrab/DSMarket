@@ -2,8 +2,9 @@ import React,{useState} from 'react'
 import { useHistory } from 'react-router';
 import * as S from '../styled/App'
 import Profile from '../images/profile.png'
+import ItemBorder from '../contents/ItemBorder'
 
-const Select = ({item}) => {
+const Select = ({item, lists}) => {
 
     let history = useHistory();
 
@@ -11,7 +12,7 @@ const Select = ({item}) => {
 
     return(
         <>
-        <S.RDiv>
+        <S.RDiv onClick={()=>setChange(true)}>
             <S.RHead>
                 <S.RHUser>
                     <S.RHImg src={Profile}></S.RHImg>
@@ -25,10 +26,6 @@ const Select = ({item}) => {
             <S.Rprice>{item.price}원</S.Rprice>
             </S.RBody>
         </S.RDiv>
-        {change ? 
-        <S.LoginBackground>
-
-        </S.LoginBackground> : <></>}
         </>
     );
 }

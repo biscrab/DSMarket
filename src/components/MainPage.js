@@ -323,7 +323,7 @@ const MainPage = () => {
                 </InfiniteScroll>            
                 <S.MyDiv>
                     <S.My>
-                    <S.MyImg src={A}></S.MyImg>
+                    <S.MyImg src={A} onClick={()=>history.push('/user')}></S.MyImg>
                     <S.MyInfoDiv>
                         <S.MyInfo color="gray">이메일</S.MyInfo>
                         <S.MyInfo>이름</S.MyInfo>

@@ -17,6 +17,8 @@ const MyPage = () => {
     let location = useLocation();
     let history = useHistory();
 
+    var url = "url"
+
     const onChange = (e) => {
         const { value, name } = e.target; // 우선 e.target 에서 name 과 value 를 추출
             setUser({
@@ -48,6 +50,12 @@ const MyPage = () => {
 
     const Border = () => {
         if(location.search === "?sell"){
+
+            axios.get(`${url}/api/item`)
+            .then(function(response){
+                setUser({...user, item: [response]})
+            })
+
             return(
                 <>
                 {user.item ?
@@ -65,6 +73,12 @@ const MyPage = () => {
             );
         }
         else if(location.search === "?review"){
+
+            axios.get(`${url}/api/comment`)
+                .then(function(response){
+                    setUser({...user, review: [response]})
+                })
+
             return(
                 <S.Review>
                     <Review lists={user.review}/>
@@ -114,7 +128,7 @@ const MyPage = () => {
                 <S.Select>
                     <div>                    
                     <Link to={{search:""}} style={{textDecoration:"none"}}>
-                    <S.SSpan>유저 정보</S.SSpan>
+                    <S.SSpan>유저 정보()</S.SSpan>
                     </Link>
                     <Link to={{search:"?sell"}} style={{textDecoration:"none"}}>
                     <S.SSpan>판매 물품(1)</S.SSpan>

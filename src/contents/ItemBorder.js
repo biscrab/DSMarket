@@ -5,28 +5,11 @@ import B from '../images/b.jpg'
 import C from '../images/c.jpg'
 import D from '../images/d.jpg'
 import E from '../images/e.jpg'
-import Item from '../contents/Item'
-import Comment from '../contents/Review'
+import Item from './Item'
+import Comment from './Review'
 import Profile from '../images/profile.png'
 
-const ItemPge = () => {
-
-    const [item, setItem] = useState({
-        id: "",
-        img: [],
-        name: "이름",
-        price: 5000,
-        explane: "ㅁㄴㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ",
-        adress: "",
-    })
-
-    const list = [{id: 1, img: A, price: 100, name: 1 ,catagory: 1},
-    {id: 2, img: B, price: 100, name: 1, catagory: 1},
-    {id: 3, img: C, price: 100, name: 1, catagory: 1},
-    {id: 4, img: D, price: 100, name: 1, catagory: 1},
-    {id: 5, img: E, price: 100, name: 1,catagory: 1},
-    {id: 5, img: E, price: 100, name: 1,catagory: 1},
-];
+const ItemPge = ({lists}) => {
     
     const [heart, setHeart] = useState(false);
     const [more, setMore] = useState(false);
@@ -63,9 +46,9 @@ const ItemPge = () => {
     <S.ProfileSpan>유저</S.ProfileSpan>
 </S.IUSer>
 <S.IExplane>
-    <S.Iname>{item.name}</S.Iname>
-    <S.ItemPrice>{item.price}원</S.ItemPrice>
-    <p>{item.explane}</p>
+    <S.Iname>{lists.name}</S.Iname>
+    <S.ItemPrice>{lists.price}원</S.ItemPrice>
+    <p></p>
     <S.Gray>연락처: </S.Gray>
 </S.IExplane>
 </S.ItDiv>      

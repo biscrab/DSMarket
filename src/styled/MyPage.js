@@ -90,7 +90,7 @@ export const ReviewLi = styled.li`
     height: auto;
     display: flex;
     flex-direction: column;
-    padding: 20px 0px;
+    padding: 15px 0px;
 ` 
 
 export const RProfile = styled.img`
@@ -104,4 +104,8 @@ export const Span = styled.span`
     top: 5px;
     left: 40px;
     color: gray;
+`
+
+export const XButton = styled.button`
+    background-color: rgba(0, 0, 0, 0);
 `

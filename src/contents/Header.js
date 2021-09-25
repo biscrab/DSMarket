@@ -181,7 +181,7 @@ const Header = () => {
                </div>
             </S.SBox>
             <S.SSelect onClick={()=>history.push('/regist')}><i class="fas fa-archive"></i><S.SS>판매하기</S.SS></S.SSelect>
-            <S.SSelect onClick={()=>history.push('/mypage')}><i class="fas fa-user"></i><S.SS>내상점</S.SS></S.SSelect>
+            <S.SSelect onClick={()=>history.push('/user')}><i class="fas fa-user"></i><S.SS>내상점</S.SS></S.SSelect>
             </S.HDiv>
         </S.Header>
         {login ? 
