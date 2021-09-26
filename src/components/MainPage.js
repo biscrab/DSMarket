@@ -156,44 +156,6 @@ const MainPage = () => {
             });
     },[]);        
 
-    const SetC = ({cata}) => {
-
-        let abc;
-
-        if(cata >= 1 && cata <=5){
-            abc = "패션의류/잡화";
-        }
-        else if(cata >= 6 && cata <= 19){
-            abc = "뷰티";
-        }
-        else if(cata >= 20 && cata  <= 33){
-            abc ="주방용품"
-        }
-        else if(cata >= 34 && cata <= 47){
-            abc = "생활용품"
-        }
-        else if(cata >= 48 && cata <= 58){
-            abc = "홈인테리어"
-        }
-        else if(cata >= 59 && cata <= 78){
-            abc = "가전디지털"
-        }
-        else if(cata >= 79 && cata <= 99){
-            abc = "스포츠/레저"
-        }
-        else if(cata >= 100 && cata <= 116){
-            abc = "도서"
-        }      
-        else if(cata >= 116 && cata <= 117){
-            abc = "반려동물용품"
-        }
-        else{
-            abc = "카테고리"
-        }
-
-        return(abc);
-    }
-
     const SetPage = () => {
         const pa = Number(params.p);
         if(pa === 1){

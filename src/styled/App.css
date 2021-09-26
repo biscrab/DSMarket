@@ -3,7 +3,7 @@
 body{
   padding-top: 105px;
   overflow-x: hidden; 
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
   -ms-user-select: none; 
   -moz-user-select: -moz-none;
   -khtml-user-select: none;
@@ -12,22 +12,6 @@ body{
   background-color: rgb(252, 252, 252);
 }
 
-p{
-  font-family: 'Nanum Gothic', sans-serif;
-}
-
-b{
-  font-family: 'Nanum Gothic', sans-serif;
-}
-
-span{
-  font-family: 'Nanum Gothic', sans-serif;
-}
-
-h5{
-  font-family: 'Nanum Gothic', sans-serif;
-}
-
-img{
-  -webkit-user-drag: none;
+h1{
+  font-family: 'Jua', sans-serif;;
 }

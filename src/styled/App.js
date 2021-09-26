@@ -249,21 +249,6 @@ export const C = styled.div`
     top: 20px;
 `
 
-export const ItemBox = styled.li`
-    float: left;
-    width: 300px;
-    height: 355px;
-    margin: 20px;
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    border-bottom: 1px solid #eeeeee;
-
-    :hover{
-        box-shadow: 0 0 20px 0 rgb(0 0 0 / 10%);
-    }
-`
-
 export const Page = styled.div`
     background-color: white;
     height: 40px;
@@ -356,10 +341,7 @@ export const Price = styled.div`
 export const PText = styled.h2`
     color: crimson;
 `
-export const DText = styled.p`
-    font-size: 15px;
-    color: green;
-`
+
 export const Related = styled.div`
     margin: 0px;
     position: relative;
@@ -886,9 +868,10 @@ export const LoginBackground = styled.div`
     justify-content: center;
     z-index: 1000;
     width: 100%;
-    height: 110%;
-    top: -70px;
-    padding-top: 70px;
+    height: 100%;
+    bottom: 0%;
+    left: 50%;
+    transform: translateX(-50%);
     background-color: rgba(0, 0, 0, 0.5);
 `
 
@@ -897,7 +880,7 @@ export const Xbutton = styled.button`
     border: 0;
     position: absolute;
     left: 96%;
-    top: 12%;
+    top: 4%;
 `
 
 export const LoginDiv = styled.div`
@@ -1698,11 +1681,6 @@ export const ATop = styled.div`
     height: 330px;
 `
 
-export const Card = styled.div`
-    width: 300px;
-    margin-bottom: 50px;
-`
-
 export const IUSer = styled.div`
     height: 65px;
     padding: 10px;
@@ -1748,4 +1726,22 @@ export const Gohome = styled.h4`
     position: relative;
     top: 60px;
     text-align: center;
+`
+
+export const EditBorder = styled.ul`
+    border-radius: 20px;
+    background-color: white;
+    width: 500px;
+    height: 300px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0;
+`
+
+export const Edit = styled.li`
+    border-bottom: 1px #eeeeee solid;
+    display: flex;
+    padding: 15px;
+    justify-content: center;
 `

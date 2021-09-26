@@ -9,7 +9,7 @@ import Item from './Item'
 import Comment from './Review'
 import Profile from '../images/profile.png'
 
-const ItemPge = ({lists}) => {
+const ItemPge = ({item}) => {
     
     const [heart, setHeart] = useState(false);
     const [more, setMore] = useState(false);
@@ -46,8 +46,8 @@ const ItemPge = ({lists}) => {
     <S.ProfileSpan>유저</S.ProfileSpan>
 </S.IUSer>
 <S.IExplane>
-    <S.Iname>{lists.name}</S.Iname>
-    <S.ItemPrice>{lists.price}원</S.ItemPrice>
+    <S.Iname>{item.name}</S.Iname>
+    <S.ItemPrice>{item.price}원</S.ItemPrice>
     <p></p>
     <S.Gray>연락처: </S.Gray>
 </S.IExplane>
@@ -55,86 +55,6 @@ const ItemPge = ({lists}) => {
 </S.Item>
 </S.LoginBackground>
     );
-
-    /*<S.PointDiv><S.Pspan>🟡100포인트</S.Pspan></S.PointDiv>*/
-
-    /*                <S.CommentH>상품평</S.CommentH>
-                {comment.length >= 10 ?
-                <S.CommentUl height="500px">
-                    <Comment lists={comment}/>
-                </S.CommentUl>
-                :
-                <S.CommentUl height="auto">
-                <Comment lists={comment}/>
-                </S.CommentUl>
-                }*/
-
-                /*<S.IDiv>
-                <div>
-                <S.EDiv>
-                    <S.EI>
-                    <img src={A}></img>
-                    <img src={A}></img>
-                    <img src={A}></img>
-                    <img src={A}></img>
-                    </S.EI>  
-                {more ?
-                <></> :
-                <S.MDiv>
-                    <S.MoreDiv></S.MoreDiv>
-                    <S.MoreButtonDiv>
-                    <S.MoreButton onClick={() => setMore(true)}>상품정보 더보기</S.MoreButton>
-                    </S.MoreButtonDiv>
-                </S.MDiv>}
-                </S.EDiv>
-                </div>
-                <S.BuyDiv>
-                    <S.BuyImgDiv>
-                        <S.BuyImg></S.BuyImg>
-                        <p>아이템</p>
-                    </S.BuyImgDiv>
-                    <S.BBillDiv>
-                    <S.BBill></S.BBill>
-                    </S.BBillDiv>
-                    <S.BBDiv>
-                        <h3>총 상품금액</h3>
-                        <h2 style={{marginTop:"15px"}}>10000원</h2>
-                    </S.BBDiv>
-                    <S.BB color="black" bkcolor="white" border="1px">장바구니</S.BB>                     
-                    <S.BB color="white" bkcolor="royalblue" border="0px">구매하기</S.BB>
-                </S.BuyDiv>
-            </S.IDiv>     */
 }
 
 export default ItemPge;
-
-
-    /*            <S.IBorder>
-                <S.Image src={img[imgN]}></S.Image>
-                <S.Info>
-                    <S.ATop>
-                        <S.ADiv> 
-                        <S.AProfile src={Profile}></S.AProfile>
-                        </S.ADiv> 
-                    <S.ADiv>
-                        <p>제품</p>
-                        <span classADiv="star-rating"></span>
-                        <S.PText>10,000원</S.PText>
-                    </S.ADiv>
-                    <S.ADiv>
-                        <S.DileveryTime>8/30일</S.DileveryTime>
-                    </S.ADiv>
-                    </S.ATop>                
-                    <S.ButtonDiv>
-                        <S.Bucket>장바구니</S.Bucket>                     
-                        <S.Buy>구매하기</S.Buy>
-                    </S.ButtonDiv>
-                </S.Info>
-            </S.IBorder> */
-
-            /*        <S.Related>
-            <S.RelatedH>관련 상품</S.RelatedH>
-            <S.RelatedDiv>
-                <Item lists={list}/>
-            </S.RelatedDiv>
-        </S.Related>  */
