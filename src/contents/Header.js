@@ -7,6 +7,9 @@ import axios from 'axios'
 
 const Header = () => {
 
+    axios.defaults.baseURL = "http://13.124.26.107:9095";
+    axios.defaults.withCredentials = true;
+
     let location = useLocation();
     let params = useParams();
 
@@ -43,15 +46,16 @@ const Header = () => {
         }
         else{
         
-        var url = "http://13.124.26.107:9095";
-        axios.post(`${url}/api/auth/login`, ip)
-            .then(function(response){
+        axios.post(`/api/auth/login`, ip)
+            .then(response =>{
+                const { accessToken } = response.data;
+                axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
                 setName(response.name);
                 setLogined(true);
                 setLogin(false);
                 localStorage.user = JSON.stringify({email: email, password: password});
             })
-            .catch(function(error){
+            .catch(error =>{
                 alert("아이디나 비밀번호가 잘못됬습니다.");
             })
             /*

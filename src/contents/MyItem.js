@@ -19,7 +19,7 @@ const Select = ({item}) => {
     }
 
     return(
-        <S.MyRDiv>
+        <S.MyRDiv onClick={()=>history.push(`/item/${item.id}`)}>
             <S.MyRImg src={item.img}/>
             <S.MyRBack></S.MyRBack>
         </S.MyRDiv>

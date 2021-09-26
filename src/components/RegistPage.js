@@ -16,12 +16,15 @@ const RegistPage = () => {
     const [item, setItem] = useState({
         name: "",
         price: "",
-        image: [],
+        info: "",
         catagory: "1",
     });
 
+    axios.defaults.baseURL = "http://13.124.26.107:9095";
+    axios.defaults.withCredentials = true;
+
     const Regist = () => {
-        axios.post(`${url}/api/auth/signup`)
+        axios.post(`${url}/api/item`)
         .then(function(response){
             alert("상품이 등록되었습니다.")
         })
@@ -56,6 +59,16 @@ const RegistPage = () => {
       };
 
     const [c, setC] = useState();
+
+    const setName = (e) => {
+        if(item.name.length < 30){
+            setItem({...item, name: e.target.value});
+        }
+    }
+
+    const setPrice = (e) => {
+        setItem({...item, price: e.target.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')})
+    }
 
     const changeCatagory = (link, name) => {
         setItem({...item, catagory: link});
@@ -98,7 +111,7 @@ const RegistPage = () => {
             <S.RegistDiv>
             <p>상품명</p>
             <S.InputDiv>
-            <S.Input placeholder="노출상품명 입력(브랜드 + 제품명)" name="name" onChange={(e)=>onChange(e)} value={item.name}></S.Input>
+            <S.Input placeholder="노출상품명 입력(브랜드 + 제품명)" name="name" onChange={(e)=>setName(e)} value={item.name}></S.Input>
             <S.Max>{item.name.length}/30</S.Max>
             </S.InputDiv>
             </S.RegistDiv>
@@ -106,22 +119,23 @@ const RegistPage = () => {
             <S.RegistDiv>
             <p>가격</p>
             <S.InputDiv>
-            <S.Input placeholder="₩ 가격" name="price" onChange={(e)=>onChange(e)} value={item.price}></S.Input>
+            <S.Input placeholder="₩ 가격" name="price" onChange={(e)=>setPrice(e)} value={item.price}></S.Input>
+            <button onClick={()=>console.log(Number(item.user))}>1</button>
             </S.InputDiv>
             </S.RegistDiv>
                 <p>상품 이미지</p>             
             <S.RegistDiv>
                 <p>이미지</p>
-
-    {1 ?
     <section className="container">
       <S.Dropzone {...getRootProps({ className: 'dropzone' })}>
         <input {...getInputProps()} />
         <span>드래그로 이미지 등록</span>
       </S.Dropzone>
     </section>
-    :
-    <></>}
+            </S.RegistDiv>
+            <S.RegistDiv>
+                <p>미리보기</p>
+                <img src={acceptedFileItems}></img>
             </S.RegistDiv>
             <p>상품 설명</p>
             <S.RegistDiv>

@@ -3,6 +3,7 @@ import * as S from '../styled/App';
 import axios from 'axios';
 import { useHistory } from 'react-router';
 import { useTheme } from 'styled-components';
+import $ from "jquery";
 
 const SignUpPage = () => {
 
@@ -29,9 +30,9 @@ const SignUpPage = () => {
         if(user.id && user.password && user.name && user.phonenumber){
             alert("내용을 모두 입력해주세요");
         }
-        else if(!CheckEmail(user.email)){
-            alert("이미지 형식이 잘못 되었습니다.");
-        }
+        //else if(!CheckEmail(user.email)){
+          //  alert("이메일 형식이 잘못 되었습니다.");
+        //}
         else if(user.password !== check){
             //만약 아이디가 있으면
             
@@ -47,13 +48,13 @@ const SignUpPage = () => {
                     history.push('/');
                 })*/
 
-            if('이메일 중복'){
-                alert("중복되는 이메일 입니다.");
-            }
+            //if('이메일 중복'){
+                //alert("중복되는 이메일 입니다.");
+            //}
         }
     }
 
-    const [user, setUser] = useState({email: "", password: "", name: "", phonenumber: ""});
+    const [user, setUser] = useState({email: "", password: "", name: "", phone: "", info: ""});
     const [check, setCheck] = useState();
 
     const onChange = (e) => {
@@ -94,7 +95,7 @@ const SignUpPage = () => {
             </S.SignUpDiv>
             <S.SignUpDiv>
             <S.SignSpan>휴대폰 번호</S.SignSpan>
-            <S.SignUpInput placeholder="휴대폰 번호" name="phonenumber" onChange={(e)=>changePassword(e)} pattern="[0-9]*"></S.SignUpInput>
+            <S.SignUpInput placeholder="휴대폰 번호" name="phone" onChange={(e)=>changePassword(e)} pattern="[0-9]*"></S.SignUpInput>
             </S.SignUpDiv>
             <S.SiButton onClick={()=>SignUp()}>회원가입하기</S.SiButton>
             </S.SiDiv>

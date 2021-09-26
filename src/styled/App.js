@@ -899,6 +899,7 @@ export const LoginInput = styled.input`
     position: relative;
     margin-bottom: 50px;
     width: 80%;
+    border: 2px solid #eeeeee;
     height: 40px;
     margin-top: 10px;
     transform: translateX(-50%);
