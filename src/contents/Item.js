@@ -47,6 +47,7 @@ const Select = ({item, lists}) => {
             <S.Edit onClick={()=>onDelete()}>삭제</S.Edit>
             <S.Edit onClick={()=>onEdit()}>수정</S.Edit>
             <S.Edit onClick={()=>setEdit(false)}>닫기</S.Edit>
+            <S.Edit onClick={()=>history.push('/item')}>게시물로 이동</S.Edit>
         </S.EditBorder>
         </S.LoginBackground>
         )

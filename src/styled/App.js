@@ -1643,6 +1643,20 @@ export const CommentH = styled.h2`
     margin-bottom: 20px;
 `
 
+export const ItemDiv = styled.div` 
+   padding-top: 50px;
+   padding-bottom: 100px;
+`
+
+export const PItem = styled.div`
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 850px;
+    height: 550px;
+    display: flex;
+`
+
 export const Item = styled.div`
     background-color: white;
     width: 850px;

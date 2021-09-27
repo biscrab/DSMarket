@@ -120,7 +120,6 @@ const RegistPage = () => {
             <p>가격</p>
             <S.InputDiv>
             <S.Input placeholder="₩ 가격" name="price" onChange={(e)=>setPrice(e)} value={item.price}></S.Input>
-            <button onClick={()=>console.log(Number(item.user))}>1</button>
             </S.InputDiv>
             </S.RegistDiv>
                 <p>상품 이미지</p>             
@@ -137,8 +136,8 @@ const RegistPage = () => {
                 <p>미리보기</p>
                 <img src={acceptedFileItems}></img>
             </S.RegistDiv>
-            <p>상품 설명</p>
             <S.RegistDiv>
+                <p>상품 설명</p>
                 <S.Explane></S.Explane>
             </S.RegistDiv>     
             {upload ?

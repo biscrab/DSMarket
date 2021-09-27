@@ -1,11 +1,13 @@
 import React from "react";
 import * as S from "../styled/App";
+import A from '../images/a.jpg'
 
 const ItemPage = () => {
     return(
-        <S.Item>
+    <S.ItemDiv>
+    <S.PItem>
     <S.ImageDiv>
-      <S.Image/>
+      <S.Image src={A}/>
     </S.ImageDiv>
 <S.ItDiv>
 <S.IUSer>
@@ -18,8 +20,9 @@ const ItemPage = () => {
     <p></p>
     <S.Gray>연락처: </S.Gray>
 </S.IExplane>
-</S.ItDiv>      
-</S.Item>
+</S.ItDiv>
+</S.PItem>      
+</S.ItemDiv>
     )
 }
 

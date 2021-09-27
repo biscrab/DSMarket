@@ -29,13 +29,13 @@ const MyPage = () => {
 
     const [user, setUser] = useState({
         introduce: "asdad",
-        review: [{review: "1123123123123213", star: 2, name: 1}],
-        item: [{id: 1, name: "1", price: 100, star: 1, img: A, brand: "samsung", sell: 50, catagory: 1, review: 100},
-                {id: 1, name: "1", price: 10, star: 2, img: B, brand: "a", sell: 100 ,catagory: 1, review: 100},
-                {id: 1, name: "1", price: 5, star: 3, img: C, brand: "a", sell: 200, catagory: 2, review: 100},
-                {id: 1, name: "1", price: 6, star: 4, img: D, brand: "a", sell: 300, catagory: 3, review: 100},
-                {id: 1, name: "1", price: 190, star: 5, img: B, brand: "a", sell: 400, catagory: 1, review: 100},
-                {id: 1, name: "1", price: 18, star: 6, img: B, brand: "a", sell: 500, catagory: 1, review: 100}]
+        review: [{review: "1123123123123213", name: 1}],
+        item: [{id: 1, name: "1", price: 100, img: A},
+                {id: 1, name: "1", price: 10, img: B},
+                {id: 1, name: "1", price: 5, img: C},
+                {id: 1, name: "1", price: 6, img: D},
+                {id: 1, name: "1", price: 190, img: B},
+                {id: 1, name: "1", price: 18, img: B}]
     }) 
     const [select, setSelect] = useState(-1);
     const [chexplane, setChexplane] = useState(false);
