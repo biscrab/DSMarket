@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 import * as S from '../styled/App'
-import '../styled/login.css'
 import axios from 'axios'
+import { useEffect } from "react";
 
 const LoginPage = () => {
 
@@ -17,27 +17,13 @@ const LoginPage = () => {
     ])
 
     const Login = () => {
-        if(ip.email === ""){
-            alert("이메일을 입력해주세요");
+        if(!ip.email){
+            alert("이메일을 입력해주세요");     
         }   
-        else if(ip.password === ""){
+        else if(!ip.password){
             alert("비밀번호를 입력해주세요");
         }
         else{
-        
-       /* axios.post(`/api/auth/login`, ip)
-            .then(response =>{
-                const { accessToken } = response.data;
-                axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
-                setName(response.name);
-                setLogined(true);
-                setLogin(false);
-                localStorage.user = JSON.stringify({email: email, password: password});
-            })
-            .catch(error =>{
-                alert("아이디나 비밀번호가 잘못됬습니다.");
-            })*/
-        
 
         function isTrue(element)  {
             if(element.email === ip.email && element.password === ip.password)  {
@@ -56,19 +42,27 @@ const LoginPage = () => {
             }
         }
 
-        console.log(ip.id);
+        console.log(ip.email);
         console.log(ip.password);
     }
+
+    useEffect(()=>{
+        var s = JSON.parse(localStorage.getItem('user'));
+        if(s){
+        if(s.email&&s.password){
+            setLogined(true);
+        }}
+    })
 
     return(
         <S.Login>
             <S.LoginDiv>
                 <S.LoginTittle>대마마켓</S.LoginTittle> 
-                <S.LoginSpan>이메일</S.LoginSpan>           
-                <S.LoginInput/>
+                <S.LoginSpan >이메일</S.LoginSpan>           
+                <S.LoginInput onChange={(e)=>setIp({...ip, email: e.target.value})}/>
                 <S.LoginSpan>비밀번호</S.LoginSpan>
-                <S.LoginInput/>
-                <S.LoginButton color="royalblue" c="white" onClick={()=>Login()}>로그인</S.LoginButton>
+                <S.LoginInput onChange={(e)=>setIp({...ip, password: e.target.value})}/>
+                <S.LoginButton onClick={()=>Login()}>로그인</S.LoginButton>
             </S.LoginDiv>
         </S.Login>
     )

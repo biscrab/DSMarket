@@ -15,7 +15,7 @@ export const Login = styled.div`
     background-image: url('https://i.stack.imgur.com/XZDsP.jpg');
     background-repeat: no-repeat;
     position: absolute;
-    height: 100%;
+    height: 85.5%;
     width: 100%;
     display: flex;
     padding: 50px 0px;
@@ -941,7 +941,7 @@ export const LoginButton = styled.button`
     left: 50%;
     transform: translateX(-50%);
     background-color: skyblue;
-    color: ${props => props.c};
+    color: white;
     margin-bottom: 20px;
     font-size: 20px;
 `

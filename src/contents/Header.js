@@ -33,53 +33,9 @@ const Header = () => {
         history.push('/signup');
     }
 
-    /*
-    const Login = ({email, password}) => {
-        if(email === ""){
-            alert("이메일을 입력해주세요");
-        }   
-        else if(password === ""){
-            alert("비밀번호를 입력해주세요");
-        }
-        else{
-        
-        axios.post(`/api/auth/login`, ip)
-            .then(response =>{
-                const { accessToken } = response.data;
-                axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
-                setName(response.name);
-                setLogined(true);
-                setLogin(false);
-                localStorage.user = JSON.stringify({email: email, password: password});
-            })
-            .catch(error =>{
-                alert("아이디나 비밀번호가 잘못됬습니다.");
-            })
-        
-
-        function isTrue(element)  {
-            if(element.email === email && element.password === password)  {
-              return true;
-            }
-          }
-            const a = user.find(isTrue);
-            if(a){
-                setName(a.name);
-                setLogined(true);
-                setLogin(false);
-                localStorage.user = JSON.stringify({email: email, password: password});
-            }
-            else{
-                alert("아이디나 비밀번호가 틀렸습니다.");
-            }
-        }
-
-        console.log(ip.id);
-        console.log(ip.password);
-    }*/
-
     const Logout = () => {
         localStorage.removeItem('user');
+        setLogined(false);
     }
 
     const handleKeyPress = e => {
@@ -87,14 +43,25 @@ const Header = () => {
             console.log("key");
         }
       }
+    
 
-    useEffect(() => {
-    },[]);
 
     useEffect(()=>{
-        if(!logined){
-            history.push('/login')
-        }
+        var s = JSON.parse(localStorage.getItem('user'));    
+        
+        if(s){
+            const a = user.find(isTrue);        
+            
+            function isTrue(element)  {
+                if(element.email === s.email && element.password === s.password)  {
+                return true;
+                }
+            }
+
+            if(a.email&&a.password){
+                setName(a.name);
+                setLogined(true);
+        }}
     })
 
     const Search = () => {
@@ -213,3 +180,48 @@ export default Header
             setRecent(s);
             console.log("s:"+s);
         } */
+
+            /*
+    const Login = ({email, password}) => {
+        if(email === ""){
+            alert("이메일을 입력해주세요");
+        }   
+        else if(password === ""){
+            alert("비밀번호를 입력해주세요");
+        }
+        else{
+        
+        axios.post(`/api/auth/login`, ip)
+            .then(response =>{
+                const { accessToken } = response.data;
+                axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
+                setName(response.name);
+                setLogined(true);
+                setLogin(false);
+                localStorage.user = JSON.stringify({email: email, password: password});
+            })
+            .catch(error =>{
+                alert("아이디나 비밀번호가 잘못됬습니다.");
+            })
+        
+
+        function isTrue(element)  {
+            if(element.email === email && element.password === password)  {
+              return true;
+            }
+          }
+            const a = user.find(isTrue);
+            if(a){
+                setName(a.name);
+                setLogined(true);
+                setLogin(false);
+                localStorage.user = JSON.stringify({email: email, password: password});
+            }
+            else{
+                alert("아이디나 비밀번호가 틀렸습니다.");
+            }
+        }
+
+        console.log(ip.id);
+        console.log(ip.password);
+    }*/

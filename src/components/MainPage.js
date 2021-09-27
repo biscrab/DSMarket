@@ -104,7 +104,7 @@ const MainPage = () => {
     },[]);       
 
     useEffect(()=>{
-    axios.get(`http://13.124.26.107:9095/api/item`)
+    axios.get(`http://13.124.26.107:9095/Item/all`)
         .then(response => {
             setList(response);
             setLoading(false);

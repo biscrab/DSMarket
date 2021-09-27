@@ -88,17 +88,10 @@ const MyPage = () => {
     }
 
     useEffect(()=>{
-        /*
-        axios.get(baseURL).then((response) => {
-            setPost(response.data);
-          });*/
-        /*if(localStorage.id&&localStorage.password){
-            
-        }
-        else{
-            alert("로그인을 먼저 해주세요.");
-            history.push('/');
-        }*/
+        axios.get('/api/mypage')
+            .then(response => {
+    
+        });
     },[]);
 
     return(
