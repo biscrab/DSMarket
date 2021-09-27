@@ -1,8 +1,12 @@
 import React from "react";
 import * as S from "../styled/App";
 import A from '../images/a.jpg'
+import { useHistory } from "react-router";
 
 const ItemPage = () => {
+
+    let history = useHistory();
+
     return(
     <S.ItemDiv>
     <S.PItem>
@@ -11,7 +15,7 @@ const ItemPage = () => {
     </S.ImageDiv>
 <S.ItDiv>
 <S.IUSer>
-    <S.Profile></S.Profile>
+    <S.Profile src={A} onClick={()=>history.push('/user/1')}></S.Profile>
     <S.ProfileSpan>유저</S.ProfileSpan>
 </S.IUSer>
 <S.IExplane>

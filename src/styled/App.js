@@ -312,7 +312,7 @@ export const Image = styled.img`
 
 export const ImageDiv = styled.div`
     width: 550px;
-    height: 550px;
+    height: 100%;
 `
 
 export const Heart = styled.div`

@@ -12,7 +12,7 @@ import C from '../images/c.jpg'
 import D from '../images/d.jpg'
 import { getRoles } from "@testing-library/dom";
 
-const MyPage = () => {
+const UserPage = () => {
 
     let location = useLocation();
     let history = useHistory();
@@ -122,7 +122,7 @@ const MyPage = () => {
     )
 }
 
-export default MyPage
+export default UserPage
 
 
 /*                {0 === true ?
