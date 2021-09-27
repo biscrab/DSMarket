@@ -2,19 +2,16 @@ import React,{useState} from "react";
 import * as S from '../styled/App'
 import axios from 'axios'
 import { useEffect } from "react";
+import { useHistory } from "react-router";
 
 const LoginPage = () => {
+
+    let history = useHistory();
 
     const [login, setLogin] = useState(false);
     const [logined, setLogined] = useState(false);
     const [ip, setIp] = useState({email : "", password: ""});
     const [name, setName] = useState("");
-
-    const [user, setUser] = useState([
-        {name: "asd", email: "asd", password: "a", age: 11},
-        {name: "asd", email: "asd1", password: "a", age: 20},
-        {name: "asd", email: "asd2", password: "a", age: 30},
-    ])
 
     const Login = () => {
         if(!ip.email){
@@ -24,22 +21,16 @@ const LoginPage = () => {
             alert("비밀번호를 입력해주세요");
         }
         else{
-
-        function isTrue(element)  {
-            if(element.email === ip.email && element.password === ip.password)  {
-              return true;
-            }
-          }
-            const a = user.find(isTrue);
-            if(a){
-                setName(a.name);
-                setLogined(true);
-                setLogin(false);
-                localStorage.user = JSON.stringify({email: ip.email, password: ip.password});
-            }
-            else{
-                alert("아이디나 비밀번호가 틀렸습니다.");
-            }
+                axios.post("/api/auth/login", JSON.stringify(ip))
+                .then(res => {
+                    history.push("/");                
+                    setLogined(true);
+                    setLogin(false);
+                    localStorage.user = JSON.stringify(res.data);
+                })
+                .catch(error => {
+                    alert("오류");
+                })
         }
 
         console.log(ip.email);

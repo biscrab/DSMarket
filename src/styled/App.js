@@ -1076,20 +1076,30 @@ export const Si  = styled.div`
     flex-direction: column;
     padding-bottom: 100px;
     padding-top: 20px;
+    background-image: url('https://images.ctfassets.net/hrltx12pl8hq/5KiKmVEsCQPMNrbOE6w0Ot/341c573752bf35cb969e21fcd279d3f9/hero-img_copy.jpg?fit=fill&w=800&h=300');
+    background-repeat: none;
+    background-size : cover;
 `
 
 export const SignUpInput = styled.input`
     width: 400px;
     height: 40px;
-    margin-bottom: 55px;
     padding: 0px 10px;
 `
 
 export const SiDiv = styled.div`
     position: relative;
+    top: 30px;
     left: 50%;
     transform: translateX(-50%);
     width: 550px;
+    background-color: white;
+    padding: 50px;
+    border-radius: 10px;
+`
+
+export const STittle = styled.h1`
+    margin: 0;
 `
 
 export const SiButton = styled.button`
@@ -1097,6 +1107,8 @@ export const SiButton = styled.button`
     width: 100%;
     height: 50px;
     font-size: 20px;
+    position: relative;
+    top: 20px;
     color: white;
     border: 0;
     border-radius: 5px;
@@ -1345,8 +1357,10 @@ export const DetailSDiv = styled.div`
 
 export const SignUpDiv = styled.div`
     display: flex;
+    align-items: center;
     position: relative;
-    top: 20px;
+    padding: 20px 0px;
+    top: 10px;
 `
 
 export const SignSpan = styled.span`
@@ -1659,6 +1673,7 @@ export const PItem = styled.div`
     transform: translateX(-50%);
     width: 850px;
     height: 550px;
+    border: 1px solid darkgray;
     display: flex;
 `
 
@@ -1709,6 +1724,10 @@ export const IUSer = styled.div`
 
 export const IExplane = styled.div`
     border-bottom: 2px solid #eeeeee;
+    padding: 10px;
+`
+
+export const IEX = styled.div`
     padding: 10px;
 `
 

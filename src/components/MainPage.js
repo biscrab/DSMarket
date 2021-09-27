@@ -30,20 +30,20 @@ const MainPage = () => {
     const [list, setList] = useState([
         {id: 1, name: "상품1", price: 100, star: 1, img: A},
         {id: 1, name: "상품1", price: 10, star: 2, img: B},
-        {id: 1, name: "상품1", price: 5, star: 3, img: C, brand: "a", sell: 200, catagory: 2, review: 100},
-        {id: 1, name: "상품1", price: 6, star: 4, img: D, brand: "a", sell: 300, catagory: 3, review: 100},
-        {id: 1, name: "상품1", price: 190, star: 5, img: B, brand: "a", sell: 400, catagory: 1, review: 100},
-        {id: 1, name: "상품1", price: 18, star: 6, img: B, brand: "a", sell: 500, catagory: 1, review: 100},
-        {id: 1, name: "상품1", price: 5, star: 3, img: C, brand: "a", sell: 200, catagory: 2, review: 100},
-        {id: 1, name: "상품1", price: 6, star: 4, img: D, brand: "a", sell: 300, catagory: 3, review: 100},
-        {id: 1, name: "상품1", price: 190, star: 5, img: B, brand: "a", sell: 400, catagory: 1, review: 100},
-        {id: 1, name: "상품1", price: 18, star: 6, img: B, brand: "a", sell: 500, catagory: 1, review: 100},
-        {id: 1, name: "상품1", price: 18, star: 6, img: B, brand: "a", sell: 500, catagory: 1, review: 100},
-        {id: 1, name: "상품1", price: 18, star: 6, img: B, brand: "a", sell: 500, catagory: 1, review: 100},
-        {id: 1, name: "상품1", price: 190, star: 5, img: B, brand: "a", sell: 400, catagory: 1, review: 100},
-        {id: 1, name: "상품1", price: 18, star: 6, img: B, brand: "a", sell: 500, catagory: 1, review: 100},
-        {id: 1, name: "상품1", price: 18, star: 6, img: B, brand: "a", sell: 500, catagory: 1, review: 100},
-        {id: 1, name: "상품1", price: 18, star: 6, img: B, brand: "a", sell: 500, catagory: 1, review: 100},
+        {id: 1, name: "상품1", price: 5, star: 3, img: C},
+        {id: 1, name: "상품1", price: 6, star: 4, img: D},
+        {id: 1, name: "상품1", price: 190, star: 5, img: B},
+        {id: 1, name: "상품1", price: 18, star: 6, img: B},
+        {id: 1, name: "상품1", price: 5, star: 3, img: C},
+        {id: 1, name: "상품1", price: 6, star: 4, img: D},
+        {id: 1, name: "상품1", price: 190, star: 5, img: B},
+        {id: 1, name: "상품1", price: 18, star: 6, img: B},
+        {id: 1, name: "상품1", price: 18, star: 6, img: B},
+        {id: 1, name: "상품1", price: 18, star: 6, img: B},
+        {id: 1, name: "상품1", price: 190, star: 5, img: B},
+        {id: 1, name: "상품1", price: 18, star: 6, img: B},
+        {id: 1, name: "상품1", price: 18, star: 6, img: B},
+        {id: 1, name: "상품1", price: 18, star: 6, img: B},
     ]);
     
 
@@ -104,7 +104,7 @@ const MainPage = () => {
     },[]);       
 
     useEffect(()=>{
-    axios.get(`http://13.124.26.107:9095/Item/all`)
+    axios.get(`/Item/all`)
         .then(response => {
             setList(response);
             setLoading(false);

@@ -21,13 +21,16 @@ const SignUpPage = () => {
         }                            
     }   
 
+    axios.defaults.baseURL = "http://13.124.26.107:9095";
+    axios.defaults.withCredentials = true;
+
     const SignUp = () => {
 
         var url = "url";
         
         console.log("user:"+user);
 
-        if(user.id && user.password && user.name && user.phonenumber){
+        /*if(user.id && user.password && user.name && user.phonenumber){
             alert("내용을 모두 입력해주세요");
         }
         //else if(!CheckEmail(user.email)){
@@ -40,18 +43,20 @@ const SignUpPage = () => {
             
             
         }
-        else{            
-            /*axios.post(`${url}/api/auth/signup`, user)
-                .then((function(response){
-                    localStorage.user = JSON.stringify({id: response.id, password: response.password});            
+        else{      */      
+            axios.post(`/api/auth/signup`, user)
+                .then(res => {
                     alert("등록이 완료되었습니다.");
                     history.push('/');
-                })*/
+                })
+                .catch(error =>{
+                    alert("오류")
+                })
 
             //if('이메일 중복'){
                 //alert("중복되는 이메일 입니다.");
             //}
-        }
+        //}
     }
 
     const [user, setUser] = useState({email: "", password: "", name: "", phone: "", info: ""});
@@ -76,7 +81,7 @@ const SignUpPage = () => {
     return(
         <S.Si>
             <S.SiDiv>
-            <h1>회원가입</h1>
+            <S.STittle>회원가입</S.STittle>
             <S.SignUpDiv>
             <S.SignSpan>이메일</S.SignSpan>
             <S.SignUpInput placeholder="아이디" name="email" onChange={(e)=>changeEmail(e)}></S.SignUpInput>

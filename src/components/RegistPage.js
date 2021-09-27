@@ -25,6 +25,8 @@ const RegistPage = () => {
 
     const Regist = () => {
 
+        axios.post('/')
+
         axios.post(`${url}/api/item`)
         .then(function(response){
             alert("상품이 등록되었습니다.")

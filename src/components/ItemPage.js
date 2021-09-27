@@ -17,9 +17,11 @@ const ItemPage = () => {
 <S.IExplane>
     <S.Iname>{}</S.Iname>
     <S.ItemPrice>{}원</S.ItemPrice>
-    <p></p>
     <S.Gray>연락처: </S.Gray>
 </S.IExplane>
+<S.IEX>
+<span>asdadasdasasdasdasd</span>
+</S.IEX>
 </S.ItDiv>
 </S.PItem>      
 </S.ItemDiv>

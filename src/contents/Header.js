@@ -71,7 +71,7 @@ const Header = () => {
         r.unshift(v)
         r.slice(0, 9);
         
-        history.push({search: `?search=${v}`})
+        history.push(`/?search=${v}`)
 
         localStorage.search = JSON.stringify(r);
     }
