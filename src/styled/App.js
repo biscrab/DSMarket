@@ -176,7 +176,7 @@ export const CBox = styled.div`
 `
 
 export const MyDiv = styled.div`
-    padding: 20px;
+    padding: 10px 20px;
     width: 350px;
 `
 
@@ -888,8 +888,8 @@ export const LoginDiv = styled.div`
     display: flex;
     flex-direction: column;
     background-color: white;
-    position: absolute;
-    top: 20%;
+    position: relative;
+    top: 10%;
     width: 450px;
     height: 550px;
     margin: 0;

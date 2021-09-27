@@ -38,7 +38,7 @@ const MyPage = () => {
                 {id: 1, name: "1", price: 18, star: 6, img: B, brand: "a", sell: 500, catagory: 1, review: 100}]
     }) 
     const [select, setSelect] = useState(-1);
-    const [chexplane, setChexplane] = useState(-1);
+    const [chexplane, setChexplane] = useState(false);
 
     const login = true;
 
@@ -48,13 +48,18 @@ const MyPage = () => {
         }
     }
 
-    const Border = () => {
-        if(location.search === "?sell"){
+    axios.get(`${url}/api/member/item`)
+        .then(function(response){
+            setUser({...user, item: [response]})
+    })
 
-            axios.get(`${url}/api/item`)
-            .then(function(response){
-                setUser({...user, item: [response]})
-            })
+    axios.get(`${url}/api/comment`)
+    .then(function(response){
+        setUser({...user, review: [response]})
+    })
+
+    const Border = () => {
+        if(location.search === ""){
 
             return(
                 <>
@@ -74,32 +79,12 @@ const MyPage = () => {
         }
         else if(location.search === "?review"){
 
-            axios.get(`${url}/api/comment`)
-                .then(function(response){
-                    setUser({...user, review: [response]})
-                })
-
             return(
                 <S.Review>
                     <Review lists={user.review}/>
                 </S.Review>
             );
         }   
-        else{
-            return(
-                <>
-                {chexplane === 1 ?
-                <S.Introduce value={user.introduce} onChange={(e)=>setUser({...user, introduce: e.target.value})} onMouseLeave={()=>ChangeExplane()}>
-
-                </S.Introduce>
-                :
-                <S.IntroduceDiv onClick={()=>ChangeExplane()}>
-                {user.introduce}
-                </S.IntroduceDiv>
-                }
-                </>
-            )
-        }
     }
 
     useEffect(()=>{
@@ -123,14 +108,14 @@ const MyPage = () => {
                     <S.Profile src={Profile}/>
                     <S.UserInfo>
                         <h3>유저</h3>
-                    </S.UserInfo>
+                    </S.UserInfo>                
+                <S.IntroduceDiv onClick={()=>ChangeExplane(true)}>
+                asdasd
+                </S.IntroduceDiv>
                 </S.User>
                 <S.Select>
                     <div>                    
                     <Link to={{search:""}} style={{textDecoration:"none"}}>
-                    <S.SSpan>유저 정보()</S.SSpan>
-                    </Link>
-                    <Link to={{search:"?sell"}} style={{textDecoration:"none"}}>
                     <S.SSpan>판매 물품(1)</S.SSpan>
                     </Link>
                     <Link to={{search:"?review"}} style={{textDecoration:"none"}}>
@@ -145,3 +130,10 @@ const MyPage = () => {
 }
 
 export default MyPage
+
+
+/*                {0 === true ?
+                <S.Introduce placeholeder="소개 글" value={user.introduce} onChange={(e)=>setUser({...user, introduce: e.target.value})} onMouseLeave={()=>ChangeExplane(false)}>
+
+                </S.Introduce>
+                :*/

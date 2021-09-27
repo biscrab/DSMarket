@@ -46,7 +46,7 @@ const Header = () => {
         }
         else{
         
-        axios.post(`/api/auth/login`, ip)
+       /* axios.post(`/api/auth/login`, ip)
             .then(response =>{
                 const { accessToken } = response.data;
                 axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
@@ -57,8 +57,8 @@ const Header = () => {
             })
             .catch(error =>{
                 alert("아이디나 비밀번호가 잘못됬습니다.");
-            })
-            /*
+            })*/
+        
 
         function isTrue(element)  {
             if(element.email === email && element.password === password)  {
@@ -74,7 +74,7 @@ const Header = () => {
             }
             else{
                 alert("아이디나 비밀번호가 틀렸습니다.");
-            }*/
+            }
         }
 
         console.log(ip.id);

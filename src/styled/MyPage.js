@@ -39,7 +39,6 @@ export const Profile = styled.img`
 
 export const UserInfo = styled.div`
     display: flex;
-    flex-direction: column;
 `
 
 export const Div = styled.div`
@@ -57,8 +56,8 @@ export const ItemDiv = styled.div`
 
 export const Introduce = styled.textarea`
     position: relative;
-    top: 20px;
-    height: 400px;
+    height: 200px;
+    width: 800px;
     resize: none;
     padding: 10px;
 `
@@ -67,6 +66,7 @@ export const IntroduceDiv = styled.div`
     position: relative;
     top: 20px;
     height: 400px;
+    width: 800px;
     resize: none;
     padding: 10px;
 `

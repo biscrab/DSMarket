@@ -55,23 +55,6 @@ const MainPage = () => {
 
     const query = queryString.parse(location.search);
 
-    const changeLink = () => {
-
-        let a = ""
-
-        a += `?order=${catagory.order}`
-        if(catagory.search){
-            a += `&search=${catagory.search}`
-        }
-
-        console.log("a:" + a);
-
-        history.push({
-            pathname: history.location.pathname,
-            search: a
-        })
-    }
-
     const setLi = () => {
         if(query.lowest){
             console.log(Number(query.lowest));
@@ -242,11 +225,6 @@ const MainPage = () => {
         }
     }
 
-    useEffect(()=>{
-        changeLink();
-        setO();
-    },[catagory]);
-
     const Loading = () => {
             <S.LoadingDiv>
                 <S.LoadingD>
@@ -261,6 +239,8 @@ const MainPage = () => {
     }
 
     const other = [{img: A, name: 5}]
+
+    const s = JSON.parse(localStorage.getItem('user'));
 
     return(
         <S.CA>
@@ -284,11 +264,11 @@ const MainPage = () => {
                     <S.My>
                     <S.MyImg src={A} onClick={()=>history.push('/user')}></S.MyImg>
                     <S.MyInfoDiv>
-                        <S.MyInfo color="gray">이메일</S.MyInfo>
+                        <S.MyInfo color="gray">{s.email}</S.MyInfo>
                         <S.MyInfo>이름</S.MyInfo>
                     </S.MyInfoDiv>
                     </S.My>
-                    <S.OtherTittle>회원님만을 위한 추천</S.OtherTittle>
+                    <S.OtherTittle>회원님을 위한 추천</S.OtherTittle>
                     <S.OtherUl>
                         <OtherList lists={other}/>
                     </S.OtherUl>
