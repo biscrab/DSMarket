@@ -22,6 +22,7 @@ function App() {
     <Route exact path="/item/:id" component={P.Item} />
     <Route exact path="/user" component={P.MyPage} />
     <Route exact path="/signup" component={P.SignUp} />
+    <Route exact path="/login" component={P.Login} />
     <Route path='*' exact={true} component={P.Unknown} />
     </Switch>
     </>

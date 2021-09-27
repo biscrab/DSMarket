@@ -28,8 +28,8 @@ const MainPage = () => {
     }
 
     const [list, setList] = useState([
-        {id: 1, name: "상품1", price: 100, star: 1, img: A, brand: "samsung", sell: 50, catagory: 1, review: 100},
-        {id: 1, name: "상품1", price: 10, star: 2, img: B, brand: "a", sell: 100 ,catagory: 1, review: 100},
+        {id: 1, name: "상품1", price: 100, star: 1, img: A},
+        {id: 1, name: "상품1", price: 10, star: 2, img: B},
         {id: 1, name: "상품1", price: 5, star: 3, img: C, brand: "a", sell: 200, catagory: 2, review: 100},
         {id: 1, name: "상품1", price: 6, star: 4, img: D, brand: "a", sell: 300, catagory: 3, review: 100},
         {id: 1, name: "상품1", price: 190, star: 5, img: B, brand: "a", sell: 400, catagory: 1, review: 100},
@@ -93,35 +93,6 @@ const MainPage = () => {
         console.log(list);
     } 
 
-    const setO = (n) => {
-        setOption(n);
-        var s = list;
-        console.log(s);
-        if(option === 1){ //별점순
-            s.sort(function(a, b){
-                return b.star + a.star;
-            });
-        }
-        else if(option === 2){ //낮은 가격순
-            s.sort(function(a, b){
-                return b.price - a.price;
-            });
-        }
-        else if(option === 3){ // 높은 가격순
-            s.sort(function(a, b){
-                return b.price + a.price;
-            });
-            
-        }
-        else if(option === 4){ //판매량
-            s.sort(function(a, b){
-                return b.sell + a.sell;
-            });
-        }
-        setList(s);
-        console.log(s);
-    }
-
     const [ca, sCa] = useState(Number(params.catagory));    
     const [loading , setLoading] = useState(false);
 
@@ -129,25 +100,22 @@ const MainPage = () => {
         //SetP(params.catagory);
         sCa(Number(params.catagory));
         console.log(query);
-        setO(1);  
         SetPage();
+    },[]);       
 
-        axios.defaults.baseURL = "http://13.124.26.107:9095";
-        axios.defaults.withCredentials = true;
+    useEffect(()=>{
+    axios.get(`http://13.124.26.107:9095/api/item`)
+        .then(response => {
+            setList(response);
+            setLoading(false);
+        })
+        .catch(loading =>{
+            setLoading(true);
+        })
+        .catch(error => {
 
-        axios.get(`/api/item`)
-            .then(response => {
-                setList(response.data);
-                setLoading(false);
-            })
-            .catch(function(loading){
-                setLoading(true);
-            })
-            .catch(function(error){
-
-            })
-    },[]);        
-
+        })
+ })
     const SetPage = () => {
         const pa = Number(params.p);
         if(pa === 1){
@@ -264,7 +232,7 @@ const MainPage = () => {
                     <S.My>
                     <S.MyImg src={A} onClick={()=>history.push('/user')}></S.MyImg>
                     <S.MyInfoDiv>
-                        <S.MyInfo color="gray">{s.email}</S.MyInfo>
+                        <S.MyInfo color="gray"></S.MyInfo>
                         <S.MyInfo>이름</S.MyInfo>
                     </S.MyInfoDiv>
                     </S.My>

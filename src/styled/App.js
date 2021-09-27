@@ -11,6 +11,16 @@ export const Header = styled.div`
     border-bottom: 1px solid #eeeeee;
 `
 
+export const Login = styled.div`
+    background-image: url('https://i.stack.imgur.com/XZDsP.jpg');
+    background-repeat: no-repeat;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    padding: 50px 0px;
+`
+
 export const HDiv = styled.div`
     position: relative;
     left: 50%;
@@ -889,15 +899,17 @@ export const LoginDiv = styled.div`
     flex-direction: column;
     background-color: white;
     position: relative;
-    top: 10%;
-    width: 450px;
-    height: 550px;
+    border: 2px solid #eeeeee;
+    left: 60%;
+    width: 400px;
+    height: 500px;
     margin: 0;
 `
 
 export const LoginInput = styled.input`
     position: relative;
     margin-bottom: 50px;
+    padding: 0px 10px;
     width: 80%;
     border: 2px solid #eeeeee;
     height: 40px;
@@ -915,17 +927,10 @@ export const LoginSpan = styled.span`
     margin: 0;
 `
 
-export const LoginTittle = styled.div`
-    background-color: royalblue;
-    color: white;
+export const LoginTittle = styled.h3`
+    color: gray;
     font-size: 30px;
-    height: 60px;
-    margin-bottom: 30px;
-`
-
-export const LT = styled.span`
-    position: relative;
-    top: 10px;
+    padding: 20px;
 `
 
 export const LoginButton = styled.button`
@@ -935,7 +940,7 @@ export const LoginButton = styled.button`
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    background-color: ${props => props.color};
+    background-color: skyblue;
     color: ${props => props.c};
     margin-bottom: 20px;
     font-size: 20px;

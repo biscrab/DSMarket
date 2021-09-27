@@ -77,3 +77,32 @@
                     <S.BB color="white" bkcolor="royalblue" border="0px">구매하기</S.BB>
                 </S.BuyDiv>
             </S.IDiv>     */
+
+                const setO = (n) => {
+        setOption(n);
+        var s = list;
+        console.log(s);
+        if(option === 1){ //별점순
+            s.sort(function(a, b){
+                return b.star + a.star;
+            });
+        }
+        else if(option === 2){ //낮은 가격순
+            s.sort(function(a, b){
+                return b.price - a.price;
+            });
+        }
+        else if(option === 3){ // 높은 가격순
+            s.sort(function(a, b){
+                return b.price + a.price;
+            });
+            
+        }
+        else if(option === 4){ //판매량
+            s.sort(function(a, b){
+                return b.sell + a.sell;
+            });
+        }
+        setList(s);
+        console.log(s);
+    }

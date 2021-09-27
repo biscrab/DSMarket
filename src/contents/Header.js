@@ -16,11 +16,9 @@ const Header = () => {
     const select = useRef();
 
     let history = useHistory();
+    const [logined, setLogined] = useState(false);
     const [typing, setTyping] = useState(-1);
     const [v, setV] = useState();
-    const [login, setLogin] = useState(false);
-    const [logined, setLogined] = useState(false);
-    const [ip, setIp] = useState({email : "", password: ""});
     const [name, setName] = useState("");
 
     const [recent, setRecent] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
@@ -32,11 +30,10 @@ const Header = () => {
     ])
 
     const SignUp = () => {
-        setIp({email : "", password: ""});
         history.push('/signup');
-        setLogin(false);
     }
 
+    /*
     const Login = ({email, password}) => {
         if(email === ""){
             alert("이메일을 입력해주세요");
@@ -46,7 +43,7 @@ const Header = () => {
         }
         else{
         
-       /* axios.post(`/api/auth/login`, ip)
+        axios.post(`/api/auth/login`, ip)
             .then(response =>{
                 const { accessToken } = response.data;
                 axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
@@ -57,7 +54,7 @@ const Header = () => {
             })
             .catch(error =>{
                 alert("아이디나 비밀번호가 잘못됬습니다.");
-            })*/
+            })
         
 
         function isTrue(element)  {
@@ -79,11 +76,10 @@ const Header = () => {
 
         console.log(ip.id);
         console.log(ip.password);
-    }
+    }*/
 
     const Logout = () => {
         localStorage.removeItem('user');
-        setLogined(false);
     }
 
     const handleKeyPress = e => {
@@ -93,23 +89,13 @@ const Header = () => {
       }
 
     useEffect(() => {
-        
-        const d = JSON.parse(localStorage.getItem('user'));
-        
-        if(d){    
-            console.log("log");
-            Login({email: d.email , password: d.password});
-            console.log(d);
-        }
-
-        const s = JSON.parse(localStorage.getItem('search'));
-        
-        if(s){
-            setRecent(s);
-            console.log("s:"+s);
-        }
-        
     },[]);
+
+    useEffect(()=>{
+        if(!logined){
+            history.push('/login')
+        }
+    })
 
     const Search = () => {
 
@@ -118,12 +104,7 @@ const Header = () => {
         r.unshift(v)
         r.slice(0, 9);
         
-        if(params.catagory){
-            history.push(`catagory/${location.catagory}yyy?p=1&order=latest&search=${v}`);
-        }
-        else{
-            history.push(`catagory?p=1&order=latest&search=${v}`);
-        }
+        history.push({search: `?search=${v}`})
 
         localStorage.search = JSON.stringify(r);
     }
@@ -151,8 +132,8 @@ const Header = () => {
                 </>
             :
             <>
-            <S.L onClick={()=>setLogin(true)}>로그인</S.L>
-            <S.L onClick={()=>history.replace('/signup')}>회원가입</S.L>
+            <S.L onClick={()=>history.push('/login')}>로그인</S.L>
+            <S.L onClick={()=>history.push('/signup')}>회원가입</S.L>
             </>
             }
             </S.LD>
@@ -187,20 +168,7 @@ const Header = () => {
             <S.SSelect onClick={()=>history.push('/regist')}><i class="fas fa-archive"></i><S.SS>판매하기</S.SS></S.SSelect>
             <S.SSelect onClick={()=>history.push('/user')}><i class="fas fa-user"></i><S.SS>내상점</S.SS></S.SSelect>
             </S.HDiv>
-        </S.Header>
-        {login ? 
-        <S.LoginBackground>
-            <S.LoginDiv>
-                <S.LoginTittle><S.LT>대마마켓</S.LT><S.X onClick={()=>setLogin(false)}>x</S.X></S.LoginTittle> 
-                <S.LoginSpan>이메일</S.LoginSpan>           
-                <S.LoginInput onChange={(e)=>setIp({email: e.target.value, password: ip.password})} value={ip.id}/>
-                <S.LoginSpan>비밀번호</S.LoginSpan>
-                <S.LoginInput type="password" onChange={(e)=>setIp({email: ip.email, password: e.target.value})} value={ip.password}/>
-                <S.LoginButton color="royalblue" c="white" onClick={()=>Login({email: ip.email, password: ip.password})}>로그인</S.LoginButton>
-                <S.LoginButton c="black" onClick={()=>SignUp()}>회원가입</S.LoginButton>
-            </S.LoginDiv>
-        </S.LoginBackground>
-        : <></>}    
+        </S.Header>  
         </S.Head>
     )
 }
@@ -217,3 +185,31 @@ export default Header
             <S.CartNumber>9+</S.CartNumber>
             }
             </div> */
+
+            /*        <S.LoginBackground>
+            <S.LoginDiv>
+                <S.LoginTittle><S.LT>대마마켓</S.LT><S.X onClick={()=>setLogin(false)}>x</S.X></S.LoginTittle> 
+                <S.LoginSpan>이메일</S.LoginSpan>           
+                <S.LoginInput onChange={(e)=>setIp({email: e.target.value, password: ip.password})} value={ip.id}/>
+                <S.LoginSpan>비밀번호</S.LoginSpan>
+                <S.LoginInput type="password" onChange={(e)=>setIp({email: ip.email, password: e.target.value})} value={ip.password}/>
+                <S.LoginButton color="royalblue" c="white" onClick={()=>Login({email: ip.email, password: ip.password})}>로그인</S.LoginButton>
+                <S.LoginButton c="black" onClick={()=>SignUp()}>회원가입</S.LoginButton>
+            </S.LoginDiv>
+        </S.LoginBackground> */
+
+        /*        
+        const d = JSON.parse(localStorage.getItem('user'));
+        
+        if(d){    
+            console.log("log");
+            Login({email: d.email , password: d.password});
+            console.log(d);
+        }
+
+        const s = JSON.parse(localStorage.getItem('search'));
+        
+        if(s){
+            setRecent(s);
+            console.log("s:"+s);
+        } */
