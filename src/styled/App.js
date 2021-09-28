@@ -895,6 +895,7 @@ export const Xbutton = styled.button`
 
 export const LoginDiv = styled.div`
     text-align: center;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     background-color: white;
@@ -944,6 +945,7 @@ export const LoginButton = styled.button`
     color: white;
     margin-bottom: 20px;
     font-size: 20px;
+    outline: 0;
 `
 
 export const X = styled.span`
@@ -1112,6 +1114,7 @@ export const SiButton = styled.button`
     color: white;
     border: 0;
     border-radius: 5px;
+    outline: 0;
 `
 
 export const RegistDiv = styled.div`

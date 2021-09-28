@@ -6,6 +6,12 @@ import { useHistory } from "react-router";
 
 const LoginPage = () => {
 
+    /*
+    axios.defaults.baseURL = 'http://13.124.26.107:9095'
+    axios.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
+    axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
+    axios.defaults.withCredentials = true;*/
+
     let history = useHistory();
 
     const [login, setLogin] = useState(false);
@@ -21,16 +27,18 @@ const LoginPage = () => {
             alert("비밀번호를 입력해주세요");
         }
         else{
+            /*
                 axios.post("/api/auth/login", JSON.stringify(ip))
                 .then(res => {
                     history.push("/");                
                     setLogined(true);
                     setLogin(false);
+                    console.log(res.data)
                     localStorage.user = JSON.stringify(res.data);
                 })
                 .catch(error => {
                     alert("오류");
-                })
+                })*/
         }
 
         console.log(ip.email);
@@ -50,9 +58,9 @@ const LoginPage = () => {
             <S.LoginDiv>
                 <S.LoginTittle>대마마켓</S.LoginTittle> 
                 <S.LoginSpan >이메일</S.LoginSpan>           
-                <S.LoginInput onChange={(e)=>setIp({...ip, email: e.target.value})}/>
+                <S.LoginInput value={ip.email} onChange={(e)=>setIp({...ip, email: e.target.value})}/>
                 <S.LoginSpan>비밀번호</S.LoginSpan>
-                <S.LoginInput onChange={(e)=>setIp({...ip, password: e.target.value})}/>
+                <S.LoginInput value={ip.password} onChange={(e)=>setIp({...ip, password: e.target.value})}/>
                 <S.LoginButton onClick={()=>Login()}>로그인</S.LoginButton>
             </S.LoginDiv>
         </S.Login>

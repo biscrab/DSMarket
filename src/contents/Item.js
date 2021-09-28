@@ -11,8 +11,9 @@ import axios from 'axios';
 
 const Select = ({item, lists}) => {
 
+/*
     axios.defaults.baseURL = "http://13.124.26.107:9095";
-    axios.defaults.withCredentials = true;
+    axios.defaults.withCredentials = true;*/
 
 
     let history = useHistory();
@@ -21,23 +22,25 @@ const Select = ({item, lists}) => {
     const [edit, setEdit] = useState(false);
 
     const onDelete = () => {
+        /*
         axios.delete('/api/item')
-            .then(function(response){
+            .then(res =>{
                 alert("아이템이 삭제되었습니다.")
             })
         if('권한없음'){
             alert("권한이 없습니다.");
-        }
+        }*/
     }
 
     const onEdit = () => {
+        /*
         axios.edit('/api/item')
-        .then(function(response){
+        .then(res =>{
             alert("아이템이 삭제되었습니다.")
         })
         if('권한없음'){
             alert("권한이 없습니다.");
-        }
+        }*/
     }
 
     const EditBorder = () => {

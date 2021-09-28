@@ -18,7 +18,11 @@ const UserPage = () => {
     let location = useLocation();
     let history = useHistory();
 
-    var url = "url"
+    /*
+    axios.defaults.baseURL = 'http://13.124.26.107:9095'
+    axios.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
+    axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
+    axios.defaults.withCredentials = true;*/
 
     const onChange = (e) => {
         const { value, name } = e.target; // 우선 e.target 에서 name 과 value 를 추출
@@ -49,15 +53,16 @@ const UserPage = () => {
         }
     }
 
-    axios.get(`${url}/api/member/item`)
-        .then(function(response){
-            setUser({...user, item: [response]})
+    /*
+    axios.get('/api/member/item')
+        .then(res => {
+            setUser({...user, item: [res.data]})
     })
 
-    axios.get(`${url}/api/comment`)
-    .then(function(response){
-        setUser({...user, review: [response]})
-    })
+    axios.get('/api/comment')
+    .then(res => {
+        setUser({...user, review: [res.data]})
+    })*/
 
     const Border = () => {
         if(location.search === ""){
@@ -89,10 +94,11 @@ const UserPage = () => {
     }
 
     useEffect(()=>{
+        /*
         axios.get('/api/mypage')
-            .then(response => {
+            .then(res => {
     
-        });
+        });*/
     },[]);
 
     return(
