@@ -113,10 +113,10 @@ const UserPage = () => {
                     </S.ProfileDiv> 
                 {chexplane === false ?
                 <S.IntroduceDiv onClick={()=>ChangeExplane(true)}>
-                    asdasd
+                    {user.introduce}
                 </S.IntroduceDiv>
                 :
-                <S.Introduce onBlur={()=>ChangeExplane(false)}>
+                <S.Introduce onBlur={()=>ChangeExplane(false)} value={user.introduce}>
                 </S.Introduce>               
                 }
                 </S.User>

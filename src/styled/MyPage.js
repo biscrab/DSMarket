@@ -122,3 +122,12 @@ export const XButton = styled.button`
     background-color: rgba(0, 0, 0, 0);
     border: 0;
 `
+
+export const Background = styled.div`
+    background-color: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    bottom: 0px;
+    left: 0;
+`

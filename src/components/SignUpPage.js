@@ -4,7 +4,6 @@ import axios from 'axios';
 import { useHistory } from 'react-router';
 import { useTheme } from 'styled-components';
 import $ from "jquery";
-import { response } from 'express';
 
 const SignUpPage = () => {
 
@@ -31,31 +30,32 @@ const SignUpPage = () => {
         
         console.log(JSON.stringify(user));
 
-        /*if(user.id && user.password && user.name && user.phonenumber){
+        if(user.id && user.password && user.name && user.phonenumber){
             alert("내용을 모두 입력해주세요");
         }
-        //else if(!CheckEmail(user.email)){
-          //  alert("이메일 형식이 잘못 되었습니다.");
-        //}
+        else if(!CheckEmail(user.email)){
+          alert("이메일 형식이 잘못 되었습니다.");
+        }
         else if(user.password !== check){
             //만약 아이디가 있으면
             
-            alert("비밀번호가 일치하지 않습니다.");
-            
-            
+            alert("비밀번호가 일치하지 않습니다."); 
         }
-        else{      */    
+        else{      
 
-           /* axios.post('/api/auth/signup', JSON.stringify(user))
+            axios.post('/api/auth/signup', JSON.stringify(user))
                 .then(res => {
                     alert("등록이 완료되었습니다.");
                     history.push('/');
-                })*/
+                })
+                .catch(error => {
+                    alert("오류");
+                })
 
             //if('이메일 중복'){
                 //alert("중복되는 이메일 입니다.");
             //}
-        //}
+        }
     }
 
     const [user, setUser] = useState({email: "1", info: "1", name: "1", password: "1", phone: 1});

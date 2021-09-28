@@ -5,11 +5,11 @@ import { useHistory } from "react-router";
 import axios from "axios";
 
 const ItemPage = () => {
-    /*
+
     axios.defaults.baseURL = 'http://13.124.26.107:9095'
     axios.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
     axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
-    axios.defaults.withCredentials = true;*/
+    axios.defaults.withCredentials = true;
 
     useEffect(()=>{
 

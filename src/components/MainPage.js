@@ -17,8 +17,6 @@ const MainPage = () => {
     const params = useParams();
     const location = useLocation();
     
-    let sp;
-
     const [list, setList] = useState([]);
     
 
@@ -49,18 +47,19 @@ const MainPage = () => {
     },[]);       
 
     useEffect(()=>{
-        /*
+
         axios.get('/api/item/all')
         .then(res => {
             setList(res.data);
-            console.log(res);
+            console.log(res.data);
             setLoading(false);
         })
         .catch(loading =>{
             setLoading(true);
         })
         .catch(error => {
-        })*/
+            alert("1");
+        })
     /*
     axios.get(`/Item/all`)
         .then(response => {

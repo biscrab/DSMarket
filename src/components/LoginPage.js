@@ -6,11 +6,10 @@ import { useHistory } from "react-router";
 
 const LoginPage = () => {
 
-    /*
     axios.defaults.baseURL = 'http://13.124.26.107:9095'
     axios.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
     axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
-    axios.defaults.withCredentials = true;*/
+    axios.defaults.withCredentials = true;
 
     let history = useHistory();
 
@@ -27,18 +26,21 @@ const LoginPage = () => {
             alert("비밀번호를 입력해주세요");
         }
         else{
-            /*
-                axios.post("/api/auth/login", JSON.stringify(ip))
+                let i = JSON.stringify(ip);
+
+                console.log("i:"+i);
+            
+                axios.post("/api/auth/login", i)
                 .then(res => {
                     history.push("/");                
                     setLogined(true);
                     setLogin(false);
                     console.log(res.data)
-                    localStorage.user = JSON.stringify(res.data);
+                    localStorage.token = JSON.stringify(res.data.token);
                 })
                 .catch(error => {
                     alert("오류");
-                })*/
+                })
         }
 
         console.log(ip.email);

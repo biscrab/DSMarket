@@ -46,19 +46,6 @@ const Header = () => {
     useEffect(()=>{
         var s = JSON.parse(localStorage.getItem('user'));    
         
-        if(s){
-            const a = user.find(isTrue);        
-            
-            function isTrue(element)  {
-                if(element.email === s.email && element.password === s.password)  {
-                return true;
-                }
-            }
-
-            if(a.email&&a.password){
-                setName(a.name);
-                setLogined(true);
-        }}
     })
 
     const Search = () => {

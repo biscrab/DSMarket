@@ -41,11 +41,6 @@ const RegistPage = () => {
 
     const [tittle, setTittle] = useState("");
 
-    useEffect(()=>{
-        
-
-    },[]);
-
     const onChange = (e) => {
         const { value, name } = e.target; // 우선 e.target 에서 name 과 value 를 추출
         setItem({
@@ -128,10 +123,17 @@ const RegistPage = () => {
       </S.Dropzone>
     </section>
             </S.RegistDiv>
+            <>
+            {fileRejections >= 1?
+            <>
             <S.RegistDiv>
                 <p>미리보기</p>
                 <img src={acceptedFileItems}></img>
             </S.RegistDiv>
+            </>
+            :<></>
+            }
+            </>
             <S.RegistDiv>
                 <p>상품 설명</p>
                 <S.Explane></S.Explane>
