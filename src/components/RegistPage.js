@@ -20,9 +20,6 @@ const RegistPage = () => {
         catagory: "1",
     });
 
-    axios.defaults.baseURL = "http://13.124.26.107:9095";
-    axios.defaults.withCredentials = true;
-
     const Regist = () => {
 
         axios.post('/')

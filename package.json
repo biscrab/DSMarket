@@ -47,6 +47,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "proxy": "https://cors-anywhere.herokuapp.com/http://13.124.26.107:9095"
+  }
 }

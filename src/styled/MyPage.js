@@ -25,7 +25,12 @@ export const SSpan = styled.span`
 `
 
 export const User = styled.div`
-    height: 150px;
+    height: 220px;
+    display: flex;
+    flex-direction: column;
+`
+
+export const ProfileDiv = styled.div`
     display: flex;
     align-items: center;
 `
@@ -40,8 +45,13 @@ export const Profile = styled.img`
 export const UserInfo = styled.div`
     display: flex;
 `
+export const UserName = styled.h3`
+    margin: 0;
+`
 
 export const Div = styled.div`
+    position: relative;
+    top: 20px;
     display: flex;
     flex-direction: column;
     width: 830px;
@@ -56,17 +66,18 @@ export const ItemDiv = styled.div`
 
 export const Introduce = styled.textarea`
     position: relative;
-    height: 200px;
-    width: 800px;
+    top: 10px;
+    height: 100px;
+    width: 100%;
     resize: none;
     padding: 10px;
 `
 
 export const IntroduceDiv = styled.div`
     position: relative;
-    top: 20px;
-    height: 400px;
-    width: 800px;
+    top: 10px;
+    height: 100px;
+    width: 100%;
     resize: none;
     padding: 10px;
 `

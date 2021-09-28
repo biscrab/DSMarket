@@ -7,9 +7,6 @@ import axios from 'axios'
 
 const Header = () => {
 
-    axios.defaults.baseURL = "http://13.124.26.107:9095";
-    axios.defaults.withCredentials = true;
-
     let location = useLocation();
     let params = useParams();
 

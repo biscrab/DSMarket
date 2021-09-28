@@ -1746,6 +1746,7 @@ export const Gray = styled.p`
 export const Profile = styled.img`
     width: 40px;
     height: 40px;
+    border-radius: 50%;
 `
 
 export const ProfileSpan = styled.span`

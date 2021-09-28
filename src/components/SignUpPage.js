@@ -21,9 +21,6 @@ const SignUpPage = () => {
         }                            
     }   
 
-    axios.defaults.baseURL = "http://13.124.26.107:9095";
-    axios.defaults.withCredentials = true;
-
     const SignUp = () => {
 
         var url = "url";
@@ -44,7 +41,8 @@ const SignUpPage = () => {
             
         }
         else{      */      
-            axios.post(`/api/auth/signup`, user)
+
+            axios.post('/api/auth/signup', JSON.stringify(user))
                 .then(res => {
                     alert("등록이 완료되었습니다.");
                     history.push('/');
@@ -59,7 +57,7 @@ const SignUpPage = () => {
         //}
     }
 
-    const [user, setUser] = useState({email: "", password: "", name: "", phone: "", info: ""});
+    const [user, setUser] = useState({email: "", info: "", name: "", password: "", phone: "", });
     const [check, setCheck] = useState();
 
     const onChange = (e) => {

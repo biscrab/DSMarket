@@ -20,7 +20,7 @@ function App() {
     <Route exact path="/" component={P.Main}/>
     <Route exact path="/regist" component={P.Regist}/>
     <Route exact path="/item/:id" component={P.Item} />
-    <Route exact path="/user/:id" component={P.MyPage} />
+    <Route exact path="/user/:id" component={P.User} />
     <Route exact path="/signup" component={P.SignUp} />
     <Route exact path="/login" component={P.Login} />
     <Route path='*' exact={true} component={P.Unknown} />

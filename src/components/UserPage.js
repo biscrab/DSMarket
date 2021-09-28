@@ -11,6 +11,7 @@ import B from '../images/b.jpg'
 import C from '../images/c.jpg'
 import D from '../images/d.jpg'
 import { getRoles } from "@testing-library/dom";
+import { Explane } from "../styled/App";
 
 const UserPage = () => {
 
@@ -98,13 +99,20 @@ const UserPage = () => {
         <S.M>
             <S.Div>
                 <S.User>
+                    <S.ProfileDiv>
                     <S.Profile src={Profile}/>
                     <S.UserInfo>
-                        <h3>유저</h3>
-                    </S.UserInfo>                
+                        <S.UserName>유저</S.UserName>
+                    </S.UserInfo>
+                    </S.ProfileDiv> 
+                {chexplane === false ?
                 <S.IntroduceDiv onClick={()=>ChangeExplane(true)}>
-                asdasd
+                    asdasd
                 </S.IntroduceDiv>
+                :
+                <S.Introduce onBlur={()=>ChangeExplane(false)}>
+                </S.Introduce>               
+                }
                 </S.User>
                 <S.Select>
                     <div>                    

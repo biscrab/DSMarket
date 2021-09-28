@@ -1,7 +1,7 @@
 export { default as Main } from './Main'
 export { default as Regist } from './Regist'
 export { default as SignUp } from './SignUp'
-export { default as MyPage} from './My'
+export { default as User} from './User'
 export { default as Unknown} from './Unknown'
 export { default as Item} from './Item'
 export { default as Login} from './Login'
