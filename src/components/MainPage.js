@@ -50,6 +50,7 @@ const MainPage = () => {
         axios.get('http://13.124.26.107:9095/api/item/all')
         .then(response => {
             setList(response);
+            alert("123");
             console.log(response);
             setLoading(false);
         })
@@ -133,13 +134,7 @@ const MainPage = () => {
                                 dataLength={list.length}
                                 loader={<Loading />}
                 >
-                <>
-                {0 ?
                 <Item lists={list}/>
-                :
-                <></>
-                } 
-                </>
                 </InfiniteScroll>            
                 <S.MyDiv>
                     <S.MyFDiv>

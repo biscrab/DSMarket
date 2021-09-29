@@ -25,6 +25,7 @@ export const SSpan = styled.span`
 
 export const User = styled.div`
     display: flex;
+    padding: 20px;
     flex-direction: column;
     border-bottom: 2px solid #EAEAEA;
 `
@@ -67,19 +68,22 @@ export const Introduce = styled.textarea`
     position: relative;
     top: 10px;
     width: 100%;
-    resize: vertical;
+    resize: none;
     padding: 10px;
     outline: 0;
+    border: 0;
+    min-height: 90px;
+    border: 2px solid #eeeeee;
 `
 
-export const IntroduceDiv = styled.div`
+/*export const IntroduceDiv = styled.div`
     position: relative;
     top: 10px;
     height: auto;
     width: 100%;
     resize: none;
     padding: 10px;
-`
+`*/
 
 export const Card = styled.div`
     width: 200px;

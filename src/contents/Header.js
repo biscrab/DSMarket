@@ -44,8 +44,10 @@ const Header = () => {
 
 
     useEffect(()=>{
-        var s = JSON.parse(localStorage.getItem('user'));    
-        
+        var s = JSON.parse(localStorage.getItem('token'));    
+        if(localStorage.getItem('token')){
+            
+        }
     })
 
     const Search = () => {

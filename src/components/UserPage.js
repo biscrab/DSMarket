@@ -1,5 +1,5 @@
 import React,{useEffect, useState} from "react";
-import { useLocation, useHistory } from "react-router";
+import { useLocation, useHistory, useParams } from "react-router";
 import * as S from '../styled/MyPage'
 import Profile from '../images/profile.png'
 import { Link } from "react-router-dom";
@@ -17,6 +17,7 @@ const UserPage = () => {
 
     let location = useLocation();
     let history = useHistory();
+    let params = useParams();
 
     const onChange = (e) => {
         const { value, name } = e.target; // 우선 e.target 에서 name 과 value 를 추출
@@ -59,8 +60,14 @@ const UserPage = () => {
     })*/
 
     const Border = () => {
-        if(location.search === ""){
-
+        if(params.review === "review"){
+            return(
+                <S.Review>
+                    <Review lists={user.review}/>
+                </S.Review>
+            );
+        }
+        else{
             return(
                 <>
                 {user.item ?
@@ -75,14 +82,6 @@ const UserPage = () => {
                 </h3>
                 }
                 </>
-            );
-        }
-        else if(location.search === "?review"){
-
-            return(
-                <S.Review>
-                    <Review lists={user.review}/>
-                </S.Review>
             );
         }   
     }
@@ -102,6 +101,7 @@ const UserPage = () => {
             .then(res => {
     
         });*/
+        console.log(params);
     },[]);
 
     return(
@@ -114,23 +114,12 @@ const UserPage = () => {
                         <S.UserName>유저</S.UserName>
                     </S.UserInfo>
                     </S.ProfileDiv> 
-                {chexplane === false ?
-                <S.IntroduceDiv onClick={()=>ChangeExplane(true)}>
-                    {user.introduce}
-                </S.IntroduceDiv>
-                :
-                <S.Introduce onChange={(e)=>setUser({...user, introduce: e.target.value})}onMouseLeave={()=>EndEdit()} value={user.introduce}>
-                </S.Introduce>               
-                }
+                <S.Introduce onChange={(e)=>setUser({...user, introduce: e.target.value})}onMouseLeave={()=>EndEdit()} value={user.introduce}></S.Introduce>               
                 </S.User>
                 <S.Select>
                     <div>                    
-                    <Link to={{search:""}} style={{textDecoration:"none"}}>
-                    <S.SSpan>판매 물품(1)</S.SSpan>
-                    </Link>
-                    <Link to={{search:"?review"}} style={{textDecoration:"none"}}>
-                    <S.SSpan>거래 후기()</S.SSpan>
-                    </Link>
+                    <S.SSpan onClick={()=>history.push('/user/1')}>판매 물품({user.item.length})</S.SSpan>
+                    <S.SSpan onClick={()=>history.push('/user/1/review')}>거래 후기({user.review.length})</S.SSpan>
                     </div>
                 </S.Select>
                 <Border />

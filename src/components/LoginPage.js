@@ -12,6 +12,7 @@ const LoginPage = () => {
     const [logined, setLogined] = useState(false);
     const [ip, setIp] = useState({email : "", password: ""});
     const [name, setName] = useState("");
+    const jwt = require('jsonwebtoken')
 
     const Login = () => {
         if(!ip.email){
@@ -31,10 +32,8 @@ const LoginPage = () => {
                 .then(response => {
                     history.push("/");
                     alert("성공");                
-                    setLogined(true);
-                    setLogin(false);
-                    console.log(response)
-                    localStorage.token = JSON.stringify(response.data.token);
+                    localStorage.token = JSON.stringify(response.config);
+                    axios.defaults.headers.common['Authorization'] = `Bearer ${response.data}`
                 })
                 .catch(error => {
                     alert("오류");
