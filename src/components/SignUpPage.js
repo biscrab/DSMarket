@@ -6,7 +6,6 @@ import { useTheme } from 'styled-components';
 import $ from "jquery";
 
 const SignUpPage = () => {
-
     let history = useHistory();
 
     function CheckEmail(str){                                                 
@@ -20,11 +19,6 @@ const SignUpPage = () => {
             return true;         
         }                            
     }   
-
-    axios.defaults.baseURL = 'http://13.124.26.107:9095'
-    axios.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
-    axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
-    axios.defaults.withCredentials = true;
 
     const SignUp = () => {
         
@@ -43,7 +37,12 @@ const SignUpPage = () => {
         }
         else{      
 
-            axios.post('/api/auth/signup', JSON.stringify(user))
+            const headers = {
+                'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+                'Accept': '*/*'
+              }
+
+            axios.post('/api/auth/signup', JSON.stringify(user), {headers})
                 .then(res => {
                     alert("등록이 완료되었습니다.");
                     history.push('/');

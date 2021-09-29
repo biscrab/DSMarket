@@ -4,6 +4,7 @@ import {Route, Switch, useLocation} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styled/App.css'
 import Header from '../contents/Header';
+import axios from 'axios';
 
 function App() {
 
@@ -12,6 +13,11 @@ function App() {
   useEffect(()=>{
     document.querySelector('body').scrollTo(0,0);
   },[pathname]);
+  
+  axios.defaults.baseURL = 'http://13.124.26.107:9095'
+  axios.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
+  axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
+  axios.defaults.withCredentials = true;
 
   return(
     <>

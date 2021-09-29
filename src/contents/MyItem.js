@@ -1,9 +1,14 @@
 import axios from 'axios';
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import { useHistory } from 'react-router';
 import * as S from '../styled/App'
 
 const Select = ({item}) => {
+
+    axios.defaults.baseURL = 'http://13.124.26.107:9095'
+    axios.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
+    axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
+    axios.defaults.withCredentials = true;
 
     let history = useHistory();
 
