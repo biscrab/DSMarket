@@ -93,6 +93,13 @@ const UserPage = () => {
         }   
     }
 
+    const EndEdit = () => {
+        axios.post('/api/comment', user)
+            .then(res => {
+                
+            })
+    }
+
     useEffect(()=>{
         /*
         axios.get('/api/mypage')
@@ -116,7 +123,7 @@ const UserPage = () => {
                     {user.introduce}
                 </S.IntroduceDiv>
                 :
-                <S.Introduce onBlur={()=>ChangeExplane(false)} value={user.introduce}>
+                <S.Introduce onClick={()=>EndEdit()} value={user.introduce}>
                 </S.Introduce>               
                 }
                 </S.User>
