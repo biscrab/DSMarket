@@ -8,7 +8,6 @@ export const M = styled.div`
 `
 
 export const Select = styled.div`
-    border-top: 1px solid #EAEAEA;
     height: 50px;
     display: flex;
     justify-content: center;
@@ -25,9 +24,9 @@ export const SSpan = styled.span`
 `
 
 export const User = styled.div`
-    height: 220px;
     display: flex;
     flex-direction: column;
+    border-bottom: 2px solid #EAEAEA;
 `
 
 export const ProfileDiv = styled.div`
@@ -67,16 +66,16 @@ export const ItemDiv = styled.div`
 export const Introduce = styled.textarea`
     position: relative;
     top: 10px;
-    height: 100px;
     width: 100%;
-    resize: none;
+    resize: vertical;
     padding: 10px;
+    outline: 0;
 `
 
 export const IntroduceDiv = styled.div`
     position: relative;
     top: 10px;
-    height: 100px;
+    height: auto;
     width: 100%;
     resize: none;
     padding: 10px;

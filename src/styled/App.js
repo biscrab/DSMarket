@@ -1078,6 +1078,9 @@ export const Si  = styled.div`
     flex-direction: column;
     padding-bottom: 100px;
     padding-top: 20px;
+    width: 100%;
+    height: 100%;
+    position: relative;
     background-image: url('https://images.ctfassets.net/hrltx12pl8hq/5KiKmVEsCQPMNrbOE6w0Ot/341c573752bf35cb969e21fcd279d3f9/hero-img_copy.jpg?fit=fill&w=800&h=300');
     background-repeat: none;
     background-size : cover;

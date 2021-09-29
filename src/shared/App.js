@@ -14,10 +14,17 @@ function App() {
     document.querySelector('body').scrollTo(0,0);
   },[pathname]);
   
-  axios.defaults.baseURL = 'http://13.124.26.107:9095'
-  axios.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
+ // axios.defaults.baseURL = ''
+  /*axios.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
   axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
-  axios.defaults.withCredentials = true;
+  axios.defaults.withCredentials = true;*/
+
+  useEffect(()=>{
+    axios.get('https://jsonplaceholder.typicode.com/users')
+      .then(response => {
+        console.log("asd")
+      });
+  },[]);
 
   return(
     <>

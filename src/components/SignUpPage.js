@@ -42,9 +42,10 @@ const SignUpPage = () => {
                 'Accept': '*/*'
               }
 
-            axios.post('/api/auth/signup', JSON.stringify(user), {headers})
-                .then(res => {
+            axios.post('http://13.124.26.107:9095/api/auth/signup', user)
+                .then(response => {
                     alert("등록이 완료되었습니다.");
+                    console.log(response);
                     history.push('/');
                 })
                 .catch(error => {

@@ -4,7 +4,6 @@ import axios from 'axios';
 import { useHistory } from 'react-router';
 import { useDropzone } from 'react-dropzone';
 
-
 const RegistPage = () => {
 
     let history = useHistory();

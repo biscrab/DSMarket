@@ -9,7 +9,6 @@ import axios from 'axios';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import OtherList from '../contents/OtherList'
 
-
 const MainPage = () => {    
 
     let history = useHistory();
@@ -48,10 +47,10 @@ const MainPage = () => {
 
     useEffect(()=>{
 
-        axios.get('/api/item/all')
-        .then(res => {
-            setList(res.data);
-            console.log(res.data);
+        axios.get('http://13.124.26.107:9095/api/item/all')
+        .then(response => {
+            setList(response);
+            console.log(response);
             setLoading(false);
         })
         .catch(loading =>{
@@ -72,7 +71,7 @@ const MainPage = () => {
         .catch(error => {
 
         })*/
- },[])
+ })
     const SetPage = () => {
         const pa = Number(params.p);
         if(pa === 1){

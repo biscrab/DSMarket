@@ -18,12 +18,6 @@ const UserPage = () => {
     let location = useLocation();
     let history = useHistory();
 
-    /*
-    axios.defaults.baseURL = 'http://13.124.26.107:9095'
-    axios.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
-    axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
-    axios.defaults.withCredentials = true;*/
-
     const onChange = (e) => {
         const { value, name } = e.target; // 우선 e.target 에서 name 과 value 를 추출
             setUser({
@@ -94,9 +88,11 @@ const UserPage = () => {
     }
 
     const EndEdit = () => {
+
+        setChexplane(false);
         axios.post('/api/comment', user)
             .then(res => {
-                
+
             })
     }
 
@@ -123,7 +119,7 @@ const UserPage = () => {
                     {user.introduce}
                 </S.IntroduceDiv>
                 :
-                <S.Introduce onClick={()=>EndEdit()} value={user.introduce}>
+                <S.Introduce onChange={(e)=>setUser({...user, introduce: e.target.value})}onMouseLeave={()=>EndEdit()} value={user.introduce}>
                 </S.Introduce>               
                 }
                 </S.User>

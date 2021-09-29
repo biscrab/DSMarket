@@ -23,15 +23,18 @@ const LoginPage = () => {
         else{
                 let i = JSON.stringify(ip);
 
+                
+
                 console.log("i:"+i);
             
-                axios.post("/api/auth/login", i)
-                .then(res => {
-                    history.push("/");                
+                axios.post("http://13.124.26.107:9095/api/auth/login", ip)
+                .then(response => {
+                    history.push("/");
+                    alert("성공");                
                     setLogined(true);
                     setLogin(false);
-                    console.log(res.data)
-                    localStorage.token = JSON.stringify(res.data.token);
+                    console.log(response)
+                    localStorage.token = JSON.stringify(response.data.token);
                 })
                 .catch(error => {
                     alert("오류");
