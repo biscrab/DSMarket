@@ -8,11 +8,14 @@ import axios from 'axios';
 
 function App() {
 
+  let history = useHistory();
   const {pathname} = useLocation();
 
   useEffect(()=>{
     document.querySelector('body').scrollTo(0,0);
   },[pathname]);
+
+  useEffect()
   
  // axios.defaults.baseURL = ''
   /*axios.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
@@ -25,6 +28,12 @@ function App() {
         console.log("asd")
       });
   },[]);
+
+  useEffect(()=>{
+    /*if("login 안됬고"&&(history.pathname !== '/signup' || history.pathname !== '/login')){
+      history.push('/login')
+    }*/
+  })
 
   return(
     <>

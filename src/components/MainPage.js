@@ -127,10 +127,9 @@ const MainPage = () => {
                 <S.MyDiv>
                     <S.MyFDiv>
                     <S.My>
-                    <S.MyImg src={A} onClick={()=>history.push('/user')}></S.MyImg>
+                    <S.MyImg src={A} onClick={()=>history.push('/user/1')}></S.MyImg>
                     <S.MyInfoDiv>
-                        <S.MyInfo color="gray"></S.MyInfo>
-                        <S.MyInfo>이름</S.MyInfo>
+                        <S.MyInfo>이메일</S.MyInfo>
                     </S.MyInfoDiv>
                     </S.My>
                     <S.OtherTittle>회원님을 위한 추천</S.OtherTittle>

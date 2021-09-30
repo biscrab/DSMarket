@@ -181,18 +181,22 @@ export const CSelect = styled.div`
 `
 
 export const MyDiv = styled.div`
-    padding: 10px 20px;
+    padding: 10px;
     width: 350px;
+    border-left: dashed 2px #eeeeee;
 `
 
 export const MyFDiv = styled.div`
-    width: 100%;
+    width: 320px;
     height: 450px;
     position: fixed;
 `
 
 export const My = styled.div`
+    width: 320px;
     display: flex;
+    padding-bottom: 20px;
+    border-bottom: dashed 2px #eeeeee;
 `
 
 export const MyImg = styled.img`
@@ -205,11 +209,12 @@ export const MyInfoDiv = styled.div`
     position: relative;
     left: 20px;
     display: flex;
+    align-items: center;
     flex-direction: column;
+    color: gray;
 `
 
 export const MyInfo = styled.span`
-    color: ${props => props.color};
 ` 
 
 export const OtherUl = styled.ul`
@@ -274,7 +279,6 @@ export const Border = styled.div`
     width: 1200px;
     min-height: 660px;
     height: auto;
-    padding-top: 30px;
     list-style: none;
     display: flex;
     background-color: white;
