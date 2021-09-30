@@ -72,24 +72,6 @@ const MainPage = () => {
         setList(rlist)
     }
 
-    const prev = () => {
-        if(catagory.p >= 11){
-            setCatagory({...catagory, p: catagory.p-10});
-        }
-        else{
-            setCatagory({...catagory, p: 1})
-        }
-    }
-
-    const next = () => {
-        if(catagory.p + 10 >= list.length-1){
-            setCatagory({...catagory, p: list.length-1});
-        }
-        else{
-            setCatagory({...catagory, p: catagory.p + 10});
-        }
-    }
-
     const [catagory, setCatagory] = useState({
         search: query.search
     });
@@ -113,6 +95,8 @@ const MainPage = () => {
 
     const s = JSON.parse(localStorage.getItem('user'));
 
+    const email = "email";
+
     return(
         <S.C>
                 <S.Border>
@@ -129,7 +113,7 @@ const MainPage = () => {
                     <S.My>
                     <S.MyImg src={A} onClick={()=>history.push('/user/1')}></S.MyImg>
                     <S.MyInfoDiv>
-                        <S.MyInfo>이메일</S.MyInfo>
+                        <S.MyInfo>{email}</S.MyInfo>
                     </S.MyInfoDiv>
                     </S.My>
                     <S.OtherTittle>회원님을 위한 추천</S.OtherTittle>
@@ -158,3 +142,22 @@ export default MainPage
         .catch(error => {
 
         })*/
+
+
+    /*    const prev = () => {
+        if(catagory.p >= 11){
+            setCatagory({...catagory, p: catagory.p-10});
+        }
+        else{
+            setCatagory({...catagory, p: 1})
+        }
+    }
+
+    const next = () => {
+        if(catagory.p + 10 >= list.length-1){
+            setCatagory({...catagory, p: list.length-1});
+        }
+        else{
+            setCatagory({...catagory, p: catagory.p + 10});
+        }
+    } */

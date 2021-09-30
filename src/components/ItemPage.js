@@ -2,8 +2,7 @@ import React, { useEffect } from "react";
 import * as S from "../styled/App";
 import A from '../images/a.jpg'
 import { useHistory } from "react-router";
-import axios from "axios";
-import '../styled/Default.css'
+//import axios from "axios";
 
 const ItemPage = () => {
 

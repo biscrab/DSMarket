@@ -2,8 +2,6 @@ import React,{useState} from 'react'
 import * as S from '../styled/App';
 import axios from 'axios';
 import { useHistory } from 'react-router';
-import { useTheme } from 'styled-components';
-import $ from "jquery";
 
 const SignUpPage = () => {
     let history = useHistory();

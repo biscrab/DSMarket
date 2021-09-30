@@ -2,7 +2,6 @@ import React,{useEffect, useState} from "react";
 import { useLocation, useHistory, useParams } from "react-router";
 import * as S from '../styled/MyPage'
 import Profile from '../images/profile.png'
-import { Link } from "react-router-dom";
 import axios from "axios";
 import Item from '../contents/MyItem'
 import Review from '../contents/Review'
@@ -10,8 +9,6 @@ import A from '../images/a.jpg'
 import B from '../images/b.jpg'
 import C from '../images/c.jpg'
 import D from '../images/d.jpg'
-import { getRoles } from "@testing-library/dom";
-import { Explane } from "../styled/App";
 
 const UserPage = () => {
 
@@ -99,6 +96,7 @@ const UserPage = () => {
             .then(res => {
     
         });*/
+        /*
         axios.get('/api/member/item')
         .then(res => {
             setUser({...user, item: [res.data]})
@@ -108,7 +106,7 @@ const UserPage = () => {
         .then(res => {
             setUser({...user, review: [res.data]})
         })
-        console.log(params);
+        console.log(params);z*/
     },[]);
 
     return(

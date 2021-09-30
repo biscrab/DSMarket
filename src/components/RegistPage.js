@@ -1,6 +1,6 @@
 import React,{useState, useEffect} from 'react'
 import * as S from '../styled/App'
-import axios from 'axios';
+//import axios from 'axios';
 import { useHistory } from 'react-router';
 import { useDropzone } from 'react-dropzone';
 
@@ -30,11 +30,12 @@ const RegistPage = () => {
         })*/
     }
 
+    /*
     useEffect(()=>{
         if(item.name&&item.price&&item.catagory){
             setUpload(true);
         }
-    })
+    })*/
 
     const [list, setList] = useState({name: "", option:[]});
 

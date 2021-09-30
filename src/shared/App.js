@@ -1,6 +1,6 @@
 import React,{useEffect} from 'react'
 import * as P from '../pages'
-import {Route, Switch, useLocation} from 'react-router-dom';
+import {Route, Switch, useLocation, useHistory} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styled/App.css'
 import Header from '../contents/Header';
@@ -8,14 +8,12 @@ import axios from 'axios';
 
 function App() {
 
-  let history = useHistory();
+  //let history = useHistory();
   const {pathname} = useLocation();
 
   useEffect(()=>{
     document.querySelector('body').scrollTo(0,0);
   },[pathname]);
-
-  useEffect()
   
  // axios.defaults.baseURL = ''
   /*axios.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
