@@ -33,7 +33,8 @@ const LoginPage = () => {
                     history.push("/");
                     alert("성공");                
                     localStorage.token = JSON.stringify(response.config);
-                    axios.defaults.headers.common['Authorization'] = `Bearer ${response.data}`
+                    console.log(response.data);
+                    axios.defaults.headers.common['Authorization'] = `Bearer ${JSON.stringify(response.data)}`
                 })
                 .catch(error => {
                     alert("오류");
@@ -44,15 +45,8 @@ const LoginPage = () => {
         console.log(ip.password);
     }
 
-    useEffect(()=>{
-        var s = JSON.parse(localStorage.getItem('user'));
-        if(s){
-        if(s.email&&s.password){
-            setLogined(true);
-        }}
-    })
-
     return(
+        <>
         <S.Login>
             <S.LoginDiv>
                 <S.LoginTittle>대마마켓</S.LoginTittle> 
@@ -63,6 +57,7 @@ const LoginPage = () => {
                 <S.LoginButton onClick={()=>Login()}>로그인</S.LoginButton>
             </S.LoginDiv>
         </S.Login>
+        </>
     )
 }
 

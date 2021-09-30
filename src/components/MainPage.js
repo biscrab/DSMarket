@@ -60,19 +60,7 @@ const MainPage = () => {
         .catch(error => {
             alert("1");
         })
-    /*
-    axios.get(`/Item/all`)
-        .then(response => {
-            setList(response);
-            setLoading(false);
-        })
-        .catch(loading =>{
-            setLoading(true);
-        })
-        .catch(error => {
-
-        })*/
- })
+ },[])
     const SetPage = () => {
         const pa = Number(params.p);
         if(pa === 1){
@@ -134,7 +122,9 @@ const MainPage = () => {
                                 dataLength={list.length}
                                 loader={<Loading />}
                 >
+                <S.ItemD>
                 <Item lists={list}/>
+                </S.ItemD>
                 </InfiniteScroll>            
                 <S.MyDiv>
                     <S.MyFDiv>
@@ -162,3 +152,16 @@ const MainPage = () => {
 }
 
 export default MainPage
+
+    /*
+    axios.get(`/Item/all`)
+        .then(response => {
+            setList(response);
+            setLoading(false);
+        })
+        .catch(loading =>{
+            setLoading(true);
+        })
+        .catch(error => {
+
+        })*/

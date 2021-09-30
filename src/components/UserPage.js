@@ -48,23 +48,17 @@ const UserPage = () => {
         }
     }
 
-    /*
-    axios.get('/api/member/item')
-        .then(res => {
-            setUser({...user, item: [res.data]})
-    })
-
-    axios.get('/api/comment')
-    .then(res => {
-        setUser({...user, review: [res.data]})
-    })*/
-
     const Border = () => {
         if(params.review === "review"){
             return(
+                <>
                 <S.Review>
                     <Review lists={user.review}/>
                 </S.Review>
+                <S.RIDiv>
+                    <S.RInput></S.RInput>
+                </S.RIDiv>
+                </>
             );
         }
         else{
@@ -101,6 +95,15 @@ const UserPage = () => {
             .then(res => {
     
         });*/
+        axios.get('/api/member/item')
+        .then(res => {
+            setUser({...user, item: [res.data]})
+        })
+
+        axios.get('/api/comment')
+        .then(res => {
+            setUser({...user, review: [res.data]})
+        })
         console.log(params);
     },[]);
 

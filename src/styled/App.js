@@ -6,19 +6,17 @@ export const Header = styled.div`
     width: 100%;
     display: flex;
     align-items: center;
-    height: 70px;
+    height: 60px;
     background-color: white;
     border-bottom: 1px solid #eeeeee;
 `
 
-export const Login = styled.div`
+export const Login = styled.body`
+    display: flex;
+    padding: 7% 0px;
     background-image: url('https://i.stack.imgur.com/XZDsP.jpg');
     background-repeat: no-repeat;
-    position: absolute;
-    height: 85.5%;
-    width: 100%;
-    display: flex;
-    padding: 50px 0px;
+    background-size : cover;
 `
 
 export const HDiv = styled.div`
@@ -29,17 +27,18 @@ export const HDiv = styled.div`
     align-items: center;
 `
 
-export const Logo = styled.h1`
+export const Logo = styled.h3`
     position: relative;
     margin: 0px;
-    margin-right: 10px;
+    margin-right: 5px;
     color: royalblue;
+    font-family: 'Jua', sans-serif;
 `
 
 export const LogoImg = styled.img`
-    height: 55px;
+    height: 35px;
     border-radius: 50%;
-    margin-right: 10px;
+    margin-right: 3px;
 `
 
 export const SBox = styled.span`
@@ -50,7 +49,7 @@ export const SBox = styled.span`
     border: 3px solid royalblue;
     border-radius: 10px;
     width: 550px;
-    height: 42px;
+    height: 35px;
     background-color: white;
 `
 
@@ -61,12 +60,8 @@ export const SSelect = styled.a`
     color: black;
 `
 
-export const SS = styled.span`
-    margin-left: 5px;
-`
-
 export const Search = styled.input`
-    height: 36px;
+    height: 30px;
     width: 100%;
     border: 0;
     font-size: 15px;
@@ -332,6 +327,10 @@ export const ItDiv = styled.div`
     display: flex;
     flex-direction: column;
     width: 300px;
+`
+
+export const ItemD = styled.div`
+    width: 850px;
 `
 
 export const ADiv = styled.div`
@@ -1078,12 +1077,7 @@ export const Si  = styled.div`
     flex-direction: column;
     padding-bottom: 100px;
     padding-top: 20px;
-    width: 100%;
-    height: 100%;
     position: relative;
-    background-image: url('https://images.ctfassets.net/hrltx12pl8hq/5KiKmVEsCQPMNrbOE6w0Ot/341c573752bf35cb969e21fcd279d3f9/hero-img_copy.jpg?fit=fill&w=800&h=300');
-    background-repeat: none;
-    background-size : cover;
 `
 
 export const SignUpInput = styled.input`

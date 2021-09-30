@@ -76,21 +76,6 @@ const Header = () => {
 
     return(
         <S.Head>
-        <S.LR>
-            <S.LD>
-            {logined ?
-                <>                
-                <S.L>{name}님</S.L>
-                <S.LogOut onClick={()=>Logout()}>로그아웃</S.LogOut>            
-                </>
-            :
-            <>
-            <S.L onClick={()=>history.push('/login')}>로그인</S.L>
-            <S.L onClick={()=>history.push('/signup')}>회원가입</S.L>
-            </>
-            }
-            </S.LD>
-        </S.LR>
         <S.Header>
             <S.HDiv>  
             <S.LogoImg src={Logo} onClick={()=>history.push('/')}></S.LogoImg>
@@ -118,8 +103,8 @@ const Header = () => {
                <i class="fa fa-search fa-lg" style={{color: "gray"}} onKeyPress={(e) => handleKeyPress(e)}></i>
                </div>
             </S.SBox>
-            <S.SSelect onClick={()=>history.push('/regist')}><i class="fas fa-archive"></i><S.SS>판매하기</S.SS></S.SSelect>
-            <S.SSelect onClick={()=>history.push('/user/1')}><i class="fas fa-user"></i><S.SS>내상점</S.SS></S.SSelect>
+            <S.SSelect onClick={()=>history.push('/regist')}><i class="fas fa-archive"></i></S.SSelect>
+            <S.SSelect onClick={()=>history.push('/user/1')}><i class="fas fa-user"></i></S.SSelect>
             </S.HDiv>
         </S.Header>  
         </S.Head>
@@ -127,6 +112,21 @@ const Header = () => {
 }
 
 export default Header
+/*        <S.LR>
+            <S.LD>
+            {logined ?
+                <>                
+                <S.L>{name}님</S.L>
+                <S.LogOut onClick={()=>Logout()}>로그아웃</S.LogOut>            
+                </>
+            :
+            <>
+            <S.L onClick={()=>history.push('/login')}>로그인</S.L>
+            <S.L onClick={()=>history.push('/signup')}>회원가입</S.L>
+            </>
+            }
+            </S.LD>
+        </S.LR> */
 
 /*             {admin ? <S.Link src={Admin} onClick={()=>history.replace(`/admin`)}></S.Link> : <></>}*/
 

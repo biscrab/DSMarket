@@ -99,6 +99,20 @@ export const Review = styled.div`
     flex-direction: column;
 `
 
+export const RIDiv = styled.div`
+    border-bottom: 2px solid gray;
+    background-color: rgb(240,240,240);
+    width: 100%;
+    height: 70px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+`
+export const RInput = styled.input`
+
+`
+
 export const ReviewLi = styled.li`
     border-bottom: 2px solid #eeeeee;
     height: auto;
