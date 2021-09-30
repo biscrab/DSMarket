@@ -57,7 +57,11 @@ export const SSelect = styled.a`
     margin-left: 20px;
     font-size: 18px;
     text-decoration: none;
-    color: black;
+    color: dimgray;
+`
+
+export const SS = styled.span`
+    margin-right: 5px;
 `
 
 export const Search = styled.input`
@@ -176,10 +180,6 @@ export const CSelect = styled.div`
     border-top: 2px solid #eeeeee;
 `
 
-export const CBox = styled.div`
-    height: auto;
-`
-
 export const MyDiv = styled.div`
     padding: 10px 20px;
     width: 350px;
@@ -251,7 +251,6 @@ export const C = styled.div`
     display: flex;
     justify-content: center;
     position: relative;
-    top: 20px;
 `
 
 export const Page = styled.div`
@@ -272,10 +271,15 @@ export const Order = styled.ul`
 
 export const Border = styled.div`
     position: relative;
-    top: 40px;
-    padding: 0;
+    width: 1200px;
+    min-height: 660px;
+    height: auto;
+    padding-top: 30px;
     list-style: none;
     display: flex;
+    background-color: white;
+    border: 2px solid #eeeeee;
+    border-top: 0;
 `
 
 export const LoadingDiv = styled.div`
@@ -717,7 +721,7 @@ export const Qtext = styled.p`
 `
 
 export const SDiv = styled.div`
-    width: 495px;
+    width: 500px;
     position: relative;
     left: 5px;
     margin-right: 10px;
@@ -730,7 +734,7 @@ export const SBorder = styled.ul`
     flex-direction: column;
     background-color: white;
     position: absolute;
-    top: 45px;
+    top: 35px;
     z-index: 1;
     list-style: none;
     box-shadow: 0 0 20px 0 rgb(0 0 0 / 10%);
@@ -795,8 +799,10 @@ export const Max = styled.div`
     background-color: #eeeeee;
     height: 30px;
     width: 70px;
-    padding: 5px;
     text-align: center;
+    display:flex;
+    align-items: center;
+    justify-content: center;
     border: 1px solid lightgray;
 `
 
@@ -1078,6 +1084,9 @@ export const Si  = styled.div`
     padding-bottom: 100px;
     padding-top: 20px;
     position: relative;
+    background-image: url('https://images.ctfassets.net/hrltx12pl8hq/5KiKmVEsCQPMNrbOE6w0Ot/341c573752bf35cb969e21fcd279d3f9/hero-img_copy.jpg?fit=fill&w=800&h=300');
+    background-repeat: none;
+    background-size : cover;
 `
 
 export const SignUpInput = styled.input`
@@ -1095,6 +1104,7 @@ export const SiDiv = styled.div`
     background-color: white;
     padding: 50px;
     border-radius: 10px;
+    box-shadow: 0px 0px 0px 2px #eeeeee;
 `
 
 export const STittle = styled.h1`
@@ -1249,10 +1259,6 @@ export const Bill = styled.div`
     border-bottom: 1px solid #eeeeee;
     display: flex;
     flex-direction: column;
-`
-
-export const CA = styled.div`
-    padding-bottom: 100px;
 `
 
 export const OrderDiv = styled.div`

@@ -56,7 +56,11 @@ const UserPage = () => {
                     <Review lists={user.review}/>
                 </S.Review>
                 <S.RIDiv>
-                    <S.RInput></S.RInput>
+                    <span>이메일</span>
+                    <S.RDiv>
+                    <S.RText></S.RText>
+                    <S.RButton>등록</S.RButton>
+                    </S.RDiv>
                 </S.RIDiv>
                 </>
             );

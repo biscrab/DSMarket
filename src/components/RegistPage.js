@@ -111,8 +111,7 @@ const RegistPage = () => {
             <S.InputDiv>
             <S.Input placeholder="₩ 가격" name="price" onChange={(e)=>setPrice(e)} value={item.price}></S.Input>
             </S.InputDiv>
-            </S.RegistDiv>
-                <p>상품 이미지</p>             
+            </S.RegistDiv>        
             <S.RegistDiv>
                 <p>이미지</p>
     <section className="container">

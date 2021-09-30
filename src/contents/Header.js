@@ -51,7 +51,7 @@ const Header = () => {
     })
 
     const Search = () => {
-
+        if(v){
         let r = recent;
 
         r.unshift(v)
@@ -60,6 +60,7 @@ const Header = () => {
         history.push(`/?search=${v}`)
 
         localStorage.search = JSON.stringify(r);
+        }
     }
 
     const SLi = ({num}) => {
@@ -104,7 +105,7 @@ const Header = () => {
                </div>
             </S.SBox>
             <S.SSelect onClick={()=>history.push('/regist')}><i class="fas fa-archive"></i></S.SSelect>
-            <S.SSelect onClick={()=>history.push('/user/1')}><i class="fas fa-user"></i></S.SSelect>
+            <S.SSelect onClick={()=>history.push('/user/1')}><S.SS>이메일</S.SS><i class="fas fa-user"></i></S.SSelect>
             </S.HDiv>
         </S.Header>  
         </S.Head>

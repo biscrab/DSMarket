@@ -114,9 +114,7 @@ const MainPage = () => {
     const s = JSON.parse(localStorage.getItem('user'));
 
     return(
-        <S.CA>
         <S.C>
-            <S.CBox>
                 <S.Border>
                 <InfiniteScroll style={{display: 'flex', flexDirection:"column-reverse", overflowX:"hidden"}}
                                 dataLength={list.length}
@@ -143,11 +141,7 @@ const MainPage = () => {
                 </S.MyDiv>
 
                 </S.Border>
-                
-
-            </S.CBox>   
         </S.C>
-        </S.CA>
     )
 }
 

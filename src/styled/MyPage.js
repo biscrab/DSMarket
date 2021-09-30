@@ -25,14 +25,16 @@ export const SSpan = styled.span`
 
 export const User = styled.div`
     display: flex;
-    padding: 20px;
     flex-direction: column;
     border-bottom: 2px solid #EAEAEA;
+    padding-bottom: 20px;
 `
 
 export const ProfileDiv = styled.div`
     display: flex;
     align-items: center;
+    position: relative;
+    left: 5%;
 `
 
 export const Profile = styled.img`
@@ -51,10 +53,14 @@ export const UserName = styled.h3`
 
 export const Div = styled.div`
     position: relative;
-    top: 20px;
     display: flex;
     flex-direction: column;
     width: 830px;
+    height: 100%;
+    border: 1px solid #eeeeee;
+    border-top: 0;
+    background-color: white;
+    padding: 20px;
 `
 
 export const ItemDiv = styled.div`
@@ -100,17 +106,36 @@ export const Review = styled.div`
 `
 
 export const RIDiv = styled.div`
-    border-bottom: 2px solid gray;
-    background-color: rgb(240,240,240);
+    border: 2px dashed gray;
     width: 100%;
-    height: 70px;
+    height: 150px;
     margin-top: 10px;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     padding: 20px;
 `
-export const RInput = styled.input`
 
+export const RDiv = styled.div`
+    display: flex;
+    margin-top: 10px;
+    height: 70%;
+    justify-content: space-between;
+`
+
+export const RText = styled.textarea`
+    width: 89%;
+    resize: none;
+    padding: 10px;
+    outline: 0;
+    :focus-within{
+        outline: 4px solid #D4F4FA;
+    }
+`
+
+export const RButton = styled.button`
+    width: 10%;
+    background-color: white;
+    border: 1px solid black;
 `
 
 export const ReviewLi = styled.li`
