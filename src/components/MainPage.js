@@ -44,9 +44,9 @@ const MainPage = () => {
         console.log(query);
         SetPage();
     },[]);       
-
+/*
     useEffect(()=>{
-
+        
         axios.get('http://13.124.26.107:9095/api/item/all')
         .then(response => {
             setList(response);
@@ -60,7 +60,7 @@ const MainPage = () => {
         .catch(error => {
             alert("1");
         })
- },[])
+ },[])*/
     const SetPage = () => {
         const pa = Number(params.p);
         if(pa === 1){

@@ -14,6 +14,15 @@ const LoginPage = () => {
     const [ip, setIp] = useState({email : "", password: ""});
     const [name, setName] = useState("");
 
+    const jwt = require('jsonwebtoken');
+    const token = jwt.sign({ foo: 'bar' }, 'secret-key', { expiresIn: '7d' }, (err, token) => {
+        if(err) {
+            console.log(err);
+            return;
+        }
+        console.log(token);
+    });
+
     const Login = () => {
         if(!ip.email){
             alert("이메일을 입력해주세요");     
@@ -30,7 +39,7 @@ const LoginPage = () => {
                 .then(response => {
                     history.push("/");
                     alert("성공");              
-                    localStorage.token = JSON.stringify(response.data);
+                    //localStorage.token = JSON.stringify(token);
                     console.log("data")
                     console.log(response.data);
                 })

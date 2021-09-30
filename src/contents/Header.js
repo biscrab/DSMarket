@@ -104,7 +104,7 @@ const Header = () => {
                <i class="fa fa-search fa-lg" style={{color: "gray"}} onKeyPress={(e) => handleKeyPress(e)}></i>
                </div>
             </S.SBox>
-            <S.SSelect onClick={()=>history.push('/regist')}><i class="fas fa-archive"></i></S.SSelect>
+            <S.SSelect onClick={()=>history.push('/regist')}><S.SS>판매하기</S.SS><i class="fas fa-archive"></i></S.SSelect>
             <S.SSelect onClick={()=>history.push('/user/1')}><S.SS>이메일</S.SS><i class="fas fa-user"></i></S.SSelect>
             </S.HDiv>
         </S.Header>  

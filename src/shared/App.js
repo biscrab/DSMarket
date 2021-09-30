@@ -9,17 +9,18 @@ import axios from 'axios';
 function App() {
 
   //let history = useHistory();
-  const {pathname} = useLocation();
+  /*const {pathname} = useLocation();
 
   useEffect(()=>{
     document.querySelector('body').scrollTo(0,0);
-  },[pathname]);
+  },[pathname]);*/
   
  // axios.defaults.baseURL = ''
   /*axios.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
   axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
   axios.defaults.withCredentials = true;*/
 
+  /*
   useEffect(()=>{
     axios.get('https://jsonplaceholder.typicode.com/users')
       .then(response => {
@@ -28,10 +29,9 @@ function App() {
   },[]);
 
   useEffect(()=>{
-    /*if("login 안됬고"&&(history.pathname !== '/signup' || history.pathname !== '/login')){
-      history.push('/login')
-    }*/
-  })
+    if("login 안됬고"&&(history.pathname !== '/signup' || history.pathname !== '/login')){
+    history.push('/login')
+  })*/
 
   return(
     <>

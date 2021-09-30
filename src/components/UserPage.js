@@ -45,6 +45,22 @@ const UserPage = () => {
         }
     }
 
+    const RegistComment = () => {
+        axios.post('http://13.124.26.107:9095/api/comment', review)
+            .then(response => {
+                alert("완료");
+            })
+            .catch(error => {
+                alert("오류");
+            })
+    }
+
+    const DeleteComment = () => {
+        //axios.delete(`http://13.124.26.107:9095/api/comment?id=${params.id}`)
+    }   
+
+    const [review, setReview] = useState("");
+
     const Border = () => {
         if(params.review === "review"){
             return(
@@ -55,8 +71,8 @@ const UserPage = () => {
                 <S.RIDiv>
                     <span>이메일</span>
                     <S.RDiv>
-                    <S.RText></S.RText>
-                    <S.RButton>등록</S.RButton>
+                    <S.RText onChange={(e) => setReview(e.target.value)} value={review}></S.RText>
+                    <S.RButton onClick={()=>RegistComment()}>등록</S.RButton>
                     </S.RDiv>
                 </S.RIDiv>
                 </>
