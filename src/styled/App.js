@@ -1,14 +1,24 @@
 import styled from 'styled-components'
 
-export const Header = styled.div`
+export const Header = styled.nav`
     top: 0;
     margin: 0px;    
     width: 100%;
     display: flex;
-    align-items: center;
     height: 60px;
     background-color: white;
     border-bottom: 1px solid #eeeeee;
+    position: fixed;
+    width: 100%;
+    top: 0; 
+    z-index: 100; 
+`
+
+export const Head = styled.div`
+    display: flex;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 `
 
 export const Login = styled.body`
@@ -20,17 +30,17 @@ export const Login = styled.body`
 `
 
 export const HDiv = styled.div`
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
 `
 
 export const Logo = styled.h3`
     position: relative;
     margin: 0px;
-    margin-right: 5px;
+    margin-right: 10px;
     color: royalblue;
     font-family: 'Jua', sans-serif;
 `
@@ -48,7 +58,7 @@ export const SBox = styled.span`
     display: flex;
     border: 3px solid royalblue;
     border-radius: 10px;
-    width: 550px;
+    width: 400px;
     height: 35px;
     background-color: white;
 `
@@ -60,8 +70,13 @@ export const SSelect = styled.a`
     color: dimgray;
 `
 
+export const SelectDiv = styled.div`
+    margin-right: 20px;
+`
+
 export const SS = styled.span`
-    margin-right: 5px;
+    margin-left: 5px;
+    font-size: 17px;
 `
 
 export const Search = styled.input`
@@ -724,10 +739,10 @@ export const Qtext = styled.p`
 `
 
 export const SDiv = styled.div`
-    width: 500px;
+    width: 360px;
     position: relative;
     left: 5px;
-    margin-right: 10px;
+    margin-right: 5px;
 `
 
 export const SBorder = styled.ul`
@@ -785,7 +800,8 @@ export const Input = styled.input`
     height: 30px;
     font-size: 15px;
     padding: 0px 10px;
-    :forcus{
+    outline: 0;
+    ::forcus{
         outline: 1px solid royalblue;
     }
 `
@@ -842,15 +858,6 @@ export const LD = styled.div`
     top: 50%;
     transform: translateY(-50%);
     left: 1055px;
-`
-
-export const Head = styled.div`
-    position: fixed;
-    width: 100%;
-    top: 0; 
-    z-index: 100;   
-    display: flex;
-    flex-direction: column;
 `
 
 export const S = styled.div`    
@@ -925,6 +932,7 @@ export const LoginInput = styled.input`
     margin-top: 10px;
     transform: translateX(-50%);
     left: 50%;
+    outline: 0;
 `
 
 export const LoginSpan = styled.span`

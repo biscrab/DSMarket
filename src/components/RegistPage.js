@@ -3,31 +3,46 @@ import * as S from '../styled/App'
 //import axios from 'axios';
 import { useHistory } from 'react-router';
 import { useDropzone } from 'react-dropzone';
+import axios from 'axios';
 
 const RegistPage = () => {
 
     let history = useHistory();
+
+    function getCookie(cName) {
+      cName = cName + '=';
+      var cookieData = document.cookie;
+      var start = cookieData.indexOf(cName);
+      var cValue = '';
+      if(start != -1){
+      start += cName.length;
+      var end = cookieData.indexOf(';', start);
+      if(end == -1)end = cookieData.length;
+      cValue = cookieData.substring(start, end);
+      }
+      return unescape(cValue);
+      }
+
 
     const [upload, setUpload] = useState(false);
     const [repre, setRepre] = useState(1);
     const [catagory, setCatagory] = useState([]);
     const [option, setOption] = useState([]);
     const [item, setItem] = useState({
-        name: "",
-        price: "",
-        info: "",
+        name: "1",
+        price: "1",
+        info: "1",
+        catagory: "1"
     });
 
     const Regist = () => {
-        /*
-
-        axios.post('/api/item')
-        .then(res => {
+        axios.post('http://13.124.26.107:9095/api/item', JSON.stringify({name: item.name, price: Number(item.price), info: "1", catagory: "1"}))
+        .then(response => {
             alert("상품이 등록되었습니다.")
         })
         .catch(error => {
             alert("상품 등록에 실패했습니다.")
-        })*/
+        })
     }
 
     /*
@@ -137,7 +152,7 @@ const RegistPage = () => {
                 <p>상품 설명</p>
                 <S.Explane></S.Explane>
             </S.RegistDiv>     
-            {upload ?
+            {item.name&&item.price ?
             <S.RButton color="white" bkcolor="royalblue" onClick={() => Regist()}>판매요청</S.RButton>
             :
             <S.RButton onClick={()=>alert("이름, 가격, 카테고리, 설명 을 모두 입력해주세요.")}>판매요청</S.RButton>

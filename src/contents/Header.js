@@ -75,10 +75,12 @@ const Header = () => {
         );
     }
 
+    let email = localStorage.getItem("email");
+
     return(
-        <S.Head>
         <S.Header>
-            <S.HDiv>  
+            <S.HDiv> 
+            <S.Head>
             <S.LogoImg src={Logo} onClick={()=>history.push('/')}></S.LogoImg>
             <S.Logo onClick={() => history.replace('/')}>DS마켓</S.Logo>
             <S.SBox>
@@ -101,14 +103,16 @@ const Header = () => {
                     : <></>}
                </S.SDiv> 
                <div onClick={()=>Search()}>
-               <i class="fa fa-search fa-lg" style={{color: "gray"}} onKeyPress={(e) => handleKeyPress(e)}></i>
+               <i class="fa fa-search fa-lg" style={{color: "dgainsboro"}} onKeyPress={(e) => handleKeyPress(e)}></i>
                </div>
             </S.SBox>
-            <S.SSelect onClick={()=>history.push('/regist')}><S.SS>판매하기</S.SS><i class="fas fa-archive"></i></S.SSelect>
-            <S.SSelect onClick={()=>history.push('/user/1')}><S.SS>이메일</S.SS><i class="fas fa-user"></i></S.SSelect>
+            </S.Head>
+            <S.SelectDiv>
+                <S.SSelect onClick={()=>history.push('/regist')}><i class="fas fa-cart-plus"></i><S.SS>판매하기</S.SS></S.SSelect>
+                <S.SSelect onClick={()=>history.push('/user/1')}><i class="far fa-user-circle"></i>{email ? <S.SS>{email}</S.SS> : <S.SS>로그인</S.SS>}</S.SSelect>
+            </S.SelectDiv>
             </S.HDiv>
         </S.Header>  
-        </S.Head>
     )
 }
 

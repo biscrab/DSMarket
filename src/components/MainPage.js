@@ -43,10 +43,24 @@ const MainPage = () => {
         //SetP(params.catagory);
         console.log(query);
         SetPage();
-    },[]);       
-/*
+        setList(list.filter(i => i.name.includes(query.search)))
+    },[]);
+
+    function getCookie(cName) {
+        cName = cName + '=';
+        var cookieData = document.cookie;
+        var start = cookieData.indexOf(cName);
+        var cValue = '';
+        if(start != -1){
+        start += cName.length;
+        var end = cookieData.indexOf(';', start);
+        if(end == -1)end = cookieData.length;
+        cValue = cookieData.substring(start, end);
+        }
+        return unescape(cValue);
+        }
+    
     useEffect(()=>{
-        
         axios.get('http://13.124.26.107:9095/api/item/all')
         .then(response => {
             setList(response);
@@ -60,7 +74,8 @@ const MainPage = () => {
         .catch(error => {
             alert("1");
         })
- },[])*/
+ },[]);
+
     const SetPage = () => {
         const pa = Number(params.p);
         if(pa === 1){
