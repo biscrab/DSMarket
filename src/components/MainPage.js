@@ -108,7 +108,12 @@ const MainPage = () => {
                 <Item lists={list}/>
                 </S.ItemD>
                 </InfiniteScroll>            
-                <S.MyDiv>
+                </S.Border>
+        </S.C>
+    )
+}
+
+/*                <S.MyDiv>
                     <S.MyFDiv>
                     <S.My>
                     <S.MyImg src={A} onClick={()=>history.push('/user/1')}></S.MyImg>
@@ -121,12 +126,7 @@ const MainPage = () => {
                         <OtherList lists={other}/>
                     </S.OtherUl>
                     </S.MyFDiv>
-                </S.MyDiv>
-
-                </S.Border>
-        </S.C>
-    )
-}
+                </S.MyDiv> */
 
 export default MainPage
 

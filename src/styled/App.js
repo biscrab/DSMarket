@@ -276,7 +276,6 @@ export const Order = styled.ul`
 
 export const Border = styled.div`
     position: relative;
-    width: 1200px;
     min-height: 660px;
     height: auto;
     list-style: none;

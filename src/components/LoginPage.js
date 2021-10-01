@@ -2,8 +2,11 @@ import React,{useState} from "react";
 import * as S from '../styled/App'
 import axios from 'axios'
 import { useHistory } from "react-router";
+import { useCookies } from "react-cookie";
 
 const LoginPage = () => {
+
+    const [cookie, setCookie, removeCookie] = useCookies();
 
     axios.defaults.withCredentials = true;
 
@@ -15,13 +18,6 @@ const LoginPage = () => {
     const [name, setName] = useState("");
 
     const jwt = require('jsonwebtoken');
-    const token = jwt.sign({ foo: 'bar' }, 'secret-key', { expiresIn: '7d' }, (err, token) => {
-        if(err) {
-            console.log(err);
-            return;
-        }
-        console.log(token);
-    });
 
     const Login = () => {
         if(!ip.email){
