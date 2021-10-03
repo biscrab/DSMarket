@@ -26,7 +26,7 @@ const UserPage = () => {
 
     const [user, setUser] = useState({
         introduce: "asdad",
-        review: [{review: "1123123123123213", name: 1}],
+        comments: [{review: "1123123123123213", name: 1}],
         item: [{id: 1, name: "1", price: 100, img: A},
                 {id: 1, name: "1", price: 10, img: B},
                 {id: 1, name: "1", price: 5, img: C},
@@ -39,12 +39,6 @@ const UserPage = () => {
 
     const login = true;
 
-    const ChangeExplane = () => {
-        if(login === true){
-            setChexplane(-1*chexplane);
-        }
-    }
-
     const RegistComment = () => {
         axios.post('http://13.124.26.107:9095/api/comment', review)
             .then(response => {
@@ -56,8 +50,13 @@ const UserPage = () => {
     }
 
     const DeleteComment = () => {
-        //axios.delete(`http://13.124.26.107:9095/api/comment?id=${params.id}`)
+        axios.delete('http://13.124.26.107:9095/api/comment')
     }   
+
+    useEffect(()=>{
+        axios.get('http://13.124.26.107:9095/api/comment')
+            .then(response => setUser({...user, comments: response}))
+    },[])
 
     const [review, setReview] = useState("");
 
@@ -66,7 +65,7 @@ const UserPage = () => {
             return(
                 <>
                 <S.Review>
-                    <Review lists={user.review}/>
+                    <Review lists={user.comments}/>
                 </S.Review>
                 <S.RIDiv>
                     <span>이메일</span>
@@ -97,32 +96,18 @@ const UserPage = () => {
         }   
     }
 
-    const EndEdit = () => {
+    const editIntroduce = () => {
 
-        setChexplane(false);
-        axios.post('/api/comment', user)
-            .then(res => {
+        axios.post('http://13.124.26.107:9095/api/comment', user)
+            .then(response => {
 
+            })
+            .catch(error => {
+                alert("실패");
             })
     }
 
     useEffect(()=>{
-        /*
-        axios.get('/api/mypage')
-            .then(res => {
-    
-        });*/
-        /*
-        axios.get('/api/member/item')
-        .then(res => {
-            setUser({...user, item: [res.data]})
-        })
-
-        axios.get('/api/comment')
-        .then(res => {
-            setUser({...user, review: [res.data]})
-        })
-        console.log(params);z*/
     },[]);
 
     return(
@@ -132,15 +117,18 @@ const UserPage = () => {
                     <S.ProfileDiv>
                     <S.Profile src={Profile}/>
                     <S.UserInfo>
-                        <S.UserName>유저</S.UserName>
+                        <S.UserName>{params.id}</S.UserName>
                     </S.UserInfo>
                     </S.ProfileDiv> 
-                <S.Introduce onChange={(e)=>setUser({...user, introduce: e.target.value})}onMouseLeave={()=>EndEdit()} value={user.introduce}></S.Introduce>               
+                <S.IDiv>
+                <S.Introduce onChange={(e)=>setUser({...user, introduce: e.target.value})} value={user.introduce}></S.Introduce> 
+                <S.IButton onClick={()=>editIntroduce()}>수정</S.IButton>
+                </S.IDiv>              
                 </S.User>
                 <S.Select>
                     <div>                    
-                    <S.SSpan onClick={()=>history.push('/user/1')}>판매 물품({user.item.length})</S.SSpan>
-                    <S.SSpan onClick={()=>history.push('/user/1/review')}>거래 후기({user.review.length})</S.SSpan>
+                    <S.SSpan onClick={()=>history.push(`/user/${params.id}`)}>판매 물품({user.item.length})</S.SSpan>
+                    <S.SSpan onClick={()=>history.push(`/user/${params.id}/review`)}>거래 후기({user.comments.length})</S.SSpan>
                     </div>
                 </S.Select>
                 <Border />
@@ -157,3 +145,20 @@ export default UserPage
 
                 </S.Introduce>
                 :*/
+
+                        /*
+        axios.get('/api/mypage')
+            .then(res => {
+    
+        });*/
+        /*
+        axios.get('/api/member/item')
+        .then(res => {
+            setUser({...user, item: [res.data]})
+        })
+
+        axios.get('/api/comment')
+        .then(res => {
+            setUser({...user, review: [res.data]})
+        })
+        console.log(params);z*/

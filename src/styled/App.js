@@ -58,7 +58,7 @@ export const SBox = styled.span`
     display: flex;
     border: 3px solid royalblue;
     border-radius: 10px;
-    width: 400px;
+    width: 450px;
     height: 35px;
     background-color: white;
 `
@@ -739,7 +739,7 @@ export const Qtext = styled.p`
 `
 
 export const SDiv = styled.div`
-    width: 360px;
+    width: 405px;
     position: relative;
     left: 5px;
     margin-right: 5px;
@@ -756,14 +756,14 @@ export const SBorder = styled.ul`
     z-index: 1;
     list-style: none;
     box-shadow: 0 0 20px 0 rgb(0 0 0 / 10%);
-    width: 530px;
-    height: 441px;
+    width: 430px;
+    height: 390px;
 `
 
 export const SLi = styled.li`
     padding: 0;
     width: 100%;
-    height: 40px;
+    height: 35px;
     border-bottom: 1px solid #eeeeee;
     display: flex;
     align-items: center;
@@ -924,7 +924,7 @@ export const LoginDiv = styled.div`
 
 export const LoginInput = styled.input`
     position: relative;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     padding: 0px 10px;
     width: 80%;
     border: 2px solid #eeeeee;
@@ -1104,6 +1104,8 @@ export const SignUpInput = styled.input`
     width: 400px;
     height: 40px;
     padding: 0px 10px;
+    outline: 0;
+    border: 1px solid gray;
 `
 
 export const SiDiv = styled.div`
@@ -1160,6 +1162,8 @@ export const Explane = styled.textarea`
     height: 300px;
     padding: 10px;
     resize: none;
+    outline: 0;
+    border: 1px solid gray;
 `
 
 export const CS = styled.span`
@@ -1694,6 +1698,13 @@ export const PItem = styled.div`
     display: flex;
 `
 
+export const RItem = styled.div`
+    width: 850px;
+    height: 550px;
+    border: 1px solid darkgray;
+    display: flex;
+`
+
 export const Item = styled.div`
     background-color: white;
     width: 850px;
@@ -1734,14 +1745,11 @@ export const ATop = styled.div`
 `
 
 export const IUSer = styled.div`
-    height: 65px;
-    padding: 10px;
-    border-bottom: 2px solid #eeeeee;
-`
-
-export const IExplane = styled.div`
-    border-bottom: 2px solid #eeeeee;
-    padding: 10px;
+    height: 50px;
+    border-bottom: 1px solid #eeeeee;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
 `
 
 export const IEX = styled.div`
@@ -1769,7 +1777,7 @@ export const Profile = styled.img`
 export const ProfileSpan = styled.span`
     position: relative;
     left: 10px;
-    font-size: 18px;
+    font-size: 15px;
 `
 
 export const Unknown = styled.h1`

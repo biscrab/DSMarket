@@ -48,6 +48,7 @@ export const UserInfo = styled.div`
 `
 export const UserName = styled.h3`
     margin: 0;
+    color: gray;
 `
 
 export const Div = styled.div`
@@ -70,15 +71,28 @@ export const ItemDiv = styled.div`
  `
 
 export const Introduce = styled.textarea`
-    position: relative;
-    top: 10px;
-    width: 100%;
+    width: 690px;
     resize: none;
     padding: 10px;
     outline: 0;
     border: 0;
     min-height: 90px;
-    border: 2px solid #eeeeee;
+    border: 2px solid darkgray;
+`
+
+export const IButton = styled.button`
+    height: 90px;
+    width: 90px;
+    background-color: white;
+    border: 2px solid darkgray;
+`
+
+export const IDiv = styled.div`
+    display: flex;
+    align-items: center;
+    position: relative;
+    top: 10px;
+    justify-content: space-between;
 `
 
 /*export const IntroduceDiv = styled.div`
@@ -102,6 +116,14 @@ export const ItemImg = styled.img`
 export const Review = styled.div`
     display: flex;
     flex-direction: column;
+    height: 500px;
+    overflow-y: scroll;
+    ::-webkit-scrollbar-thumb {
+        background-color: none;
+    }
+    ::-webkit-scrollbar {
+        border-radius: 5px;
+    }
 `
 
 export const RIDiv = styled.div`
@@ -126,6 +148,7 @@ export const RText = styled.textarea`
     resize: none;
     padding: 10px;
     outline: 0;
+    border: 2px solid darkgray;
     :focus-within{
         outline: 4px solid #D4F4FA;
     }
@@ -134,7 +157,7 @@ export const RText = styled.textarea`
 export const RButton = styled.button`
     width: 10%;
     background-color: white;
-    border: 1px solid black;
+    border: 2px solid darkgray;
 `
 
 export const ReviewLi = styled.li`

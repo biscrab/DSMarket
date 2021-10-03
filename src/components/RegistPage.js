@@ -4,6 +4,7 @@ import * as S from '../styled/App'
 import { useHistory } from 'react-router';
 import { useDropzone } from 'react-dropzone';
 import axios from 'axios';
+import Profile from '../images/profile.png'
 
 const RegistPage = () => {
 
@@ -36,7 +37,12 @@ const RegistPage = () => {
     });
 
     const Regist = () => {
-        axios.post('http://13.124.26.107:9095/api/item', JSON.stringify({name: item.name, price: Number(item.price), info: "1", catagory: "1"}))
+        axios.post('http://13.124.26.107:9095/api/item', JSON.stringify({name: item.name, price: Number(item.price), info: "1", catagory: "1"}),
+        {headers: {
+              'Authorization': `X-AUTH-TOKEN=${getCookie('X-AUTH-TOKEN')};`
+            },
+          }
+        )
         .then(response => {
             alert("상품이 등록되었습니다.")
         })
@@ -137,21 +143,36 @@ const RegistPage = () => {
       </S.Dropzone>
     </section>
             </S.RegistDiv>
+            <S.RegistDiv>
+                <p>상품 설명</p>
+                <S.Explane></S.Explane>
+            </S.RegistDiv>
             <>
-            {fileRejections >= 1?
+            {fileRejections ?
             <>
             <S.RegistDiv>
                 <p>미리보기</p>
-                <img src={acceptedFileItems}></img>
+    <S.PItem>
+    <S.ImageDiv>
+      <S.Image/>
+    </S.ImageDiv>
+<S.ItDiv>
+<S.IUSer>
+    <S.Profile src={Profile}></S.Profile>
+    <S.ProfileSpan>{localStorage.email}</S.ProfileSpan>
+</S.IUSer>
+<S.IEX>
+<S.Iname>{item.name}</S.Iname>
+<S.ItemPrice>{item.price}원</S.ItemPrice>
+<span>asdadasdasasdasdasd</span>
+</S.IEX>
+</S.ItDiv>
+</S.PItem>      
             </S.RegistDiv>
             </>
             :<></>
             }
-            </>
-            <S.RegistDiv>
-                <p>상품 설명</p>
-                <S.Explane></S.Explane>
-            </S.RegistDiv>     
+            </>     
             {item.name&&item.price ?
             <S.RButton color="white" bkcolor="royalblue" onClick={() => Regist()}>판매요청</S.RButton>
             :

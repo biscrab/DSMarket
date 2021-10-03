@@ -55,6 +55,8 @@ function App() {
     }
   },[])*/
 
+  axios.defaults.headers.common['Authorization'] = `X-AUTH-TOKEN=${getCookie("X-AUTH-TOKEN")};`;
+
   return(
     <>
     <Header />

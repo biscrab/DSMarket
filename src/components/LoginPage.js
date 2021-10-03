@@ -17,8 +17,6 @@ const LoginPage = () => {
     const [ip, setIp] = useState({email : "", password: ""});
     const [name, setName] = useState("");
 
-    const jwt = require('jsonwebtoken');
-
     const Login = () => {
         if(!ip.email){
             alert("이메일을 입력해주세요");     
@@ -39,7 +37,6 @@ const LoginPage = () => {
                     setCookie("X-AUTH-TOKEN", response.data.data.tokenValue);
                     //localStorage.token = JSON.stringify(response);
                     localStorage.setItem("email", ip.email);
-                    
                     console.log(response);
                 })
                 .catch(error => {
@@ -63,6 +60,7 @@ const LoginPage = () => {
                 <S.LoginSpan>비밀번호</S.LoginSpan>
                 <S.LoginInput value={ip.password} onChange={(e)=>setIp({...ip, password: e.target.value})}/>
                 <S.LoginButton onClick={()=>Login()}>로그인</S.LoginButton>
+                <S.LoginButton onClick={()=>history.push('/signup')}>회원가입</S.LoginButton>
             </S.LoginDiv>
         </S.Login>
         </>

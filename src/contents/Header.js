@@ -14,11 +14,11 @@ const Header = () => {
 
     let history = useHistory();
     const [logined, setLogined] = useState(false);
-    const [typing, setTyping] = useState(-1);
+    const [typing, setTyping] = useState(false);
     const [v, setV] = useState();
     const [name, setName] = useState("");
 
-    const [recent, setRecent] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+    const [recent, setRecent] = useState([]);
 
     const [user, setUser] = useState([
         {name: "asd", email: "asd", password: "a", age: 11},
@@ -34,14 +34,6 @@ const Header = () => {
         localStorage.removeItem('user');
         setLogined(false);
     }
-
-    const handleKeyPress = e => {
-        if(e.key === 'Enter') {
-            console.log("key");
-        }
-      }
-    
-
 
     useEffect(()=>{
         var s = JSON.parse(localStorage.getItem('token'));    
@@ -77,16 +69,23 @@ const Header = () => {
 
     let email = localStorage.getItem("email");
 
+    const onCheckEnter = (e) => {
+        if(e.key === 'Enter') {
+            Search();
+        }
+    }
+    
+
     return(
-        <S.Header>
+        <S.Header onKeyPress={(e) => onCheckEnter(e)}>
             <S.HDiv> 
             <S.Head>
             <S.LogoImg src={Logo} onClick={()=>history.push('/')}></S.LogoImg>
             <S.Logo onClick={() => history.replace('/')}>DS마켓</S.Logo>
             <S.SBox>
                 <S.SDiv>
-                    <S.Search onChange={(e)=>setV(e.target.value)} onClick={()=>setTyping(typing*-1)} value={v} /*onFocus={() => setTyping(true)} onBlur={() => setTyping(false)}*/></S.Search>
-                    {typing === 1? 
+                    <S.Search onChange={(e)=>setV(e.target.value)} onClick={()=>setTyping(true)} value={v} onBlur={()=>setTyping(false)} /*onFocus={() => setTyping(true)} onBlur={() => setTyping(false)}*/></S.Search>
+                    {typing === true? 
                     <S.SBorder>
                         <S.Recent><S.RecentP>최근 검색어</S.RecentP></S.Recent>
                         <SLi num={0}></SLi>
@@ -103,13 +102,13 @@ const Header = () => {
                     : <></>}
                </S.SDiv> 
                <div onClick={()=>Search()}>
-               <i class="fa fa-search fa-lg" style={{color: "dgainsboro"}} onKeyPress={(e) => handleKeyPress(e)}></i>
+               <i class="fa fa-search fa-lg" style={{color: "rgb(100, 100, 100)"}}></i>
                </div>
             </S.SBox>
             </S.Head>
             <S.SelectDiv>
                 <S.SSelect onClick={()=>history.push('/regist')}><i class="fas fa-cart-plus"></i><S.SS>판매하기</S.SS></S.SSelect>
-                <S.SSelect onClick={()=>history.push('/user/1')}><i class="far fa-user-circle"></i>{email ? <S.SS>{email}</S.SS> : <S.SS>로그인</S.SS>}</S.SSelect>
+                <S.SSelect><i class="far fa-user-circle"></i>{email ? <S.SS onClick={()=>history.push(`/user/${localStorage.email}`)}>{email}</S.SS> : <S.SS onClick={()=>history.push('/login')}>로그인</S.SS>}</S.SSelect>
             </S.SelectDiv>
             </S.HDiv>
         </S.Header>  

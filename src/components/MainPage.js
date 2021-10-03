@@ -23,20 +23,6 @@ const MainPage = () => {
 
     const query = queryString.parse(location.search);
 
-    const setLi = () => {
-
-        if(query.search){
-            var s =  [];
-            for(var i = 0; i < list.length; i++){
-                if(list[i].name.includes(query.search)){
-                    s = [...s,list[i]];
-                }
-            }
-            setList(s);
-        }
-        console.log(list);
-    } 
-
     const [loading , setLoading] = useState(false);
 
     useEffect(()=>{
@@ -176,3 +162,17 @@ export default MainPage
             setCatagory({...catagory, p: catagory.p + 10});
         }
     } */
+
+    /*    const setLi = () => {
+
+        if(query.search){
+            var s =  [];
+            for(var i = 0; i < list.length; i++){
+                if(list[i].name.includes(query.search)){
+                    s = [...s,list[i]];
+                }
+            }
+            setList(s);
+        }
+        console.log(list);
+    }  */
