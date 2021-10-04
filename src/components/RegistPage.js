@@ -24,25 +24,15 @@ const RegistPage = () => {
       return unescape(cValue);
       }
 
-
-    const [upload, setUpload] = useState(false);
-    const [repre, setRepre] = useState(1);
-    const [catagory, setCatagory] = useState([]);
-    const [option, setOption] = useState([]);
     const [item, setItem] = useState({
         name: "1",
         price: "1",
         info: "1",
-        catagory: "1"
+        category: "1"
     });
 
     const Regist = () => {
-        axios.post('http://13.124.26.107:9095/api/item', JSON.stringify({name: item.name, price: Number(item.price), info: "1", catagory: "1"}),
-        {headers: {
-              'Authorization': `X-AUTH-TOKEN=${getCookie('X-AUTH-TOKEN')};`
-            },
-          }
-        )
+        axios.post('http://13.124.26.107:9095/api/item', {"name": item.name, "price": Number(item.price), "info": "1", "category": "1"})
         .then(response => {
             alert("상품이 등록되었습니다.")
         })
@@ -163,7 +153,7 @@ const RegistPage = () => {
                 <p>이미지</p>
     <section className="container">
       <S.Dropzone {...getRootProps({ className: 'dropzone' })}>
-        <input {...getInputProps()} />
+        <input {...getInputProps()}  onChange={()=>handleChangeFile(acceptedFiles)}/>
         <span>드래그로 이미지 등록</span>
       </S.Dropzone>
     </section>
@@ -173,13 +163,13 @@ const RegistPage = () => {
                 <S.Explane onChange={(e)=>changeExplane(e)} value={item.info}></S.Explane>
             </S.RegistDiv>
             <>
-            {acceptedFiles ?
+            {imgFile ?
             <>
             <S.RegistDiv>
                 <p>미리보기</p>
     <S.PItem>
     <S.ImageDiv>
-      <S.Image src={acceptedFiles}/>
+      <S.Image src={imgFile}/>
     </S.ImageDiv>
 <S.ItDiv>
 <S.IUSer>
@@ -195,8 +185,8 @@ const RegistPage = () => {
 </S.IEX>
 </S.ItDiv>
 </S.PItem>      
-            </S.RegistDiv>
-            </>
+</S.RegistDiv>
+</>
             :<></>
             }
             </>     

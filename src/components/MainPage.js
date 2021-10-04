@@ -58,7 +58,9 @@ const MainPage = () => {
             setLoading(true);
         })
         .catch(error => {
-            alert("1");
+            if (error.response.status === 401) {
+                //place your reentry code
+            }
         })
  },[]);
 

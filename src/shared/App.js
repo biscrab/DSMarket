@@ -54,8 +54,8 @@ function App() {
         history.push('/login');
     }
   },[])*/
-
-  axios.defaults.headers.common['Authorization'] = `X-AUTH-TOKEN=${getCookie("X-AUTH-TOKEN")};`;
+  
+  axios.defaults.withCredentials = "*";
 
   return(
     <>
