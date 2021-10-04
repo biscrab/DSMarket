@@ -4,8 +4,6 @@ import * as S from '../styled/App'
 
 const Item = () => {
 
-
-
     return(   
         <ItemPage />
     );

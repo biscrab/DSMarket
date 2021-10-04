@@ -1091,10 +1091,10 @@ export const CartList = styled.ul`
 
 export const Si  = styled.div`
     display: flex;
+    position: fixed;
+    width: 100%;
     flex-direction: column;
-    padding-bottom: 100px;
-    padding-top: 20px;
-    position: relative;
+    height: 100%;
     background-image: url('https://images.ctfassets.net/hrltx12pl8hq/5KiKmVEsCQPMNrbOE6w0Ot/341c573752bf35cb969e21fcd279d3f9/hero-img_copy.jpg?fit=fill&w=800&h=300');
     background-repeat: none;
     background-size : cover;
@@ -1110,8 +1110,8 @@ export const SignUpInput = styled.input`
 
 export const SiDiv = styled.div`
     position: relative;
-    top: 30px;
     left: 50%;
+    top: 30px;
     transform: translateX(-50%);
     width: 550px;
     background-color: white;
