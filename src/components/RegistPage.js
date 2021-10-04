@@ -114,6 +114,31 @@ const RegistPage = () => {
        ) 
       });
 
+      const changeExplane = (e) => {
+        if(item.info.length <= 200){
+          setItem({...item, info: e.target.value})
+        }
+      }
+
+      const [imgBase64, setImgBase64] = useState(""); // 파일 base64
+      const [imgFile, setImgFile] = useState(null);	//파일	
+
+      const handleChangeFile = (event) => {
+        let reader = new FileReader();
+    
+        reader.onloadend = () => {
+          // 2. 읽기가 완료되면 아래코드가 실행됩니다.
+          const base64 = reader.result;
+          if (base64) {
+            setImgBase64(base64.toString()); // 파일 base64 상태 업데이트
+          }
+        }
+        if (event.target.files[0]) {
+          reader.readAsDataURL(event.target.files[0]); // 1. 파일을 읽어 버퍼에 저장합니다.
+          setImgFile(event.target.files[0]); // 파일 상태 업데이트
+        }
+    }
+
     return(
         <S.R>
             <div style={{width: "70%"}}>
@@ -145,16 +170,16 @@ const RegistPage = () => {
             </S.RegistDiv>
             <S.RegistDiv>
                 <p>상품 설명</p>
-                <S.Explane></S.Explane>
+                <S.Explane onChange={(e)=>changeExplane(e)} value={item.info}></S.Explane>
             </S.RegistDiv>
             <>
-            {fileRejections ?
+            {acceptedFiles ?
             <>
             <S.RegistDiv>
                 <p>미리보기</p>
     <S.PItem>
     <S.ImageDiv>
-      <S.Image/>
+      <S.Image src={acceptedFiles}/>
     </S.ImageDiv>
 <S.ItDiv>
 <S.IUSer>
@@ -162,9 +187,11 @@ const RegistPage = () => {
     <S.ProfileSpan>{localStorage.email}</S.ProfileSpan>
 </S.IUSer>
 <S.IEX>
+<S.Profile src={Profile}></S.Profile>
 <S.Iname>{item.name}</S.Iname>
 <S.ItemPrice>{item.price}원</S.ItemPrice>
-<span>asdadasdasasdasdasd</span>
+
+<S.Introduce>{item.info}</S.Introduce>
 </S.IEX>
 </S.ItDiv>
 </S.PItem>      

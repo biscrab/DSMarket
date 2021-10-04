@@ -797,7 +797,7 @@ export const RecentP = styled.p`
 
 export const Input = styled.input`
     width: 80%;
-    height: 30px;
+    height: 35px;
     font-size: 15px;
     padding: 0px 10px;
     outline: 0;
@@ -816,7 +816,7 @@ export const OInput = styled.input`
 
 export const Max = styled.div`
     background-color: #eeeeee;
-    height: 30px;
+    height: 35px;
     width: 70px;
     text-align: center;
     display:flex;
@@ -1757,11 +1757,19 @@ export const IEX = styled.div`
 `
 
 export const ItemPrice = styled.p`
+    padding-top: 10px;
+    padding-bottom: 10px;
     font-size: 16px;
+    margin: 0;
 `
 
-export const Iname = styled.p`
+export const Introduce = styled.div`
+    height: 380px;
 
+`
+
+export const Iname = styled.span`
+    padding-left: 10px;
 `
 
 export const Gray = styled.p`
