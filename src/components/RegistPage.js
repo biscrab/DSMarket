@@ -32,7 +32,7 @@ const RegistPage = () => {
     });
 
     const Regist = () => {
-        axios.post('http://13.124.26.107:9095/api/item', JSON.stringify({name: item.name, price: Number(item.price), info: "1", category: "1"}))
+        axios.post('http://13.124.26.1072:9095/api/item', JSON.stringify({name: item.name, price: Number(item.price), info: "1", category: "1"}))
         .then(response => {
             alert("상품이 등록되었습니다.")
         })

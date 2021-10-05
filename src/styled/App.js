@@ -801,6 +801,8 @@ export const Input = styled.input`
     font-size: 15px;
     padding: 0px 10px;
     outline: 0;
+    border: 2px solid gray;
+    
     ::forcus{
         outline: 1px solid royalblue;
     }
@@ -1163,7 +1165,7 @@ export const Explane = styled.textarea`
     padding: 10px;
     resize: none;
     outline: 0;
-    border: 1px solid gray;
+    border: 2px solid gray;
 `
 
 export const CS = styled.span`

@@ -11,25 +11,6 @@ function App() {
 
   let history = useHistory();
   let location = useLocation();
-  /*const {pathname} = useLocation();
-
-  useEffect(()=>{
-    document.querySelector('body').scrollTo(0,0);
-  },[pathname]);*/
-  
- // axios.defaults.baseURL = ''
-  /*axios.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
-  axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
-  axios.defaults.withCredentials = true;*/
-
-  /*
-  useEffect(()=>{
-    axios.get('https://jsonplaceholder.typicode.com/users')
-      .then(response => {
-        console.log("asd")
-      });
-  },[]);
-  */
 
   function getCookie(cName) {
     cName = cName + '=';
@@ -56,6 +37,7 @@ function App() {
   },[])*/
   
   axios.defaults.withCredentials = "*";
+  axios.defaults.headers.common["Cookie"] = `X-AUTH-TOKEN=${getCookie('X-AUTH-TOKEN')}` 
 
   return(
     <>
@@ -74,3 +56,4 @@ function App() {
 }
 
 export default App;
+
