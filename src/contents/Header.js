@@ -32,7 +32,7 @@ const Header = () => {
 
     const Logout = () => {
         localStorage.removeItem('user');
-        setLogined(false);
+        localStorage.removeItem('X-AUTH-TOKEN');
     }
 
     useEffect(()=>{
@@ -74,7 +74,6 @@ const Header = () => {
             Search();
         }
     }
-    
 
     return(
         <S.Header onKeyPress={(e) => onCheckEnter(e)}>
