@@ -8,8 +8,6 @@ const LoginPage = () => {
 
     const [cookie, setCookie, removeCookie] = useCookies();
 
-    axios.defaults.withCredentials = true;
-
     let history = useHistory();
 
     const [login, setLogin] = useState(false);

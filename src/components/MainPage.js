@@ -45,9 +45,13 @@ const MainPage = () => {
         }
         return unescape(cValue);
         }
+
+        const headers = [
+            {key: "Set-Cookie", value: `${getCookie('X-AUTH-TOKEN')}`}
+        ]
     
     useEffect(()=>{
-        axios.get('http://13.124.26.107:9095/api/item/all')
+        axios.get('http://13.124.26.107:9095/api/item/all', headers)
         .then(response => {
             setList(response);
             alert("123");

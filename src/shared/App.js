@@ -56,6 +56,7 @@ function App() {
   },[])*/
   
   axios.defaults.withCredentials = "*";
+  axios.defaults.headers.common["Authorization"] = `Bearer ${getCookie('X-AUTH-TOKEN')}` ;
 
   return(
     <>
