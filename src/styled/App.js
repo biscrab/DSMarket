@@ -1548,6 +1548,7 @@ export const RButton = styled.button`
     height: 50px;
     position: relative;
     left: 850px;
+    outline: 0;
 `
 
 export const CaSelect = styled.input`
