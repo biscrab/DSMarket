@@ -46,9 +46,9 @@ const MainPage = () => {
         return unescape(cValue);
         }
 
-        const headers = [
-            {key: "Set-Cookie", value: `${getCookie('X-AUTH-TOKEN')}`}
-        ]
+    const headers = [{
+        Cookie: `X-AUTH-TOKEN=${getCookie('X-AUTH-TOKEN')}`
+    }]
     
     useEffect(()=>{
         axios.get('http://13.124.26.107:9095/api/item/all', headers)
@@ -66,7 +66,7 @@ const MainPage = () => {
                 //place your reentry code
             }
         })
- },[]);
+ });
 
     const SetPage = () => {
         const pa = Number(params.p);

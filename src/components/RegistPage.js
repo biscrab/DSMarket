@@ -31,8 +31,12 @@ const RegistPage = () => {
         category: "1"
     });
 
+    const headers = [{
+      Cookie: `X-AUTH-TOKEN=${getCookie('X-AUTH-TOKEN')}`
+    }]
+
     const Regist = () => {
-        axios.post('http://13.124.26.1072:9095/api/item', JSON.stringify({name: item.name, price: Number(item.price), info: "1", category: "1"}))
+        axios.post('http://13.124.26.107:9095/api/item', {name: item.name, price: Number(item.price), info: "1", category: "1"}, headers)
         .then(response => {
             alert("상품이 등록되었습니다.")
         })
