@@ -32,7 +32,7 @@ const LoginPage = () => {
                     history.push("/");
                     alert("성공");       
                     console.log("data")
-                    setCookie("X-AUTH-TOKEN", `${response.data.data.tokenValue}`);
+                    setCookie("X-AUTH-TOKEN", `${response.data.data.tokenValue}`, '13.124.26.107');
                     //localStorage.token = JSON.stringify(response);
                     localStorage.setItem("email", ip.email);
                     console.log(response);

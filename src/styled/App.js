@@ -1156,6 +1156,9 @@ export const Dropzone = styled.div`
     align-items: center;
     justify-content: center;
     color: gray;
+    margin: 0;
+    position: relative;
+    right: 0px;
     font-size: 20px;
 `
 

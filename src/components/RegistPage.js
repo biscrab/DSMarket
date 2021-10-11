@@ -25,23 +25,32 @@ const RegistPage = () => {
       }
 
     const [item, setItem] = useState({
-        name: "1",
-        price: "1",
-        info: "1",
-        category: "1"
-    });
+      name: "4",
+      info: "perfect",
+      price: 10000,
+      category: "남성패션"
+  });
 
-    const headers = [{
-      Cookie: `X-AUTH-TOKEN=${getCookie('X-AUTH-TOKEN')}`
-    }]
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      proxy: { 
+        host: '13.124.26.107',
+        port: 9095
+      }
+    }
 
     const Regist = () => {
-        axios.post('http://13.124.26.107:9095/api/item', {name: item.name, price: Number(item.price), info: "1", category: "1"}, headers)
+        axios.post('http://13.124.26.107:9095/api/item', JSON.stringify({item}), config)
         .then(response => {
             alert("상품이 등록되었습니다.")
         })
         .catch(error => {
-            alert("상품 등록에 실패했습니다.")
+          if(error.status === 406){
+            alert("같은 이름의 상품이 존재합니다.");
+          }
+            alert("상품 등록에 실패했습니다.");
         })
     }
 
@@ -133,6 +142,14 @@ const RegistPage = () => {
         }
     }
 
+    const Test = () => {
+      const headers = [{
+        Authorization: `Bearer ${getCookie("X-AUTH-TOKEN")}`
+      }]
+      axios.get('http://13.124.26.107:9095/api/item', headers)
+        .then(console.log("성공"));
+    }
+
     return(
         <S.R>
             <div style={{width: "70%"}}>
@@ -155,7 +172,7 @@ const RegistPage = () => {
             </S.RegistDiv>        
             <S.RegistDiv>
                 <p>이미지</p>
-    <section className="container">
+    <section className="container" style={{padding:"0px"}}>
       <S.Dropzone {...getRootProps({ className: 'dropzone' })}>
         <input {...getInputProps()}  onChange={()=>handleChangeFile(acceptedFiles)}/>
         <span>드래그로 이미지 등록</span>
@@ -167,7 +184,7 @@ const RegistPage = () => {
                 <S.Explane onChange={(e)=>changeExplane(e)} value={item.info}></S.Explane>
             </S.RegistDiv>
             <>
-            {imgFile ?
+            {1 ?
             <>
             <S.RegistDiv>
                 <p>미리보기</p>

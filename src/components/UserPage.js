@@ -56,9 +56,12 @@ const UserPage = () => {
     useEffect(()=>{
         axios.get('http://13.124.26.107:9095/api/comment')
             .then(response => setUser({...user, comments: response}))
+        
+        axios.get('http://localhost:9095/api/mypage')
+            .then(response => console.log("ASdasdasd"));
     },[])
 
-    const [review, setReview] = useState("");
+    const [review, setReview] = useState({contents: "", memberEmail: params.id});
 
     const Border = () => {
         if(params.review === "review"){
@@ -70,7 +73,7 @@ const UserPage = () => {
                 <S.RIDiv>
                     <span>이메일</span>
                     <S.RDiv>
-                    <S.RText onChange={(e) => setReview(e.target.value)} value={review}></S.RText>
+                    <S.RText onChange={(e) => setReview({...review, contents: e.target.value})} value={review.contents}></S.RText>
                     <S.RButton onClick={()=>RegistComment()}>등록</S.RButton>
                     </S.RDiv>
                 </S.RIDiv>
@@ -98,9 +101,9 @@ const UserPage = () => {
 
     const editIntroduce = () => {
 
-        axios.post('http://13.124.26.107:9095/api/comment', user)
+        axios.post('http://13.124.26.107:9095/api/comment')
             .then(response => {
-
+                alert(1);
             })
             .catch(error => {
                 alert("실패");

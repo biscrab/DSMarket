@@ -53,9 +53,8 @@ const MainPage = () => {
     useEffect(()=>{
         axios.get('http://13.124.26.107:9095/api/item/all', headers)
         .then(response => {
-            setList(response);
-            alert("123");
             console.log(response);
+            setList([response.data])
             setLoading(false);
         })
         .catch(loading =>{
@@ -66,7 +65,7 @@ const MainPage = () => {
                 //place your reentry code
             }
         })
- });
+ },[]);
 
     const SetPage = () => {
         const pa = Number(params.p);
@@ -136,49 +135,3 @@ const MainPage = () => {
                 </S.MyDiv> */
 
 export default MainPage
-
-    /*
-    axios.get(`/Item/all`)
-        .then(response => {
-            setList(response);
-            setLoading(false);
-        })
-        .catch(loading =>{
-            setLoading(true);
-        })
-        .catch(error => {
-
-        })*/
-
-
-    /*    const prev = () => {
-        if(catagory.p >= 11){
-            setCatagory({...catagory, p: catagory.p-10});
-        }
-        else{
-            setCatagory({...catagory, p: 1})
-        }
-    }
-
-    const next = () => {
-        if(catagory.p + 10 >= list.length-1){
-            setCatagory({...catagory, p: list.length-1});
-        }
-        else{
-            setCatagory({...catagory, p: catagory.p + 10});
-        }
-    } */
-
-    /*    const setLi = () => {
-
-        if(query.search){
-            var s =  [];
-            for(var i = 0; i < list.length; i++){
-                if(list[i].name.includes(query.search)){
-                    s = [...s,list[i]];
-                }
-            }
-            setList(s);
-        }
-        console.log(list);
-    }  */

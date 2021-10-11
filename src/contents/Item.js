@@ -83,8 +83,8 @@ const Select = ({item, lists}) => {
         <S.Profile src={Profile}></S.Profile>
         <S.ProfileSpan>유저</S.ProfileSpan>
     </S.IUSer>
-        <S.Iname>{item.name}</S.Iname>
-        <S.ItemPrice>{item.price}원</S.ItemPrice>
+        <S.Iname></S.Iname>
+        <S.ItemPrice>원</S.ItemPrice>
         <p></p>
     </S.ItDiv>      
     </S.Item>
@@ -104,14 +104,14 @@ const Select = ({item, lists}) => {
                 </S.RHUser>
                 <svg onClick={()=>setEdit(true)} aria-label="옵션 더 보기" class="_8-yf5 " color="#262626" fill="#262626" height="24" role="img" viewBox="0 0 24 24" width="24"><circle cx="12" cy="12" r="1.5"></circle><circle cx="6.5" cy="12" r="1.5"></circle><circle cx="17.5" cy="12" r="1.5"></circle></svg>
             </S.RHead>
-            <S.RImg src={item.img} />
+            <S.RImg />
             <S.RBody>
-            <S.Rp>{item.name}</S.Rp>
-            <S.Rprice>{item.price}원</S.Rprice>
+            <S.Rp></S.Rp>
+            <S.Rprice>원</S.Rprice>
             </S.RBody>
         </S.RDiv>
         {change === true ?
-            <ItemBorder item={item} />
+            <ItemBorder />
             :
             <></>
         }
@@ -127,7 +127,7 @@ const Select = ({item, lists}) => {
 const List = ({lists}) => {
     const itemList = lists.map(
         item => ( 
-            <Select item={item} key={item.name} name={item.name} price={item.price} img={item.img} id={item.id}/>
+            <Select item={item}/>
         )
     )
     return itemList

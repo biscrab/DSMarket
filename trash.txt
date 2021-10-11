@@ -418,3 +418,50 @@ const CSLi = () => {
     const [option, setOption] = useState(1);
     
     const[page, setPage] = useState([1,2,3]); */
+
+    
+    /*
+    axios.get(`/Item/all`)
+        .then(response => {
+            setList(response);
+            setLoading(false);
+        })
+        .catch(loading =>{
+            setLoading(true);
+        })
+        .catch(error => {
+
+        })*/
+
+
+    /*    const prev = () => {
+        if(catagory.p >= 11){
+            setCatagory({...catagory, p: catagory.p-10});
+        }
+        else{
+            setCatagory({...catagory, p: 1})
+        }
+    }
+
+    const next = () => {
+        if(catagory.p + 10 >= list.length-1){
+            setCatagory({...catagory, p: list.length-1});
+        }
+        else{
+            setCatagory({...catagory, p: catagory.p + 10});
+        }
+    } */
+
+    /*    const setLi = () => {
+
+        if(query.search){
+            var s =  [];
+            for(var i = 0; i < list.length; i++){
+                if(list[i].name.includes(query.search)){
+                    s = [...s,list[i]];
+                }
+            }
+            setList(s);
+        }
+        console.log(list);
+    }  */
