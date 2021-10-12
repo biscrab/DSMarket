@@ -33,16 +33,14 @@ const RegistPage = () => {
 
     const config = {
       headers: {
+        'Authorization': `Bearer ${getCookie("X-AUTH-TOKEN")}`,
         'Content-Type': 'application/json',
-      },
-      proxy: { 
-        host: '13.124.26.107',
-        port: 9095
+        'Access-Control-Allow-Origin': "*"
       }
     }
 
     const Regist = () => {
-        axios.post('http://13.124.26.107:9095/api/item', JSON.stringify({item}), config)
+        axios.post('http://13.124.26.107:9095/api/item', JSON.stringify(item), config)
         .then(response => {
             alert("상품이 등록되었습니다.")
         })
@@ -144,7 +142,7 @@ const RegistPage = () => {
 
     const Test = () => {
       const headers = [{
-        Authorization: `Bearer ${getCookie("X-AUTH-TOKEN")}`
+          Authorization: `Bearer ${getCookie("X-AUTH-TOKEN")}`
       }]
       axios.get('http://13.124.26.107:9095/api/item', headers)
         .then(console.log("성공"));

@@ -17,6 +17,7 @@ const Header = () => {
     const [typing, setTyping] = useState(false);
     const [v, setV] = useState();
     const [name, setName] = useState("");
+    const [balloon, setBalloon] = useState(false);
 
     const [recent, setRecent] = useState([]);
 
@@ -76,6 +77,7 @@ const Header = () => {
     }
 
     return(
+        <>
         <S.Header onKeyPress={(e) => onCheckEnter(e)}>
             <S.HDiv> 
             <S.Head>
@@ -107,10 +109,18 @@ const Header = () => {
             </S.Head>
             <S.SelectDiv>
                 <S.SSelect onClick={()=>history.push('/regist')}><i class="fas fa-cart-plus"></i><S.SS>판매하기</S.SS></S.SSelect>
-                <S.SSelect><i class="far fa-user-circle"></i>{email ? <S.SS onClick={()=>history.push(`/user/${localStorage.email}`)}>{email}</S.SS> : <S.SS onClick={()=>history.push('/login')}>로그인</S.SS>}</S.SSelect>
+                <S.SSelect><i class="far fa-user-circle"></i>{email ? <S.SS onClick={()=>setBalloon(true)}>{email}</S.SS> : <S.SS onClick={()=>history.push('/login')}>로그인</S.SS>}</S.SSelect>
             </S.SelectDiv>
             </S.HDiv>
-        </S.Header>  
+        </S.Header> 
+        {balloon === true ?               
+        <S.Balloon>
+            <S.BA>마이 페이지</S.BA>
+            <S.BA color="crimson">로그아웃</S.BA>
+        </S.Balloon>:
+        <></>
+        } 
+        </> 
     )
 }
 

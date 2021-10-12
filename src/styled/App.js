@@ -73,6 +73,40 @@ export const SSelect = styled.a`
 export const SelectDiv = styled.div`
     margin-right: 20px;
 `
+export const Balloon = styled.div`
+    position:fixed;
+    right: 10px; 
+    margin-top: 20px;
+    width:200px; 
+    height:100px;
+    background-color: #eeeeee; 
+    border-radius: 10px;
+    border-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+
+    :after { 
+    border-top:0px solid transparent; 
+    border-left: 10px solid transparent; 
+    border-right: 10px solid transparent; 
+    border-bottom: 10px solid #eeeeee; 
+    content:""; 
+    position:absolute;
+    top:-10px;
+    left:100px;  
+   }
+`
+
+export const BA = styled.span`
+    padding-top: 10px;
+    text-align: center;
+    color:${props => props.color};
+
+    :hover{
+        color: white;
+    }
+`
 
 export const SS = styled.span`
     margin-left: 5px;
@@ -352,7 +386,6 @@ export const ItDiv = styled.div`
 `
 
 export const ItemD = styled.div`
-    width: 850px;
 `
 
 export const ADiv = styled.div`
@@ -564,7 +597,7 @@ export const RelatedDiv = styled.div`
 `
 
 export const RDiv = styled.div`
-    width: 600px;
+    width: 700px;
     height: 700px;
     margin: 0;
     margin-bottom: 20px;
@@ -1160,6 +1193,9 @@ export const Dropzone = styled.div`
     position: relative;
     right: 0px;
     font-size: 20px;
+    :hover{
+        cursor: pointer;
+    }
 `
 
 export const Explane = styled.textarea`

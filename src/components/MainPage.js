@@ -46,12 +46,16 @@ const MainPage = () => {
         return unescape(cValue);
         }
 
-    const headers = [{
-        Cookie: `X-AUTH-TOKEN=${getCookie('X-AUTH-TOKEN')}`
-    }]
+        const config = {
+            headers: {
+              'Authorization': `Bearer ${getCookie("X-AUTH-TOKEN")}`,
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': "*"
+            }
+          }
     
     useEffect(()=>{
-        axios.get('http://13.124.26.107:9095/api/item/all', headers)
+        axios.get('http://13.124.26.107:9095/api/item/all', config)
         .then(response => {
             console.log(response);
             setList([response.data])

@@ -35,9 +35,14 @@ function App() {
         history.push('/login');
     }
   },[])*/
+
+  useEffect(()=>{
+    if(getCookie("X-AUTH-TOKEN")){
+      setCookie("email", "");
+    } 
+  })
   
   axios.defaults.withCredentials = "*";
-  axios.defaults.headers.common['Authorization'] = `Bearer ${getCookie("X-AUTH-TOKEN")}`;
   
   return(
     <>
