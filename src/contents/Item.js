@@ -73,7 +73,7 @@ const Select = ({item, lists}) => {
     
         return(
     <S.LoginBackground>
-    <div><S.Xbutton><div><svg color="#ffffff" fill="#ffffff" height="24" role="img" viewBox="0 0 48 48" width="24"><path clip-rule="evenodd" d="M41.8 9.8L27.5 24l14.2 14.2c.6.6.6 1.5 0 2.1l-1.4 1.4c-.6.6-1.5.6-2.1 0L24 27.5 9.8 41.8c-.6.6-1.5.6-2.1 0l-1.4-1.4c-.6-.6-.6-1.5 0-2.1L20.5 24 6.2 9.8c-.6-.6-.6-1.5 0-2.1l1.4-1.4c.6-.6 1.5-.6 2.1 0L24 20.5 38.3 6.2c.6-.6 1.5-.6 2.1 0l1.4 1.4c.6.6.6 1.6 0 2.2z" fill-rule="evenodd"></path></svg></div></S.Xbutton></div>
+    <S.Xbutton><i class="fas fa-bars lg-2x"></i></S.Xbutton>
             <S.Item>
         <S.ImageDiv>
           <S.Image src={A}/>
@@ -90,7 +90,6 @@ const Select = ({item, lists}) => {
     </S.Item>
     </S.LoginBackground>
         );
-
         }
     }
 
@@ -102,7 +101,7 @@ const Select = ({item, lists}) => {
                     <S.RHImg src={Profile}></S.RHImg>
                     <S.RHName>1</S.RHName>
                 </S.RHUser>
-                <svg onClick={()=>setEdit(true)} aria-label="옵션 더 보기" class="_8-yf5 " color="#262626" fill="#262626" height="24" role="img" viewBox="0 0 24 24" width="24"><circle cx="12" cy="12" r="1.5"></circle><circle cx="6.5" cy="12" r="1.5"></circle><circle cx="17.5" cy="12" r="1.5"></circle></svg>
+                <i onClick={()=>setEdit(true)} class="fas fa-bars lg-3x"></i>
             </S.RHead>
             <S.RImg />
             <S.RBody>

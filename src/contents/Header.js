@@ -4,7 +4,7 @@ import * as S from '../styled/App'
 import Profile from '../images/profile.png'
 import Logo from '../images/Logo.png'
 import axios from 'axios'
-import jQuery from 'jquery'
+import $ from 'jquery'
 
 const Header = () => {
 
@@ -42,6 +42,15 @@ const Header = () => {
         if(localStorage.getItem('token')){
             
         }
+        $(document).mouseup(function (e){
+            var LayerPopup = $(".layer-popup");
+            if(LayerPopup.has(e.target).length === 0){
+                setBalloon(false);
+            }
+            else{
+                setBalloon(true);
+            }
+          });
     })
 
     const Search = () => {
@@ -77,6 +86,7 @@ const Header = () => {
         }
     }
 
+
     return(
         <>
         <S.Header onKeyPress={(e) => onCheckEnter(e)}>
@@ -110,7 +120,7 @@ const Header = () => {
             </S.Head>
             <S.SelectDiv>
                 <S.SSelect onClick={()=>history.push('/regist')}><i class="fas fa-cart-plus"></i><S.SS>판매하기</S.SS></S.SSelect>
-                <S.SSelect><i class="far fa-user-circle"></i>{email ? <S.SS id="b">{email}</S.SS> : <S.SS onClick={()=>history.push('/login')}>로그인</S.SS>}</S.SSelect>
+                <S.SSelect className="b"><i class="far fa-user-circle"></i>{email ? <S.SS onClick={()=>setBalloon(true)}>{email}</S.SS> : <S.SS onClick={()=>history.push('/login')}>로그인</S.SS>}</S.SSelect>
             </S.SelectDiv>
             </S.HDiv>
         </S.Header> 
