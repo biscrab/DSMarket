@@ -50,26 +50,23 @@ const RegistPage = () => {
           }
             alert("상품 등록에 실패했습니다.");
         })
+
+        console.log(acceptedFiles);
+
+        const fd = new FormData();
+
+        fd.append('filename', acceptedFiles[0]);
+
+        console.log(fd);
+
+        axios.post("http://13.124.26.107:9095/api/comment",  fd, config)
+          .then(response => {
+            alert("이미지가 등록되었습니다.")
+          })
+          .catch(error => {
+            alert("실패")
+          })
     }
-
-    /*
-    useEffect(()=>{
-        if(item.name&&item.price&&item.catagory){
-            setUpload(true);
-        }
-    })*/
-
-    const [list, setList] = useState({name: "", option:[]});
-
-    const [tittle, setTittle] = useState("");
-
-    const onChange = (e) => {
-        const { value, name } = e.target; // 우선 e.target 에서 name 과 value 를 추출
-        setItem({
-          ...item, // 기존의 input 객체를 복사한 뒤
-          [name]: value // name 키를 가진 값을 value 로 설정
-        });
-      };
 
     const [c, setC] = useState();
 
@@ -97,56 +94,12 @@ const RegistPage = () => {
         accept: 'image/jpeg, image/png',    
         maxFiles: 1
       });
-    
-      const acceptedFileItems = acceptedFiles.map(file => (
-        <li key={file.path}>
-          {file.path} - {file.size} bytes
-        </li>
-      ));
-    
-      const fileRejectionItems = fileRejections.map(({ file, errors  }) => { 
-       return (
-         <li key={file.path}>
-              {file.path} - {file.size} bytes
-              <ul>
-                {errors.map(e => <li key={e.code}>{e.message}</li>)}
-             </ul>
-         </li>
-       ) 
-      });
 
       const changeExplane = (e) => {
         if(item.info.length <= 200){
           setItem({...item, info: e.target.value})
         }
       }
-
-      const [imgBase64, setImgBase64] = useState(""); // 파일 base64
-      const [imgFile, setImgFile] = useState(null);	//파일	
-
-      const handleChangeFile = (event) => {
-        let reader = new FileReader();
-    
-        reader.onloadend = () => {
-          // 2. 읽기가 완료되면 아래코드가 실행됩니다.
-          const base64 = reader.result;
-          if (base64) {
-            setImgBase64(base64.toString()); // 파일 base64 상태 업데이트
-          }
-        }
-        if (event.target.files[0]) {
-          reader.readAsDataURL(event.target.files[0]); // 1. 파일을 읽어 버퍼에 저장합니다.
-          setImgFile(event.target.files[0]); // 파일 상태 업데이트
-        }
-    }
-
-    const Test = () => {
-      const headers = [{
-          Authorization: `Bearer ${getCookie("X-AUTH-TOKEN")}`
-      }]
-      axios.get('http://13.124.26.107:9095/api/item', headers)
-        .then(console.log("성공"));
-    }
 
     return(
         <S.R>
@@ -172,7 +125,7 @@ const RegistPage = () => {
                 <p>이미지</p>
     <section className="container" style={{padding:"0px"}}>
       <S.Dropzone {...getRootProps({ className: 'dropzone' })}>
-        <input {...getInputProps()}  onChange={()=>handleChangeFile(acceptedFiles)}/>
+        <input {...getInputProps()}/>
         <span>드래그로 이미지 등록</span>
       </S.Dropzone>
     </section>
@@ -188,7 +141,7 @@ const RegistPage = () => {
                 <p>미리보기</p>
     <S.PItem>
     <S.ImageDiv>
-      <S.Image src={imgFile}/>
+      <S.Image/>
     </S.ImageDiv>
 <S.ItDiv>
 <S.IUSer>
@@ -203,17 +156,17 @@ const RegistPage = () => {
 <S.Introduce>{item.info}</S.Introduce>
 </S.IEX>
 </S.ItDiv>
-</S.PItem>      
-</S.RegistDiv>
-</>
-            :<></>
-            }
-            </>     
-            {item.name&&item.price ?
+</S.PItem>
+            {item.name&&item.price&&acceptedFiles ?
             <S.RButton color="white" bkcolor="royalblue" onClick={() => Regist()}>판매요청</S.RButton>
             :
             <S.RButton onClick={()=>alert("이름, 가격, 카테고리, 설명 을 모두 입력해주세요.")}>판매요청</S.RButton>
+            }      
+</S.RegistDiv>
+</>
+:<></>
             }
+            </>     
             </div>
         </S.R>
     )

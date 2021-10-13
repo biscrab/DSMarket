@@ -14,13 +14,11 @@ const Header = () => {
     const select = useRef();
 
     let history = useHistory();
-    const [logined, setLogined] = useState(false);
     const [typing, setTyping] = useState(false);
     const [v, setV] = useState();
-    const [name, setName] = useState("");
+    const [email, setEmail] = useState(localStorage.email);
     const [balloon, setBalloon] = useState(false);
-
-    const [recent, setRecent] = useState([]);
+    const [recent, setRecent] = useState();
 
     const [user, setUser] = useState([
         {name: "asd", email: "asd", password: "a", age: 11},
@@ -35,6 +33,8 @@ const Header = () => {
     const Logout = () => {
         localStorage.removeItem('user');
         localStorage.removeItem('X-AUTH-TOKEN');
+        alert("로그아웃 되었습니다.");
+        history.push('/');
     }
 
     useEffect(()=>{
@@ -48,10 +48,24 @@ const Header = () => {
                 setBalloon(false);
             }
             else{
-                setBalloon(true);
+                if(balloon === true){
+                    setBalloon(false);
+                }
+                else{
+                    setBalloon(true);
+                }
             }
           });
     })
+
+    useEffect(()=>{
+        if(localStorage.recent){
+            setRecent([...localStorage.recent]);
+        }
+        else{
+            localStorage.setItem("recent", "[]");
+        }
+    },[])
 
     const Search = () => {
         if(v){
@@ -62,14 +76,14 @@ const Header = () => {
         
         history.push(`/?search=${v}`)
 
-        localStorage.search = JSON.stringify(r);
+        localStorage.recent = JSON.stringify(r);
         }
     }
 
     const SLi = ({num}) => {
 
         const f = () => {
-            setV(recent[num]);
+            setV(recent[num])
             setTyping(-1);
         }
 
@@ -78,14 +92,11 @@ const Header = () => {
         );
     }
 
-    let email = localStorage.getItem("email");
-
     const onCheckEnter = (e) => {
         if(e.key === 'Enter') {
             Search();
         }
     }
-
 
     return(
         <>
@@ -125,9 +136,9 @@ const Header = () => {
             </S.HDiv>
         </S.Header> 
         {balloon === true ?               
-        <S.Balloon>
-            <S.BA>마이 페이지</S.BA>
-            <S.BA color="crimson">로그아웃</S.BA>
+        <S.Balloon className="b">
+            <S.BA onClick={()=>history.push(`/${email}`)}>마이 페이지</S.BA>
+            <S.BA color="crimson" onClick={()=>Logout()}>로그아웃</S.BA>
         </S.Balloon>:
         <></>
         } 

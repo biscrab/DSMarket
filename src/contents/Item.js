@@ -76,7 +76,7 @@ const Select = ({item, lists}) => {
     <S.Xbutton><i class="fas fa-bars lg-2x"></i></S.Xbutton>
             <S.Item>
         <S.ImageDiv>
-          <S.Image src={A}/>
+          <S.Image/>
         </S.ImageDiv>
     <S.ItDiv>
     <S.IUSer>
@@ -99,14 +99,15 @@ const Select = ({item, lists}) => {
             <S.RHead>
                 <S.RHUser>
                     <S.RHImg src={Profile}></S.RHImg>
-                    <S.RHName>1</S.RHName>
+                    <S.RHName>{item.name}</S.RHName>
                 </S.RHUser>
                 <i onClick={()=>setEdit(true)} class="fas fa-bars lg-3x"></i>
             </S.RHead>
             <S.RImg />
             <S.RBody>
             <S.Rp></S.Rp>
-            <S.Rprice>원</S.Rprice>
+            <S.Rprice>{item.price}원</S.Rprice>
+            <div></div>
             </S.RBody>
         </S.RDiv>
         {change === true ?

@@ -76,8 +76,8 @@ export const SelectDiv = styled.div`
 export const Balloon = styled.div`
     position:fixed;
     right: 10px; 
-    margin-top: 20px;
-    width:200px; 
+    margin-top: 10px;
+    width:150px; 
     height:100px;
     background-color: #eeeeee; 
     border-radius: 10px;
@@ -362,7 +362,7 @@ export const Image = styled.img`
 `
 
 export const ImageDiv = styled.div`
-    width: 550px;
+    width: 700px;
     height: 100%;
 `
 
@@ -656,7 +656,7 @@ export const MyRBack = styled.div`
     }
 `
 
-export const RBody = styled.div`
+export const RBody = styled.div` 
     padding: 10px;
 `
 
@@ -1140,7 +1140,7 @@ export const SignUpInput = styled.input`
     height: 40px;
     padding: 0px 10px;
     outline: 0;
-    border: 1px solid gray;
+    border: 2px solid gray;
 `
 
 export const SiDiv = styled.div`
@@ -1587,8 +1587,10 @@ export const RButton = styled.button`
     color: ${props => props.color};
     width: 200px;
     height: 50px;
+    margin-top: 20px;
     position: relative;
-    left: 850px;
+    left: 900px;
+    transform: translateX(-50%);
     outline: 0;
 `
 
@@ -1732,9 +1734,7 @@ export const ItemDiv = styled.div`
 
 export const PItem = styled.div`
     position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 850px;
+    width: 1000px;
     height: 550px;
     border: 1px solid darkgray;
     display: flex;
