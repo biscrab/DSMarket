@@ -57,20 +57,6 @@ const Select = ({item, lists}) => {
     }
 
     const ItemBorder = ({item}) => {
-    
-        const img = [A, B, C, D, E];
-        const [imgN, setImgN] = useState(0);
-
-                const change = (n) => {
-                    setImgN(imgN + n);
-    
-                    if(imgN < 0){
-                        setImgN(img.length-1);
-                    }
-                    if(imgN > img.length-1){
-                        setImgN(0);
-                    }
-    
         return(
     <S.LoginBackground>
     <S.Xbutton><i class="fas fa-bars lg-2x"></i></S.Xbutton>
@@ -90,7 +76,6 @@ const Select = ({item, lists}) => {
     </S.Item>
     </S.LoginBackground>
         );
-        }
     }
 
     return(

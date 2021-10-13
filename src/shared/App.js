@@ -9,9 +9,6 @@ import { useCookies } from 'react-cookie';
 
 function App() {
 
-  let history = useHistory();
-  let location = useLocation();
-
   function getCookie(cName) {
     cName = cName + '=';
     var cookieData = document.cookie;
@@ -37,7 +34,7 @@ function App() {
   },[])*/
 
   useEffect(()=>{
-    if(getCookie("X-AUTH-TOKEN") === ""){
+    if(!getCookie("X-AUTH-TOKEN")){
       setCookie("email", "");
     } 
   })

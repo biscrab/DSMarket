@@ -103,7 +103,7 @@ const SignUpPage = () => {
             <S.SignSpan>휴대폰 번호</S.SignSpan>
             <S.SignUpInput placeholder="휴대폰 번호" name="phone" value={user.phone}  onChange={(e)=>changePhone(e)} pattern="[0-9]*"></S.SignUpInput>
             </S.SignUpDiv>
-            <S.SiButton onClick={()=>SignUp()}>회원가입하기</S.SiButton>
+            <S.SiButton onClick={()=>SignUp()}>회원가입</S.SiButton>
             </S.SiDiv>
         </S.Si>
     )

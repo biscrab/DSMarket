@@ -12,10 +12,6 @@ body{
   background-color: rgb(252, 252, 252);
 }
 
-h1{
-  font-family: 'Jua', sans-serif;;
-}
-
 img{
   -webkit-user-drag: none;
 }

@@ -7,24 +7,19 @@ import axios from 'axios'
 import $ from 'jquery'
 
 const Header = () => {
-
+    
+    let history = useHistory();
     let location = useLocation();
     let params = useParams();
 
     const select = useRef();
 
-    let history = useHistory();
+    
     const [typing, setTyping] = useState(false);
     const [v, setV] = useState();
     const [email, setEmail] = useState(localStorage.email);
     const [balloon, setBalloon] = useState(false);
     const [recent, setRecent] = useState();
-
-    const [user, setUser] = useState([
-        {name: "asd", email: "asd", password: "a", age: 11},
-        {name: "asd", email: "asd1", password: "a", age: 20},
-        {name: "asd", email: "asd2", password: "a", age: 30},
-    ])
 
     const SignUp = () => {
         history.push('/signup');
@@ -36,12 +31,16 @@ const Header = () => {
         alert("로그아웃 되었습니다.");
         history.push('/');
     }
-
+    
     useEffect(()=>{
         var s = JSON.parse(localStorage.getItem('token'));    
         if(localStorage.getItem('token')){
             
         }
+        else{
+            localStorage.setItem('email', "")
+        }
+
         $(document).mouseup(function (e){
             var LayerPopup = $(".layer-popup");
             if(LayerPopup.has(e.target).length === 0){
@@ -147,102 +146,3 @@ const Header = () => {
 }
 
 export default Header
-/*        <S.LR>
-            <S.LD>
-            {logined ?
-                <>                
-                <S.L>{name}님</S.L>
-                <S.LogOut onClick={()=>Logout()}>로그아웃</S.LogOut>            
-                </>
-            :
-            <>
-            <S.L onClick={()=>history.push('/login')}>로그인</S.L>
-            <S.L onClick={()=>history.push('/signup')}>회원가입</S.L>
-            </>
-            }
-            </S.LD>
-        </S.LR> */
-
-/*             {admin ? <S.Link src={Admin} onClick={()=>history.replace(`/admin`)}></S.Link> : <></>}*/
-
-/*            <div onClick={()=>history.replace(`/cart`)}>
-            <S.Link src={C}/>
-            {cart >= 9 ?
-            <S.CartNumber>{cart}</S.CartNumber>
-            :
-            <S.CartNumber>9+</S.CartNumber>
-            }
-            </div> */
-
-            /*        <S.LoginBackground>
-            <S.LoginDiv>
-                <S.LoginTittle><S.LT>대마마켓</S.LT><S.X onClick={()=>setLogin(false)}>x</S.X></S.LoginTittle> 
-                <S.LoginSpan>이메일</S.LoginSpan>           
-                <S.LoginInput onChange={(e)=>setIp({email: e.target.value, password: ip.password})} value={ip.id}/>
-                <S.LoginSpan>비밀번호</S.LoginSpan>
-                <S.LoginInput type="password" onChange={(e)=>setIp({email: ip.email, password: e.target.value})} value={ip.password}/>
-                <S.LoginButton color="royalblue" c="white" onClick={()=>Login({email: ip.email, password: ip.password})}>로그인</S.LoginButton>
-                <S.LoginButton c="black" onClick={()=>SignUp()}>회원가입</S.LoginButton>
-            </S.LoginDiv>
-        </S.LoginBackground> */
-
-        /*        
-        const d = JSON.parse(localStorage.getItem('user'));
-        
-        if(d){    
-            console.log("log");
-            Login({email: d.email , password: d.password});
-            console.log(d);
-        }
-
-        const s = JSON.parse(localStorage.getItem('search'));
-        
-        if(s){
-            setRecent(s);
-            console.log("s:"+s);
-        } */
-
-            /*
-    const Login = ({email, password}) => {
-        if(email === ""){
-            alert("이메일을 입력해주세요");
-        }   
-        else if(password === ""){
-            alert("비밀번호를 입력해주세요");
-        }
-        else{
-        
-        axios.post(`/api/auth/login`, ip)
-            .then(response =>{
-                const { accessToken } = response.data;
-                axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
-                setName(response.name);
-                setLogined(true);
-                setLogin(false);
-                localStorage.user = JSON.stringify({email: email, password: password});
-            })
-            .catch(error =>{
-                alert("아이디나 비밀번호가 잘못됬습니다.");
-            })
-        
-
-        function isTrue(element)  {
-            if(element.email === email && element.password === password)  {
-              return true;
-            }
-          }
-            const a = user.find(isTrue);
-            if(a){
-                setName(a.name);
-                setLogined(true);
-                setLogin(false);
-                localStorage.user = JSON.stringify({email: email, password: password});
-            }
-            else{
-                alert("아이디나 비밀번호가 틀렸습니다.");
-            }
-        }
-
-        console.log(ip.id);
-        console.log(ip.password);
-    }*/
