@@ -26,7 +26,7 @@ const UserPage = () => {
 
     const [user, setUser] = useState({
         introduce: "asdad",
-        comments: [{review: "1123123123123213", name: 1}],
+        comments: [],
         item: [{id: 1, name: "1", price: 100, img: A},
                 {id: 1, name: "1", price: 10, img: B},
                 {id: 1, name: "1", price: 5, img: C},
@@ -39,8 +39,30 @@ const UserPage = () => {
 
     const login = true;
 
+    function getCookie(cName) {
+        cName = cName + '=';
+        var cookieData = document.cookie;
+        var start = cookieData.indexOf(cName);
+        var cValue = '';
+        if(start != -1){
+        start += cName.length;
+        var end = cookieData.indexOf(';', start);
+        if(end == -1)end = cookieData.length;
+        cValue = cookieData.substring(start, end);
+        }
+        return unescape(cValue);
+        }
+
+    const config = {
+        headers: {
+          'Authorization': `Bearer ${getCookie("X-AUTH-TOKEN")}`,
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': "*"
+        }
+      }
+
     const RegistComment = () => {
-        axios.post('http://13.124.26.107:9095/api/comment', review)
+        axios.post('http://13.124.26.107:9095/api/comment', review, config)
             .then(response => {
                 alert("완료");
             })
@@ -49,16 +71,16 @@ const UserPage = () => {
             })
     }
 
-    const DeleteComment = () => {
-        axios.delete('http://13.124.26.107:9095/api/comment')
-    }   
-
     useEffect(()=>{
-        axios.get('http://13.124.26.107:9095/api/comment')
-            .then(response => setUser({...user, comments: response}))
+        axios.get('http://13.124.26.107:9095/api/comment', config)
+            .then(response => setUser({...user, comments: response.data.data}) && console.log(user.comments))
+            .catch(error => alert("실패"));
+
+        axios.get('http://13.124.26.107:9095/api/item', config)
+            .then(response => setUser({...user, item: response.data.data}))
         
-        axios.get('http://localhost:9095/api/mypage')
-            .then(response => console.log("ASdasdasd"));
+        axios.get('http://localhost:9095/api/mypage', config)
+            .then(response => console.log(response));
     },[])
 
     const [review, setReview] = useState({contents: "", memberEmail: params.id});
@@ -68,10 +90,14 @@ const UserPage = () => {
             return(
                 <>
                 <S.Review>
+                    {user.comments ? 
                     <Review lists={user.comments}/>
+                    :
+                    <></>
+                    }
                 </S.Review>
                 <S.RIDiv>
-                    <span>이메일</span>
+                    <span>{localStorage.getItem("email")}</span>
                     <S.RDiv>
                     <S.RText onChange={(e) => setReview({...review, contents: e.target.value})} value={review.contents}></S.RText>
                     <S.RButton onClick={()=>RegistComment()}>등록</S.RButton>

@@ -83,28 +83,28 @@ const SignUpPage = () => {
         <S.Si>
             <S.SiDiv>
             <S.STittle>회원가입</S.STittle>
-            <S.SignUpDiv>
-            <S.SignSpan>이메일</S.SignSpan>
-            <S.SignUpInput placeholder="아이디" name="email" value={user.email} onChange={(e)=>changeEmail(e)}></S.SignUpInput>
-            </S.SignUpDiv>
-            <S.SignUpDiv>
-            <S.SignSpan>비밀번호</S.SignSpan>
-            <S.SignUpInput placeholder="비밀번호" type="password" value={user.password} name="password" onChange={(e)=>onChange(e)}></S.SignUpInput>
-            </S.SignUpDiv>
-            <S.SignUpDiv>
-            <S.SignSpan>비밀번호 확인</S.SignSpan>
-            <S.SignUpInput placeholder="비밀번호 확인" type="password" value={check} onChange={(e)=>setCheck(e.target.value)}></S.SignUpInput>
-            </S.SignUpDiv>
-            <S.SignUpDiv>
-            <S.SignSpan>이름</S.SignSpan>
-            <S.SignUpInput placeholder="이름" name="name" value={user.name} onChange={(e)=>onChange(e)}></S.SignUpInput>
-            </S.SignUpDiv>
-            <S.SignUpDiv>
-            <S.SignSpan>휴대폰 번호</S.SignSpan>
-            <S.SignUpInput placeholder="휴대폰 번호" name="phone" value={user.phone}  onChange={(e)=>changePhone(e)} pattern="[0-9]*"></S.SignUpInput>
-            </S.SignUpDiv>
-            <S.SiButton onClick={()=>SignUp()}>회원가입</S.SiButton>
-            </S.SiDiv>
+                <S.SignUpDiv>
+                    <S.SignSpan>이메일</S.SignSpan>
+                    <S.SignUpInput placeholder="아이디" name="email" value={user.email} onChange={(e)=>changeEmail(e)}></S.SignUpInput>
+                </S.SignUpDiv>
+                <S.SignUpDiv>
+                    <S.SignSpan>비밀번호</S.SignSpan>
+                    <S.SignUpInput placeholder="비밀번호" type="password" value={user.password} name="password" onChange={(e)=>onChange(e)}></S.SignUpInput>
+                </S.SignUpDiv>
+                <S.SignUpDiv>
+                    <S.SignSpan>비밀번호 확인</S.SignSpan>
+                    <S.SignUpInput placeholder="비밀번호 확인" type="password" value={check} onChange={(e)=>setCheck(e.target.value)}></S.SignUpInput>
+                </S.SignUpDiv>
+                <S.SignUpDiv>
+                    <S.SignSpan>이름</S.SignSpan>
+                    <S.SignUpInput placeholder="이름" name="name" value={user.name} onChange={(e)=>onChange(e)}></S.SignUpInput>
+                </S.SignUpDiv>
+                <S.SignUpDiv>
+                    <S.SignSpan>휴대폰 번호</S.SignSpan>
+                    <S.SignUpInput placeholder="휴대폰 번호" name="phone" value={user.phone}  onChange={(e)=>changePhone(e)} pattern="[0-9]*"></S.SignUpInput>
+                </S.SignUpDiv>
+                <S.SiButton onClick={()=>SignUp()}>회원가입</S.SiButton>
+                </S.SiDiv>
         </S.Si>
     )
 }

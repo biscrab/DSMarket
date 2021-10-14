@@ -62,7 +62,8 @@ const Header = () => {
             setRecent([...localStorage.recent]);
         }
         else{
-            localStorage.setItem("recent", "[]");
+            localStorage.setItem("recent", "");
+            setRecent([...localStorage.recent]);
         }
     },[])
 

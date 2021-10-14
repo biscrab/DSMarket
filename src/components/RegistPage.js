@@ -42,6 +42,20 @@ const RegistPage = () => {
     const Regist = () => {
         axios.post('http://13.124.26.107:9095/api/item', JSON.stringify(item), config)
         .then(response => {
+          
+          axios.get('http://13.124.26.107:9095/api/item', config)
+              .then(response => {
+
+                let target = response.filter(i => i.name = item.name)
+            
+                axios.post("http://13.124.26.107:9095/api/image",  fd, config)
+                  .then(response => {
+                    alert("이미지가 등록되었습니다.")
+                  })
+                  .catch(error => {
+                    alert("실패")
+                })
+            })
             alert("상품이 등록되었습니다.")
         })
         .catch(error => {
@@ -59,13 +73,7 @@ const RegistPage = () => {
 
         console.log(fd);
 
-        axios.post("http://13.124.26.107:9095/api/comment",  fd, config)
-          .then(response => {
-            alert("이미지가 등록되었습니다.")
-          })
-          .catch(error => {
-            alert("실패")
-          })
+
     }
 
     const [c, setC] = useState();

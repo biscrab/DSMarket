@@ -326,9 +326,11 @@ export const Order = styled.ul`
 export const Border = styled.div`
     position: relative;
     min-height: 660px;
+    width: 730px;
     height: auto;
     list-style: none;
     display: flex;
+    justify-content: center;
     background-color: white;
     border: 2px solid #eeeeee;
     border-top: 0;
@@ -617,6 +619,10 @@ export const RHead = styled.div`
 
 export const RHUser = styled.div`
 
+`
+
+export const RI = styled.div`
+    padding-right: 20px;
 `
 
 export const RHImg  = styled.img`
@@ -1846,8 +1852,8 @@ export const Gohome = styled.h4`
 export const EditBorder = styled.ul`
     border-radius: 20px;
     background-color: white;
-    width: 500px;
-    height: 300px;
+    width: 300px;
+    height: 165px;
     position: relative;
     top: 50%;
     transform: translateY(-50%);
@@ -1855,7 +1861,14 @@ export const EditBorder = styled.ul`
 `
 
 export const Edit = styled.li`
+    color: ${props => props.color};
     border-bottom: 1px #eeeeee solid;
+    display: flex;
+    padding: 15px;
+    justify-content: center;
+`
+
+export const BEdit = styled.li`
     display: flex;
     padding: 15px;
     justify-content: center;

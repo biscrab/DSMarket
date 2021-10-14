@@ -68,6 +68,7 @@ export const ItemDiv = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    min-height: 350px;
  `
 
 export const Introduce = styled.textarea`

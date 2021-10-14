@@ -33,11 +33,12 @@ function App() {
     }
   },[])*/
 
+/*
   useEffect(()=>{
-    if(!getCookie("X-AUTH-TOKEN")){
+    if(getCookie("X-AUTH-TOKEN") === ""){
       setCookie("email", "");
     } 
-  })
+  })*/
   
   axios.defaults.withCredentials = "*";
   
