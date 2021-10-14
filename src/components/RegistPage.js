@@ -31,6 +31,14 @@ const RegistPage = () => {
       category: "남성패션"
   });
 
+  
+  const [plength, setPlength] = useState(String(item.price));
+
+  useEffect(()=>{
+    setPlength(String(item.price));
+  })
+
+
     const config = {
       headers: {
         'Authorization': `Bearer ${getCookie("X-AUTH-TOKEN")}`,
@@ -40,12 +48,15 @@ const RegistPage = () => {
     }
 
     const Regist = () => {
-        axios.post('http://13.124.26.107:9095/api/item', JSON.stringify(item), config)
+        axios.post('http://13.124.26.107:9095/api/item', JSON.stringify({...item, price: Number(item.price)}), config)
         .then(response => {
-                let id = response.data.data
+                /*let id = response.data.data
                 const formData = new FormData(acceptedFiles[0]);
                 console.log("가느다란");
-                console.log(id);
+                console.log(id);*/
+                alert("등록이 완료 되었습니다.");
+                history.push("/");
+              
         })
         .catch(error => {
             alert("상품 등록에 실패했습니다.");
@@ -129,7 +140,7 @@ const RegistPage = () => {
             <p>가격</p>
             <S.InputDiv>
             <S.Input placeholder="₩ 가격" name="price" onChange={(e)=>setPrice(e)} value={item.price}></S.Input>
-            <S.Max>{item.price.string().length}/8</S.Max>
+            <S.Max>{plength.length}/8</S.Max>
             </S.InputDiv>
             </S.RegistDiv>        
             <S.RegistDiv>

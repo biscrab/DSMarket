@@ -44,11 +44,19 @@ const Select = ({item, lists}) => {
       }
 
     const Delete = () => {
-        axios.delete('http://13.124.26.107:9095/api/item', item, config)
+        if(window.confirm("제품을 삭제하시겠습니까?")){
+            axios.delete('http://13.124.26.107:9095/api/item', item, config)
+            .then(response => {
+                alert("성공적으로 삭제 했습니다.")
+            })
+            .catch(error => {
+                alert("에러");
+            })
+        }
     }
 
     const Edit = () => {
-        
+
     }
 
  

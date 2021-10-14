@@ -28,12 +28,15 @@ function App() {
 
   const [cookie, setCookie, removeCookie] = useCookies([]);
 
-  /*
   useEffect(()=>{
-    if(getCookie("X-AUTH-TOKEN")&&(location.pathname !== '/signup' || location.pathname !== '/login')){
-        history.push('/login');
+    if(getCookie("X-AUTH-TOKEN")){
+        
     }
-  },[])*/
+    else if(location.pathname !== '/signup' && location.pathname !== '/login'){
+      console.log(1);
+      history.push('/login');
+    }
+  })
 
 /*
   useEffect(()=>{
