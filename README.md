@@ -1,4 +1,4 @@
-#리액트로 만든 중고
+# 리액트로 만든 중고장터
 
 # Getting Started with Create React App
 
