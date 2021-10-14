@@ -1588,7 +1588,7 @@ export const RButton = styled.button`
     height: 50px;
     margin-top: 20px;
     position: relative;
-    left: 900px;
+    left: 950px;
     transform: translateX(-50%);
     outline: 0;
 `
@@ -1810,7 +1810,6 @@ export const Introduce = styled.div`
 `
 
 export const Iname = styled.span`
-    padding-left: 10px;
 `
 
 export const Gray = styled.p`

@@ -99,7 +99,7 @@ const Header = () => {
             </S.Head>
             <S.SelectDiv>
                 <S.SSelect onClick={()=>history.push('/regist')}><i class="fas fa-cart-plus"></i><S.SS>판매하기</S.SS></S.SSelect>
-                <S.SSelect className="b"><i class="far fa-user-circle"></i>{email ? <S.SS onClick={()=>setBalloon(true)}>{email}</S.SS> : <S.SS onClick={()=>history.push('/login')}>로그인</S.SS>}</S.SSelect>
+                <S.SSelect className="b"><i class="far fa-user-circle"></i>{email ? <S.SS onClick={()=>setBalloon(!balloon)}>{email}</S.SS> : <S.SS onClick={()=>history.push('/login')}>로그인</S.SS>}</S.SSelect>
             </S.SelectDiv>
             </S.HDiv>
         </S.Header> 

@@ -25,14 +25,8 @@ const UserPage = () => {
     };
 
     const [user, setUser] = useState({
-        introduce: "asdad",
         comments: [],
-        item: [{id: 1, name: "1", price: 100, img: A},
-                {id: 1, name: "1", price: 10, img: B},
-                {id: 1, name: "1", price: 5, img: C},
-                {id: 1, name: "1", price: 6, img: D},
-                {id: 1, name: "1", price: 190, img: B},
-                {id: 1, name: "1", price: 18, img: B}]
+        item: []
     }) 
     const [select, setSelect] = useState(-1);
     const [chexplane, setChexplane] = useState(false);
@@ -78,9 +72,7 @@ const UserPage = () => {
 
         axios.get('http://13.124.26.107:9095/api/item', config)
             .then(response => setUser({...user, item: response.data.data}))
-        
-        axios.get('http://localhost:9095/api/mypage', config)
-            .then(response => console.log(response));
+            .catch(error => alert("실패"));
     },[])
 
     const [review, setReview] = useState({contents: "", memberEmail: params.id});
@@ -150,8 +142,6 @@ const UserPage = () => {
                     </S.UserInfo>
                     </S.ProfileDiv> 
                 <S.IDiv>
-                <S.Introduce onChange={(e)=>setUser({...user, introduce: e.target.value})} value={user.introduce}></S.Introduce> 
-                <S.IButton onClick={()=>editIntroduce()}>수정</S.IButton>
                 </S.IDiv>              
                 </S.User>
                 <S.Select>

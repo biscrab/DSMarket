@@ -42,31 +42,26 @@ const RegistPage = () => {
     const Regist = () => {
         axios.post('http://13.124.26.107:9095/api/item', JSON.stringify(item), config)
         .then(response => {
-          
-          axios.get('http://13.124.26.107:9095/api/item', config)
-              .then(response => {
-
-                let target = response.filter(i => i.name = item.name);
-                target = target.indentifyId;
-            
-                axios.post("http://13.124.26.107:9095/api/image",  fd, config)
+                let id = response.data.data
+                const formData = new FormData(acceptedFiles[0]);
+                console.log("id:"+id);
+                axios.post(`http://13.124.26.107:9095/api/image/${id}`, formData, config)
                   .then(response => {
-                    alert("이미지가 등록되었습니다.")
+                    alert("이미지가 등록되었습니다.1")
                   })
                   .catch(error => {
-                    alert("실패")
+                    alert("실패1")
                 })
-            })
-            alert("상품이 등록되었습니다.")
+                alert("상품이 등록되었습니다.")
         })
         .catch(error => {
-          if(error.response.status === 406){
+          if(error.status === 406){
             alert("같은 이름의 상품이 존재합니다.");
           }
           else{
-
-          }
             alert("상품 등록에 실패했습니다.");
+          }
+            
         })
 
         console.log(acceptedFiles);
@@ -113,6 +108,19 @@ const RegistPage = () => {
         }
       }
 
+      const handleFileOnChange = () => {
+        acceptedFiles.preventDefault();
+        let reader = new FileReader();
+        let file = acceptedFiles[0];
+        reader.onloadend = () => {
+          this.setState({
+            file : file,
+            previewURL : reader.result
+          })
+        }
+        reader.readAsDataURL(file);
+      }
+
     return(
         <S.R>
             <div style={{width: "70%"}}>
@@ -147,38 +155,12 @@ const RegistPage = () => {
                 <S.Explane onChange={(e)=>changeExplane(e)} value={item.info}></S.Explane>
             </S.RegistDiv>
             <>
-            {1 ?
-            <>
-            <S.RegistDiv>
-                <p>미리보기</p>
-    <S.PItem>
-    <S.ImageDiv>
-      <S.Image/>
-    </S.ImageDiv>
-<S.ItDiv>
-<S.IUSer>
-    <S.Profile src={Profile}></S.Profile>
-    <S.ProfileSpan>{localStorage.email}</S.ProfileSpan>
-</S.IUSer>
-<S.IEX>
-<S.Profile src={Profile}></S.Profile>
-<S.Iname>{item.name}</S.Iname>
-<S.ItemPrice>{item.price}원</S.ItemPrice>
-
-<S.Introduce>{item.info}</S.Introduce>
-</S.IEX>
-</S.ItDiv>
-</S.PItem>
             {item.name&&item.price&&acceptedFiles ?
             <S.RButton color="white" bkcolor="royalblue" onClick={() => Regist()}>판매요청</S.RButton>
             :
             <S.RButton onClick={()=>alert("이름, 가격, 카테고리, 설명 을 모두 입력해주세요.")}>판매요청</S.RButton>
             }      
-</S.RegistDiv>
-</>
-:<></>
-            }
-            </>     
+            </>
             </div>
         </S.R>
     )
