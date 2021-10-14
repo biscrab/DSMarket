@@ -23,8 +23,9 @@ export const Head = styled.div`
 
 export const Login = styled.body`
     display: flex;
-    padding: 7% 0px;
-    background-image: url('https://i.stack.imgur.com/XZDsP.jpg');
+    justify-content: center;
+    padding-bottom: 10%;
+    background-color: aliceblue;
     background-repeat: no-repeat;
     background-size : cover;
 `
@@ -79,23 +80,14 @@ export const Balloon = styled.div`
     margin-top: 10px;
     width:150px; 
     height:100px;
-    background-color: #eeeeee; 
+    background-color: white; 
     border-radius: 10px;
     border-bottom: 0;
     display: flex;
     flex-direction: column;
     padding: 10px;
-
-    :after { 
-    border-top:0px solid transparent; 
-    border-left: 10px solid transparent; 
-    border-right: 10px solid transparent; 
-    border-bottom: 10px solid #eeeeee; 
-    content:""; 
-    position:absolute;
-    top:-10px;
-    left:100px;  
-   }
+    z-index: 5;
+    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.03);
 `
 
 export const BA = styled.span`
@@ -104,7 +96,7 @@ export const BA = styled.span`
     color:${props => props.color};
 
     :hover{
-        color: white;
+        text-decoration: underline;
     }
 `
 
@@ -606,6 +598,7 @@ export const RDiv = styled.div`
     border: 2px solid #eeeeee;
     display: flex;
     flex-direction: column;
+    margin-top: 20px;
 ` 
 
 export const RHead = styled.div`
@@ -622,7 +615,7 @@ export const RHUser = styled.div`
 `
 
 export const RI = styled.div`
-    padding-right: 20px;
+    padding-right: 10px;
 `
 
 export const RHImg  = styled.img`
@@ -957,10 +950,10 @@ export const LoginDiv = styled.div`
     background-color: white;
     position: relative;
     border: 2px solid #eeeeee;
-    left: 60%;
     width: 400px;
-    height: 500px;
+    height: 470px;
     margin: 0;
+    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.03);
 `
 
 export const LoginInput = styled.input`
@@ -1158,7 +1151,7 @@ export const SiDiv = styled.div`
     background-color: white;
     padding: 50px;
     border-radius: 10px;
-    box-shadow: 0px 0px 0px 2px #eeeeee;
+    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.03);
 `
 
 export const STittle = styled.h1`

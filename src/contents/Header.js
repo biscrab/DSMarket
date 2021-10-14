@@ -5,6 +5,7 @@ import Profile from '../images/profile.png'
 import Logo from '../images/Logo.png'
 import axios from 'axios'
 import $ from 'jquery'
+import { useCookies } from 'react-cookie'
 
 const Header = () => {
     
@@ -12,8 +13,9 @@ const Header = () => {
     let location = useLocation();
     let params = useParams();
 
-    const select = useRef();
+    const [cookies, setCookie, removeCookie] = useCookies(['cookie-name']);
 
+    const select = useRef();
     
     const [typing, setTyping] = useState(false);
     const [v, setV] = useState();
@@ -26,35 +28,24 @@ const Header = () => {
     }
 
     const Logout = () => {
-        localStorage.removeItem('user');
-        localStorage.removeItem('X-AUTH-TOKEN');
+        localStorage.removeItem('email');
+        removeCookie('X-AUTH-TOKEN');
         alert("로그아웃 되었습니다.");
-        history.push('/');
+        history.push('/login');
     }
     
     useEffect(()=>{
-        var s = JSON.parse(localStorage.getItem('token'));    
-        if(localStorage.getItem('token')){
-            
-        }
-        else{
-            localStorage.setItem('email', "")
-        }
-
-        $(document).mouseup(function (e){
+        /*$(document).mouseup(function (e){
             var LayerPopup = $(".layer-popup");
             if(LayerPopup.has(e.target).length === 0){
                 setBalloon(false);
             }
             else{
-                if(balloon === true){
-                    setBalloon(false);
-                }
-                else{
-                    setBalloon(true);
-                }
+                setBalloon(true);
             }
-          });
+          });*/
+
+          setEmail(localStorage.getItem("email"))
     })
 
     useEffect(()=>{
@@ -105,29 +96,6 @@ const Header = () => {
             <S.Head>
             <S.LogoImg src={Logo} onClick={()=>history.push('/')}></S.LogoImg>
             <S.Logo onClick={() => history.replace('/')}>DS마켓</S.Logo>
-            <S.SBox>
-                <S.SDiv>
-                    <S.Search onChange={(e)=>setV(e.target.value)} onClick={()=>setTyping(true)} value={v} onBlur={()=>setTyping(false)} /*onFocus={() => setTyping(true)} onBlur={() => setTyping(false)}*/></S.Search>
-                    {typing === true? 
-                    <S.SBorder>
-                        <S.Recent><S.RecentP>최근 검색어</S.RecentP></S.Recent>
-                        <SLi num={0}></SLi>
-                        <SLi num={1}></SLi>
-                        <SLi num={2}></SLi>
-                        <SLi num={3}></SLi>
-                        <SLi num={4}></SLi>
-                        <SLi num={5}></SLi>
-                        <SLi num={6}></SLi>
-                        <SLi num={7}></SLi>
-                        <SLi num={8}></SLi>
-                        <SLi num={9}></SLi>
-                    </S.SBorder> 
-                    : <></>}
-               </S.SDiv> 
-               <div onClick={()=>Search()}>
-               <i class="fa fa-search fa-lg" style={{color: "rgb(100, 100, 100)"}}></i>
-               </div>
-            </S.SBox>
             </S.Head>
             <S.SelectDiv>
                 <S.SSelect onClick={()=>history.push('/regist')}><i class="fas fa-cart-plus"></i><S.SS>판매하기</S.SS></S.SSelect>
@@ -137,8 +105,8 @@ const Header = () => {
         </S.Header> 
         {balloon === true ?               
         <S.Balloon className="b">
-            <S.BA onClick={()=>history.push(`/${email}`)}>마이 페이지</S.BA>
-            <S.BA color="crimson" onClick={()=>Logout()}>로그아웃</S.BA>
+            <S.BA className="b" onClick={()=>history.push(`user/${email}`)}>마이 페이지</S.BA>
+            <S.BA className="b" color="crimson" onClick={()=>Logout()}>로그아웃</S.BA>
         </S.Balloon>:
         <></>
         } 
@@ -147,3 +115,31 @@ const Header = () => {
 }
 
 export default Header
+
+
+/*     
+            <S.SBox>
+               <div onClick={()=>Search()}>
+               <i class="fa fa-search fa-lg" style={{color: "rgb(100, 100, 100)"}}></i>
+               </div>
+            </S.SBox>
+                <S.SDiv>
+               </S.SDiv>               
+<S.Search onChange={(e)=>setV(e.target.value)} onClick={()=>setTyping(true)} value={v} onBlur={()=>setTyping(false)} onFocus={() => setTyping(true)} onBlur={() => setTyping(false)}></S.Search>
+{typing === true? 
+    <S.SBorder>
+        <S.Recent><S.RecentP>최근 검색어</S.RecentP></S.Recent>
+        <SLi num={0}></SLi>
+        <SLi num={1}></SLi>
+        <SLi num={2}></SLi>
+        <SLi num={3}></SLi>
+        <SLi num={4}></SLi>
+        <SLi num={5}></SLi>
+        <SLi num={6}></SLi>
+        <SLi num={7}></SLi>
+        <SLi num={8}></SLi>
+        <SLi num={9}></SLi>
+    </S.SBorder> 
+    : <></>}
+    
+*/

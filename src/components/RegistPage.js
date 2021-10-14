@@ -46,7 +46,8 @@ const RegistPage = () => {
           axios.get('http://13.124.26.107:9095/api/item', config)
               .then(response => {
 
-                let target = response.filter(i => i.name = item.name)
+                let target = response.filter(i => i.name = item.name);
+                target = target.indentifyId;
             
                 axios.post("http://13.124.26.107:9095/api/image",  fd, config)
                   .then(response => {
@@ -59,8 +60,11 @@ const RegistPage = () => {
             alert("상품이 등록되었습니다.")
         })
         .catch(error => {
-          if(error.status === 406){
+          if(error.response.status === 406){
             alert("같은 이름의 상품이 존재합니다.");
+          }
+          else{
+
           }
             alert("상품 등록에 실패했습니다.");
         })

@@ -115,7 +115,7 @@ const MainPage = () => {
                                 dataLength={list.length}
                                 loader={<Loading />}
                 >
-                <S.ItemD onClick={()=>console.log(list)}>
+                <S.ItemD>
                     <Item lists={list}/>
                 </S.ItemD>
                 </InfiniteScroll>            

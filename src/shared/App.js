@@ -9,6 +9,9 @@ import { useCookies } from 'react-cookie';
 
 function App() {
 
+  let location = useLocation();
+  let history = useHistory();
+
   function getCookie(cName) {
     cName = cName + '=';
     var cookieData = document.cookie;
@@ -28,7 +31,6 @@ function App() {
   /*
   useEffect(()=>{
     if(getCookie("X-AUTH-TOKEN")&&(location.pathname !== '/signup' || location.pathname !== '/login')){
-        alert("로그인을 해주세요");
         history.push('/login');
     }
   },[])*/
