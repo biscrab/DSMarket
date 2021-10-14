@@ -54,9 +54,11 @@ const OrderItem = ({item}) => {
     }
 
     return(
+    <>
     <S.OrderItemDiv onClick={()=>history.push(`/item/${item.id}`)}>
-        <S.OrderItemImg src={item.img}></S.OrderItemImg><S.OrderItemSpan>{item.name}</S.OrderItemSpan>
+        <S.OrderItemImg src={item.img}></S.OrderItemImg><S.OrderItemSpan>{item.name}</S.OrderItemSpan>    
     </S.OrderItemDiv>
+    </>    
     );
 }
 

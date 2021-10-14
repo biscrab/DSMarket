@@ -592,7 +592,7 @@ export const RelatedDiv = styled.div`
 
 export const RDiv = styled.div`
     width: 700px;
-    height: 700px;
+    height: 580px;
     margin: 0;
     margin-bottom: 20px;
     border: 2px solid #eeeeee;
@@ -603,7 +603,7 @@ export const RDiv = styled.div`
 
 export const RHead = styled.div`
     background-color: white;
-    height: 60px;
+    height: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -634,7 +634,7 @@ export const RImgDiv = styled.div`
 `
 
 export const RImg = styled.img`   
-    height: 500px;
+    height: 400px;
     width: 100%;
 `
 
@@ -650,9 +650,19 @@ export const MyRBack = styled.div`
     width: 100%;
     height: 100%;
     z-index: 10;
+    display: flex;
+    align-items: center;
     :hover{
         background-color: rgba(0, 0, 0, 0.5);
     }
+`
+
+export const MSpan = styled.span`
+    color: white;
+    font-style: 18px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 `
 
 export const RBody = styled.div` 

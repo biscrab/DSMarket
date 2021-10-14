@@ -29,7 +29,6 @@ const MainPage = () => {
         //SetP(params.catagory);
         console.log(query);
         SetPage();
-        setList(list.filter(i => i.name.includes(query.search)))
     },[]);
 
     function getCookie(cName) {
@@ -124,6 +123,8 @@ const MainPage = () => {
     )
 }
 
+export default MainPage
+
 /*                <S.MyDiv>
                     <S.MyFDiv>
                     <S.My>
@@ -138,5 +139,3 @@ const MainPage = () => {
                     </S.OtherUl>
                     </S.MyFDiv>
                 </S.MyDiv> */
-
-export default MainPage

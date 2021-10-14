@@ -67,12 +67,13 @@ const UserPage = () => {
 
     useEffect(()=>{
         axios.get('http://13.124.26.107:9095/api/comment', config)
-            .then(response => setUser({...user, comments: response.data.data}) && console.log(user.comments))
-            .catch(error => alert("실패"));
+            .then(response => {
+                setUser({...user, comments: response.data.data} )
+                console.log(user.comments)
+            })
 
         axios.get('http://13.124.26.107:9095/api/item', config)
             .then(response => setUser({...user, item: response.data.data}))
-            .catch(error => alert("실패"));
     },[])
 
     const [review, setReview] = useState({contents: "", memberEmail: params.id});

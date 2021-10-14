@@ -44,25 +44,22 @@ const RegistPage = () => {
         .then(response => {
                 let id = response.data.data
                 const formData = new FormData(acceptedFiles[0]);
-                console.log("id:"+id);
-                axios.post(`http://13.124.26.107:9095/api/image/${id}`, formData, config)
-                  .then(response => {
-                    alert("이미지가 등록되었습니다.1")
-                  })
-                  .catch(error => {
-                    alert("실패1")
-                })
-                alert("상품이 등록되었습니다.")
+                console.log("가느다란");
+                console.log(id);
         })
         .catch(error => {
-          if(error.status === 406){
-            alert("같은 이름의 상품이 존재합니다.");
-          }
-          else{
             alert("상품 등록에 실패했습니다.");
-          }
-            
         })
+        
+        const RegistImg = (id, formData) => {
+            axios.post(`http://13.124.26.107:9095/api/image/${id}`, formData, config)
+              .then(response => {
+              alert("이미지가 등록되었습니다.1")
+            })
+            .catch(error => {
+              alert("실패1")
+            })
+        }
 
         console.log(acceptedFiles);
 
@@ -78,18 +75,11 @@ const RegistPage = () => {
     const [c, setC] = useState();
 
     const setName = (e) => {
-        if(item.name.length < 30){
-            setItem({...item, name: e.target.value});
-        }
+      setItem({...item, name: e.target.value.slice(0, 30)});
     }
 
     const setPrice = (e) => {
-        setItem({...item, price: e.target.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')})
-    }
-
-    const changeCatagory = (link, name) => {
-        setItem({...item, catagory: link});
-        setC(name);
+      setItem({...item, price: e.target.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1').slice(0, 8)})
     }
 
     const {
@@ -139,6 +129,7 @@ const RegistPage = () => {
             <p>가격</p>
             <S.InputDiv>
             <S.Input placeholder="₩ 가격" name="price" onChange={(e)=>setPrice(e)} value={item.price}></S.Input>
+            <S.Max>{item.price.string().length}/8</S.Max>
             </S.InputDiv>
             </S.RegistDiv>        
             <S.RegistDiv>
@@ -155,7 +146,7 @@ const RegistPage = () => {
                 <S.Explane onChange={(e)=>changeExplane(e)} value={item.info}></S.Explane>
             </S.RegistDiv>
             <>
-            {item.name&&item.price&&acceptedFiles ?
+            {item.name&&item.price&&acceptedFiles[0] ?
             <S.RButton color="white" bkcolor="royalblue" onClick={() => Regist()}>판매요청</S.RButton>
             :
             <S.RButton onClick={()=>alert("이름, 가격, 카테고리, 설명 을 모두 입력해주세요.")}>판매요청</S.RButton>
