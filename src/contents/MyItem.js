@@ -17,6 +17,8 @@ const Select = ({item}) => {
 
     const [edit, setEdit] = useState(false);
 
+    const [image, setImage] = useState();
+
     function getCookie(cName) {
         cName = cName + '=';
         var cookieData = document.cookie;
@@ -68,7 +70,7 @@ const Select = ({item}) => {
     <S.Xbutton onClick={()=>setChange(false)}><svg aria-label="닫기" class="_8-yf5 " color="#ffffff" fill="#ffffff" height="24" role="img" viewBox="0 0 48 48" width="24"><path clip-rule="evenodd" d="M41.8 9.8L27.5 24l14.2 14.2c.6.6.6 1.5 0 2.1l-1.4 1.4c-.6.6-1.5.6-2.1 0L24 27.5 9.8 41.8c-.6.6-1.5.6-2.1 0l-1.4-1.4c-.6-.6-.6-1.5 0-2.1L20.5 24 6.2 9.8c-.6-.6-.6-1.5 0-2.1l1.4-1.4c.6-.6 1.5-.6 2.1 0L24 20.5 38.3 6.2c.6-.6 1.5-.6 2.1 0l1.4 1.4c.6.6.6 1.6 0 2.2z" fill-rule="evenodd"></path></svg></S.Xbutton>
             <S.Item>
         <S.ImageDiv>
-          <S.Image/>
+          <S.Image href={image}/>
         </S.ImageDiv>
     <S.ItDiv>
     <S.IUSer>
@@ -88,10 +90,17 @@ const Select = ({item}) => {
 
     const [hover, setHover] = useState(false)
 
+    useEffect(()=>{
+        axios.get(`http://13.124.26.107:9095/api/image/${item.identifyId}`, config)
+            .then(response => {
+                setImage(response.data);
+            })
+    },[])
+
     return(
         <>
         <S.MyRDiv onClick={()=>setChange(true)} >
-            <S.MyRImg src={item.img}/>
+            <S.MyRImg src={image}/>
             <S.MyRBack onMouseEnter={()=>setHover(true)} onMouseLeave={()=>setHover(false)}>            
                 <>
                 {hover ?
@@ -114,7 +123,7 @@ const Select = ({item}) => {
 const List = ({lists}) => {
     const itemList = lists.map(
         item => ( 
-            <Select item={item} key={item.name} name={item.name} price={item.price} img={item.img} id={item.id}/>
+            <Select item={item}/>
         )
     )
     return itemList

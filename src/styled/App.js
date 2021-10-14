@@ -1565,15 +1565,14 @@ export const Rp = styled.p`
     position: relative;
     top: 5px;
     font-size: 16px;
-    padding: 0px 5px;
+    padding-bottom: 10px;
 `
-export const Rprice = styled.b`
+export const Rprice = styled.p`
     position: relative;
-    top: 10px;
     font-size: 15px;
     text-decoration: bold;
     margin: 0;
-    padding: 0px 5px;
+    padding-bottom: 10px;
 `
 
 export const Sel = styled.select`

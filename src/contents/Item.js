@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,  useEffect} from 'react'
 import { useHistory } from 'react-router';
 import * as S from '../styled/App'
 import A from '../images/c.jpg'
@@ -20,6 +20,14 @@ const Select = ({item, lists}) => {
 
     const [change, setChange] = useState(false);
     const [edit, setEdit] = useState(false);
+    const [image, setImage] = useState();
+
+    useEffect(()=>{
+        axios.get(`http://13.124.26.107:9095/api/image/${item.identifyId}`, config)
+            .then(response => {
+                setImage(response.data);
+            })
+    },[])
 
     function getCookie(cName) {
         cName = cName + '=';
@@ -79,17 +87,17 @@ const Select = ({item, lists}) => {
     <S.Xbutton onClick={()=>setChange(false)}><svg aria-label="닫기" class="_8-yf5 " color="#ffffff" fill="#ffffff" height="24" role="img" viewBox="0 0 48 48" width="24"><path clip-rule="evenodd" d="M41.8 9.8L27.5 24l14.2 14.2c.6.6.6 1.5 0 2.1l-1.4 1.4c-.6.6-1.5.6-2.1 0L24 27.5 9.8 41.8c-.6.6-1.5.6-2.1 0l-1.4-1.4c-.6-.6-.6-1.5 0-2.1L20.5 24 6.2 9.8c-.6-.6-.6-1.5 0-2.1l1.4-1.4c.6-.6 1.5-.6 2.1 0L24 20.5 38.3 6.2c.6-.6 1.5-.6 2.1 0l1.4 1.4c.6.6.6 1.6 0 2.2z" fill-rule="evenodd"></path></svg></S.Xbutton>
             <S.Item>
         <S.ImageDiv>
-          <S.Image/>
+          <S.Image src={image}/>
         </S.ImageDiv>
     <S.ItDiv>
     <S.IUSer>
         <S.Profile src={Profile}></S.Profile>
-        <S.ProfileSpan>유저</S.ProfileSpan>
+        <S.ProfileSpan>{item.member.name}</S.ProfileSpan>
     </S.IUSer>
     <S.IEX>
-        <S.Iname></S.Iname>
-        <S.ItemPrice>원</S.ItemPrice>
-        <p></p>
+        <S.Iname>{item.name}</S.Iname>
+        <S.ItemPrice>{item.price}원</S.ItemPrice>
+        <p>{item.info}</p>
     </S.IEX>
     </S.ItDiv>      
     </S.Item>
@@ -103,17 +111,17 @@ const Select = ({item, lists}) => {
             <S.RHead>
                 <S.RHUser>
                     <S.RHImg src={Profile}></S.RHImg>
-                    <S.RHName>{item.name}</S.RHName>
+                    <S.RHName>{item.member.name}</S.RHName>
                 </S.RHUser>
                 <S.RI onClick={()=>setEdit(true)}>
                     <i style={{color:"gray"}} class="fa fa-bars fa-lg"></i>
                 </S.RI>
             </S.RHead>
-            <S.RImg  onClick={()=>setChange(true)} />
+            <S.RImg  onClick={()=>setChange(true)} src={image}/>
             <S.RBody>
-            <S.Rp></S.Rp>
-            <S.Rprice>{item.price}원</S.Rprice>
-            <div></div>
+                <S.Rp>{item.name}</S.Rp>
+                <S.Rprice>{item.price}원</S.Rprice>
+                <span>{item.info}</span>
             </S.RBody>
         </S.RDiv>
         {change === true ?

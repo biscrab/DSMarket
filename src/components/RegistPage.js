@@ -50,37 +50,30 @@ const RegistPage = () => {
     const Regist = () => {
         axios.post('http://13.124.26.107:9095/api/item', JSON.stringify({...item, price: Number(item.price)}), config)
         .then(response => {
-                /*let id = response.data.data
-                const formData = new FormData(acceptedFiles[0]);
-                console.log("가느다란");
-                console.log(id);*/
-                alert("등록이 완료 되었습니다.");
-                history.push("/");
+            RegistImg(response.data.data, acceptedFiles[0]);
+            history.push("/");
               
         })
         .catch(error => {
             alert("상품 등록에 실패했습니다.");
         })
         
-        const RegistImg = (id, formData) => {
-            axios.post(`http://13.124.26.107:9095/api/image/${id}`, formData, config)
+        const RegistImg = (id, image) => {
+
+            console.log(id);
+            console.log(image);
+            const fd = new FormData();
+            fd.append('file', image)
+
+            axios.post(`http://13.124.26.107:9095/api/image/${id}`, fd, config)
               .then(response => {
-              alert("이미지가 등록되었습니다.1")
+                alert("등록이 완료 되었습니다.");
             })
             .catch(error => {
-              alert("실패1")
+              alert("상품 등록에 실패했습니다.")
+              axios.delete('http://13.124.26.107:9095/api/item', JSON.stringify({...item, price: Number(item.price)}), config)
             })
         }
-
-        console.log(acceptedFiles);
-
-        const fd = new FormData();
-
-        fd.append('filename', acceptedFiles[0]);
-
-        console.log(fd);
-
-
     }
 
     const [c, setC] = useState();
@@ -160,7 +153,7 @@ const RegistPage = () => {
             {item.name&&item.price&&acceptedFiles[0] ?
             <S.RButton color="white" bkcolor="royalblue" onClick={() => Regist()}>판매요청</S.RButton>
             :
-            <S.RButton onClick={()=>alert("이름, 가격, 카테고리, 설명 을 모두 입력해주세요.")}>판매요청</S.RButton>
+            <S.RButton onClick={()=>alert("이름, 가격, 카테고리, 설명, 이미지 모두 입력해주세요.")}>판매요청</S.RButton>
             }      
             </>
             </div>

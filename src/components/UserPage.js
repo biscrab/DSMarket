@@ -69,7 +69,7 @@ const UserPage = () => {
         axios.get('http://13.124.26.107:9095/api/comment', config)
             .then(response => {
                 setUser({...user, comments: response.data.data} )
-                console.log(user.comments)
+                console.log(response)
             })
 
         axios.get('http://13.124.26.107:9095/api/item', config)

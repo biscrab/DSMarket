@@ -56,9 +56,8 @@ const MainPage = () => {
     useEffect(()=>{
         axios.get('http://13.124.26.107:9095/api/item/all', config)
         .then(response => {
-            console.log(response);
-            setList([response.data.data])
-            console.log("asdasdasd");
+            console.log([...response.data.data]);
+            setList([...response.data.data])
             setLoading(false);
         })
         .catch(loading =>{
@@ -69,7 +68,7 @@ const MainPage = () => {
                 //place your reentry code
             }
         })
- },[]);
+    },[]);
 
     const SetPage = () => {
         const pa = Number(params.p);
@@ -111,8 +110,8 @@ const MainPage = () => {
         <S.C>
                 <S.Border>
                 <InfiniteScroll style={{display: 'flex', flexDirection:"column-reverse", overflowX:"hidden"}}
-                                dataLength={list.length}
                                 loader={<Loading />}
+                                dataLength={3}
                 >
                 <S.ItemD>
                     <Item lists={list}/>
