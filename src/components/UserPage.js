@@ -59,24 +59,32 @@ const UserPage = () => {
         axios.post('http://13.124.26.107:9095/api/comment', review, config)
             .then(response => {
                 alert("완료");
+                getComment(); 
             })
             .catch(error => {
                 alert("오류");
             })
     }
 
-    useEffect(()=>{
+    const getComment = () => {
         axios.get('http://13.124.26.107:9095/api/comment', config)
-            .then(response => {
-                setUser({...user, comments: response.data.data} )
-                console.log(response.data.data)
-            })
+        .then(response => {
+            setUser({...user, comments: response.data.data} )
+            console.log(response.data.data)
+        })
+    }
 
+    const getItem = () => {
         axios.get('http://13.124.26.107:9095/api/item', config)
             .then(response => {
                 setUser({...user, item: response.data.data})
                 console.log(response.data)
             })
+    }
+
+    useEffect(()=>{
+        getComment();
+        getItem();
     },[])
 
     const [review, setReview] = useState({contents: "", memberEmail: params.id});

@@ -78,8 +78,7 @@ const Select = ({item}) => {
         <S.ProfileSpan>유저</S.ProfileSpan>
     </S.IUSer>
     <S.IEX>
-        <S.Iname>{item.name}</S.Iname>
-        <S.ItemPrice>{item.price}원</S.ItemPrice>
+        <S.Iname>{item.name} ({item.price}원)</S.Iname>
         <p>{item.info}</p>
     </S.IEX>
     </S.ItDiv>      

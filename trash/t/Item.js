@@ -122,9 +122,8 @@ const Select = ({item, lists}) => {
             </S.RHead>
             <S.RImg  onClick={()=>setChange(true)} src={image}/>
             <S.RBody>
-                <S.Rp>{item.name}</S.Rp>
-                <S.Rprice>{item.price}원</S.Rprice>
-                <span>{item.info}</span>
+                <S.Rp>{item.name}({item.price}원)</S.Rp>
+                <p>{item.info}</p>
             </S.RBody>
         </S.RDiv>
         {change === true ?

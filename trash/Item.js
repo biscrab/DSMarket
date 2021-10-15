@@ -1,6 +1,5 @@
 import React from 'react'
-import ItemPage from '../components/ItemPage';
-import * as S from '../styled/App'
+import ItemPage from './ItemPage';
 
 const Item = () => {
 

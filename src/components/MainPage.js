@@ -5,9 +5,8 @@ import A from '../images/a.jpg'
 import { useHistory } from 'react-router-dom';
 import queryString from 'query-string';
 import axios from 'axios';
-import InfiniteScroll from 'react-infinite-scroll-component';
-import OtherList from '../contents/OtherList'
 import Profile from '../images/profile.png'
+import Loading from '../contents/Loading'
 
 const MainPage = () => {  
 
@@ -17,6 +16,7 @@ const MainPage = () => {
     const location = useLocation();
 
     const [list, setList] = useState([]);
+    const [slist, setSlist] = useState([]);
 
     const [loading , setLoading] = useState(true);
     
@@ -51,6 +51,14 @@ const MainPage = () => {
                 const [change, setChange] = useState(false);
                 const [edit, setEdit] = useState(false);
                 const [image, setImage] = useState();
+                
+                useEffect(()=>{
+                    axios.get(`http://13.124.26.107:9095/api/image/${item.identifyId}`, config)
+                        .then(response => {
+                            setImage(JSON.stringify(response.data));
+                            console.log(image);
+                        })
+                },[])
             
                 const Delete = () => {
                     if(window.confirm("제품을 삭제하시겠습니까?")){
@@ -91,7 +99,7 @@ const MainPage = () => {
                     )
                 }
             
-                const ItemBorder = ({item}) => {
+                const ItemBorder = () => {
                     return(
                 <S.LoginBackground>
                 <S.Xbutton onClick={()=>setChange(false)}><svg aria-label="닫기" class="_8-yf5 " color="#ffffff" fill="#ffffff" height="24" role="img" viewBox="0 0 48 48" width="24"><path clip-rule="evenodd" d="M41.8 9.8L27.5 24l14.2 14.2c.6.6.6 1.5 0 2.1l-1.4 1.4c-.6.6-1.5.6-2.1 0L24 27.5 9.8 41.8c-.6.6-1.5.6-2.1 0l-1.4-1.4c-.6-.6-.6-1.5 0-2.1L20.5 24 6.2 9.8c-.6-.6-.6-1.5 0-2.1l1.4-1.4c.6-.6 1.5-.6 2.1 0L24 20.5 38.3 6.2c.6-.6 1.5-.6 2.1 0l1.4 1.4c.6.6.6 1.6 0 2.2z" fill-rule="evenodd"></path></svg></S.Xbutton>
@@ -105,9 +113,8 @@ const MainPage = () => {
                     <S.ProfileSpan>{item.member.name}</S.ProfileSpan>
                 </S.IUSer>
                 <S.IEX>
-                    <S.Iname>{item.name}</S.Iname>
-                    <S.ItemPrice>{item.price}원</S.ItemPrice>
-                    <p>{item.info}</p>
+                    <S.Iname>{item.name} ({item.price}원)</S.Iname>
+                    <S.IP>{item.info}</S.IP>
                 </S.IEX>
                 </S.ItDiv>      
                 </S.Item>
@@ -129,9 +136,8 @@ const MainPage = () => {
                         </S.RHead>
                         <S.RImg  onClick={()=>setChange(true)} src={image}/>
                         <S.RBody>
-                            <S.Rp>{item.name}</S.Rp>
-                            <S.Rprice>{item.price}원</S.Rprice>
-                            <span>{item.info}</span>
+                            <S.Rp>{item.name} ({item.price}원)</S.Rp>
+                            <p>{item.info}</p>
                         </S.RBody>
                     </S.RDiv>
                     {change === true ?
@@ -148,20 +154,16 @@ const MainPage = () => {
                 );
             }
             
-            const List = ({lists}) => {
-                const itemList = lists.map(
+            return(
+                lists.map(
                     item => ( 
                         <Select item={item}/>
                     )
                 )
-                return itemList
-            }
-            
-        return List;
+            )
     }
 
     useEffect(()=>{
-        //SetP(params.catagory);
         LoadItem();
     },[]);
 
@@ -172,21 +174,6 @@ const MainPage = () => {
               'Access-Control-Allow-Origin': "*"
             }
           }
-
-    const Loading = () => {
-        return (
-            <S.LoadingDiv>
-                <S.LoadingD>
-                <div class="spinner-border text-secondary" style={{width: "4rem", height: "4rem"}} role="status">
-                <span class="visually-hidden">Loading...</span>
-                </div>
-                <S.LoadingP>
-                    로딩중...
-                </S.LoadingP>
-                </S.LoadingD>
-            </S.LoadingDiv>
-        );
-    }
 
     return(
         <S.C>

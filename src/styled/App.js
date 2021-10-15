@@ -597,11 +597,10 @@ export const RDiv = styled.div`
     width: 700px;
     height: 580px;
     margin: 0;
-    margin-bottom: 20px;
     border: 2px solid #eeeeee;
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
+    margin-top: 15px;
 ` 
 
 export const RHead = styled.div`
@@ -1566,15 +1565,7 @@ export const Rp = styled.p`
     margin: 0;
     width: 100%;
     position: relative;
-    top: 5px;
     font-size: 16px;
-    padding-bottom: 10px;
-`
-export const Rprice = styled.p`
-    position: relative;
-    font-size: 15px;
-    text-decoration: bold;
-    margin: 0;
     padding-bottom: 10px;
 `
 
@@ -1809,19 +1800,16 @@ export const IEX = styled.div`
     padding: 10px;
 `
 
-export const ItemPrice = styled.p`
-    padding-top: 10px;
-    padding-bottom: 10px;
-    font-size: 16px;
-    margin: 0;
-`
-
 export const Introduce = styled.div`
     height: 380px;
 
 `
 
 export const Iname = styled.span`
+`
+
+export const IP = styled.p`
+    padding-top: 10px;
 `
 
 export const Gray = styled.p`
