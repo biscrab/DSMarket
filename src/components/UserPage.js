@@ -69,11 +69,14 @@ const UserPage = () => {
         axios.get('http://13.124.26.107:9095/api/comment', config)
             .then(response => {
                 setUser({...user, comments: response.data.data} )
-                console.log(response)
+                console.log(response.data.data)
             })
 
         axios.get('http://13.124.26.107:9095/api/item', config)
-            .then(response => setUser({...user, item: response.data.data}))
+            .then(response => {
+                setUser({...user, item: response.data.data})
+                console.log(response.data)
+            })
     },[])
 
     const [review, setReview] = useState({contents: "", memberEmail: params.id});
@@ -82,12 +85,8 @@ const UserPage = () => {
         if(params.review === "review"){
             return(
                 <>
-                <S.Review>
-                    {user.comments ? 
+                <S.Review> 
                     <Review lists={user.comments}/>
-                    :
-                    <></>
-                    }
                 </S.Review>
                 <S.RIDiv>
                     <span>{localStorage.getItem("email")}</span>

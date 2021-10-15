@@ -326,6 +326,9 @@ export const Border = styled.div`
     background-color: white;
     border: 2px solid #eeeeee;
     border-top: 0;
+    display: 'flex';
+    flex-direction:"column-reverse"; 
+    overflow-x:"hidden"
 `
 
 export const LoadingDiv = styled.div`

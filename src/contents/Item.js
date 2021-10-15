@@ -1,11 +1,6 @@
 import React,{useState,  useEffect} from 'react'
 import { useHistory } from 'react-router';
 import * as S from '../styled/App'
-import A from '../images/c.jpg'
-import B from '../images/b.jpg'
-import C from '../images/c.jpg'
-import D from '../images/d.jpg'
-import E from '../images/e.jpg'
 import Profile from '../images/profile.png'
 import axios from 'axios';
 
@@ -53,7 +48,15 @@ const Select = ({item, lists}) => {
 
     const Delete = () => {
         if(window.confirm("제품을 삭제하시겠습니까?")){
-            axios.delete('http://13.124.26.107:9095/api/item', item, config)
+            axios.delete('http://13.124.26.107:9095/api/item', 
+            {
+                headers: {
+                'Authorization': `Bearer ${getCookie("X-AUTH-TOKEN")}`,
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': "*"
+                },
+                data: {name: item.name, info: item.info, price: item.price, category: item.smallCategory}
+            })
             .then(response => {
                 alert("성공적으로 삭제 했습니다.")
             })

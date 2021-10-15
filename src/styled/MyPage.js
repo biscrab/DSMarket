@@ -167,7 +167,7 @@ export const ReviewLi = styled.li`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 0px;
+    padding: 10px 0px;
 ` 
 
 export const RProfile = styled.img`
@@ -178,7 +178,6 @@ export const RProfile = styled.img`
 
 export const Span = styled.span`
     position: relative;
-    top: 5px;
     left: 40px;
     color: gray;
 `
