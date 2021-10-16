@@ -5,7 +5,7 @@ import B from '../images/b.jpg'
 import C from '../images/c.jpg'
 import D from '../images/d.jpg'
 import E from '../images/e.jpg'
-import Item from './Item'
+import Item from '../../trash/t/Item'
 import Comment from './Review'
 import Profile from '../images/profile.png'
 

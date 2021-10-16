@@ -16,7 +16,9 @@ const MainPage = () => {
     const location = useLocation();
 
     const [list, setList] = useState([]);
+
     const [slist, setSlist] = useState([]);
+    const [snum, setSnum] = useState(9);
 
     const [loading , setLoading] = useState(true);
     
@@ -25,6 +27,7 @@ const MainPage = () => {
         .then(response => {
             console.log([...response.data.data]);
             setList([...response.data.data])
+            setSlist([...list.slice(0, snum)])
             setLoading(false);
         })
         .catch(error => {
@@ -50,16 +53,26 @@ const MainPage = () => {
         const Select = ({item}) => {
                 const [change, setChange] = useState(false);
                 const [edit, setEdit] = useState(false);
+
                 const [image, setImage] = useState();
+
+                
+        const iconfig = {
+            headers: {
+              'Authorization': `Bearer ${getCookie("X-AUTH-TOKEN")}`,
+              'Content-Type': 'application/png',
+              'Access-Control-Allow-Origin': "*"
+            }
+          }
                 
                 useEffect(()=>{
-                    axios.get(`http://13.124.26.107:9095/api/image/${item.identifyId}`, config)
+                    axios.get(`http://13.124.26.107:9095/api/image/${item.identifyId}`, iconfig)
                         .then(response => {
-                            setImage(JSON.stringify(response.data));
+                            setImage(response.data)
                             console.log(image);
                         })
                 },[])
-            
+
                 const Delete = () => {
                     if(window.confirm("제품을 삭제하시겠습니까?")){
                         axios.delete('http://13.124.26.107:9095/api/item', 
@@ -134,7 +147,7 @@ const MainPage = () => {
                                 <i style={{color:"gray"}} class="fa fa-bars fa-lg"></i>
                             </S.RI>
                         </S.RHead>
-                        <S.RImg  onClick={()=>setChange(true)} src={image}/>
+                        <S.RImg  onClick={()=>setChange(true)} src={`http://13.124.26.107:9095/api/image/${item.identifyId}`}/>
                         <S.RBody>
                             <S.Rp>{item.name} ({item.price}원)</S.Rp>
                             <p>{item.info}</p>
@@ -165,6 +178,7 @@ const MainPage = () => {
 
     useEffect(()=>{
         LoadItem();
+        setSlist([...list.slice(0, snum)])
     },[]);
 
         const config = {
@@ -174,17 +188,27 @@ const MainPage = () => {
               'Access-Control-Allow-Origin': "*"
             }
           }
+    
+    /*
+    useEffect(()=>{
+        if(document.documentElement.scrollTop + window.innerHeight >= document.body.scrollHeight) {
+            if(snum <= list.length){
+                setSnum(snum+3);
+                setSlist([list.slice(0, snum)])
+            }
+        }
+    })*/
 
     return(
         <S.C>
-            <S.Border>
+            <S.Border id="border">
                 {loading === true ?
                 <Loading />
                 :
                 <S.ItemD>
                     <Item lists={list}/>
                 </S.ItemD>
-                }        
+                }
             </S.Border>
         </S.C>
     )

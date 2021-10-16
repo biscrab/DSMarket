@@ -105,18 +105,6 @@ export const SS = styled.span`
     font-size: 17px;
 `
 
-export const Search = styled.input`
-    height: 30px;
-    width: 100%;
-    border: 0;
-    font-size: 15px;
-    outline: 0;
-    margin: 0;
-    position: relative;
-
-    padding: 0px 10px;
-`
-
 export const M = styled.div`
     position: relative;
     left: 50%;

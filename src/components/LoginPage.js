@@ -32,7 +32,7 @@ const LoginPage = () => {
                     history.push("/");
                     alert("성공");       
                     console.log("data")
-                    setCookie("X-AUTH-TOKEN", `${response.data.data.tokenValue}`, '13.124.26.107');
+                    setCookie("X-AUTH-TOKEN", `${response.data.data.tokenValue}`);
                     //localStorage.token = JSON.stringify(response);
                     localStorage.setItem("email", ip.email);
                     console.log(response);
@@ -52,11 +52,11 @@ const LoginPage = () => {
         <>
         <S.Login>
             <S.LoginDiv>
-                <S.LoginTittle>대마마켓</S.LoginTittle>
+                <S.LoginTittle>DS마켓</S.LoginTittle>
                 <S.LoginSpan>이메일</S.LoginSpan>            
                 <S.LoginInput value={ip.email} onChange={(e)=>setIp({...ip, email: e.target.value})}/>
                 <S.LoginSpan>비밀번호</S.LoginSpan>
-                <S.LoginInput value={ip.password} onChange={(e)=>setIp({...ip, password: e.target.value})}/>
+                <S.LoginInput value={ip.password} onChange={(e)=>setIp({...ip, password: e.target.value})} type="password"/>
                 <S.LoginButton onClick={()=>Login()}>로그인</S.LoginButton>
                 <S.LoginButton onClick={()=>history.push('/signup')}>회원가입</S.LoginButton>
             </S.LoginDiv>

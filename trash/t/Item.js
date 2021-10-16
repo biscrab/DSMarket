@@ -1,6 +1,6 @@
 import React,{useState,  useEffect} from 'react'
 import { useHistory } from 'react-router';
-import * as S from '../styled/App'
+import * as S from '../../src/styled/App'
 import Profile from '../images/profile.png'
 import axios from 'axios';
 
@@ -21,6 +21,7 @@ const Select = ({item, lists}) => {
         axios.get(`http://13.124.26.107:9095/api/image/${item.identifyId}`, config)
             .then(response => {
                 setImage(response.data);
+                console.log(image);
             })
     },[])
 
