@@ -371,6 +371,7 @@ export const ItDiv = styled.div`
 `
 
 export const ItemD = styled.div`
+    padding-top: 20px;
 `
 
 export const ADiv = styled.div`
@@ -588,7 +589,6 @@ export const RDiv = styled.div`
     border: 2px solid #eeeeee;
     display: flex;
     flex-direction: column;
-    margin-top: 15px;
 ` 
 
 export const RHead = styled.div`
@@ -833,7 +833,7 @@ export const Input = styled.input`
     font-size: 15px;
     padding: 0px 10px;
     outline: 0;
-    border: 2px solid gray;
+    border: 2px solid #eeeeee;
     
     ::forcus{
         outline: 1px solid royalblue;
@@ -1139,7 +1139,7 @@ export const SignUpInput = styled.input`
     height: 40px;
     padding: 0px 10px;
     outline: 0;
-    border: 2px solid gray;
+    border: 2px solid #eeeeee;
 `
 
 export const SiDiv = styled.div`
@@ -1150,12 +1150,14 @@ export const SiDiv = styled.div`
     width: 550px;
     background-color: white;
     padding: 50px;
+    padding-top: 30px;
     border-radius: 10px;
     box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.03);
 `
 
 export const STittle = styled.h1`
     margin: 0;
+    color: dimgray;
 `
 
 export const SiButton = styled.button`
@@ -1203,7 +1205,7 @@ export const Explane = styled.textarea`
     padding: 10px;
     resize: none;
     outline: 0;
-    border: 2px solid gray;
+    border: 2px solid #eeeeee;
 `
 
 export const CS = styled.span`
@@ -1420,7 +1422,7 @@ export const SignUpDiv = styled.div`
     display: flex;
     align-items: center;
     position: relative;
-    padding: 20px 0px;
+    padding: 15px 0px;
     top: 10px;
 `
 

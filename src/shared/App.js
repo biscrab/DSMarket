@@ -33,10 +33,15 @@ function App() {
         
     }
     else if(location.pathname !== '/signup' && location.pathname !== '/login'){
+      localStorage.setItem("email", "");
       console.log(1);
       history.push('/login');
     }
   })
+
+  useEffect(()=>{
+    window.scrollTo(0, 0);
+  },[location.pathname])
 
 /*
   useEffect(()=>{
