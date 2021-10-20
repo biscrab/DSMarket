@@ -40,10 +40,10 @@ const SignUpPage = () => {
                 'Accept': '*/*'
               }
 
-            axios.post('http://13.124.26.107:9095/api/auth/signup', user)
+            axios.post('http://13.124.26.107:9095/api/auth/signup', {...user, phone: Number(user.phone)})
                 .then(response => {
                     alert("등록이 완료되었습니다.");
-                    console.log(response);
+                    axios.post('http://13.124.26.107:9095/api/auth/login', {email: user.email, password: user.password})
                     history.push('/');
                 })
                 .catch(error => {
@@ -56,7 +56,7 @@ const SignUpPage = () => {
         }
     }
 
-    const [user, setUser] = useState({email: "1", info: "1", name: "1", password: "1", phone: 1});
+    const [user, setUser] = useState({email: "", info: "", name: "", password: "", phone: ""});
     const [check, setCheck] = useState();
 
     const onChange = (e) => {

@@ -1147,7 +1147,7 @@ export const SiDiv = styled.div`
     left: 50%;
     top: 30px;
     transform: translateX(-50%);
-    width: 550px;
+    width: 500px;
     background-color: white;
     padding: 50px;
     padding-top: 30px;
