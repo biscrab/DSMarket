@@ -59,9 +59,6 @@ const RegistPage = () => {
         })
         
         const RegistImg = (id, image) => {
-
-            console.log(id);
-            console.log(image);
             const fd = new FormData();
             fd.append('file', image)
 

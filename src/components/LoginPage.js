@@ -10,10 +10,7 @@ const LoginPage = () => {
 
     let history = useHistory();
 
-    const [login, setLogin] = useState(false);
-    const [logined, setLogined] = useState(false);
     const [ip, setIp] = useState({email : "", password: ""});
-    const [name, setName] = useState("");
 
     const Login = () => {
         if(!ip.email){
@@ -23,27 +20,17 @@ const LoginPage = () => {
             alert("비밀번호를 입력해주세요");
         }
         else{
-                let i = JSON.stringify(ip);
-
-                console.log("i:"+i);
-            
-                axios.post("http://13.124.26.107:9095/api/auth/login", ip)
+            axios.post("http://13.124.26.107:9095/api/auth/login", ip)
                 .then(response => {
                     history.push("/");
                     alert("성공");       
-                    console.log("data")
                     setCookie("X-AUTH-TOKEN", `${response.data.data.tokenValue}`);
-                    //localStorage.token = JSON.stringify(response);
                     localStorage.setItem("email", ip.email);
-                    console.log(response);
                 })
                 .catch(error => {
                     alert("오류");
                 })
         }
-
-        console.log(ip.email);
-        console.log(ip.password);
     }
 
     let email = localStorage.getItem("email");

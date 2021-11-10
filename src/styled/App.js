@@ -1183,7 +1183,7 @@ export const RegistDiv = styled.div`
 `
 
 export const Dropzone = styled.div`
-    background-color: rgba(0, 0, 0, 0.03);
+    background-color: rgba(255, 255, 255, 0.3);
     height: 400px;
     width: 800px;
     display: flex;

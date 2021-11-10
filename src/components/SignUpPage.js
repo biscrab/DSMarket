@@ -20,8 +20,6 @@ const SignUpPage = () => {
 
     const SignUp = () => {
         
-        console.log(JSON.stringify(user));
-
         if(user.id && user.password && user.name && user.phonenumber){
             alert("내용을 모두 입력해주세요");
         }
@@ -29,16 +27,9 @@ const SignUpPage = () => {
           alert("이메일 형식이 잘못 되었습니다.");
         }
         else if(user.password !== check){
-            //만약 아이디가 있으면
-            
             alert("비밀번호가 일치하지 않습니다."); 
         }
         else{      
-
-            const headers = {
-                'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
-                'Accept': '*/*'
-              }
 
             axios.post('http://13.124.26.107:9095/api/auth/signup', {...user, phone: Number(user.phone)})
                 .then(response => {
@@ -49,10 +40,6 @@ const SignUpPage = () => {
                 .catch(error => {
                     alert("오류");
                 })
-
-            //if('이메일 중복'){
-                //alert("중복되는 이메일 입니다.");
-            //}
         }
     }
 
