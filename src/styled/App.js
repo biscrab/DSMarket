@@ -626,12 +626,14 @@ export const RImgDiv = styled.div`
 export const RImg = styled.img`   
     height: 400px;
     width: 100%;
+    object-fit: contain;
 `
 
 export const MyRDiv = styled.div`
     height: 250px;
     width: 250px;
     margin-bottom: 40px;
+    margin: 10px;
 `
 
 export const MyRBack = styled.div`

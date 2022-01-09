@@ -31,7 +31,7 @@ const Review = ({item}) => {
       }
 
     const deleteReview = () => {
-        axios.delete("http://13.124.26.107:9095/api/comment", {
+        axios.delete("/api/comment", {
             headers: {
                 'Authorization': `Bearer ${getCookie("X-AUTH-TOKEN")}`,
                 'Content-Type': 'application/json',

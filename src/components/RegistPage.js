@@ -25,9 +25,9 @@ const RegistPage = () => {
       }
 
     const [item, setItem] = useState({
-      name: "4",
-      info: "perfect",
-      price: 10000,
+      name: "",
+      info: "",
+      price: "",
       category: "남성패션"
   });
 
@@ -48,7 +48,7 @@ const RegistPage = () => {
     }
 
     const Regist = () => {
-        axios.post('http://13.124.26.107:9095/api/item', JSON.stringify({...item, price: Number(item.price)}), config)
+        axios.post("/api/item", JSON.stringify({...item, price: Number(item.price)}), config)
         .then(response => {
             RegistImg(response.data.data, acceptedFiles[0]);
             history.push("/");
@@ -62,13 +62,13 @@ const RegistPage = () => {
             const fd = new FormData();
             fd.append('file', image)
 
-            axios.post(`http://13.124.26.107:9095/api/image/${id}`, fd, config)
+            axios.post(`/api/image/${id}`, fd, config)
               .then(response => {
                 alert("등록이 완료 되었습니다.");
             })
             .catch(error => {
               alert("상품 등록에 실패했습니다.")
-              axios.delete('http://13.124.26.107:9095/api/item', JSON.stringify({...item, price: Number(item.price)}), config)
+              axios.delete('/api/item', JSON.stringify({...item, price: Number(item.price)}), config)
             })
         }
     }

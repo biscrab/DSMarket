@@ -6,7 +6,7 @@ import Profile from '../images/profile.png'
 
 const Select = ({item}) => {
 
-    axios.defaults.baseURL = 'http://13.124.26.107:9095'
+    axios.defaults.baseURL = ''
     axios.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
     axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
     axios.defaults.withCredentials = true;
@@ -17,7 +17,7 @@ const Select = ({item}) => {
 
     const [edit, setEdit] = useState(false);
 
-    const [image, setImage] = useState();
+    const [image, setImage] = useState(item.img);
 
     function getCookie(cName) {
         cName = cName + '=';
@@ -47,7 +47,7 @@ const Select = ({item}) => {
 
     const Delete = () => {
         if(window.confirm("제품을 삭제하시겠습니까?")){
-            axios.delete('http://13.124.26.107:9095/api/item', item, config)
+            axios.delete('/api/item', item, config)
         }
     }
 
@@ -90,7 +90,7 @@ const Select = ({item}) => {
     const [hover, setHover] = useState(false)
 
     useEffect(()=>{
-        axios.get(`http://13.124.26.107:9095/api/image/${item.identifyId}`, config)
+        axios.get(`/api/image/${item.identifyId}`, config)
             .then(response => {
                 setImage(response.data);
             })

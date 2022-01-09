@@ -25,10 +25,10 @@ const UserPage = () => {
     };
 
     const [user, setUser] = useState({
-        comments: [],
-        item: []
+        comments: [{id: "test", contents: "test123"}],
+        item: [{name: "test1", img: "https://i.pinimg.com/736x/b2/90/16/b290161f5d3d76049c7fa5e08a5e95ed.jpg"}, {name: "test2", img:"http://blog.jinbo.net/attach/615/200937431.jpg"}]
     }) 
-    const [select, setSelect] = useState(-1);
+    const [select, setSelect] = useState(-1); 
     const [chexplane, setChexplane] = useState(false);
 
     const login = true;
@@ -56,7 +56,7 @@ const UserPage = () => {
       }
 
     const RegistComment = () => {
-        axios.post('http://13.124.26.107:9095/api/comment', review, config)
+        axios.post('/api/comment', review, config)
             .then(response => {
                 alert("완료");
                 getComment(); 
@@ -67,7 +67,7 @@ const UserPage = () => {
     }
 
     const getComment = () => {
-        axios.get('http://13.124.26.107:9095/api/comment', config)
+        axios.get('/api/comment', config)
         .then(response => {
             setUser({...user, comments: response.data.data} )
             console.log(response.data.data)
@@ -75,7 +75,7 @@ const UserPage = () => {
     }
 
     const getItem = () => {
-        axios.get('http://13.124.26.107:9095/api/item', config)
+        axios.get('/api/item', config)
             .then(response => {
                 setUser({...user, item: response.data.data})
                 console.log(response.data)
@@ -127,7 +127,7 @@ const UserPage = () => {
 
     const editIntroduce = () => {
 
-        axios.post('http://13.124.26.107:9095/api/comment')
+        axios.post('/api/comment')
             .then(response => {
                 alert(1);
             })

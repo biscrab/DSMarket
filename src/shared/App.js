@@ -28,6 +28,7 @@ function App() {
 
   const [cookie, setCookie, removeCookie] = useCookies([]);
 
+  /*
   useEffect(()=>{
     if(getCookie("X-AUTH-TOKEN")){
         
@@ -37,7 +38,7 @@ function App() {
       console.log(1);
       history.push('/login');
     }
-  })
+  })*/
 
   useEffect(()=>{
     window.scrollTo(0, 0);
@@ -49,6 +50,8 @@ function App() {
       setCookie("email", "");
     } 
   })*/
+
+  axios.defaults.baseURL = "http://13.209.19.255:9095";
   
   axios.defaults.withCredentials = "*";
   

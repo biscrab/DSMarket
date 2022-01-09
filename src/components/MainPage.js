@@ -15,15 +15,16 @@ const MainPage = () => {
     const params = useParams();
     const location = useLocation();
 
-    const [list, setList] = useState([]);
+    const [list, setList] = useState([{name: "test1", img: "https://i.pinimg.com/736x/b2/90/16/b290161f5d3d76049c7fa5e08a5e95ed.jpg", member: {name: "test"}, price: 1000, info: "test"},
+                                    {name: "test2", img:"http://blog.jinbo.net/attach/615/200937431.jpg", member: {name: "test"}, price: 1000, info: "test"}]);
 
     const [slist, setSlist] = useState([]);
     const [snum, setSnum] = useState(9);
 
-    const [loading , setLoading] = useState(true);
+    const [loading , setLoading] = useState(false);
     
     const LoadItem = () => {
-        axios.get('http://13.124.26.107:9095/api/item/all', config)
+        axios.get('/api/item/all', config)
         .then(response => {
             console.log([...response.data.data]);
             setList([...response.data.data])
@@ -66,7 +67,7 @@ const MainPage = () => {
           }
                 
                 useEffect(()=>{
-                    axios.get(`http://13.124.26.107:9095/api/image/${item.identifyId}`, iconfig)
+                    axios.get(`/api/image/${item.identifyId}`, iconfig)
                         .then(response => {
                             setImage(response.data)
                             console.log(image);
@@ -75,7 +76,7 @@ const MainPage = () => {
 
                 const Delete = () => {
                     if(window.confirm("제품을 삭제하시겠습니까?")){
-                        axios.delete('http://13.124.26.107:9095/api/item', 
+                        axios.delete('/api/item', 
                         {
                             headers: {
                             'Authorization': `Bearer ${getCookie("X-AUTH-TOKEN")}`,
@@ -147,7 +148,7 @@ const MainPage = () => {
                                 <i style={{color:"gray"}} class="fa fa-bars fa-lg"></i>
                             </S.RI>
                         </S.RHead>
-                        <S.RImg  onClick={()=>setChange(true)} src={`http://13.124.26.107:9095/api/image/${item.identifyId}`}/>
+                        <S.RImg  onClick={()=>setChange(true)} src={`http://13.209.19.255:9095/api/image/${item.identifyId}`}/>
                         <S.RBody>
                             <S.Rp>{item.name} ({item.price}원)</S.Rp>
                             <p>{item.info}</p>

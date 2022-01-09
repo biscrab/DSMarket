@@ -67,7 +67,6 @@ export const ItemDiv = styled.div`
     margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     min-height: 350px;
  `
 

@@ -32,7 +32,7 @@ const OrderItem = ({item}) => {
       }
 
     const Delete = () => {
-        axios.delete('http://13.124.26.107:9095/api/item', item, config)
+        axios.delete('/api/item', item, config)
     }
 
     const Edit = () => {

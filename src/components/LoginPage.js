@@ -20,7 +20,7 @@ const LoginPage = () => {
             alert("비밀번호를 입력해주세요");
         }
         else{
-            axios.post("http://13.124.26.107:9095/api/auth/login", ip)
+            axios.post("/api/auth/login", ip)
                 .then(response => {
                     history.push("/");
                     alert("성공");       

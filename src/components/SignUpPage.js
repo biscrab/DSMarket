@@ -31,10 +31,10 @@ const SignUpPage = () => {
         }
         else{      
 
-            axios.post('http://13.124.26.107:9095/api/auth/signup', {...user, phone: Number(user.phone)})
+            axios.post('/api/auth/signup', {...user, phone: Number(user.phone)})
                 .then(response => {
                     alert("등록이 완료되었습니다.");
-                    axios.post('http://13.124.26.107:9095/api/auth/login', {email: user.email, password: user.password})
+                    axios.post('/api/auth/login', {email: user.email, password: user.password})
                     history.push('/');
                 })
                 .catch(error => {
@@ -88,7 +88,7 @@ const SignUpPage = () => {
                 </S.SignUpDiv>
                 <S.SignUpDiv>
                     <S.SignSpan>휴대폰 번호</S.SignSpan>
-                    <S.SignUpInput placeholder="휴대폰 번호" name="phone" value={user.phone}  onChange={(e)=>changePhone(e)} pattern="[0-9]*"></S.SignUpInput>
+                    <S.SignUpInput placeholder="휴대폰 번호" name="phone" value={user.phone}  onChange={(e)=>onChange(e)} pattern="[0-9]*"></S.SignUpInput>
                 </S.SignUpDiv>
                 <S.SiButton onClick={()=>SignUp()}>회원가입</S.SiButton>
                 </S.SiDiv>
